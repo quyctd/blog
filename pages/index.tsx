@@ -6,13 +6,16 @@ const About = () => {
     <Page description="Hi, I'm Quy. A frontend engineer.">
       <article>
         <h1>Quy Dinh</h1>
-        <p>A frontend engineer, b. 1998, live in Hanoi, Vietnam.</p>
         <p>
-          Care about UI and UX, practicing minimalist.{' '}
+          A frontend engineer, b. 1998, live in Hanoi, Vietnam. Self alias as{' '}
+          <b>@quyctd</b> on the internet.
+        </p>
+        <p>
+          Interested in UI and UX, practicing minimalist.{' '}
           <Link underline href="/read">
             Reading
           </Link>
-          ,{' '}
+          {' & '}
           <Link underline href="/blog">
             writing
           </Link>{' '}
