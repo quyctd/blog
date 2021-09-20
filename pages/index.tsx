@@ -5,30 +5,29 @@ const About = () => {
   return (
     <Page description="Hi, I'm Quy. A frontend engineer.">
       <article>
-        <h1>Quy(Andrew) Dinh</h1>
-
+        <h1>Quy Dinh</h1>
+        <p>A frontend engineer, b. 1998, live in Hanoi, Vietnam.</p>
         <p>
-          A frontend engineer,{' '}
-          <Link underline href="/keyboards">
-            mechanical keyboard
-          </Link>{' '}
-          enthusiast, practicing minimalist.{' '}
+          Care about UI and UX, practicing minimalist.{' '}
+          <Link underline href="/read">
+            Reading
+          </Link>
+          ,{' '}
           <Link underline href="/blog">
-            Writing
+            writing
           </Link>{' '}
-          about design and code.
+          about code and design.
         </p>
-
         <p>
-          Working with{' '}
+          Working at{' '}
           <Link
             underline
             href="https://vietnamdevcenter.linecorp.com/en"
             external
           >
-            LINE
+            LINE Technology Vietnam
           </Link>{' '}
-          to closing the distances.
+          with the mission closing the distances.
         </p>
       </article>
     </Page>
