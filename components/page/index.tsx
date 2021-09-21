@@ -16,7 +16,7 @@ const Page: React.FC<Props> = ({
   return (
     <div className={styles.wrapper}>
       <Head
-        title={`${title ? `${title} - ` : ''}Quyctd.dev`}
+        title={`${title ? `${title} - ` : ''}quyctd`}
         description={description}
         image={image}
       />

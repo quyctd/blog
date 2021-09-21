@@ -15,7 +15,7 @@ const About = () => {
           <Link underline href="/read">
             Reading
           </Link>
-          {' & '}
+          {', '}
           <Link underline href="/blog">
             writing
           </Link>{' '}
