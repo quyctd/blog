@@ -9,7 +9,7 @@ interface Props {
   content?: string
 }
 
-const Header: React.FC<Props> = ({ title, content }) => {
+const Header: React.FC<Props> = ({ title }) => {
   return (
     <nav className={styles.nav}>
       <div className={styles.header}>

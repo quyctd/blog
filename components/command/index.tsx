@@ -216,7 +216,7 @@ const BlogItems = () => {
   })
 }
 
-const Label = ({ title, values, search }: any) => {
+const Label = ({ title }: any) => {
   return (
     <div className={styles.label} aria-hidden>
       {title}
@@ -233,7 +233,6 @@ const Group = ({ children, title }: any) => {
 }
 
 const DefaultItems = () => {
-  const router = useRouter()
   const { setPages, pages } = useCommandData() as any
 
   return (
