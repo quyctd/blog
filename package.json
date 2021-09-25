@@ -13,13 +13,17 @@
   "dependencies": {
     "@reach/dialog": "^0.16.0",
     "classnames": "^2.3.1",
-    "cmdk": "^0.0.4",
     "next": "11.1.2",
     "next-themes": "^0.0.15",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "use-delayed-render": "^0.0.7"
+    "use-delayed-render": "^0.0.7",
+    "@reach/auto-id": "^0.11.2",
+    "clsx": "^1.1.1",
+    "match-sorter": "^4.2.0",
+    "react-merge-refs": "^1.1.0",
+    "use-descendants": "^0.0.1"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",

@@ -6,13 +6,13 @@ import { DialogContent, DialogOverlay } from '@reach/dialog'
 
 import {
   Command,
-  CommandInput,
+  // CommandInput,
   CommandItem,
   CommandList,
   useCommand,
   usePages,
   CommandGroup,
-} from 'cmdk'
+} from '@lib/cmdk'
 import {
   Command as CommandIcon,
   Sparkles,
@@ -22,7 +22,6 @@ import {
   Book,
   Music,
   Document,
-  Words,
   ArrowRight,
   Github,
 } from '@components/icons'
@@ -34,6 +33,149 @@ import headerStyles from '@components/header/header.module.css'
 
 const CommandData = React.createContext({})
 const useCommandData = () => React.useContext(CommandData)
+const { CommandInput } = require('@lib/cmdk') as any
+
+const Label = ({ title }: { title: string }) => {
+  return (
+    <div className={styles.label} aria-hidden>
+      {title}
+    </div>
+  )
+}
+
+const Group: React.FC<{ title: string }> = ({
+  children,
+  title,
+}): JSX.Element => {
+  return (
+    <CommandGroup heading={<Label title={title} />} className={styles.group}>
+      {children}
+    </CommandGroup>
+  )
+}
+
+const Item = ({
+  icon,
+  children,
+  callback,
+  closeOnCallback = true,
+  keybind,
+  ...props
+}: any) => {
+  const { keymap, setOpen } = useCommandData() as any
+
+  const cb = () => {
+    if (callback) {
+      callback()
+    } else {
+      keymap[keybind]?.()
+    }
+
+    if (closeOnCallback) {
+      setOpen(false)
+    }
+  }
+
+  return (
+    <CommandItem {...props} callback={cb}>
+      <div>
+        <div className={styles.icon}>{icon}</div>
+        {children || props.value}
+      </div>
+
+      {keybind && (
+        <span className={styles.keybind}>
+          {keybind.includes(' ') ? (
+            keybind.split(' ').map((key: string, i: number) => {
+              return <kbd key={`keybind-${key}-${i}`}>{key}</kbd>
+            })
+          ) : (
+            <kbd>{keybind}</kbd>
+          )}
+        </span>
+      )}
+    </CommandItem>
+  )
+}
+
+const BlogItems = () => {
+  const router = useRouter()
+
+  return (postMeta as any).map((post: any, i: number) => {
+    return (
+      <Item
+        key={`blog-item-${post.title}-${i}`}
+        value={post.title}
+        callback={() => router.push('/blog/[slug]', `/blog/${post.slug}`)}
+      />
+    )
+  })
+}
+
+const ThemeItems = () => {
+  const { themes, setTheme } = useTheme()
+  const { setOpen } = useCommandData() as any
+
+  return themes.map((theme) => (
+    <Item
+      value={theme}
+      key={`theme-${theme}`}
+      callback={() => {
+        setTheme(theme)
+        setOpen(false)
+      }}
+    >
+      {theme}
+    </Item>
+  ))
+}
+
+const DefaultItems = () => {
+  const { setPages, pages } = useCommandData() as any
+
+  return (
+    <>
+      <Item
+        value="Themes"
+        icon={<Sparkles />}
+        keybind="t"
+        closeOnCallback={false}
+      />
+
+      <Group title="Blog">
+        <Item value="Blog" icon={<Pencil />} keybind="g b" />
+        <Item
+          value="Search blog..."
+          icon={<Search />}
+          closeOnCallback={false}
+          callback={() => setPages([...pages, BlogItems])}
+        />
+      </Group>
+
+      <Group title="Collection">
+        <Item value="Reading" icon={<Book />} keybind="g r" />
+        <Item value="Design" icon={<Design />} keybind="g d" />
+        <Item value="Music" icon={<Music />} keybind="g m" />
+        <Item value="Projects" icon={<Document />} keybind="g p" />
+      </Group>
+
+      <Group title="Navigation">
+        <Item value="Home" icon={<ArrowRight />} keybind="g h" />
+        <Item value="Contact" icon={<ArrowRight />} keybind="g c" />
+      </Group>
+
+      <Group title="Social">
+        <Item
+          value="GitHub"
+          icon={<Github />}
+          callback={() =>
+            window.open('https://github.com/pacocoursey', '_blank')
+          }
+        />
+      </Group>
+    </>
+  )
+}
 
 const CommandMenu = memo(() => {
   const listRef = useRef() as any
@@ -41,8 +183,9 @@ const CommandMenu = memo(() => {
   const router = useRouter()
   const commandProps = useCommand({
     label: 'Site Navigation',
+    ordering: false,
   })
-  const [pages, setPages] = usePages(commandProps, ThemeItems)
+  const [pages, setPages] = usePages(commandProps, ThemeItems) as any
   const [open, setOpen] = useState(false)
   const { search, list } = commandProps
 
@@ -146,6 +289,7 @@ const CommandMenu = memo(() => {
             className={classNames(styles.command, {
               [styles.show]: rendered,
             })}
+            ordering={false}
           >
             <div className={styles.top}>
               <CommandInput
@@ -165,7 +309,7 @@ const CommandMenu = memo(() => {
                 [styles.empty]: list.current.length === 0,
               })}
             >
-              <CommandList ref={listRef}>
+              <CommandList {...{ ref: listRef }}>
                 <CommandData.Provider
                   value={{ pages, search, open, setPages, keymap, setOpen }}
                 >
@@ -180,145 +324,3 @@ const CommandMenu = memo(() => {
   )
 })
 export default CommandMenu
-
-const ThemeItems = () => {
-  const { theme: activeTheme, themes, setTheme } = useTheme()
-  const { setOpen } = useCommandData() as any
-
-  return themes.map((theme) => {
-    if (theme === activeTheme) return null
-    return (
-      <Item
-        value={theme}
-        key={`theme-${theme}`}
-        callback={() => {
-          setTheme(theme)
-          setOpen(false)
-        }}
-      >
-        {theme}
-      </Item>
-    )
-  })
-}
-
-const BlogItems = () => {
-  const router = useRouter()
-
-  return (postMeta as any).map((post: any, i: number) => {
-    return (
-      <Item
-        key={`blog-item-${post.title}-${i}`}
-        value={post.title}
-        callback={() => router.push('/blog/[slug]', `/blog/${post.slug}`)}
-      />
-    )
-  })
-}
-
-const Label = ({ title }: any) => {
-  return (
-    <div className={styles.label} aria-hidden>
-      {title}
-    </div>
-  )
-}
-
-const Group = ({ children, title }: any) => {
-  return (
-    <CommandGroup heading={<Label title={title} />} className={styles.group}>
-      {children}
-    </CommandGroup>
-  )
-}
-
-const DefaultItems = () => {
-  const { setPages, pages } = useCommandData() as any
-
-  return (
-    <>
-      <Item
-        value="Themes"
-        icon={<Sparkles />}
-        keybind="t"
-        closeOnCallback={false}
-      />
-      <Group title="Blog">
-        <Item value="Blog" icon={<Pencil />} keybind="g b" />
-        <Item
-          value="Search blog..."
-          icon={<Search />}
-          closeOnCallback={false}
-          callback={() => setPages([...pages, BlogItems])}
-        />
-      </Group>
-
-      <Group title="Collection">
-        <Item value="Reading" icon={<Book />} keybind="g r" />
-        <Item value="Design" icon={<Design />} keybind="g d" />
-        <Item value="Music" icon={<Music />} keybind="g m" />
-        <Item value="Projects" icon={<Document />} keybind="g p" />
-        <Item value="Words" icon={<Words />} keybind="g w" />
-      </Group>
-
-      <Group title="Navigation">
-        <Item value="Home" icon={<ArrowRight />} keybind="g h" />
-        <Item value="Contact" icon={<ArrowRight />} keybind="g c" />
-      </Group>
-
-      <Group title="Social">
-        <Item
-          value="GitHub"
-          icon={<Github />}
-          callback={() =>
-            window.open('https://github.com/pacocoursey', '_blank')
-          }
-        />
-      </Group>
-    </>
-  )
-}
-
-const Item = ({
-  icon,
-  children,
-  callback,
-  closeOnCallback = true,
-  keybind,
-  ...props
-}: any) => {
-  const { keymap, setOpen } = useCommandData() as any
-
-  const cb = () => {
-    if (callback) {
-      callback()
-    } else {
-      keymap[keybind]?.()
-    }
-
-    if (closeOnCallback) {
-      setOpen(false)
-    }
-  }
-
-  return (
-    <CommandItem {...props} callback={cb}>
-      <div>
-        <div className={styles.icon}>{icon}</div>
-        {children || props.value}
-      </div>
-
-      {keybind && (
-        <span className={styles.keybind}>
-          {keybind.includes(' ') ? (
-            keybind.split(' ').map((key: string, i: number) => {
-              return <kbd key={`keybind-${key}-${i}`}>{key}</kbd>
-            })
-          ) : (
-            <kbd>{keybind}</kbd>
-          )}
-        </span>
-      )}
-    </CommandItem>
-  )
-}

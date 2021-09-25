@@ -1,25 +1,11 @@
-import ArrowRight from './arrow-right'
-import Book from './book'
-import Command from './command'
-import Design from './design'
-import Document from './document'
-import Github from './github'
-import Music from './music'
-import Pencil from './pencil'
-import Search from './search'
-import Sparkles from './sparkles'
-import Words from './words'
-
-export {
-  ArrowRight,
-  Book,
-  Command,
-  Design,
-  Document,
-  Github,
-  Music,
-  Pencil,
-  Search,
-  Sparkles,
-  Words,
-}
+export { default as Book } from './book'
+export { default as Music } from './music'
+export { default as Pencil } from './pencil'
+export { default as Document } from './document'
+export { default as Github } from './github'
+export { default as Design } from './design'
+export { default as ArrowRight } from './arrow-right'
+export { default as Search } from './search'
+export { default as Words } from './words'
+export { default as Command } from './command'
+export { default as Sparkles } from './sparkles'
