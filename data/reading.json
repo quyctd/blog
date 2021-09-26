@@ -1,0 +1,21 @@
+{
+  "schema": [
+    {
+      "name": "article"
+    },
+    {
+      "name": "blog"
+    },
+    {
+      "name": "video"
+    }
+  ],
+  "data": [
+    {
+      "title": "Segment: Goodbye Microservices",
+      "description": "What are Microservices? + How Segment team's Consolidate & Scale Them.",
+      "url": "https://segment.com/blog/goodbye-microservices/",
+      "key": "blog"
+    }
+  ]
+}

@@ -15,7 +15,7 @@ const About = () => {
         </p>
         <p>
           Interested in UI and UX, system design, practicing minimalist.{' '}
-          <Link underline href="/read">
+          <Link underline href="/reading">
             Reading
           </Link>
           {', '}
