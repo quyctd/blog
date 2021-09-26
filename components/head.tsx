@@ -65,15 +65,14 @@ const Head: React.FC<Props> = ({
       />
 
       {/* Favicons */}
-      {/* ----- TODO ----- */}
-      {/* <link rel="manifest" href="/favicons/manifest.json" />
+      <link rel="manifest" href="/favicons/manifest.json" />
       <meta name="theme-color" content="#000000" />
       <link rel="mask-icon" href="/favicons/pinned.svg" color="#000000" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/favicons/apple-touch-icon.png"
-      /> */}
+      />
 
       {/* Dynamic favicon */}
       {/* ----- TODO ----- */}
@@ -82,13 +81,13 @@ const Head: React.FC<Props> = ({
           <link
             rel="alternate icon"
             type="image/png"
-            href="/favicon.ico"
+            href="/favicons/dark.ico"
             key="dynamic-favicon-alternate"
           />
           <link
             rel="icon"
             type="image/svg+xml"
-            href="/vercel.svg"
+            href="/favicons/dark.svg"
             key="dynamic-favicon"
           />
         </>
@@ -97,13 +96,13 @@ const Head: React.FC<Props> = ({
           <link
             rel="alternate icon"
             type="image/png"
-            href="/favicon.ico"
+            href="/favicons/light.ico"
             key="dynamic-favicon-alternate"
           />
           <link
             rel="icon"
             type="image/svg+xml"
-            href="/vercel.svg"
+            href="/favicons/light.svg"
             key="dynamic-favicon"
           />
         </>
