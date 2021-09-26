@@ -168,9 +168,8 @@ const DefaultItems = () => {
         <Item
           value="GitHub"
           icon={<Github />}
-          callback={() =>
-            window.open('https://github.com/pacocoursey', '_blank')
-          }
+          keybind="g g"
+          callback={() => window.open('https://github.com/quyctd', '_blank')}
         />
       </Group>
     </>
@@ -224,8 +223,7 @@ const CommandMenu = memo(() => {
       'g w': () => router.push('/words'),
       'g i': () => router.push('/ideas'),
       // Social
-      'g t': () => () =>
-        window.open('https://twitter.com/pacocoursey', '_blank'),
+      'g g': () => () => window.open('https://twitter.com/quyctd', '_blank'),
     }
   }, [router, setPages])
 

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Head: React.FC<Props> = ({
-  title = 'Paco Coursey',
+  title = 'Quy Dinh',
   description = "Hi, I'm Quy. A frontend engineer.",
   image = defaultOgImage,
   children,
