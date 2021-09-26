@@ -1,15 +1,19 @@
 import Page from '@components/page'
+import PostsList from '@components/posts-list'
 import { getPosts } from '@lib/get-posts'
+import PostMeta from '@interfaces/post-meta'
 
 interface Props {
-  posts: any[]
+  posts: PostMeta[]
 }
 
 const Blog: React.FC<Props> = ({ posts }) => {
   return (
     <Page title="Blog" description="The World As I See It">
       <article>
-        <ul>{posts.map((post) => post.title)}</ul>
+        <ul>
+          <PostsList posts={posts} />
+        </ul>
       </article>
     </Page>
   )
