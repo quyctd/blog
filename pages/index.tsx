@@ -7,7 +7,8 @@ const About = () => {
       <article>
         <h1>Quy Dinh</h1>
         <p>
-          A frontend engineer, b. 1998, live in Hanoi, Vietnam. Self alias as{' '}
+          A newbie Front-End engineer, b. 1998, live in Hanoi, Vietnam. Self
+          alias as{' '}
           <Link underline href="https://github.com/quyctd" external>
             @quyctd
           </Link>{' '}
