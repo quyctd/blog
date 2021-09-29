@@ -1,10 +1,12 @@
-// Forked from https://www.npmjs.com/package/cmdk
-// Using reverse engineering to reverse some part of this package
-// Fixed the order of command items to fit the purpose of my blog
+/*
+Forked from https://www.npmjs.com/package/cmdk
+Using reverse engineering to reverse *some part* of this package
+Fixed the order of command items to fit the purpose of my blog
+*/
 
 /*
 MIT License
-Copyright (c) 2020 Jamie Kyle
+Copyright (c) 2021 Paco Coursey
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
