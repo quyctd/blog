@@ -22,6 +22,12 @@
       "description": "Taking micro-frontends to the next level",
       "url": "https://indepth.dev/posts/1477/taking-micro-frontends-to-the-next-level",
       "key": "blog"
+    },
+    {
+      "title": "Style Guides, Design Systems and Component Libraries",
+      "description": "Everything Rob Know About Style Guides, Design Systems, and Component Libraries",
+      "url": "https://leerob.io/blog/style-guides-component-libraries-design-systems",
+      "key": "blog"
     }
   ]
 }
