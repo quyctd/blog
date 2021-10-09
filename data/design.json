@@ -28,6 +28,13 @@
       "image": "https://godly.website/og.png",
       "key": "website",
       "position": "bottom"
+    },
+    {
+      "title": "Linear",
+      "description": "The issue tracking tool with beautiful design, UI/UX",
+      "url": "https://linear.app/",
+      "image": "https://linear.app/static/metaImage4.jpg",
+      "key": "website"
     }
   ]
 }
