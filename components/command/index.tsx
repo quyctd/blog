@@ -24,6 +24,7 @@ import {
   Document,
   ArrowRight,
   Github,
+  Gists,
 } from '@components/icons'
 import { useTheme } from 'next-themes'
 import tinykeys from '@lib/tinykeys'
@@ -155,6 +156,7 @@ const DefaultItems = () => {
       <Group title="Collection">
         <Item value="Reading" icon={<Book />} keybind="g r" />
         <Item value="Design" icon={<Design />} keybind="g d" />
+        <Item value="Gists" icon={<Gists />} keybind="g i" />
         <Item value="Music" icon={<Music />} keybind="g m" />
         <Item value="Projects" icon={<Document />} keybind="g p" />
       </Group>
@@ -216,12 +218,9 @@ const CommandMenu = memo(() => {
       // Collections
       'g r': () => router.push('/reading'),
       'g d': () => router.push('/design'),
-      'g k': () => router.push('/keyboards'),
       'g m': () => router.push('/music'),
       'g p': () => router.push('/projects'),
-      'g q': () => router.push('/quotes'),
-      'g w': () => router.push('/words'),
-      'g i': () => router.push('/ideas'),
+      'g i': () => router.push('/gists'),
       // Social
       'g g': () => () => window.open('https://twitter.com/quyctd', '_blank'),
     }
