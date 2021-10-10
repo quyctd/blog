@@ -15,6 +15,13 @@
   ],
   "data": [
     {
+      "title": "CleanShot X",
+      "description": "Capture your Mac’s screen like a pro.",
+      "url": "https://cleanshot.com/",
+      "image": "https://cleanshot.com/img/ogimage.png",
+      "key": "website"
+    },
+    {
       "title": "xFrame",
       "description": "Download free asian stock photos.",
       "url": "https://xframe.io",

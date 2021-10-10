@@ -21,7 +21,7 @@
       "title": "Stripe Connect - behind the front-end experience",
       "description": "next-generation web technologies used in Stripe Connect",
       "url": "https://stripe.com/blog/connect-front-end-experience",
-      "key": "blog"
+      "key": "article"
     },
     {
       "title": "Tech Dummies Narendra L",
@@ -33,7 +33,7 @@
       "title": "NextJS Monorepo Example",
       "description": "Monorepo concepts, tips and tricks oriented around NextJS",
       "url": "https://github.com/belgattitude/nextjs-monorepo-example#readme",
-      "key": "blog"
+      "key": "article"
     },
     {
       "title": "Style Guides, Design Systems and Component Libraries",
@@ -45,13 +45,13 @@
       "title": "Micro-frontend at Wix",
       "description": "Taking micro-frontends to the next level",
       "url": "https://indepth.dev/posts/1477/taking-micro-frontends-to-the-next-level",
-      "key": "blog"
+      "key": "article"
     },
     {
       "title": "Segment: Goodbye Microservices",
       "description": "What are Microservices? + How Segment team's Consolidate & Scale Them.",
       "url": "https://segment.com/blog/goodbye-microservices/",
-      "key": "blog"
+      "key": "article"
     }
   ]
 }

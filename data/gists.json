@@ -1,17 +1,17 @@
 {
   "data": [
     {
+      "title": "Egghead.io",
+      "description": "Your source for the Badass Portfolio Projects you need to climb the career ladder as a modern web developer.",
+      "url": "https://egghead.io/",
+      "image": "https://res.cloudinary.com/dg3gyk0gu/image/upload/v1632239045/og-image-assets/egghead-og-image.png",
+      "key": "website"
+    },
+    {
       "title": "Immer.JS",
       "description": "Create the next immutable state by mutating the current one",
       "url": "https://immerjs.github.io/immer/",
       "image": "https://madewithnetworkfra.fra1.digitaloceanspaces.com/spatie-space-production/3297/immer-1.jpg",
-      "key": "tech-lib"
-    },
-    {
-      "title": "CleanShot X",
-      "description": "Capture your Mac’s screen like a pro.",
-      "url": "https://cleanshot.com/",
-      "image": "https://cleanshot.com/img/ogimage.png",
       "key": "website"
     }
   ]
