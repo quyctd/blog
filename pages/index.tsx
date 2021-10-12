@@ -25,17 +25,6 @@ const About = () => {
           </Link>{' '}
           about code and design. Enjoy listening to music, watching anime.
         </p>
-        <p>
-          Working at{' '}
-          <Link
-            underline
-            href="https://vietnamdevcenter.linecorp.com/en"
-            external
-          >
-            LINE Technology Vietnam
-          </Link>{' '}
-          with the mission closing the distances.
-        </p>
       </article>
     </Page>
   )
