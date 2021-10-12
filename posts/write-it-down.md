@@ -21,11 +21,14 @@ _And Italic_
 
 a link [google](https://google.com)
 
-an image
+images
+![vertical](https://images.unsplash.com/photo-1633836449153-43a5aa4b1559?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80)
+
+![square](https://images.unsplash.com/photo-1633544325196-bcf8bf81ead0?auto=format&fit=crop&w=1480&q=80)
 
 ![beautiful](https://images.unsplash.com/photo-1511300636408-a63a89df3482?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80)
 
-Now, the most waited, code blog
+Now, the most waited, code block
 Inline code block: `const x = 1`
 Multiline code block:
 
@@ -55,4 +58,4 @@ block quote:
 
 > hello world
 
-That it.
+Ok, we're good ✅
