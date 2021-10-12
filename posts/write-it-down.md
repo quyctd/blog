@@ -2,11 +2,11 @@
 title: The 0 blog
 description: The 0 blog.
 slug: 0-blog
-date: Nov 19, 2021
+date: Sep 19, 2021
 ---
 
 I created this blog to test, how and what the content will show after it's rendered on the web.
-So, let check it/
+So, let check it.
 
 # Heading 1
 
