@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "title": "Mozilla Observatory",
+      "description": "Scan your websites and how to configure these sites safely and securely.",
+      "url": "https://observatory.mozilla.org/",
+      "image": "https://observatory.mozilla.org/images/observatory-wordmark.svg",
+      "key": "website"
+    },
+    {
       "title": "Egghead.io",
       "description": "Your source for the Badass Portfolio Projects you need to climb the career ladder as a modern web developer.",
       "url": "https://egghead.io/",
