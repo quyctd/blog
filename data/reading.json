@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title": "Understanding Nginx Server and Location Block Selection Algorithms",
+      "description": "Understanding Nginx Server and Location Block Selection Algorithms",
+      "url": "https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms",
+      "key": "article"
+    },
+    {
       "title": "Good Design is as Little Design as Possible",
       "description": "Dieter Rams still passionate about design and architecture as he was when starting out at German manufacturer Braun back in 1955",
       "url": "https://www.yatzer.com/as-little-design-as-possible-dieter-rams",
