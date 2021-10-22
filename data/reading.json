@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title": "The Importance of Learning CSS",
+      "description": "It improves your quality of life by improve CSS skills.",
+      "url": "https://www.joshwcomeau.com/css/the-importance-of-learning-css/",
+      "key": "blog"
+    },
+    {
       "title": "Understanding Nginx Server and Location Block Selection Algorithms",
       "description": "Nginx is one of the most popular web servers in the world. In this guide, we will discuss how Nginx selects the server and location block that will handle a given client's request.",
       "url": "https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms",
