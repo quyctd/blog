@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "title": "CSS for JS Developers",
+      "description": "The all-new interactive learning experience designed to help JavaScript developers become confident with CSS.",
+      "url": "https://css-for-js.dev/",
+      "image": "https://css-for-js.dev/og-image-v2.jpg",
+      "key": "website"
+    },
+    {
       "title": "Mozilla Observatory",
       "description": "Scan your websites and how to configure these sites safely and securely.",
       "url": "https://observatory.mozilla.org/",
