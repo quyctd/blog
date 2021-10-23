@@ -11,6 +11,10 @@ const Gists = () => {
       title="Gists"
       description="Collection of softwares, technologies that I use or want to use."
     >
+      <p>
+        Collection of softwares, tools, websites that I admire and would love to
+        use.
+      </p>
       <article>
         {data.map((entry) => {
           return (
