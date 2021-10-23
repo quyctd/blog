@@ -23,7 +23,7 @@ const About = () => {
           <Link underline href="/blog">
             writing
           </Link>{' '}
-          about code and design. Enjoy listening to music, watching anime.
+          about code. Enjoy listening to music, watching anime.
         </p>
       </article>
     </Page>
