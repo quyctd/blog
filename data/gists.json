@@ -1,4 +1,18 @@
 {
+  "schema": [
+    {
+      "name": "website",
+      "color": "blue"
+    },
+    {
+      "name": "brand",
+      "color": "red"
+    },
+    {
+      "name": "portfolio",
+      "color": "indigo"
+    }
+  ],
   "data": [
     {
       "title": "CSS for JS Developers",
@@ -27,6 +41,28 @@
       "url": "https://immerjs.github.io/immer/",
       "image": "https://madewithnetworkfra.fra1.digitaloceanspaces.com/spatie-space-production/3297/immer-1.jpg",
       "key": "website"
+    },
+    {
+      "title": "CleanShot X",
+      "description": "Capture your Mac’s screen like a pro.",
+      "url": "https://cleanshot.com/",
+      "image": "https://cleanshot.com/img/ogimage.png",
+      "key": "website"
+    },
+    {
+      "title": "Linear",
+      "description": "The issue tracking tool with beautiful design, UI/UX",
+      "url": "https://linear.app/",
+      "image": "https://linear.app/static/metaImage4.jpg",
+      "key": "website"
+    },
+    {
+      "title": "Godly",
+      "description": "Discover the most godlike web design inspiration",
+      "url": "https://godly.website/",
+      "image": "https://godly.website/og.png",
+      "key": "website",
+      "position": "bottom"
     }
   ]
 }
