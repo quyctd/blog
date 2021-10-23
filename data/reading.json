@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title": "How to learn CSS",
+      "description": "You don’t need to commit to memorizing every CSS Property and Value, as there are good places to look them up. There are some fundamental things, however, which will make CSS much easier for you to use.",
+      "url": "https://www.smashingmagazine.com/2019/01/how-to-learn-css/",
+      "key": "article"
+    },
+    {
       "title": "The Importance of Learning CSS",
       "description": "It improves your quality of life by improve CSS skills.",
       "url": "https://www.joshwcomeau.com/css/the-importance-of-learning-css/",
