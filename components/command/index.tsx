@@ -18,7 +18,6 @@ import {
   Sparkles,
   Pencil,
   Search,
-  Design,
   Book,
   Music,
   Document,
@@ -155,7 +154,6 @@ const DefaultItems = () => {
 
       <Group title="Collection">
         <Item value="Reading" icon={<Book />} keybind="g r" />
-        <Item value="Design" icon={<Design />} keybind="g d" />
         <Item value="Gists" icon={<Gists />} keybind="g i" />
         <Item value="Music" icon={<Music />} keybind="g m" />
         <Item value="Projects" icon={<Document />} keybind="g p" />
@@ -217,7 +215,6 @@ const CommandMenu = memo(() => {
       'g c': () => router.push('/contact'),
       // Collections
       'g r': () => router.push('/reading'),
-      'g d': () => router.push('/design'),
       'g m': () => router.push('/music'),
       'g p': () => router.push('/projects'),
       'g i': () => router.push('/gists'),
