@@ -15,6 +15,13 @@
   ],
   "data": [
     {
+      "title": "SSD VPS Servers, Cloud Servers and Cloud Hosting by Vultr",
+      "description": "Vultr Global Cloud Hosting - Brilliantly Fast SSD VPS Cloud Servers. 100% KVM Virtualization",
+      "url": "https://www.vultr.com/",
+      "image": "https://www.vultr.com/_images/og/default.png",
+      "key": "website"
+    },
+    {
       "title": "CSS for JS Developers",
       "description": "The all-new interactive learning experience designed to help JavaScript developers become confident with CSS.",
       "url": "https://css-for-js.dev/",
