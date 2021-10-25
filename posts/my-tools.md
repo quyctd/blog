@@ -13,3 +13,4 @@ A list of my favourite tools that I use on a regular basis.
 - Figma
 - Spotify
 - Swish
+- Grammarly
