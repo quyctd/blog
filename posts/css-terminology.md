@@ -5,11 +5,11 @@ slug: css-terminology
 date: Nov 12, 2021
 ---
 
-When I decided to switch from Back-end developer to Front-end developer, I was attracted by React.js and JS ecosystem.
-But now, after 1.5 year in Front-end, I realized that Front-end not just about JS, it's also include CSS, HTML, Accessibility, etc. We all know that, but most of us just forcus on JS. Me too. But lately, I do feel that my CSS skills are not enough. I believe many JS developers feel the same way as me in some point of their career.
-We all know CSS enough to make website, but we not understand it. If we need something, just copy from Stackoverflow, and that's it. This kind of the same as _we don't know JS_ when we start learning it.
+When I decided to switch from a Back-end developer to a Front-end developer, I was attracted by React.js and JS ecosystem.
+But now, after 1.5 years in Front-end, I realized that Front-end is not just about JS; it also includes CSS, HTML, Accessibility, etc. We all know that, but most of us focus on JS, me too. But lately, I do feel that my CSS skills are not enough. I believe many JS developers feel the same way as me at some point in their careers.
+We all know CSS enough to make a website, but we do not understand it. If we need something, copy from Stackoverflow, and that's it. That way is the same as _we don't know JS_ when we start learning it.
 
-So I decided to take a deep dive into CSS, and first, go with CSS terminology. Even it just some most common terms, I believe not everyone know, and myself included, the below terms also has something that I don't know before.
+So I decided to take a deep dive into CSS and first go with CSS terminology. Even it is just some most common terms, I believe not everyone knows, and myself included, the below terms also has something that I didn't know before.
 
 ## CSS Hello world
 
@@ -19,9 +19,9 @@ So I decided to take a deep dive into CSS, and first, go with CSS terminology. E
 }
 ```
 
-This code is just a simple CSS code. Everyone comfortable with it.
-But there is some thing that me and you may don't know.
-Let's start by play some questions.
+This code is just a simple CSS code. Everyone is comfortable with it.
+But there is something that you and I may don't know.
+Let's start by playing some questions.
 
 ## What is property in this code?
 
@@ -45,7 +45,7 @@ And the answer is `margin`.
 }
 ```
 
-This is easy for any JS developer, we select element alot. The answer is: `.apple`.
+This is easy for any JS developer, we select elements a lot. The answer is: `.apple`.
 
 > A selector is a descriptor that lets you target specific elements on the page. In this case, we're selecting all nodes with the “apple” class.
 
@@ -70,7 +70,7 @@ And yes, it's `h1`. In this case, we're selecting all 'h1' tags _(though a page 
 }
 ```
 
-It's another hard question for me. I even don't know that in CSS has the term `declaration`.
+It's another hard question for me. I even don't know that CSS has the term `declaration`.
 But turns out, it is `padding: 32px;`.
 
 > A declaration is a combination of a property and a value. In this case, the first declaration has a property of "padding", and a value of "32px".
@@ -84,7 +84,7 @@ p {
 }
 ```
 
-Well, I also don't know what is `rule` in CSS.
+Well, I also don't know what is `rule` is in CSS.
 The answer will be all of the above CSS.
 
 > A rule, also known as a style, is a collection of declarations, targeting one or more selectors. A stylesheet is made up of multiple rules.
@@ -97,7 +97,7 @@ p {
 }
 ```
 
-That you will know. It's `px`.
+That you will know, it's `px`.
 
 > Some values have units, like px, %, or em. In this case, our padding-top has a value of 24px, which is measured in the "px" unit.
 
@@ -132,4 +132,4 @@ the first block is the first rule.
 
 ---
 
-That some first knowledge when I re-learn CSS. More in the next section 🤔
+That was some first knowledge when I re-learn CSS. More in the next section 🤔
