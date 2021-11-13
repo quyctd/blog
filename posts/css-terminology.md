@@ -23,7 +23,7 @@ This code is just a simple CSS code. Everyone comfortable with it.
 But there is some thing that me and you may don't know.
 Let's start by play some questions.
 
-## What is `property` in this code?
+## What is _property_ in this code?
 
 ```css
 p {
@@ -36,7 +36,7 @@ And the answer is `margin`.
 
 > Properties in CSS are the attributes you can specify values for, like "color" and "font-size".
 
-## Next, what is `selector`?
+## Next, what is _selector_?
 
 ```css
 .apple {
@@ -61,7 +61,7 @@ h1 {
 
 And yes, it's `h1`. In this case, we're selecting all 'h1' tags _(though a page should generally only have one h1!)_
 
-## What is the `first declaration` in this code?
+## What is the _first declaration_ in this code?
 
 ```css
 .code-snippet {
@@ -75,7 +75,7 @@ But turns out, it is `padding: 32px;`.
 
 > A declaration is a combination of a property and a value. In this case, the first declaration has a property of "padding", and a value of "32px".
 
-## What is the `rule`?
+## What is the _rule_?
 
 ```css
 p {
@@ -89,7 +89,7 @@ The answer will be all of the above CSS.
 
 > A rule, also known as a style, is a collection of declarations, targeting one or more selectors. A stylesheet is made up of multiple rules.
 
-## What is the `unit` in CSS?
+## What is the _unit_ in CSS?
 
 ```css
 p {
@@ -105,7 +105,7 @@ That you will know. It's `px`.
 
 Below are 2 more questions to test your knowledge.
 
-## Select the `second declaration` below
+## Select the _second declaration_ below
 
 ```css
 main {
@@ -116,7 +116,7 @@ main {
 
 the second declaration is `margin: 0 auto;`
 
-## Select the `first rule` below
+## Select the _first rule_ below
 
 ```css
 p {
