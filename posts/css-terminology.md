@@ -1,5 +1,5 @@
 ---
-title: CSS Termninology
+title: CSS Terminology
 description: Some of the most common terms used in CSS, but not all of us familiar with them.
 slug: css-terminology
 date: Nov 12, 2021
