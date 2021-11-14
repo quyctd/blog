@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title": "What is Web3?",
+      "description": "The Decentralized Internet of the Future Explained",
+      "url": "https://www.freecodecamp.org/news/what-is-web3/",
+      "key": "article"
+    },
+    {
       "title": "The Great Divide",
       "description": "Two front-end developers are sitting at a bar. They have nothing to talk about.",
       "url": "https://css-tricks.com/the-great-divide/",
