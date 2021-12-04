@@ -48,12 +48,12 @@
     "incremental": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
   ],
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "lib/render-markdown.jsx"
+    "**/*.jsx"
   ]
 }
