@@ -11,33 +11,33 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reach/auto-id": "^0.11.2",
-    "@reach/dialog": "^0.16.0",
+    "@reach/auto-id": "^0.16.0",
+    "@reach/dialog": "^0.16.2",
     "classnames": "^2.3.1",
     "clsx": "^1.1.1",
     "intersection-observer": "^0.12.0",
-    "marked": "^3.0.4",
-    "match-sorter": "^4.2.0",
-    "next": "11.1.2",
+    "marked": "^4.0.6",
+    "match-sorter": "^6.3.1",
+    "next": "12.0.5",
     "next-themes": "^0.0.15",
     "nprogress": "^0.2.0",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.0",
     "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-intersection-observer": "^8.32.1",
+    "react-intersection-observer": "^8.32.5",
     "react-merge-refs": "^1.1.0",
     "use-delayed-render": "^0.0.7",
-    "use-descendants": "^0.0.1"
+    "use-descendants": "^0.0.4"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
-    "@types/react": "17.0.21",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
+    "@types/react": "17.0.37",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "eslint": "8.4.0",
+    "eslint-config-next": "12.0.5",
     "gray-matter": "^4.0.3",
-    "typescript": "4.4.3"
+    "typescript": "4.5.2"
   },
   "prettier": {
     "semi": false,

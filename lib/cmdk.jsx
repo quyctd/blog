@@ -46,7 +46,7 @@ import {
   createDescendants,
   useDescendant,
 } from 'use-descendants'
-import matchSorter from 'match-sorter'
+import { matchSorter } from 'match-sorter'
 
 function b() {
   return (b =
