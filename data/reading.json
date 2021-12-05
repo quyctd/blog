@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title": "Scaling SVG Elements",
+      "description": "Getting an understanding of viewBox",
+      "url": "https://wattenberger.com/guide/scaling-svg",
+      "key": "blog"
+    },
+    {
       "title": "What is Web3?",
       "description": "The Decentralized Internet of the Future Explained",
       "url": "https://www.freecodecamp.org/news/what-is-web3/",
