@@ -15,7 +15,6 @@
     "@reach/dialog": "^0.16.2",
     "classnames": "^2.3.1",
     "clsx": "^1.1.1",
-    "intersection-observer": "^0.12.0",
     "marked": "^4.0.6",
     "match-sorter": "^6.3.1",
     "next": "12.0.5",
@@ -25,7 +24,6 @@
     "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-intersection-observer": "^8.32.5",
     "react-merge-refs": "^1.1.0",
     "use-delayed-render": "^0.0.7",
     "use-descendants": "^0.0.4"
