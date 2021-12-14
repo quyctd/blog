@@ -15,7 +15,7 @@ Router.events.on('routeChangeError', () => nprogress.done())
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider disableTransitionOnChange defaultTheme="light">
+    <ThemeProvider>
       <Component {...pageProps} />
     </ThemeProvider>
   )
