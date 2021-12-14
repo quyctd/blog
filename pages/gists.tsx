@@ -1,5 +1,5 @@
 import Page from '@components/page'
-import Entry from '@components/entry'
+import Entry from '@components/entry/text'
 
 import gistsData from '@data/gists.json'
 
@@ -21,8 +21,8 @@ const Gists = () => {
             <Entry
               key={`${entry.title}-${entry.url}`}
               title={entry.title}
-              image={entry.image}
               href={entry.url}
+              type={entry.key}
               description={entry.description}
             />
           )

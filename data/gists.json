@@ -18,65 +18,55 @@
       "title": "Overmind",
       "description": "Frictionless state management",
       "url": "https://overmindjs.org/",
-      "image": "https://app.gitbook.com/share/space/thumbnail/-LFM73DeVujXHaaZbAiD-61583806.png",
-      "key": "website"
+      "key": "Library"
     },
     {
       "title": "SSD VPS Servers, Cloud Servers and Cloud Hosting by Vultr",
       "description": "Vultr Global Cloud Hosting - Brilliantly Fast SSD VPS Cloud Servers. 100% KVM Virtualization",
       "url": "https://www.vultr.com/",
-      "image": "https://www.vultr.com/_images/og/default.png",
-      "key": "website"
+      "key": "Service"
     },
     {
       "title": "CSS for JS Developers",
       "description": "The all-new interactive learning experience designed to help JavaScript developers become confident with CSS.",
       "url": "https://css-for-js.dev/",
-      "image": "https://css-for-js.dev/og-image-v2.jpg",
-      "key": "website"
+      "key": "Website"
     },
     {
       "title": "Mozilla Observatory",
       "description": "Scan your websites and how to configure these sites safely and securely.",
       "url": "https://observatory.mozilla.org/",
-      "image": "https://observatory.mozilla.org/images/observatory-wordmark.svg",
-      "key": "website"
+      "key": "Tool"
     },
     {
       "title": "Egghead.io",
       "description": "Your source for the Badass Portfolio Projects you need to climb the career ladder as a modern web developer.",
       "url": "https://egghead.io/",
-      "image": "https://res.cloudinary.com/dg3gyk0gu/image/upload/v1632239045/og-image-assets/egghead-og-image.png",
-      "key": "website"
+      "key": "Website"
     },
     {
       "title": "Immer.JS",
       "description": "Create the next immutable state by mutating the current one",
       "url": "https://immerjs.github.io/immer/",
-      "image": "https://madewithnetworkfra.fra1.digitaloceanspaces.com/spatie-space-production/3297/immer-1.jpg",
-      "key": "website"
+      "key": "Library"
     },
     {
       "title": "CleanShot X",
       "description": "Capture your Mac’s screen like a pro.",
       "url": "https://cleanshot.com/",
-      "image": "https://cleanshot.com/img/ogimage.png",
-      "key": "website"
+      "key": "Tool"
     },
     {
       "title": "Linear",
       "description": "The issue tracking tool with beautiful design, UI/UX",
       "url": "https://linear.app/",
-      "image": "https://linear.app/static/metaImage4.jpg",
-      "key": "website"
+      "key": "Tool"
     },
     {
       "title": "Godly",
       "description": "Discover the most godlike web design inspiration",
       "url": "https://godly.website/",
-      "image": "https://godly.website/og.png",
-      "key": "website",
-      "position": "bottom"
+      "key": "Website"
     }
   ]
 }
