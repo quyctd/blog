@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title": "Margin consider harmful",
+      "description": "Why we should ban margin from our components.",
+      "url": "https://mxstbr.com/thoughts/margin/",
+      "key": "blog"
+    },
+    {
       "title": "Scaling SVG Elements",
       "description": "Getting an understanding of viewBox",
       "url": "https://wattenberger.com/guide/scaling-svg",
