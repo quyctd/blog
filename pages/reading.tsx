@@ -1,7 +1,7 @@
 import Page from '@components/page'
 import Entry from '@components/entry/text'
 
-import useData from '@lib/use-data'
+import useData from 'hooks/useData'
 import readingData from '@data/reading.json'
 
 const Reading = () => {
