@@ -1,9 +1,6 @@
 import NextHead from 'next/head'
 import { useTheme } from 'next-themes'
 
-const defaultOgImage =
-  'https://res.cloudinary.com/dsdlhtnpw/image/upload/v1572673557/og-image_budbm8.png'
-
 interface Props {
   title?: string
   description?: string
@@ -13,7 +10,7 @@ interface Props {
 const Head: React.FC<Props> = ({
   title = 'Quy Dinh',
   description = "Hi, I'm Quy. A frontend engineer.",
-  image = defaultOgImage,
+  image = 'https://www.quyctd.dev/og.png',
   children,
 }): JSX.Element => {
   const { systemTheme } = useTheme()
