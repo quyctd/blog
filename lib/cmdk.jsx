@@ -24,7 +24,7 @@ SOFTWARE.
 /* eslint-disable */
 /* tslint-disable */
 
-import React, {
+import {
   useState,
   useRef,
   useCallback,
@@ -36,7 +36,7 @@ import React, {
   Fragment,
   useLayoutEffect,
 } from 'react'
-import clsx from 'clsx'
+import clsx from 'classnames'
 import { useId } from '@reach/auto-id'
 import mergeRefs from 'react-merge-refs'
 import {
@@ -46,51 +46,19 @@ import {
 } from 'use-descendants'
 import { matchSorter } from 'match-sorter'
 
-function b() {
-  return (b =
-    Object.assign ||
-    function (e) {
-      for (var t = 1; t < arguments.length; t++) {
-        var r = arguments[t]
-        for (var n in r)
-          Object.prototype.hasOwnProperty.call(r, n) && (e[n] = r[n])
-      }
-      return e
-    }).apply(this, arguments)
-}
+const IGNORE_PRESS_TAGS = ['select', 'button', 'textarea']
 
-function E(e, t) {
-  if (null == e) return {}
-  var r,
-    n,
-    a = {},
-    l = Object.keys(e)
-  for (n = 0; n < l.length; n++) t.indexOf((r = l[n])) >= 0 || (a[r] = e[r])
-  return a
-}
+const useCommand = (props) => {
+  let { search, selected, ordering, filter, loop, element, ...others } = props
 
-var y = ['select', 'button', 'textarea']
+  search = props.search ?? ''
+  selected = props.selected ?? 0
+  ordering = true || props.ordering
+  filter = props.filter ?? defaultFilter
+  loop = false || props.loop
+  element = props.element
 
-const useCommand = function (userConfigs) {
-  const configs = userConfigs || {}
-  const search = configs.search ?? ''
-  const selected = configs.selected ?? 0
-  const ordering = true || configs.ordering
-  const filter = configs.filter ?? defaultFilter
-  const loop = false || configs.loop
-  const element = configs.element
-
-  var g = E(configs, [
-      'search',
-      'selected',
-      'ordering',
-      'filter',
-      'loop',
-      'element',
-    ]),
-    descendants = useDescendants(),
-    listRef = descendants.ref,
-    listProps = E(descendants, ['ref'])
+  const { ref: listRef, ...listProps } = useDescendants()
 
   const [selectedItem, setSelectedItem] = useState(selected)
   const [searchKeyword, setSearchKeyword] = useState(search)
@@ -99,168 +67,156 @@ const useCommand = function (userConfigs) {
   selectedRef.current = selectedItem
   const filterList = filter(listProps.map, searchKeyword)
 
-  return (
-    I({
-      setSelected: setSelectedItem,
-      listProps: listProps,
-      selectedRef: selectedRef,
-      loop: loop,
-      element: element || commandRef.current,
-    }),
-    b(
-      {
-        search: searchKeyword,
-        selected: selectedItem,
-        setSelected: setSelectedItem,
-        setSearch: useCallback((e) => {
-          setSearchKeyword(e ? e.target.value : e)
-        }, []),
-        filterList: filterList,
-        ordering: ordering,
-        listRef: listRef,
-        commandRef: commandRef,
-      },
-      listProps,
-      g
-    )
-  )
+  useInjectKeyPress({
+    setSelected: setSelectedItem,
+    listProps: listProps,
+    selectedRef: selectedRef,
+    loop: loop,
+    element: element || commandRef.current,
+  })
+
+  return {
+    search: searchKeyword,
+    selected: selectedItem,
+    setSelected: setSelectedItem,
+    setSearch: useCallback((e) => {
+      setSearchKeyword(e ? e.target.value : e)
+    }, []),
+    filterList: filterList,
+    ordering: ordering,
+    listRef: listRef,
+    commandRef: commandRef,
+    ...listProps,
+    ...others,
+  }
 }
 
-function defaultFilter(listRef, keyword) {
+const defaultFilter = (listRef, keyword) => {
   var filterItems = Object.values(listRef.current)
   if (!keyword) return filterItems
 
   return filterItems.length
     ? matchSorter(filterItems, keyword, {
-        keys: [
-          function (e) {
-            return (e == null ? undefined : e.value) || null
-          },
-        ],
+        keys: [(e) => e?.value],
       })
     : null
 }
 
-var C,
-  k,
-  I = function (e) {
-    var t = e.setSelected,
-      r = e.selectedRef,
-      l = e.listProps,
-      i = e.loop,
-      o = e.element,
-      c = useCallback(function () {
-        t(l.list.current.length - 1)
-      }, []),
-      u = useCallback(function () {
-        t(0)
-      }, []),
-      d = useCallback(function () {
-        t(function (e) {
-          return e === l.list.current.length - 1
-            ? i
-              ? (e + 1) % l.list.current.length
-              : e
-            : e + 1
-        })
-      }, []),
-      s = useCallback(function () {
-        t(function (e) {
-          return 0 === e ? (i ? l.list.current.length - 1 : e) : e - 1
-        })
-      }, []),
-      m = useCallback(function (e) {
-        switch (e.key) {
-          case 'Home':
-            e.preventDefault(), u()
-            break
-          case 'End':
-            e.preventDefault(), c()
-            break
-          case 'ArrowDown':
-            e.preventDefault(), d()
-            break
-          case 'ArrowUp':
-            e.preventDefault(), s()
-            break
-          case 'Enter':
-            var t,
-              n =
-                null == (t = l.list.current[r.current]) ? undefined : t.callback
-            if (!n) return
-            if (document.activeElement) {
-              if (
-                -1 !==
-                  y.indexOf(document.activeElement.tagName.toLowerCase()) ||
-                'true' === document.activeElement.contentEditable
-              )
-                return
-              if (!document.activeElement.hasAttribute('data-command-input'))
-                return
-            }
-            n()
+const useInjectKeyPress = (props) => {
+  const { setSelected, selectedRef, listProps, loop, element } = props
+
+  const onKeyEnd = useCallback(() => {
+    setSelected(listProps.list.current.length - 1)
+  }, [])
+
+  const onKeyHome = useCallback(() => {
+    setSelected(0)
+  }, [])
+
+  const onArrowDown = useCallback(() => {
+    setSelected((idx) => {
+      const listLength = listProps.list.current.length
+      return idx === listLength - 1
+        ? loop
+          ? (idx + 1) % listLength
+          : idx
+        : idx + 1
+    })
+  }, [])
+
+  const onArrowUp = useCallback(() => {
+    setSelected((idx) => {
+      return idx === 0
+        ? loop
+          ? listProps.list.current.length - 1
+          : idx
+        : idx - 1
+    })
+  }, [])
+
+  const handleKeyPress = useCallback((e) => {
+    switch (e.key) {
+      case 'Home':
+        e.preventDefault()
+        onKeyHome()
+        break
+      case 'End':
+        e.preventDefault()
+        onKeyEnd()
+        break
+      case 'ArrowDown':
+        e.preventDefault()
+        onArrowDown()
+        break
+      case 'ArrowUp':
+        e.preventDefault()
+        onArrowUp()
+        break
+      case 'Enter':
+        const selectedItem = listProps.list.current[selectedRef.current]
+        const selectCallback = selectedItem?.callback
+        if (!selectCallback) return
+
+        const activeElement = document.activeElement
+        if (activeElement) {
+          if (IGNORE_PRESS_TAGS.includes(activeElement.tagName.toLowerCase()))
+            return
+          if (activeElement.contentEditable === 'true') return
+          if (!activeElement.hasAttribute('data-command-input')) return
         }
-      }, [])
-    useEffect(
-      function () {
-        return (
-          o && o.addEventListener('keydown', m),
-          function () {
-            return o == null ? undefined : o.removeEventListener('keydown', m)
-          }
-        )
-      },
-      [o, m]
-    )
-  },
-  usePages = function (e, r) {
-    var n = e.setSearch,
-      l = useState([r]),
-      i = l[0],
-      o = l[1]
-    return (
-      useEffect(
-        function () {
-          n('')
-          var e = document.querySelector('[data-command-input]')
-          null == e || e.focus()
-        },
-        [i, n]
-      ),
-      [i, o]
-    )
-  }
+        selectCallback()
+    }
+  }, [])
+
+  useEffect(() => {
+    element && element.addEventListener('keydown', handleKeyPress)
+    return () => {
+      if (element) element.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [element, handleKeyPress])
+}
+
+const usePages = (commandProps, items) => {
+  const setSearch = commandProps.setSearch
+  const [pages, setPages] = useState([items])
+
+  useEffect(() => {
+    setSearch('')
+    const commandInputEle = document.querySelector('[data-command-input]')
+    if (commandInputEle) commandInputEle.focus()
+  }, [pages, setSearch])
+
+  return [pages, setPages]
+}
+
 const CommandContext = createContext({})
 
 const useCommandContext = () => {
   return useContext(CommandContext)
 }
 
-const Command = forwardRef(function (props, ref) {
-  const { label, className, children, commandRef } = props
-
-  var o = E(props, ['label', 'className', 'children', 'commandRef'])
+const Command = forwardRef((props, ref) => {
+  const { label, className, children, commandRef, ...others } = props
   const listId = useId()
   const inputId = useId()
-  const s = useMemo(() => {
-    return b(
-      {
-        listId: listId,
-        inputId: inputId,
-      },
-      o
-    )
-  }, [listId, inputId, o])
+
+  const contextValue = useMemo(() => {
+    return {
+      listId: listId,
+      inputId: inputId,
+      ...others,
+    }
+  }, [listId, inputId, others])
 
   return (
-    <CommandContext.Provider value={s}>
+    <CommandContext.Provider value={contextValue}>
       <div
         data-command=""
         className={className || ''}
         ref={mergeRefs([ref, commandRef])}
       >
         {label && (
-          <label htmlFor={inputId} style={M}>
+          <label htmlFor={inputId} style={styleHidden}>
             {label}
           </label>
         )}
@@ -270,35 +226,35 @@ const Command = forwardRef(function (props, ref) {
   )
 })
 
-Command.displayName = 'Command'
+const DescendantsContext = createDescendants()
 
-var DescendantsContext = createDescendants()
-const CommandList = forwardRef(function (props, ref) {
+const CommandList = forwardRef((props, ref) => {
   const { children } = props
   const { listId, ordering, listRef, map, list, force } = useCommandContext()
 
-  var a = E(props, ['children'])
-
   useIsomorphicLayoutEffect(() => {
     if (ordering && listRef.current) {
-      var e = new Map()
-      Array.from(listRef.current.querySelectorAll('[data-descendant]'))
-        .sort(function (e, t) {
-          return e.getAttribute('data-order') - t.getAttribute('data-order')
+      const elementsMap = new Map()
+      const allCommandEles = listRef.current.querySelectorAll('[data-descendant]')
+      
+      allCommandEles.sort((eleA, eleB) => {
+          return eleA.getAttribute('data-order') - eleB.getAttribute('data-order')
         })
-        .forEach(function (t) {
-          if (t.parentElement) {
-            t.parentElement.appendChild(t)
-            var r = t.closest('[data-command-list] > *')
-            if (!r || r === t || r === listRef.current) return
-            if (e.has(r)) return
-            listRef.current.appendChild(r), e.set(r, !0)
+        .forEach((element) => {
+          if (element.parentElement) {
+            element.parentElement.appendChild(element)
+            const closetElement = element.closest('[data-command-list] > *')
+            if (!closetElement || closetElement === element || closetElement === listRef.current) return
+            if (elementsMap.has(closetElement)) return
+
+            listRef.current.appendChild(r)
+            elementsMap.set(closetElement, true)
           }
         })
     }
   })
 
-  var v = useMemo(() => {
+  const decendantsValue = useMemo(() => {
     return {
       list: list,
       map: map,
@@ -315,21 +271,22 @@ const CommandList = forwardRef(function (props, ref) {
         data-command-list=""
         data-command-list-empty={list.current.length === 0 ? '' : undefined}
       >
-        <DescendantsContext.Provider value={v}>
+        <DescendantsContext.Provider value={decendantsValue}>
           {children}
         </DescendantsContext.Provider>
       </ul>
       {list.current.length > 0 && (
-        <div aria-live="polite" role="status" style={M}>{`${
-          list.current.length
-        } result${list.current.length > 1 ? 's' : ''} available.`}</div>
+        <div aria-live="polite" role="status" style={styleHidden}>
+          {`${list.current.length} result${
+            list.current.length > 1 ? 's' : ''
+          } available.`}
+        </div>
       )}
     </>
   )
 })
-CommandList.displayName = 'CommandList'
 
-const CommandItem = forwardRef(function (props, ref) {
+const CommandItem = forwardRef((props, ref) => {
   const {
     selected,
     setSelected,
@@ -340,110 +297,100 @@ const CommandItem = forwardRef(function (props, ref) {
     itemClass,
     selectedItemClass,
   } = useCommandContext()
-  const { children } = props
+  const { children, ...others } = props
+  const {
+    index: descendantIndex,
+    ref: descendantRef,
+    id: descendantId,
+  } = useDescendant(DescendantsContext, {
+    value: typeof children === 'string' ? children : undefined,
+    ...others,
+  })
 
-  var l,
-    i,
-    o,
-    c = props.children,
-    u = E(props, ['children']),
-    k = useDescendant(
-      DescendantsContext,
-      b(
-        {
-          value: typeof children === 'string' ? children : undefined,
-        },
-        u
-      )
-    ),
-    I = k.index,
-    S = k.ref,
-    N = k.id,
-    O = !!map.current[N],
-    L = selected === I,
-    D = useCallback(
-      ((i = function () {
-        requestAnimationFrame(function () {
-          setSelected(I)
-        })
-      }),
-      (o = !1),
-      function () {
-        o ||
-          ((o = !0),
-          i.apply(void 0, [].slice.call(arguments)),
-          setTimeout(function () {
-            return (o = !1)
-          }, 50))
-      }),
-      [setSelected, I]
-    )
+  const isCurrentSelected = selected === descendantIndex
+  const existInMap = !!map.current[descendantId]
+
+  const updateSelectedDescendant = useCallback(() => {
+    requestAnimationFrame(() => {
+      setSelected(descendantIndex)
+    })
+  }, [descendantIndex])
+
+  let isSelectedViaMouseMove = false
+  const onMouseMove = useCallback(() => {
+    if (isSelectedViaMouseMove) return
+
+    isSelectedViaMouseMove = true
+    updateSelectedDescendant()
+    setTimeout(() => {
+      isSelectedViaMouseMove = false
+    }, 50)
+  }, [setSelected, descendantIndex])
 
   useEffect(() => {
-    L &&
-      S.current &&
-      S.current.scrollIntoView({
-        block: 'nearest',
-      })
-  }, [L])
+    if (!isCurrentSelected) return
 
-  var P =
-    filterList && O
-      ? filterList.findIndex(function (commandItem) {
-          return commandItem._internalId === N
-        })
+    descendantRef.current?.scrollIntoView({
+      block: 'nearest',
+    })
+  }, [isCurrentSelected])
+
+  const indexInList =
+    filterList && existInMap
+      ? filterList.findIndex(
+          (commandItem) => commandItem._internalId === descendantId
+        )
       : undefined
+
+  useEffect(() => {
+    if (indexInList === 0) setSelected(descendantIndex)
+  }, [search, descendantIndex, indexInList, setSelected])
+
+  return ordering && indexInList === -1 ? null : (
+    <li
+      ref={mergeRefs([descendantRef, ref])}
+      onClick={props.callback}
+      data-order={indexInList}
+      className={clsx(itemClass, { [selectedItemClass]: isCurrentSelected })}
+      onMouseMove={onMouseMove}
+      aria-selected={isCurrentSelected || undefined}
+      role="option"
+      data-command-item=""
+      data-command-selected={isCurrentSelected ? '' : undefined}
+    >
+      {children}
+    </li>
+  )
+})
+
+const CommandInput = forwardRef((props, ref) => {
+  const { search, setSearch, listId, inputId } = useCommandContext()
+
+  const inputAttrs = useMemo(
+    () => ({
+      type: 'text',
+      'aria-expanded': true,
+      'aria-autocomplete': 'list',
+      'aria-haspopup': 'listbox',
+      autoComplete: 'off',
+      role: 'combobox',
+      'aria-owns': listId,
+      id: inputId,
+      'data-command-input': '',
+    }),
+    []
+  )
+
   return (
-    useEffect(() => {
-      0 === P && setSelected(I)
-    }, [search, I, P, setSelected]),
-    ordering && -1 === P ? null : (
-      <li
-        ref={mergeRefs([S, ref])}
-        onClick={u.callback}
-        data-order={P}
-        className={clsx(itemClass, ((l = {}), (l[selectedItemClass] = L), l))}
-        onMouseMove={D}
-        aria-selected={L || undefined}
-        role="option"
-        data-command-item=""
-        data-command-selected={L ? '' : undefined}
-      >
-        {children}
-      </li>
-    )
+    <input
+      ref={ref}
+      value={search}
+      onChange={setSearch}
+      {...inputAttrs}
+      {...props}
+    />
   )
 })
-CommandItem.displayName = 'CommandItem'
-
-const CommandInput = forwardRef(function (props, ref) {
-  var n = b({}, props),
-    a = useCommandContext()
-  return React.createElement(
-    'input',
-    b(
-      {
-        ref: ref,
-        value: a.search,
-        onChange: a.setSearch,
-      },
-      n,
-      {
-        type: 'text',
-        'aria-expanded': !0,
-        'aria-autocomplete': 'list',
-        'aria-haspopup': 'listbox',
-        autoComplete: 'off',
-        role: 'combobox',
-        'aria-owns': a.listId,
-        id: a.inputId,
-        'data-command-input': '',
-      }
-    )
-  )
-})
-
-CommandInput.displayName = 'CommandInput'
 
 const CommandGroup = (props) => {
   const { children, heading, className } = props
@@ -461,7 +408,7 @@ const CommandGroup = (props) => {
       role="presentation"
       data-command-group=""
       className={className || ''}
-      style={hasChild ? undefined : { display: 'none' }}
+      style={hasChild ? null : { display: 'none' }}
     >
       <div aria-hidden={true} id={commandId}>
         {heading}
@@ -473,7 +420,7 @@ const CommandGroup = (props) => {
   )
 }
 
-var M = {
+const styleHidden = {
   position: 'absolute',
   width: '1px',
   height: '1px',
