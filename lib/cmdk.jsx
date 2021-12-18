@@ -1,7 +1,5 @@
 /*
-Forked from https://www.npmjs.com/package/cmdk
-Using reverse engineering to reverse *some part* of this package
-Fixed the order of command items to fit the purpose of my blog
+Forked from https://www.npmjs.com/package/cmdk and reverse it using reverse engineering
 */
 
 /*
@@ -70,61 +68,63 @@ function E(e, t) {
   for (n = 0; n < l.length; n++) t.indexOf((r = l[n])) >= 0 || (a[r] = e[r])
   return a
 }
-var y = ['select', 'button', 'textarea'],
-  useCommand = function (e) {
-    var a = void 0 === e ? {} : e,
-      l = a.search,
-      search = void 0 === l ? '' : l,
-      o = a.selected,
-      selected = void 0 === o ? 0 : o,
-      u = a.ordering,
-      ordering = void 0 === u || u,
-      s = a.filter,
-      filter = void 0 === s ? defaultFilter : s,
-      f = a.loop,
-      loop = void 0 !== f && f,
-      h = a.element,
-      g = E(a, ['search', 'selected', 'ordering', 'filter', 'loop', 'element']),
-      descendants = useDescendants(),
-      w = descendants.ref,
-      C = E(descendants, ['ref']),
-      k = useState(selected),
-      S = k[0],
-      N = k[1],
-      A = useState(search),
-      searchKeyword = A[0],
-      R = A[1],
-      L = useRef(),
-      D = useRef(S)
 
-    D.current = S
-    var P = filter(C.map, searchKeyword)
-    return (
-      I({
-        setSelected: N,
-        listProps: C,
-        selectedRef: D,
-        loop: loop,
-        element: h || L.current,
-      }),
-      b(
-        {
-          search: searchKeyword,
-          selected: S,
-          setSelected: N,
-          setSearch: useCallback(function (e) {
-            R(e ? e.target.value : e)
-          }, []),
-          filterList: P,
-          ordering: ordering,
-          listRef: w,
-          commandRef: L,
-        },
-        C,
-        g
-      )
+var y = ['select', 'button', 'textarea']
+
+const useCommand = function (userConfigs) {
+  const configs = userConfigs || {}
+  const search = configs.search ?? ''
+  const selected = configs.selected ?? 0
+  const ordering = true || configs.ordering
+  const filter = configs.filter ?? defaultFilter
+  const loop = false || configs.loop
+  const element = configs.element
+
+  var g = E(configs, [
+      'search',
+      'selected',
+      'ordering',
+      'filter',
+      'loop',
+      'element',
+    ]),
+    descendants = useDescendants(),
+    listRef = descendants.ref,
+    listProps = E(descendants, ['ref'])
+
+  const [selectedItem, setSelectedItem] = useState(selected)
+  const [searchKeyword, setSearchKeyword] = useState(search)
+  const commandRef = useRef()
+  const selectedRef = useRef(selectedItem)
+  selectedRef.current = selectedItem
+  const filterList = filter(listProps.map, searchKeyword)
+
+  return (
+    I({
+      setSelected: setSelectedItem,
+      listProps: listProps,
+      selectedRef: selectedRef,
+      loop: loop,
+      element: element || commandRef.current,
+    }),
+    b(
+      {
+        search: searchKeyword,
+        selected: selectedItem,
+        setSelected: setSelectedItem,
+        setSearch: useCallback((e) => {
+          setSearchKeyword(e ? e.target.value : e)
+        }, []),
+        filterList: filterList,
+        ordering: ordering,
+        listRef: listRef,
+        commandRef: commandRef,
+      },
+      listProps,
+      g
     )
-  }
+  )
+}
 
 function defaultFilter(listRef, keyword) {
   var filterItems = Object.values(listRef.current)
@@ -134,7 +134,7 @@ function defaultFilter(listRef, keyword) {
     ? matchSorter(filterItems, keyword, {
         keys: [
           function (e) {
-            return (null == e ? void 0 : e.value) || null
+            return (e == null ? undefined : e.value) || null
           },
         ],
       })
@@ -185,7 +185,8 @@ var C,
             break
           case 'Enter':
             var t,
-              n = null == (t = l.list.current[r.current]) ? void 0 : t.callback
+              n =
+                null == (t = l.list.current[r.current]) ? undefined : t.callback
             if (!n) return
             if (document.activeElement) {
               if (
@@ -205,7 +206,7 @@ var C,
         return (
           o && o.addEventListener('keydown', m),
           function () {
-            return null == o ? void 0 : o.removeEventListener('keydown', m)
+            return o == null ? undefined : o.removeEventListener('keydown', m)
           }
         )
       },
@@ -228,156 +229,129 @@ var C,
       ),
       [i, o]
     )
-  },
-  N = createContext({}),
-  useCommandContext = function () {
-    return useContext(N)
-  },
-  Command = forwardRef(function (t, r) {
-    var n = t.label,
-      a = t.className,
-      l = t.children,
-      i = t.commandRef,
-      o = E(t, ['label', 'className', 'children', 'commandRef']),
-      u = useId(),
-      d = useId(),
-      s = useMemo(
-        function () {
-          return b(
-            {
-              listId: u,
-              inputId: d,
-            },
-            o
-          )
-        },
-        [u, d, o]
-      )
-    return React.createElement(
-      N.Provider,
+  }
+const CommandContext = createContext({})
+
+const useCommandContext = () => {
+  return useContext(CommandContext)
+}
+
+const Command = forwardRef(function (props, ref) {
+  const { label, className, children, commandRef } = props
+
+  var o = E(props, ['label', 'className', 'children', 'commandRef'])
+  const listId = useId()
+  const inputId = useId()
+  const s = useMemo(() => {
+    return b(
       {
-        value: s,
+        listId: listId,
+        inputId: inputId,
       },
-      React.createElement(
-        'div',
-        {
-          'data-command': '',
-          className: a,
-          ref: mergeRefs([r, i]),
-        },
-        n &&
-          React.createElement(
-            'label',
-            {
-              htmlFor: d,
-              style: M,
-            },
-            n
-          ),
-        l
-      )
+      o
     )
-  })
+  }, [listId, inputId, o])
+
+  return (
+    <CommandContext.Provider value={s}>
+      <div
+        data-command=""
+        className={className || ''}
+        ref={mergeRefs([ref, commandRef])}
+      >
+        {label && (
+          <label htmlFor={inputId} style={M}>
+            {label}
+          </label>
+        )}
+        {children}
+      </div>
+    </CommandContext.Provider>
+  )
+})
+
 Command.displayName = 'Command'
-var R = createDescendants(),
-  CommandList = forwardRef(function (t, r) {
-    var n = t.children,
-      a = E(t, ['children']),
-      l = useCommandContext(),
-      i = l.listId,
-      ordering = l.ordering,
-      d = l.listRef,
-      s = l.map,
-      m = l.list,
-      p = l.force
-    F(function () {
-      if (ordering && d.current) {
-        var e = new Map()
-        Array.from(d.current.querySelectorAll('[data-descendant]'))
-          .sort(function (e, t) {
-            return e.getAttribute('data-order') - t.getAttribute('data-order')
-          })
-          .forEach(function (t) {
-            if (t.parentElement) {
-              t.parentElement.appendChild(t)
-              var r = t.closest('[data-command-list] > *')
-              if (!r || r === t || r === d.current) return
-              if (e.has(r)) return
-              d.current.appendChild(r), e.set(r, !0)
-            }
-          })
-      }
-    })
-    var v = useMemo(
-      function () {
-        return {
-          list: m,
-          map: s,
-          force: p,
-        }
-      },
-      [m, s, p]
-    )
-    return React.createElement(
-      Fragment,
-      null,
-      React.createElement(
-        'ul',
-        b(
-          {
-            ref: mergeRefs([d, r]),
-            role: 'listbox',
-            id: i,
-            'data-command-list': '',
-            'data-command-list-empty': 0 === m.current.length ? '' : void 0,
-          },
-          a
-        ),
-        React.createElement(
-          R.Provider,
-          {
-            value: v,
-          },
-          n
-        )
-      ),
-      m.current.length > 0 &&
-        React.createElement(
-          'div',
-          {
-            'aria-live': 'polite',
-            role: 'status',
-            style: M,
-          },
-          m.current.length,
-          ' result',
-          m.current.length > 1 ? 's' : '',
-          ' ',
-          'available.'
-        )
-    )
+
+var DescendantsContext = createDescendants()
+const CommandList = forwardRef(function (props, ref) {
+  const { children } = props
+  const { listId, ordering, listRef, map, list, force } = useCommandContext()
+
+  var a = E(props, ['children'])
+
+  useIsomorphicLayoutEffect(() => {
+    if (ordering && listRef.current) {
+      var e = new Map()
+      Array.from(listRef.current.querySelectorAll('[data-descendant]'))
+        .sort(function (e, t) {
+          return e.getAttribute('data-order') - t.getAttribute('data-order')
+        })
+        .forEach(function (t) {
+          if (t.parentElement) {
+            t.parentElement.appendChild(t)
+            var r = t.closest('[data-command-list] > *')
+            if (!r || r === t || r === listRef.current) return
+            if (e.has(r)) return
+            listRef.current.appendChild(r), e.set(r, !0)
+          }
+        })
+    }
   })
+
+  var v = useMemo(() => {
+    return {
+      list: list,
+      map: map,
+      force: force,
+    }
+  }, [list, map, force])
+
+  return (
+    <>
+      <ul
+        ref={mergeRefs([listRef, ref])}
+        role="listbox"
+        id={listId}
+        data-command-list=""
+        data-command-list-empty={list.current.length === 0 ? '' : undefined}
+      >
+        <DescendantsContext.Provider value={v}>
+          {children}
+        </DescendantsContext.Provider>
+      </ul>
+      {list.current.length > 0 && (
+        <div aria-live="polite" role="status" style={M}>{`${
+          list.current.length
+        } result${list.current.length > 1 ? 's' : ''} available.`}</div>
+      )}
+    </>
+  )
+})
 CommandList.displayName = 'CommandList'
-var CommandItem = forwardRef(function (t, r) {
+
+const CommandItem = forwardRef(function (props, ref) {
+  const {
+    selected,
+    setSelected,
+    filterList,
+    search,
+    ordering,
+    map,
+    itemClass,
+    selectedItemClass,
+  } = useCommandContext()
+  const { children } = props
+
   var l,
     i,
     o,
-    c = t.children,
-    u = E(t, ['children']),
-    d = useCommandContext(),
-    m = d.selected,
-    p = d.setSelected,
-    filterList = d.filterList,
-    g = d.search,
-    y = d.ordering,
-    w = d.map,
-    x = d.itemClass,
-    C = d.selectedItemClass,
+    c = props.children,
+    u = E(props, ['children']),
     k = useDescendant(
-      R,
+      DescendantsContext,
       b(
         {
-          value: 'string' == typeof c ? c : void 0,
+          value: typeof children === 'string' ? children : undefined,
         },
         u
       )
@@ -385,12 +359,12 @@ var CommandItem = forwardRef(function (t, r) {
     I = k.index,
     S = k.ref,
     N = k.id,
-    O = !!w.current[N],
-    L = m === I,
+    O = !!map.current[N],
+    L = selected === I,
     D = useCallback(
       ((i = function () {
         requestAnimationFrame(function () {
-          p(I)
+          setSelected(I)
         })
       }),
       (o = !1),
@@ -402,60 +376,54 @@ var CommandItem = forwardRef(function (t, r) {
             return (o = !1)
           }, 50))
       }),
-      [p, I]
+      [setSelected, I]
     )
 
-  useEffect(
-    function () {
-      L &&
-        S.current &&
-        S.current.scrollIntoView({
-          block: 'nearest',
-        })
-    },
-    [L]
-  )
+  useEffect(() => {
+    L &&
+      S.current &&
+      S.current.scrollIntoView({
+        block: 'nearest',
+      })
+  }, [L])
+
   var P =
     filterList && O
       ? filterList.findIndex(function (commandItem) {
           return commandItem._internalId === N
         })
-      : void 0
+      : undefined
   return (
-    useEffect(
-      function () {
-        0 === P && p(I)
-      },
-      [g, I, P, p]
-    ),
-    y && -1 === P
-      ? null
-      : React.createElement(
-          'li',
-          {
-            ref: mergeRefs([S, r]),
-            onClick: u.callback,
-            'data-order': P,
-            className: clsx(x, ((l = {}), (l[C] = L), l)),
-            onMouseMove: D,
-            'aria-selected': L || void 0,
-            role: 'option',
-            'data-command-item': '',
-            'data-command-selected': L ? '' : void 0,
-          },
-          c
-        )
+    useEffect(() => {
+      0 === P && setSelected(I)
+    }, [search, I, P, setSelected]),
+    ordering && -1 === P ? null : (
+      <li
+        ref={mergeRefs([S, ref])}
+        onClick={u.callback}
+        data-order={P}
+        className={clsx(itemClass, ((l = {}), (l[selectedItemClass] = L), l))}
+        onMouseMove={D}
+        aria-selected={L || undefined}
+        role="option"
+        data-command-item=""
+        data-command-selected={L ? '' : undefined}
+      >
+        {children}
+      </li>
+    )
   )
 })
 CommandItem.displayName = 'CommandItem'
-var CommandInput = forwardRef(function (t, r) {
-  var n = b({}, t),
+
+const CommandInput = forwardRef(function (props, ref) {
+  var n = b({}, props),
     a = useCommandContext()
   return React.createElement(
     'input',
     b(
       {
-        ref: r,
+        ref: ref,
         value: a.search,
         onChange: a.setSearch,
       },
@@ -474,86 +442,52 @@ var CommandInput = forwardRef(function (t, r) {
     )
   )
 })
+
 CommandInput.displayName = 'CommandInput'
-var CommandGroup = function (n) {
-    var a = n.children,
-      l = n.heading,
-      i = n.separator,
-      o = E(n, ['children', 'heading', 'separator']),
-      c = useId(),
-      d = useRef(),
-      s = useState(!0),
-      f = s[0],
-      p = s[1]
-    return (
-      F(function () {
-        d.current && p(0 !== d.current.children.length)
-      }),
-      React.createElement(
-        Fragment,
-        null,
-        i && React.createElement(q, null),
-        React.createElement(
-          'li',
-          b(
-            {
-              'data-command-group': '',
-              role: 'presentation',
-            },
-            o,
-            {
-              style: f
-                ? void 0
-                : {
-                    display: 'none',
-                  },
-            }
-          ),
-          React.createElement(
-            'div',
-            {
-              'aria-hidden': !0,
-              id: c,
-            },
-            l
-          ),
-          React.createElement(
-            'ul',
-            {
-              role: 'group',
-              'aria-labelledby': c,
-              ref: d,
-            },
-            a
-          )
-        )
-      )
-    )
-  },
-  q = function () {
-    return React.createElement('li', {
-      'data-command-separator': '',
-      role: 'separator',
-    })
-  },
-  M = {
-    position: 'absolute',
-    width: '1px',
-    height: '1px',
-    padding: '0',
-    margin: '-1px',
-    overflow: 'hidden',
-    clip: 'rect(0, 0, 0, 0)',
-    whiteSpace: 'nowrap',
-    borderWidth: '0',
-  },
-  F =
-    'undefined' != typeof window &&
-    (null == (C = window) || null == (k = C.document)
-      ? void 0
-      : k.createElement)
-      ? useLayoutEffect
-      : useEffect
+
+const CommandGroup = (props) => {
+  const { children, heading, className } = props
+
+  const commandId = useId()
+  const groupRef = useRef()
+  const [hasChild, setHasChild] = useState(true)
+
+  useIsomorphicLayoutEffect(() => {
+    groupRef.current && setHasChild(groupRef.current.children.length !== 0)
+  })
+
+  return (
+    <li
+      role="presentation"
+      data-command-group=""
+      className={className || ''}
+      style={hasChild ? undefined : { display: 'none' }}
+    >
+      <div aria-hidden={true} id={commandId}>
+        {heading}
+      </div>
+      <ul role="group" aria-labelledby={commandId} ref={groupRef}>
+        {children}
+      </ul>
+    </li>
+  )
+}
+
+var M = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: '0',
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0, 0, 0, 0)',
+  whiteSpace: 'nowrap',
+  borderWidth: '0',
+}
+
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
 export {
   Command,
   CommandGroup,

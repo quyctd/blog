@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo, useState, memo } from 'react'
+import React, { useEffect, useRef, useMemo, useState, memo, useContext, createContext } from 'react'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
 import useDelayedRender from 'use-delayed-render'
@@ -31,8 +31,8 @@ import postMeta from '@data/blog.json'
 import styles from './command.module.css'
 import headerStyles from '@components/header/header.module.css'
 
-const CommandData = React.createContext({})
-const useCommandData = () => React.useContext(CommandData)
+const CommandData = createContext({})
+const useCommandData = () => useContext(CommandData)
 const { CommandInput } = require('@lib/cmdk') as any
 
 const Label = ({ title }: { title: string }) => {
@@ -168,7 +168,6 @@ const DefaultItems = () => {
         <Item
           value="GitHub"
           icon={<Github />}
-          keybind="g g"
           callback={() => window.open('https://github.com/quyctd', '_blank')}
         />
       </Group>
@@ -218,8 +217,6 @@ const CommandMenu = memo(() => {
       'g m': () => router.push('/music'),
       'g p': () => router.push('/projects'),
       'g i': () => router.push('/gists'),
-      // Social
-      'g g': () => () => window.open('https://twitter.com/quyctd', '_blank'),
     }
   }, [router, setPages])
 
