@@ -32,7 +32,7 @@ Now, the most waited, code block
 Inline code block: `const x = 1`
 Multiline code block:
 
-```js
+```js highlight=2
 function add(a, b) {
   return a + b
 }
