@@ -73,8 +73,6 @@ marked.setOptions({
   renderer,
 })
 
-export default (markdown: string) => marked(markdown)
-
 interface CodeProps {
   code: string
   language?: Language
@@ -131,3 +129,5 @@ const Code = ({ code, language, highlight, ...props }: CodeProps) => {
     </Highlight>
   )
 }
+
+export default (markdown: string) => marked(markdown)
