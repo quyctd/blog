@@ -21,8 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/* eslint-disable */
-/* tslint-disable */
 
 import {
   useState,
@@ -107,11 +105,11 @@ const useInjectKeyPress = (props) => {
 
   const onKeyEnd = useCallback(() => {
     setSelected(listProps.list.current.length - 1)
-  }, [])
+  }, [listProps.list, setSelected])
 
   const onKeyHome = useCallback(() => {
     setSelected(0)
-  }, [])
+  }, [setSelected])
 
   const onArrowDown = useCallback(() => {
     setSelected((idx) => {
@@ -122,7 +120,7 @@ const useInjectKeyPress = (props) => {
           : idx
         : idx + 1
     })
-  }, [])
+  }, [listProps.list, loop, setSelected])
 
   const onArrowUp = useCallback(() => {
     setSelected((idx) => {
@@ -132,9 +130,10 @@ const useInjectKeyPress = (props) => {
           : idx
         : idx - 1
     })
-  }, [])
+  }, [listProps.list, loop, setSelected])
 
   const handleKeyPress = useCallback((e) => {
+    // eslint-disable-next-line default-case
     switch (e.key) {
       case 'Home':
         e.preventDefault()
@@ -166,7 +165,7 @@ const useInjectKeyPress = (props) => {
         }
         selectCallback()
     }
-  }, [])
+  }, [listProps, onArrowDown, onArrowUp, onKeyEnd, onKeyHome, selectedRef])
 
   useEffect(() => {
     element && element.addEventListener('keydown', handleKeyPress)
@@ -216,7 +215,7 @@ const Command = forwardRef((props, ref) => {
         ref={mergeRefs([ref, commandRef])}
       >
         {label && (
-          <label htmlFor={inputId} style={styleHidden}>
+          <label htmlFor={inputId} style={a11yHidden}>
             {label}
           </label>
         )}
@@ -247,7 +246,7 @@ const CommandList = forwardRef((props, ref) => {
             if (!closetElement || closetElement === element || closetElement === listRef.current) return
             if (elementsMap.has(closetElement)) return
 
-            listRef.current.appendChild(r)
+            listRef.current.appendChild(closetElement)
             elementsMap.set(closetElement, true)
           }
         })
@@ -276,7 +275,7 @@ const CommandList = forwardRef((props, ref) => {
         </DescendantsContext.Provider>
       </ul>
       {list.current.length > 0 && (
-        <div aria-live="polite" role="status" style={styleHidden}>
+        <div aria-live="polite" role="status" style={a11yHidden}>
           {`${list.current.length} result${
             list.current.length > 1 ? 's' : ''
           } available.`}
@@ -306,6 +305,7 @@ const CommandItem = forwardRef((props, ref) => {
     value: typeof children === 'string' ? children : undefined,
     ...others,
   })
+  const [isSelectedViaMouseMove, setSelectedViaMouseMove] = useState(false)
 
   const isCurrentSelected = selected === descendantIndex
   const existInMap = !!map.current[descendantId]
@@ -314,18 +314,14 @@ const CommandItem = forwardRef((props, ref) => {
     requestAnimationFrame(() => {
       setSelected(descendantIndex)
     })
-  }, [descendantIndex])
+  }, [descendantIndex, setSelected])
 
-  let isSelectedViaMouseMove = false
-  const onMouseMove = useCallback(() => {
+  const onMouseMove = () => {
     if (isSelectedViaMouseMove) return
 
-    isSelectedViaMouseMove = true
+    setSelectedViaMouseMove(true)
     updateSelectedDescendant()
-    setTimeout(() => {
-      isSelectedViaMouseMove = false
-    }, 50)
-  }, [setSelected, descendantIndex])
+  }
 
   useEffect(() => {
     if (!isCurrentSelected) return
@@ -333,7 +329,7 @@ const CommandItem = forwardRef((props, ref) => {
     descendantRef.current?.scrollIntoView({
       block: 'nearest',
     })
-  }, [isCurrentSelected])
+  }, [isCurrentSelected, descendantRef])
 
   const indexInList =
     filterList && existInMap
@@ -353,6 +349,7 @@ const CommandItem = forwardRef((props, ref) => {
       data-order={indexInList}
       className={clsx(itemClass, { [selectedItemClass]: isCurrentSelected })}
       onMouseMove={onMouseMove}
+      onMouseLeave={() => setSelectedViaMouseMove(false)}
       aria-selected={isCurrentSelected || undefined}
       role="option"
       data-command-item=""
@@ -378,7 +375,7 @@ const CommandInput = forwardRef((props, ref) => {
       id: inputId,
       'data-command-input': '',
     }),
-    []
+    [inputId, listId]
   )
 
   return (
@@ -420,7 +417,7 @@ const CommandGroup = (props) => {
   )
 }
 
-const styleHidden = {
+const a11yHidden = {
   position: 'absolute',
   width: '1px',
   height: '1px',
