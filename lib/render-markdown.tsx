@@ -36,7 +36,6 @@ renderer.listitem = (text, task, checked) => {
 }
 
 renderer.code = (code: string, options: string) => {
-  console.log(options)
   const opts = options.split(' ').map((o) => o.trim())
   const language = opts[0]
   const highlight = opts

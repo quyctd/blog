@@ -31,7 +31,6 @@ import {
   useContext,
   forwardRef,
   useMemo,
-  Fragment,
   useLayoutEffect,
 } from 'react'
 import clsx from 'classnames'
@@ -235,8 +234,10 @@ const CommandList = forwardRef((props, ref) => {
     if (ordering && listRef.current) {
       const elementsMap = new Map()
       const allCommandEles = listRef.current.querySelectorAll('[data-descendant]')
+
+      if (!allCommandEles) return
       
-      allCommandEles.sort((eleA, eleB) => {
+      [...allCommandEles].sort((eleA, eleB) => {
           return eleA.getAttribute('data-order') - eleB.getAttribute('data-order')
         })
         .forEach((element) => {

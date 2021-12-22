@@ -6,7 +6,7 @@ import { DialogContent, DialogOverlay } from '@reach/dialog'
 
 import {
   Command,
-  // CommandInput,
+  CommandInput,
   CommandItem,
   CommandList,
   useCommand,
@@ -33,9 +33,8 @@ import headerStyles from '@components/header/header.module.css'
 
 const CommandData = createContext({})
 const useCommandData = () => useContext(CommandData)
-const { CommandInput } = require('@lib/cmdk') as any
 
-const Label = ({ title }: { title: string }) => {
+const Label = ({ title }) => {
   return (
     <div className={styles.label} aria-hidden>
       {title}
@@ -43,10 +42,10 @@ const Label = ({ title }: { title: string }) => {
   )
 }
 
-const Group: React.FC<{ title: string }> = ({
+const Group = ({
   children,
   title,
-}): JSX.Element => {
+}) => {
   return (
     <CommandGroup heading={<Label title={title} />} className={styles.group}>
       {children}
@@ -61,8 +60,8 @@ const Item = ({
   closeOnCallback = true,
   keybind,
   ...props
-}: any) => {
-  const { keymap, setOpen } = useCommandData() as any
+}) => {
+  const { keymap, setOpen } = useCommandData()
 
   const cb = () => {
     if (callback) {
@@ -86,7 +85,7 @@ const Item = ({
       {keybind && (
         <span className={styles.keybind}>
           {keybind.includes(' ') ? (
-            keybind.split(' ').map((key: string, i: number) => {
+            keybind.split(' ').map((key, i) => {
               return <kbd key={`keybind-${key}-${i}`}>{key}</kbd>
             })
           ) : (
@@ -101,7 +100,7 @@ const Item = ({
 const BlogItems = () => {
   const router = useRouter()
 
-  return (postMeta as any).map((post: any, i: number) => {
+  return postMeta.map((post, i) => {
     return (
       <Item
         key={`blog-item-${post.title}-${i}`}
@@ -114,7 +113,7 @@ const BlogItems = () => {
 
 const ThemeItems = () => {
   const { themes, setTheme } = useTheme()
-  const { setOpen } = useCommandData() as any
+  const { setOpen } = useCommandData()
 
   return themes.map((theme) => (
     <Item
@@ -131,7 +130,7 @@ const ThemeItems = () => {
 }
 
 const DefaultItems = () => {
-  const { setPages, pages } = useCommandData() as any
+  const { setPages, pages } = useCommandData()
 
   return (
     <>
@@ -176,14 +175,14 @@ const DefaultItems = () => {
 }
 
 const CommandMenu = memo(() => {
-  const listRef = useRef() as any
-  const commandRef = useRef() as any
+  const listRef = useRef()
+  const commandRef = useRef()
   const router = useRouter()
   const commandProps = useCommand({
     label: 'Site Navigation',
-    ordering: false,
+    ordering: true,
   })
-  const [pages, setPages] = usePages(commandProps, ThemeItems) as any
+  const [pages, setPages] = usePages(commandProps, ThemeItems)
   const [open, setOpen] = useState(false)
   const { search, list } = commandProps
 
@@ -244,7 +243,7 @@ const CommandMenu = memo(() => {
     }
   }, [pages])
 
-  const heightRef = useRef() as any
+  const heightRef = useRef()
 
   useEffect(() => {
     if (!listRef.current || !heightRef.current) return
@@ -280,7 +279,6 @@ const CommandMenu = memo(() => {
             className={classNames(styles.command, {
               [styles.show]: rendered,
             })}
-            ordering={false}
           >
             <div className={styles.top}>
               <CommandInput
