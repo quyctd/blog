@@ -15,7 +15,7 @@ const About = () => {
         </p>
         <p>
           Interested in UI and UX, system design, practicing minimalist. Focus on <Link underline href="/reading">
-          reading</Link>, thinking and learning. Believe being good means being free.
+          reading</Link>, thinking and learning. Try to learn anything that possible, belief that <i>being good means being free</i>.
         </p>
       </article>
     </Page>
