@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title":"Rust Is The Future of JavaScript Infrastructure",
+      "description": "Why is Rust now being used to replace parts of the JavaScript web ecosystem?",
+      "url": "https://leerob.io/blog/rust",
+      "key": "blog"
+    },
+    {
       "title": "Margin consider harmful",
       "description": "Why we should ban margin from our components.",
       "url": "https://mxstbr.com/thoughts/margin/",
