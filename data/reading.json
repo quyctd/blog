@@ -12,6 +12,12 @@
   ],
   "data": [
     {
+      "title": "Why React doing this?",
+      "description": "How React deals with reactivity and why it's focus on purity",
+      "url": "https://gist.github.com/sebmarkbage/a5ef436427437a98408672108df01919",
+      "key": "blog"
+    },
+    {
       "title":"Rust Is The Future of JavaScript Infrastructure",
       "description": "Why is Rust now being used to replace parts of the JavaScript web ecosystem?",
       "url": "https://leerob.io/blog/rust",
