@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useMemo, useState, memo, useContext, createContext } from 'react'
-import classNames from 'classnames'
+import classNames from 'clsx'
 import { useRouter } from 'next/router'
 import useDelayedRender from 'use-delayed-render'
 import { DialogContent, DialogOverlay } from '@reach/dialog'

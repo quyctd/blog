@@ -33,7 +33,7 @@ import {
   useMemo,
   useLayoutEffect,
 } from 'react'
-import clsx from 'classnames'
+import clsx from 'clsx'
 import { useId } from '@reach/auto-id'
 import mergeRefs from 'react-merge-refs'
 import {

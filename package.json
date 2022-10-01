@@ -14,7 +14,7 @@
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
     "@reach/dialog": "^0.16.2",
-    "classnames": "^2.3.1",
+    "clsx": "^1.2.1",
     "marked": "^4.0.10",
     "match-sorter": "^6.3.1",
     "next": "^12.1.0",

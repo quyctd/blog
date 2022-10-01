@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import NextLink from 'next/link'
-import cn from 'classnames'
+import cn from 'clsx'
 
 import styles from './link.module.css'
 
