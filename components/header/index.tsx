@@ -14,10 +14,8 @@ const Header: React.FC<Props> = ({ title }) => {
   return (
     <nav className={styles.nav}>
       <div className={styles.header}>
-        <Link href="/">
-          <a aria-label="Navigate Home" className={styles.logo}>
-            <LogoIcon />
-          </a>
+        <Link href="/" aria-label="Navigate Home" className={styles.logo}>
+          <LogoIcon />
         </Link>
 
         <Command />
@@ -25,7 +23,7 @@ const Header: React.FC<Props> = ({ title }) => {
         {title && <div className={styles.content}>{title}</div>}
       </div>
     </nav>
-  )
+  );
 }
 
 export default memo(Header)
