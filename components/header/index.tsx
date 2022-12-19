@@ -1,6 +1,5 @@
 import { memo } from 'react'
 import Link from 'next/link'
-import Command from '@components/command'
 import CommandMenu from '@components/command/Cmdk'
 import LogoIcon from '@components/icons/icon'
 
@@ -18,8 +17,6 @@ const Header: React.FC<Props> = ({ title }) => {
         <Link href="/" aria-label="Navigate Home" className={styles.logo}>
           <LogoIcon />
         </Link>
-
-        {/* <Command /> */}
         <CommandMenu />
         {title && <div className={styles.content}>{title}</div>}
       </div>
