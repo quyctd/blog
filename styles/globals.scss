@@ -2,6 +2,7 @@
 @import './markdown.css';
 @import './nprogress.css';
 @import './inter.css';
+@import './cmdk.scss';
 
 :root {
   /* Spacing */
@@ -20,6 +21,8 @@
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --font-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo',
     monospace;
+
+  --cmdk-shadow: 0 16px 70px rgb(0 0 0 / 20%);
 
   /* Transitions */
   --transition: 0.1s ease-in-out;
@@ -43,6 +46,8 @@
   --keyword: #fff;
   --name: #fff;
   --highlight: #2e2e2e;
+
+  --overlay: rgba(0, 0, 0, 0.6);
 }
 
 [data-theme='light'] {
@@ -62,6 +67,8 @@
   --keyword: #000;
   --name: #333;
   --highlight: #eaeaea;
+
+  --overlay: rgba(0, 0, 0, 0.3);
 }
 
 * {

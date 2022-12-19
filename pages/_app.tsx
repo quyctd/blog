@@ -4,7 +4,7 @@ import { ThemeProvider } from 'next-themes'
 
 import nprogress from 'nprogress'
 
-import '@styles/globals.css'
+import '@styles/globals.scss'
 
 Router.events.on('routeChangeStart', () => nprogress.start())
 Router.events.on('routeChangeComplete', () => {

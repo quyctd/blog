@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import Link from 'next/link'
 import Command from '@components/command'
+import CommandMenu from '@components/command/Cmdk'
 import LogoIcon from '@components/icons/icon'
 
 import styles from './header.module.css'
@@ -18,8 +19,8 @@ const Header: React.FC<Props> = ({ title }) => {
           <LogoIcon />
         </Link>
 
-        <Command />
-
+        {/* <Command /> */}
+        <CommandMenu />
         {title && <div className={styles.content}>{title}</div>}
       </div>
     </nav>

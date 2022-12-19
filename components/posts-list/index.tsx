@@ -16,8 +16,8 @@ const Posts: React.FC<Props> = ({ posts, paginate }) => {
     <div className={styles.container}>
       {posts.slice(0, paginate ? showMore : undefined).map((post) => {
         const date = new Date(post.date).toLocaleDateString('default', {
-          month: 'numeric',
-          day: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
           year: '2-digit',
         })
 
