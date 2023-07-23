@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
+import { Inter } from 'next/font/google'
 
 import nprogress from 'nprogress'
 
@@ -13,11 +14,20 @@ Router.events.on('routeChangeComplete', () => {
 })
 Router.events.on('routeChangeError', () => nprogress.done())
 
+const inter = Inter({ subsets: ['latin'] })
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <style jsx global>{`
+        html {
+          font-family: ${inter.style.fontFamily};
+        }
+      `}</style>
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   )
 }
 export default MyApp
