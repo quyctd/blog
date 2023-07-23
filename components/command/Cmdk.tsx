@@ -33,10 +33,8 @@ export default function CommandMenu() {
       'g h': () => router.push('/'),
       'g c': () => router.push('/contact'),
       // Collections
-      'g r': () => router.push('/reading'),
       'g m': () => router.push('/music'),
       'g p': () => router.push('/projects'),
-      'g i': () => router.push('/gists'),
     }
   }, [pages, router, setOpen])
 

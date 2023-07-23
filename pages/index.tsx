@@ -19,13 +19,10 @@ const About = () => {
           on the internet.
         </p>
         <p>
-          Interested in UI and UX, system design, practicing minimalist. Focus
-          on{' '}
-          <Link underline href="/reading">
-            reading
-          </Link>
-          , thinking and learning. Always open to interesting conversations and
-          collaboration.
+          I have many interests, listening to music, watching anime, UI and
+          UX,... currently practicing minimalism. Focus on developing a wide
+          range of skills in diverse fields that would complement each other in
+          unexpected ways.
         </p>
       </article>
     </Page>
