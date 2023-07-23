@@ -2,10 +2,10 @@ import { useMemo, useEffect, useState, useRef, useCallback } from 'react'
 import { Command } from 'cmdk'
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
+import { tinykeys } from 'tinykeys'
 
 import CMDKWrapper from '@components/command/CmdkWrapper'
 import { Command as CommandIcon } from '@components/icons'
-import tinykeys from '@lib/tinykeys'
 import headerStyles from '@components/header/header.module.css'
 import ThemeItems from './ThemeItems'
 import BlogItems from './BlogItems'
@@ -41,7 +41,7 @@ export default function CommandMenu() {
   // Register the keybinds globally
   useEffect(() => {
     const unsubs = [
-      tinykeys(window, keymap, { ignoreFocus: true }),
+      tinykeys(window, keymap),
       tinykeys(window, { '$mod+k': () => setOpen((o) => !o) }),
     ]
     return () => {
