@@ -19,7 +19,7 @@ const About = () => {
           on the internet.
         </p>
         <p>
-          I have many interests, listening to music, watching anime, UI and
+          I have few interests, listening to music, watching anime, UI and
           UX,... currently practicing minimalism. Focus on developing a wide
           range of skills in diverse fields that would complement each other in
           unexpected ways.

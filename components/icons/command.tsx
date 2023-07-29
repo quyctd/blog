@@ -1,6 +1,15 @@
-const Command = () => {
+interface Props {
+  className?: string
+}
+
+const Command = ({ className }: Props) => {
   return (
-    <svg height="30" viewBox="0 0 80 80" fill="var(--fg)">
+    <svg
+      height="30"
+      viewBox="0 0 80 80"
+      fill="currentColor"
+      className={className}
+    >
       <path
         d="M64,48L64,48h-8V32h8c8.836,0,16-7.164,16-16S72.836,0,64,0c-8.837,0-16,7.164-16,16v8H32v-8c0-8.836-7.164-16-16-16
 		S0,7.164,0,16s7.164,16,16,16h8v16h-8l0,0l0,0C7.164,48,0,55.164,0,64s7.164,16,16,16c8.837,0,16-7.164,16-16l0,0v-8h16v7.98

@@ -8,18 +8,17 @@ interface Props {
 }
 
 const ThemeItems: FC<Props> = ({ onSelect }) => {
- const { themes, setTheme } = useTheme()
+  const { themes, setTheme } = useTheme()
 
   return themes.map((theme: string) => (
     <CommandItem
       key={`theme-${theme}`}
       onSelect={() => {
-        setTheme(theme);
-        onSelect?.();
-      }
-    }
+        setTheme(theme)
+        onSelect?.()
+      }}
     >
-      <span style={{ textTransform: 'capitalize' }}>{theme}</span>
+      <span className="capitalize">{theme}</span>
     </CommandItem>
   ))
 }

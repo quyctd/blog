@@ -1,9 +1,9 @@
 import { marked } from 'marked'
-import Highlight, { defaultProps, Language } from 'prism-react-renderer'
+import { Highlight, Language, themes } from 'prism-react-renderer'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { format } from 'prettier'
 
-import linkStyles from '../components/link/link.module.css'
+import { underlineClasses } from '@components/link'
 
 const renderer = new marked.Renderer()
 
@@ -13,7 +13,7 @@ renderer.heading = (text, level, _raw, slugger) => {
 
   return renderToStaticMarkup(
     <Component>
-      <a href={`#${id}`} id={id} className="header-link">
+      <a href={`#${id}`} id={id} className="no-underline">
         {text}
       </a>
     </Component>
@@ -21,7 +21,7 @@ renderer.heading = (text, level, _raw, slugger) => {
 }
 
 renderer.link = (href, _, text) =>
-  `<a href=${href} target="_blank" rel="noopener noreferrer" class="${linkStyles.underline}">${text}</a>`
+  `<a href=${href} target="_blank" rel="noopener noreferrer" class="no-underline ${underlineClasses}">${text}</a>`
 
 renderer.checkbox = () => ''
 
@@ -60,7 +60,11 @@ renderer.code = (code: string, options: string) => {
 
   return renderToStaticMarkup(
     <pre>
-      <Code language={language as Language} code={formattedCode} highlight={highlight} />
+      <Code
+        language={language as Language}
+        code={formattedCode}
+        highlight={highlight}
+      />
     </pre>
   )
 }
@@ -98,10 +102,8 @@ const Code = ({ code, language, highlight, ...props }: CodeProps) => {
       }, [])
     : []
 
-  const { theme, ...renderProps } = defaultProps
-
   return (
-    <Highlight {...renderProps} code={code.trim()} language={language}>
+    <Highlight theme={themes.dracula} code={code.trim()} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <code className={className} style={{ ...style }}>
           {tokens.map((line, i) => (

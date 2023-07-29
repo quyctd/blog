@@ -6,7 +6,6 @@ import { tinykeys } from 'tinykeys'
 
 import CMDKWrapper from '@components/command/CmdkWrapper'
 import { Command as CommandIcon } from '@components/icons'
-import headerStyles from '@components/header/header.module.css'
 import ThemeItems from './ThemeItems'
 import BlogItems from './BlogItems'
 import HomeItems from './HomeItems'
@@ -102,7 +101,7 @@ export default function CommandMenu() {
   return (
     <>
       <button
-        className={headerStyles.command}
+        className="-m-[10px] inline-flex cursor-pointer rounded-lg bg-none p-[10px] hover:bg-neutral-100 hover:outline-none focus:bg-neutral-100 focus:outline-none dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
         title="⌘K"
         onClick={() => setOpen(true)}
       >
@@ -134,6 +133,7 @@ export default function CommandMenu() {
                 open={open}
                 onOpenChange={setOpen}
                 label="Global Command Menu"
+                className="contents"
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.98 }}
@@ -148,9 +148,12 @@ export default function CommandMenu() {
                       setInputValue(value)
                     }}
                     onKeyDown={onKeyDown}
+                    className="h-[60px] w-full border-none bg-[initial] px-5 py-0 text-base text-[#000] outline-none placeholder:text-[#888] dark:text-[#fafbfc] dark:placeholder:text-[#666]"
                   />
-                  <Command.List>
-                    <Command.Empty>No results found.</Command.Empty>
+                  <Command.List className="h-[min(300px,calc(var(--cmdk-list-height)))] overflow-y-auto transition-all will-change-auto">
+                    <Command.Empty className="flex h-12 items-center justify-center whitespace-pre-wrap py-[2px] text-sm text-[#888] dark:text-[#666]">
+                      No results found.
+                    </Command.Empty>
                     {activePage === 'home' && (
                       <HomeItems
                         selectThemes={() => setPages([...pages, 'themes'])}

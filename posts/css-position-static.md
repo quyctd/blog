@@ -14,6 +14,7 @@ To use Positioned Layout, we need to use `position` property. This property can 
 Each of them works in a unique way, like a _mini layout algorithm_ within the layout algorithm.
 
 ## Static Positioning
+
 `static` is the default value of `position` property.
 That means that all these elements with the `static position` _not_ use Positioned Layout; they're using some other layout mode, like Flow Layout, Flexbox or Grid.
 When referring to `static` elements, they are also called `statically-positioned` elements.
@@ -22,11 +23,12 @@ If an element currently using Positioned Layout, you can cancel it by changing t
 
 ```css highlight=2
 .box {
-    position: initial;
+  position: initial;
 }
 ```
 
 There are the values `unset`, `revert` and `inherit`
+
 - `unset` will cancel the current position property and change to parent position or initial position.
 - `revert` to reset to user-agent stylesheet
 - `inherit` to make the value same as the parent value

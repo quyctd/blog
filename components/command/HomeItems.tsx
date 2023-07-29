@@ -18,6 +18,11 @@ interface Props {
   searchBlog: Function
 }
 
+// classNames="
+const groupClasses =
+  '[&>[cmdk-group-heading]]:flex [&>[cmdk-group-heading]]:items-center [&>[cmdk-group-heading]]:min-h-[5px] [&>[cmdk-group-heading]]:py-1 [&>[cmdk-group-heading]]:px-[20px] [&>[cmdk-group-heading]]:text-sm [&>[cmdk-group-heading]]:bg-[#f5f5f5] [&>[cmdk-group-heading]]:dark:bg-[#222] [&>[cmdk-group-heading]]:text-[#888] [&>[cmdk-group-heading]]:dark:text-[#666]'
+// "
+
 const HomeItems: FC<Props> = ({ selectThemes, searchBlog }) => {
   const router = useRouter()
 
@@ -27,7 +32,7 @@ const HomeItems: FC<Props> = ({ selectThemes, searchBlog }) => {
         <Sparkles />
         Themes
       </CommandItem>
-      <Command.Group heading="Blog">
+      <Command.Group heading="Blog" className={groupClasses}>
         <CommandItem shortcut="G B" onSelect={() => router.push('/blog')}>
           <Pencil />
           Blog
@@ -37,7 +42,7 @@ const HomeItems: FC<Props> = ({ selectThemes, searchBlog }) => {
           Search blog...
         </CommandItem>
       </Command.Group>
-      <Command.Group heading="Collection">
+      <Command.Group heading="Collection" className={groupClasses}>
         <CommandItem shortcut="g m" onSelect={() => router.push('/music')}>
           <Music />
           Music
@@ -47,7 +52,7 @@ const HomeItems: FC<Props> = ({ selectThemes, searchBlog }) => {
           Projects
         </CommandItem>
       </Command.Group>
-      <Command.Group heading="Navigation">
+      <Command.Group heading="Navigation" className={groupClasses}>
         <CommandItem shortcut="g h" onSelect={() => router.push('/home')}>
           <ArrowRight />
           Home
@@ -57,7 +62,7 @@ const HomeItems: FC<Props> = ({ selectThemes, searchBlog }) => {
           Contact
         </CommandItem>
       </Command.Group>
-      <Command.Group heading="Social">
+      <Command.Group heading="Social" className={groupClasses}>
         <CommandItem
           onSelect={() => window.open('https://github.com/quyctd', '_blank')}
         >

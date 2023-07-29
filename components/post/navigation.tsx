@@ -1,23 +1,21 @@
 import Link from '@components/link'
 
-import styles from './navigation.module.css'
-
 const Navigation = ({ previous, next }: any) => {
   return (
-    <div className={styles.navigation}>
-      <div className={styles.previous}>
+    <div className="mx-0 my-16 flex items-center justify-between">
+      <div className="font-[500] transition-colors">
         {previous && (
           <Link href="/blog/[slug]" gray as={`/blog/${previous.slug}`}>
-            <div className={styles.title}>← Older</div>
+            <div className="mb-2 font-normal leading-none">← Older</div>
             {previous.title}
           </Link>
         )}
       </div>
 
-      <div className={styles.next}>
+      <div className="text-right font-[500] transition-colors">
         {next && (
           <Link href="/blog/[slug]" gray as={`/blog/${next.slug}`}>
-            <div className={styles.title}>Newer →</div>
+            <div className="mb-2 font-normal leading-none">Newer →</div>
             {next.title}
           </Link>
         )}

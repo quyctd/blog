@@ -69,8 +69,8 @@ For example:
 ```ts
 <header
   className={clsx(
-    'fixed w-full z-50 bg-white',
-    'transition-all ease-in-out duration-500',
+    'fixed z-50 w-full bg-white',
+    'transition-all duration-500 ease-in-out',
     direction === DIRECTION.DOWN && '-top-20',
     direction === DIRECTION.UP && 'top-0',
     isScrolling && 'some-css-for-scroll'

@@ -2,7 +2,6 @@ import Head from 'next/head'
 
 import Navigation from './navigation'
 import Page from '@components/page'
-import styles from './post.module.css'
 
 function escapeHtml(unsafe: string) {
   return unsafe
@@ -42,9 +41,9 @@ const Post = ({
 
       <article
         dangerouslySetInnerHTML={{
-          __html: `<span class="${styles.date}">${date}</span><h1 class="${
-            styles.title
-          }">${escapeHtml(title)}</h1>${html}`,
+          __html: `<span class="text-base font-[500]">${date}</span><h1 class="mt-4">${escapeHtml(
+            title
+          )}</h1>${html}`,
         }}
       />
 
