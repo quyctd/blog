@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, FC } from 'react'
 import Link from '@components/link'
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   as?: string
 }
 
-const TextEntry: React.FC<Props> = ({ title, description, type, href, as }) => {
+const TextEntry: FC<Props> = ({ title, description, type, href, as }) => {
   return (
     <li className="list-none">
       <Link

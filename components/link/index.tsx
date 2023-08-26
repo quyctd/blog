@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, FC } from 'react'
 import NextLink from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
@@ -26,7 +26,7 @@ const grayClasses =
 export const underlineClasses =
   'hover:text-[#888] hover:dark:text-[#666] focus:text-[#888] focus:dark:text-[#666] bg-left-bottom bg-no-repeat bg-[length:100%_1px] bg-gradient-to-r from-[#888] to-[#888] dark:from-[#666] dark:to-[#666]'
 
-const Link: React.FC<IProps> = ({
+const Link: FC<IProps> = ({
   external,
   href,
   as,

@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import NextHead from 'next/head'
 import { useTheme } from 'next-themes'
 
@@ -7,7 +8,7 @@ interface Props {
   image?: string
 }
 
-const Head: React.FC<Props> = ({
+const Head: FC<Props> = ({
   title = 'Quy Dinh',
   description = "Hi, I'm Quy. A frontend engineer.",
   image = 'https://www.quyctd.dev/og.png',

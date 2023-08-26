@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, FC } from 'react'
 
 import TextEntry from '@components/entry/text'
 import IPostMeta from '@interfaces/post-meta'
@@ -8,7 +8,7 @@ interface Props {
   paginate?: boolean
 }
 
-const Posts: React.FC<Props> = ({ posts, paginate }) => {
+const Posts: FC<Props> = ({ posts, paginate }) => {
   const [showMore, setShowMore] = useState(3)
 
   return (

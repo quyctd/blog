@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import Page from '@components/page'
 import PostsList from '@components/posts-list'
 import { getPosts } from '@lib/get-posts'
@@ -7,7 +8,7 @@ interface Props {
   posts: PostMeta[]
 }
 
-const Blog: React.FC<Props> = ({ posts }) => {
+const Blog: FC<Props> = ({ posts }) => {
   return (
     <Page title="Blog" description="The World As I See It">
       <article>
