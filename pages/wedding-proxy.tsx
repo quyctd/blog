@@ -189,7 +189,6 @@ const GIFT_HIDE_INJECTION = `
         if (node.nodeType !== 1) return;
         hideDirectQuaTangDivs(node);
         removeMenuV2Imgs(node);
-        hideZenloveAnimationBox(node);
         if (node.tagName === 'DIV' && isInnermostQuaTangDiv(node)) node.style.setProperty('display', 'none', 'important');
       });
     });
@@ -204,15 +203,9 @@ const GIFT_HIDE_INJECTION = `
       for (var j = 0; j < imgs.length; j++) imgs[j].remove();
     }
   }
-  function hideZenloveAnimationBox(root){
-    if (!root) return;
-    var el = root.id === 'zenlove-animation-box' ? root : (root.querySelector ? root.querySelector('#zenlove-animation-box') : null);
-    if (el) el.style.setProperty('display', 'none', 'important');
-  }
   function run(){
     hideDirectQuaTangDivs(document.body);
     removeMenuV2Imgs(document.body);
-    hideZenloveAnimationBox(document.body);
     if (document.body && !obsAttached) { obsAttached = true; obs.observe(document.body, { childList: true, subtree: true }); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
