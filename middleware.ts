@@ -8,11 +8,15 @@ const PROXY_PREFIX = '/wedding-proxy'
 /**
  * Proxy CDN requests and rewrite URL references in CSS/JS so fonts and assets
  * load same-origin on Vercel (avoids CORS with cdn.zenlove.me in production).
+ *
+ * Handles i18n: path can be /wedding-proxy/... or /en/wedding-proxy/... (locale prefix).
  */
 export async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname
-  const isCdnZenlove = pathname.startsWith(`${PROXY_PREFIX}/cdn-zenlove`)
-  const isCdnResource = pathname.startsWith(`${PROXY_PREFIX}/cdn-resource`)
+  // Strip locale prefix so we match and proxy correctly (e.g. /en/wedding-proxy/... -> /wedding-proxy/...)
+  const pathnameWithoutLocale = pathname.replace(/^\/en(?=\/)/, '')
+  const isCdnZenlove = pathnameWithoutLocale.startsWith(`${PROXY_PREFIX}/cdn-zenlove`)
+  const isCdnResource = pathnameWithoutLocale.startsWith(`${PROXY_PREFIX}/cdn-resource`)
 
   if (!isCdnZenlove && !isCdnResource) {
     return NextResponse.next()
@@ -20,7 +24,7 @@ export async function middleware(req: NextRequest) {
 
   const base = isCdnZenlove ? CDN_ZENLOVE : CDN_RESOURCE
   const pathPrefix = isCdnZenlove ? `${PROXY_PREFIX}/cdn-zenlove` : `${PROXY_PREFIX}/cdn-resource`
-  const pathAfter = pathname
+  const pathAfter = pathnameWithoutLocale
     .replace(pathPrefix, '')
     .replace(/^\//, '') || ''
   const targetUrl = `${base}/${pathAfter}${req.nextUrl.search}`
@@ -74,5 +78,11 @@ function escapeRe(s: string): string {
 }
 
 export const config = {
-  matcher: ['/wedding-proxy/cdn-zenlove/:path*', '/wedding-proxy/cdn-resource/:path*'],
+  // With i18n, production may use /en/ prefix; match both so middleware runs and rewrites CSS
+  matcher: [
+    '/wedding-proxy/cdn-zenlove/:path*',
+    '/wedding-proxy/cdn-resource/:path*',
+    '/en/wedding-proxy/cdn-zenlove/:path*',
+    '/en/wedding-proxy/cdn-resource/:path*',
+  ],
 }

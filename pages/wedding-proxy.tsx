@@ -43,9 +43,11 @@ function rewriteProxiedHtml(html: string, proxyOrigin: string): string {
     .replace(new RegExp(escapeRe(ZENLOVE_ORIGIN), 'g'), proxyOrigin)
     // Route API through proxy so RSVP/comment POSTs are same-origin
     .replace(new RegExp(escapeRe(API_ZENLOVE_ORIGIN), 'g'), `${proxyOrigin}/api-zenlove`)
-    // Route CDN through our proxy to avoid CORS (browser sees same-origin requests)
+    // Route CDN through our proxy (full and protocol-relative URLs)
     .replace(new RegExp(escapeRe(CDN_ZENLOVE_ORIGIN), 'g'), `${proxyOrigin}/cdn-zenlove`)
     .replace(new RegExp(escapeRe(CDN_RESOURCE_ORIGIN), 'g'), `${proxyOrigin}/cdn-resource`)
+    .replace(/\/\/cdn\.zenlove\.me\b/g, `${proxyOrigin}/cdn-zenlove`)
+    .replace(/\/\/cdn-resource\.zenlove\.me\b/g, `${proxyOrigin}/cdn-resource`)
 }
 
 function escapeRe(s: string): string {
@@ -80,6 +82,29 @@ const URL_REWRITE_INJECTION = `
 (function(){
   var base = window.location.origin + '/wedding-proxy';
   var rsvpPageId = '${RSVP_PAGE_ID}';
+  function rewriteCdnUrl(url){
+    if (!url || typeof url !== 'string') return url;
+    if (url.indexOf('https://cdn.zenlove.me') === 0) return base + '/cdn-zenlove' + url.slice(22);
+    if (url.indexOf('https://cdn-resource.zenlove.me') === 0) return base + '/cdn-resource' + url.slice(28);
+    if (url.indexOf('//cdn.zenlove.me') === 0) return base + '/cdn-zenlove' + url.slice(16);
+    if (url.indexOf('//cdn-resource.zenlove.me') === 0) return base + '/cdn-resource' + url.slice(22);
+    return url;
+  }
+  function rewriteElement(el){
+    if (el.href) { var u = rewriteCdnUrl(el.href); if (u !== el.href) el.href = u; }
+    if (el.src) { var s = rewriteCdnUrl(el.src); if (s !== el.src) el.src = s; }
+  }
+  function rewriteCdnLinksInDom(){
+    document.querySelectorAll('link[href], script[src]').forEach(rewriteElement);
+  }
+  rewriteCdnLinksInDom();
+  var obs = new MutationObserver(function(mutations){
+    mutations.forEach(function(m){ m.addedNodes.forEach(function(n){ if (n.nodeType === 1 && (n.tagName === 'LINK' || n.tagName === 'SCRIPT')) rewriteElement(n); }); });
+  });
+  if (document.documentElement) obs.observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState !== 'complete') window.addEventListener('load', rewriteCdnLinksInDom);
+  setTimeout(rewriteCdnLinksInDom, 0);
+  setTimeout(rewriteCdnLinksInDom, 100);
   function rewriteUrl(url){
     if (typeof url !== 'string') return url;
     if (url.indexOf('https://api.zenlove.me') === 0) return base + '/api-zenlove' + url.slice(19);
