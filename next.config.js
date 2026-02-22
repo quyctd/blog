@@ -21,8 +21,12 @@ module.exports = {
       // CDN origins — proxy to avoid CORS (browser requests same-origin, we fetch from CDN)
       { source: '/wedding-proxy/cdn-zenlove', destination: 'https://cdn.zenlove.me/' },
       { source: '/wedding-proxy/cdn-zenlove/:path*', destination: 'https://cdn.zenlove.me/:path*' },
+      { source: '/wedding-proxy/cdn-zenlove.me', destination: 'https://cdn.zenlove.me/' },
+      { source: '/wedding-proxy/cdn-zenlove.me/:path*', destination: 'https://cdn.zenlove.me/:path*' },
       { source: '/wedding-proxy/cdn-resource', destination: 'https://cdn-resource.zenlove.me/' },
       { source: '/wedding-proxy/cdn-resource/:path*', destination: 'https://cdn-resource.zenlove.me/:path*' },
+      { source: '/wedding-proxy/cdn-resource.me', destination: 'https://cdn-resource.zenlove.me/' },
+      { source: '/wedding-proxy/cdn-resource.me/:path*', destination: 'https://cdn-resource.zenlove.me/:path*' },
       // Common image/static roots at zenlove.me (not under /go/...)
       { source: '/wedding-proxy/images/:path*', destination: 'https://zenlove.me/images/:path*' },
       { source: '/wedding-proxy/uploads/:path*', destination: 'https://zenlove.me/uploads/:path*' },
@@ -34,3 +38,4 @@ module.exports = {
     ]
   },
 }
+
