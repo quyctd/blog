@@ -5,6 +5,9 @@ import type { Element } from 'domhandler'
 const ZENLOVE_WEDDING = 'https://zenlove.me/go/quy-tesssst'
 const PROXY_PREFIX = '/wedding-proxy'
 const ZENLOVE_ORIGIN = 'https://zenlove.me'
+const API_ZENLOVE_ORIGIN = 'https://api.zenlove.me'
+const CDN_ZENLOVE_ORIGIN = 'https://cdn.zenlove.me'
+const CDN_RESOURCE_ORIGIN = 'https://cdn-resource.zenlove.me'
 
 /**
  * Rewrite root-relative and ZenLove absolute URLs so assets and links go through our proxy.
@@ -36,7 +39,13 @@ function rewriteProxiedHtml(html: string, proxyOrigin: string): string {
     .replace(/url\(\/(?!wedding-proxy)([^)]*)\)/g, `url(/${PROXY_PREFIX}/$1)`)
     .replace(/url\(\s*["']?\/(?!wedding-proxy)([^"')]+)["']?\s*\)/g, `url(/${PROXY_PREFIX}/$1)`)
     .replace(/\/go\/quy-tesssst(\/[^"'\s)*]*)?/g, `${PROXY_PREFIX}$1`)
+    .replace(/(["'])\/api\/auth\b/g, `$1${PROXY_PREFIX}/api/auth`)
     .replace(new RegExp(escapeRe(ZENLOVE_ORIGIN), 'g'), proxyOrigin)
+    // Route API through proxy so RSVP/comment POSTs are same-origin
+    .replace(new RegExp(escapeRe(API_ZENLOVE_ORIGIN), 'g'), `${proxyOrigin}/api-zenlove`)
+    // Route CDN through our proxy to avoid CORS (browser sees same-origin requests)
+    .replace(new RegExp(escapeRe(CDN_ZENLOVE_ORIGIN), 'g'), `${proxyOrigin}/cdn-zenlove`)
+    .replace(new RegExp(escapeRe(CDN_RESOURCE_ORIGIN), 'g'), `${proxyOrigin}/cdn-resource`)
 }
 
 function escapeRe(s: string): string {
@@ -63,6 +72,70 @@ function removeMenuV2Images(html: string): string {
   $('.menu-v2 img').remove()
   return $.html()
 }
+
+/** Intercept fetch/XHR so JS-built URLs go through our proxy; inject pageId for /v1/rsvp. */
+const RSVP_PAGE_ID = 'quy-tesssst'
+const URL_REWRITE_INJECTION = `
+<script id="wedding-proxy-rewrite-urls">
+(function(){
+  var base = window.location.origin + '/wedding-proxy';
+  var rsvpPageId = '${RSVP_PAGE_ID}';
+  function rewriteUrl(url){
+    if (typeof url !== 'string') return url;
+    if (url.indexOf('https://api.zenlove.me') === 0) return base + '/api-zenlove' + url.slice(19);
+    if (url.indexOf('https://cdn.zenlove.me') === 0) return base + '/cdn-zenlove' + url.slice(22);
+    if (url.indexOf('https://cdn-resource.zenlove.me') === 0) return base + '/cdn-resource' + url.slice(28);
+    if (url.charAt(0) === '/' && (url === '/api/auth' || url.indexOf('/api/auth/') === 0)) return base + url;
+    return url;
+  }
+  function injectPageId(body) {
+    if (typeof body !== 'string') return body;
+    try {
+      var o = JSON.parse(body);
+      o.pageId = rsvpPageId;
+      return JSON.stringify(o);
+    } catch (e) { return body; }
+  }
+  var origFetch = window.fetch;
+  window.fetch = function(input, init) {
+    init = init || {};
+    var url = typeof input === 'string' ? input : (input && input.url);
+    url = rewriteUrl(url);
+    var isRsvp = url.indexOf('/v1/rsvp') !== -1;
+    if (isRsvp && typeof input === 'string' && typeof init.body === 'string') {
+      init = Object.assign({}, init, { body: injectPageId(init.body) });
+      return origFetch.call(this, url, init);
+    }
+    if (isRsvp && input && input.body && typeof input.clone === 'function') {
+      return input.clone().text().then(function(text) {
+        var body = injectPageId(text);
+        return origFetch.call(this, new Request(url, { method: input.method, headers: input.headers, body: body }));
+      }.bind(this));
+    }
+    if (typeof input === 'string') input = url;
+    else if (input && input.url) input = new Request(url, input);
+    return origFetch.call(this, input, init);
+  };
+  var NativeXHR = window.XMLHttpRequest;
+  window.XMLHttpRequest = function() {
+    var xhr = new NativeXHR();
+    var origOpen = xhr.open;
+    var origSend = xhr.send;
+    xhr.open = function(method, url, a, b, c) {
+      arguments[1] = rewriteUrl(url);
+      xhr._url = arguments[1];
+      return origOpen.apply(this, arguments);
+    };
+    xhr.send = function(body) {
+      if (xhr._url && xhr._url.indexOf('/v1/rsvp') !== -1 && typeof body === 'string')
+        body = injectPageId(body);
+      return origSend.call(this, body);
+    };
+    return xhr;
+  };
+})();
+</script>
+`
 
 /** Hide only the direct div that contains text "Quà Tặng" (innermost such div), not the modal/drawer. */
 const GIFT_HIDE_INJECTION = `
@@ -118,9 +191,10 @@ const GIFT_HIDE_INJECTION = `
 </script>
 `
 
-/** Injects script to hide only the direct div containing "Quà Tặng", not the modal/drawer. */
+/** Injects URL-rewrite interceptor (first) and gift-hide script. */
 function injectGiftHiding(html: string): string {
   const $ = cheerio.load(html)
+  $('head').prepend(URL_REWRITE_INJECTION)
   $('head').append(GIFT_HIDE_INJECTION)
   return $.html()
 }
