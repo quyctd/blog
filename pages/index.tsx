@@ -3,26 +3,20 @@ import Link from '@components/link'
 
 const About = () => {
   return (
-    <Page description="Hi, I'm Quy. A frontend engineer.">
+    <Page description="Hi, I'm Quy. A fullstack engineer.">
       <article>
         <h1>Quy Dinh</h1>
         <p>
-          A Front-End engineer, b. 1998, live in Hanoi, Vietnam. Currently
-          working at{' '}
-          <Link underline href="https://line.me" external>
-            LINE
-          </Link>
-          . Alias as{' '}
-          <Link underline href="https://github.com/quyctd" external>
-            @quyctd
-          </Link>{' '}
-          on the internet.
+          Software engineer, b. 1998, live in Hanoi, Vietnam. Currently building at an AI startup, working across the stack.
         </p>
         <p>
-          I have few interests, listening to music, watching anime, UI and
-          UX,... currently practicing minimalism. Focus on developing a wide
-          range of skills in diverse fields that would complement each other in
-          unexpected ways.
+          I care deeply about details and user experience, and strongly believe in the power of simplicity in both design and engineering. My life philosophy is rooted in versatility — seeking to develop a wide range of skills in diverse fields that complement each other in unexpected ways.
+        </p>
+        <p>
+          Get in touch —{' '}
+          <Link underline href="mailto:quy.dc98@gmail.com">quy.dc98@gmail.com</Link>
+          {' '}or{' '}
+          <Link underline href="https://www.linkedin.com/in/quyctd/">LinkedIn</Link>.
         </p>
       </article>
     </Page>
