@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio'
 import type { Element } from 'domhandler'
 
 const ZENLOVE_WEDDING = 'https://zenlove.me/s/quy-hai-220326'
-const PROXY_PREFIX = '/wedding-proxy'
+const PROXY_PREFIX = '/my-wedding'
 const ZENLOVE_ORIGIN = 'https://zenlove.me'
 const API_ZENLOVE_ORIGIN = 'https://api.zenlove.me'
 const CDN_ZENLOVE_ORIGIN = 'https://cdn.zenlove.me'
@@ -15,13 +15,13 @@ const CDN_RESOURCE_ORIGIN = 'https://cdn-resource.zenlove.me'
  */
 function rewriteProxiedHtml(html: string, proxyOrigin: string): string {
   const prefixAttr = (attr: string) =>
-    new RegExp(`(${attr})=["']\\/(?!wedding-proxy)([^"']*)["']`, 'g')
+    new RegExp(`(${attr})=["']\\/(?!my-wedding)([^"']*)["']`, 'g')
 
   return html
     .replace(/"_next\//g, `"${PROXY_PREFIX}/_next/`)
     .replace(/'\/(_next\/)/g, `'${PROXY_PREFIX}/$1`)
     .replace(
-      /(src|href)=["']\/(?!wedding-proxy)([^"']*)["']/g,
+      /(src|href)=["']\/(?!my-wedding)([^"']*)["']/g,
       `$1="${PROXY_PREFIX}/$2"`
     )
     .replace(prefixAttr('srcset'), (_, attr, value) => {
@@ -35,9 +35,9 @@ function rewriteProxiedHtml(html: string, proxyOrigin: string): string {
     })
     .replace(prefixAttr('data-src'), `data-src="${PROXY_PREFIX}/$2"`)
     .replace(prefixAttr('data-srcset'), `data-srcset="${PROXY_PREFIX}/$2"`)
-    .replace(/content=["']\/(?!wedding-proxy)([^"']*)["']/g, `content="${PROXY_PREFIX}/$1"`)
-    .replace(/url\(\/(?!wedding-proxy)([^)]*)\)/g, `url(/${PROXY_PREFIX}/$1)`)
-    .replace(/url\(\s*["']?\/(?!wedding-proxy)([^"')]+)["']?\s*\)/g, `url(/${PROXY_PREFIX}/$1)`)
+    .replace(/content=["']\/(?!my-wedding)([^"']*)["']/g, `content="${PROXY_PREFIX}/$1"`)
+    .replace(/url\(\/(?!my-wedding)([^)]*)\)/g, `url(/${PROXY_PREFIX}/$1)`)
+    .replace(/url\(\s*["']?\/(?!my-wedding)([^"')]+)["']?\s*\)/g, `url(/${PROXY_PREFIX}/$1)`)
     .replace(/\/go\/quy-hai-220326(\/[^"'\s)*]*)?/g, `${PROXY_PREFIX}$1`)
     .replace(/(["'])\/api\/auth\b/g, `$1${PROXY_PREFIX}/api/auth`)
     .replace(new RegExp(escapeRe(ZENLOVE_ORIGIN), 'g'), proxyOrigin)
@@ -78,9 +78,9 @@ function removeMenuV2Images(html: string): string {
 /** Intercept fetch/XHR so JS-built URLs go through our proxy; inject pageId for /v1/rsvp. */
 const RSVP_PAGE_ID = 'quy-hai-220326'
 const URL_REWRITE_INJECTION = `
-<script id="wedding-proxy-rewrite-urls">
+<script id="my-wedding-rewrite-urls">
 (function(){
-  var base = window.location.origin + '/wedding-proxy';
+  var base = window.location.origin + '/my-wedding';
   var rsvpPageId = '${RSVP_PAGE_ID}';
   function rewriteCdnUrl(url){
     if (!url || typeof url !== 'string') return url;
@@ -164,7 +164,7 @@ const URL_REWRITE_INJECTION = `
 
 /** Hide only the direct div that contains text "Quà Tặng" (innermost such div), not the modal/drawer. */
 const GIFT_HIDE_INJECTION = `
-<script id="wedding-proxy-gift-hide-script">
+<script id="my-wedding-gift-hide-script">
 (function(){
   function hasQuaTang(el){
     return el && el.textContent && el.textContent.includes('Quà Tặng');
@@ -225,7 +225,7 @@ function injectGiftHiding(html: string): string {
 }
 
 /**
- * /wedding-proxy: fetch ZenLove (Next.js) HTML and rewrite asset/link URLs
+ * /my-wedding: fetch ZenLove (Next.js) HTML and rewrite asset/link URLs
  * so they go through our proxy; then stream the modified HTML.
  */
 export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
