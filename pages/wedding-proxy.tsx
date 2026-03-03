@@ -2,7 +2,7 @@ import type { GetServerSideProps } from 'next'
 import * as cheerio from 'cheerio'
 import type { Element } from 'domhandler'
 
-const ZENLOVE_WEDDING = 'https://zenlove.me/go/quy-tesssst'
+const ZENLOVE_WEDDING = 'https://zenlove.me/s/quy-hai-220326'
 const PROXY_PREFIX = '/wedding-proxy'
 const ZENLOVE_ORIGIN = 'https://zenlove.me'
 const API_ZENLOVE_ORIGIN = 'https://api.zenlove.me'
@@ -38,7 +38,7 @@ function rewriteProxiedHtml(html: string, proxyOrigin: string): string {
     .replace(/content=["']\/(?!wedding-proxy)([^"']*)["']/g, `content="${PROXY_PREFIX}/$1"`)
     .replace(/url\(\/(?!wedding-proxy)([^)]*)\)/g, `url(/${PROXY_PREFIX}/$1)`)
     .replace(/url\(\s*["']?\/(?!wedding-proxy)([^"')]+)["']?\s*\)/g, `url(/${PROXY_PREFIX}/$1)`)
-    .replace(/\/go\/quy-tesssst(\/[^"'\s)*]*)?/g, `${PROXY_PREFIX}$1`)
+    .replace(/\/go\/quy-hai-220326(\/[^"'\s)*]*)?/g, `${PROXY_PREFIX}$1`)
     .replace(/(["'])\/api\/auth\b/g, `$1${PROXY_PREFIX}/api/auth`)
     .replace(new RegExp(escapeRe(ZENLOVE_ORIGIN), 'g'), proxyOrigin)
     // Route API through proxy so RSVP/comment POSTs are same-origin
@@ -76,7 +76,7 @@ function removeMenuV2Images(html: string): string {
 }
 
 /** Intercept fetch/XHR so JS-built URLs go through our proxy; inject pageId for /v1/rsvp. */
-const RSVP_PAGE_ID = 'quy-tesssst'
+const RSVP_PAGE_ID = 'quy-hai-220326'
 const URL_REWRITE_INJECTION = `
 <script id="wedding-proxy-rewrite-urls">
 (function(){

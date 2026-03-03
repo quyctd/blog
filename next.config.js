@@ -1,4 +1,4 @@
-const ZENLOVE_WEDDING = 'https://zenlove.me/go/quy-tesssst'
+const ZENLOVE_WEDDING = 'https://zenlove.me/s/quy-hai-220326'
 
 module.exports = {
   reactStrictMode: true,

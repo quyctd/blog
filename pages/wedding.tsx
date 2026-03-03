@@ -1,6 +1,6 @@
 import Head from '@components/head'
 
-const WEDDING_URL = 'https://zenlove.me/go/quy-tesssst'
+const WEDDING_URL = 'https://zenlove.me/s/quy-hai-220326'
 
 /**
  * Wedding invitation page: embeds ZenLove invitation at /wedding.
@@ -9,7 +9,7 @@ const WEDDING_URL = 'https://zenlove.me/go/quy-tesssst'
 const WeddingPage = () => {
   return (
     <>
-      <Head title="Thiệp Cưới | quyctd">
+      <Head title="Thiệp Cưới | Công Quý & Minh Hải">
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <iframe
