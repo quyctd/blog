@@ -9,6 +9,9 @@ const API_ZENLOVE_ORIGIN = 'https://api.zenlove.me'
 const CDN_ZENLOVE_ORIGIN = 'https://cdn.zenlove.me'
 const CDN_RESOURCE_ORIGIN = 'https://cdn-resource.zenlove.me'
 
+const SEO_TITLE = 'Quy & Hai | Wedding'
+const SEO_DESCRIPTION = 'Wedding of Quy & Hai. Save the date — March 22, 2026.'
+
 /**
  * Rewrite root-relative and ZenLove absolute URLs so assets and links go through our proxy.
  * Covers _next, src, href, srcset, data-src, data-srcset, style url(), and full origin.
@@ -216,11 +219,19 @@ const GIFT_HIDE_INJECTION = `
 </script>
 `
 
-/** Injects URL-rewrite interceptor (first) and gift-hide script. */
+/** Injects URL-rewrite interceptor (first), gift-hide script, and custom SEO title/description. */
 function injectGiftHiding(html: string): string {
   const $ = cheerio.load(html)
   $('head').prepend(URL_REWRITE_INJECTION)
   $('head').append(GIFT_HIDE_INJECTION)
+  $('title').remove()
+  $('head').append(`<title>${SEO_TITLE}</title>`)
+  $('meta[name="description"]').remove()
+  $('head').append(`<meta name="description" content="${SEO_DESCRIPTION.replace(/"/g, '&quot;')}">`)
+  $('meta[property="og:title"]').remove()
+  $('head').append(`<meta property="og:title" content="${SEO_TITLE.replace(/"/g, '&quot;')}">`)
+  $('meta[property="og:description"]').remove()
+  $('head').append(`<meta property="og:description" content="${SEO_DESCRIPTION.replace(/"/g, '&quot;')}">`)
   return $.html()
 }
 
