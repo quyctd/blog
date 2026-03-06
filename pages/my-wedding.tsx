@@ -11,6 +11,10 @@ const CDN_RESOURCE_ORIGIN = 'https://cdn-resource.zenlove.me'
 
 const SEO_TITLE = 'Quy & Hai | Wedding'
 const SEO_DESCRIPTION = 'Wedding of Quy & Hai. Save the date — March 22, 2026.'
+const SEO_CREATOR = 'quyctd'
+const SEO_SITE_ORIGIN = 'https://quyctd.dev'
+const SEO_CANONICAL_URL = `${SEO_SITE_ORIGIN}/my-wedding`
+const SEO_IMAGE = '' // Optional: set to absolute URL of wedding share image, or leave empty
 
 /**
  * Rewrite root-relative and ZenLove absolute URLs so assets and links go through our proxy.
@@ -222,16 +226,53 @@ const GIFT_HIDE_INJECTION = `
 /** Injects URL-rewrite interceptor (first), gift-hide script, and custom SEO title/description. */
 function injectGiftHiding(html: string): string {
   const $ = cheerio.load(html)
+  const esc = (s: string) => s.replace(/"/g, '&quot;')
   $('head').prepend(URL_REWRITE_INJECTION)
   $('head').append(GIFT_HIDE_INJECTION)
+
   $('title').remove()
   $('head').append(`<title>${SEO_TITLE}</title>`)
   $('meta[name="description"]').remove()
-  $('head').append(`<meta name="description" content="${SEO_DESCRIPTION.replace(/"/g, '&quot;')}">`)
+  $('head').append(`<meta name="description" content="${esc(SEO_DESCRIPTION)}">`)
+  $('meta[name="author"]').remove()
+  $('head').append(`<meta name="author" content="${SEO_CREATOR}">`)
+
   $('meta[property="og:title"]').remove()
-  $('head').append(`<meta property="og:title" content="${SEO_TITLE.replace(/"/g, '&quot;')}">`)
+  $('head').append(`<meta property="og:title" content="${esc(SEO_TITLE)}">`)
   $('meta[property="og:description"]').remove()
-  $('head').append(`<meta property="og:description" content="${SEO_DESCRIPTION.replace(/"/g, '&quot;')}">`)
+  $('head').append(`<meta property="og:description" content="${esc(SEO_DESCRIPTION)}">`)
+  $('meta[property="og:url"]').remove()
+  $('head').append(`<meta property="og:url" content="${SEO_CANONICAL_URL}">`)
+  $('meta[property="og:type"]').remove()
+  $('head').append('<meta property="og:type" content="website">')
+  $('meta[property="og:site_name"]').remove()
+  $('head').append(`<meta property="og:site_name" content="${esc(SEO_TITLE)}">`)
+  if (SEO_IMAGE) {
+    $('meta[property="og:image"]').remove()
+    $('head').append(`<meta property="og:image" content="${SEO_IMAGE}">`)
+  }
+
+  $('meta[name="twitter:card"]').remove()
+  $('head').append('<meta name="twitter:card" content="summary_large_image">')
+  $('meta[name="twitter:site"]').remove()
+  $('head').append(`<meta name="twitter:site" content="@${SEO_CREATOR}">`)
+  $('meta[name="twitter:title"]').remove()
+  $('head').append(`<meta name="twitter:title" content="${esc(SEO_TITLE)}">`)
+  $('meta[name="twitter:description"]').remove()
+  $('head').append(`<meta name="twitter:description" content="${esc(SEO_DESCRIPTION)}">`)
+  $('meta[name="twitter:creator"]').remove()
+  $('head').append(`<meta name="twitter:creator" content="@${SEO_CREATOR}">`)
+  if (SEO_IMAGE) {
+    $('meta[name="twitter:image"]').remove()
+    $('head').append(`<meta name="twitter:image" content="${SEO_IMAGE}">`)
+  }
+
+  $('meta[name="apple-mobile-web-app-title"]').remove()
+  $('head').append(`<meta name="apple-mobile-web-app-title" content="${SEO_CREATOR}">`)
+
+  $('link[rel="canonical"]').remove()
+  $('head').append(`<link rel="canonical" href="${SEO_CANONICAL_URL}">`)
+
   return $.html()
 }
 
