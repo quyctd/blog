@@ -25159,7 +25159,7 @@
                     void 0 === r
                       ? void 0
                       : r.replace(/\/$/, "")) ||
-                    "https://cdn-resource.zenlove.me";
+                    "https://quyctd.dev/wedding/cdn-resource";
                   return ""
                     .concat(i, "/fonts/webfonts/")
                     .concat(e, "/font.css");
