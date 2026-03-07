@@ -758,7 +758,7 @@
           return (x.useEffect(
             function () {
               if (u) {
-                var e = "/api/auth/signin?".concat(
+                var e = "wedding/api/auth/signin?".concat(
                   new URLSearchParams({
                     error: "SessionRequired",
                     callbackUrl: window.location.href,
@@ -1308,7 +1308,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
           var t;
-          let r = new URL("http://localhost:3000/api/auth");
+          let r = new URL("http://localhost:3000/wedding/api/auth");
           e && !e.startsWith("http") && (e = `https://${e}`);
           let n = new URL(null !== (t = e) && void 0 !== t ? t : r),
             o = ("/" === n.pathname ? r.pathname : n.pathname).replace(
