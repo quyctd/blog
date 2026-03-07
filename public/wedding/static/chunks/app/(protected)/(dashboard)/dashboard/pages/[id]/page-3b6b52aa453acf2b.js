@@ -3620,7 +3620,7 @@
         r = n(21770),
         c = n(33818),
         o = n(80605);
-      let d = (0, c.g)("https://api.zenlove.me");
+      let d = (0, c.g)("https://www.quyctd.dev/wedding/api");
       function h(e) {
         let t =
           arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
@@ -3792,7 +3792,7 @@
               i = await fetch(
                 ""
                   .concat(
-                    "https://api.zenlove.me",
+                    "https://www.quyctd.dev/wedding/api",
                     "/v1/user/guest-invitations/export/"
                   )
                   .concat(n),
@@ -3888,7 +3888,7 @@
         },
       });
       var s = n(71632);
-      let i = (0, n(33818).g)("https://api.zenlove.me");
+      let i = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function a() {
         return (0, s.a)({
           queryKey: ["plans"],

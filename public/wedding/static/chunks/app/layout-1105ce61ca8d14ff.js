@@ -122,7 +122,7 @@
           DATABASE_URL: s.env.DATABASE_URL,
           NEXT_PUBLIC_APP_URL: "https://zenlove.me",
           NODE_ENV: "production",
-          NEXT_PUBLIC_API_URL: "https://api.zenlove.me",
+          NEXT_PUBLIC_API_URL: "https://www.quyctd.dev/wedding/api",
           NEXT_PUBLIC_CLARITY_PROJECT_ID: "vqyzv56fqt",
         },
       });

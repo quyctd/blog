@@ -1679,7 +1679,7 @@
             });
       }
       var Y = n(71632);
-      let $ = (0, n(33818).g)("https://api.zenlove.me");
+      let $ = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function ee(e) {
         var t;
         let { pageId: n, isTemplatePreview: r = !1 } = e,
@@ -1690,55 +1690,7 @@
           d = H((e) => e.setReceivedGiftList),
           { data: u } =
             ((t = { enabled: !!n && !r }),
-            (0, Y.a)({
-              queryKey: ["page-received-gifts", n],
-              queryFn: async () => {
-                if (!n) return [];
-                try {
-                  var e;
-                  let t = await $("/v1/gifts/".concat(n, "/received")),
-                    a =
-                      (null === (e = t.data) || void 0 === e
-                        ? void 0
-                        : e.gifts) || [],
-                    i = new Set(a.map((e) => e.giftCode)),
-                    r = Array.from(i).map((e) => $("/v1/gifts/".concat(e))),
-                    s = await Promise.all(r),
-                    o = new Map();
-                  s.forEach((e) => {
-                    e.success && e.data && o.set(e.data.code, e.data);
-                  });
-                  let l = [];
-                  for (let e of a) {
-                    let t = o.get(e.giftCode);
-                    if (!t) {
-                      console.warn(
-                        'Gift with code "'.concat(
-                          e.giftCode,
-                          '" not found, skipping'
-                        )
-                      );
-                      continue;
-                    }
-                    l.push({
-                      id: e.id,
-                      gift: t,
-                      senderName: e.senderName || void 0,
-                      senderAvatar: e.senderAvatar || void 0,
-                      content: e.giftMessage || void 0,
-                      timestamp: Date.now(),
-                      giftType: e.giftType,
-                    });
-                  }
-                  return l;
-                } catch (e) {
-                  return console.error("Error fetching received gifts:", e), [];
-                }
-              },
-              enabled: !!n && (null == t ? void 0 : t.enabled) !== !1,
-              staleTime: 6e4,
-              gcTime: 3e5,
-            }));
+            {});
         (0, i.useEffect)(() => {
           u ? d(u) : r && d([]);
         }, [u, r, d]);
@@ -4411,7 +4363,7 @@
       var a = n(71632),
         i = n(29827),
         r = n(21770);
-      let s = (0, n(33818).g)("https://api.zenlove.me");
+      let s = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function o() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -4678,7 +4630,7 @@
       var a = n(29827),
         i = n(21770),
         r = n(71632);
-      let s = (0, n(33818).g)("https://api.zenlove.me");
+      let s = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function o() {
         let e = (0, a.NL)();
         return (0, i.D)({
@@ -4696,114 +4648,30 @@
         });
       }
       function l(e) {
-        return (0, r.a)({
-          queryKey: ["messages", e],
-          queryFn: async () =>
-            e
-              ? (await s("/v1/messages/".concat(e))).data
-              : { success: !0, messages: [] },
-          enabled: !!e,
-          staleTime: 12e4,
-          gcTime: 3e5,
-        });
+        return {};
       }
       function c(e) {
         let t =
           arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-        return (0, r.a)({
-          queryKey: ["user-page-messages", e, t],
-          queryFn: async () => {
-            if (!e)
-              return {
-                items: [],
-                meta: { total: 0, page: 1, limit: 10, totalPages: 0 },
-              };
-            let n = new URLSearchParams();
-            t.page && n.append("page", String(t.page)),
-              t.limit && n.append("limit", String(t.limit)),
-              t.nameUser && n.append("nameUser", t.nameUser),
-              t.search && n.append("search", t.search),
-              t.sortBy && n.append("sortBy", t.sortBy),
-              t.sortOrder && n.append("sortOrder", t.sortOrder);
-            let a = n.toString(),
-              i = "/v1/messages/user/".concat(e).concat(a ? "?".concat(a) : "");
-            return (await s(i)).data;
-          },
-          enabled: !!e,
-          staleTime: 12e4,
-          gcTime: 3e5,
-        });
+        return {};
       }
       function d() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        return (0, r.a)({
-          queryKey: ["user-messages", e],
-          queryFn: async () => {
-            let t = new URLSearchParams();
-            e.page && t.append("page", String(e.page)),
-              e.limit && t.append("limit", String(e.limit)),
-              e.nameUser && t.append("nameUser", e.nameUser),
-              e.search && t.append("search", e.search),
-              e.sortBy && t.append("sortBy", e.sortBy),
-              e.sortOrder && t.append("sortOrder", e.sortOrder);
-            let n = t.toString();
-            return (await s("/v1/messages/user".concat(n ? "?".concat(n) : "")))
-              .data;
-          },
-          staleTime: 12e4,
-          gcTime: 3e5,
-        });
+        return {};
       }
       function u() {
         let e = (0, a.NL)();
-        return (0, i.D)({
-          mutationFn: async (e) =>
-            (await s("/v1/messages/user/".concat(e), { method: "DELETE" }))
-              .data,
-          onSuccess: () => {
-            e.invalidateQueries({ queryKey: ["user-messages"] }),
-              e.invalidateQueries({ queryKey: ["user-page-messages"] }),
-              e.invalidateQueries({ queryKey: ["messages"] }),
-              e.invalidateQueries({ queryKey: ["admin-messages"] });
-          },
-        });
+        return {};
       }
       function m() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        return (0, r.a)({
-          queryKey: ["admin-messages", e],
-          queryFn: async () => {
-            let t = new URLSearchParams();
-            e.page && t.append("page", String(e.page)),
-              e.limit && t.append("limit", String(e.limit)),
-              e.nameUser && t.append("nameUser", e.nameUser),
-              e.search && t.append("search", e.search),
-              e.sortBy && t.append("sortBy", e.sortBy),
-              e.sortOrder && t.append("sortOrder", e.sortOrder);
-            let n = t.toString();
-            return (
-              await s("/v1/messages/admin/all".concat(n ? "?".concat(n) : ""))
-            ).data;
-          },
-          staleTime: 12e4,
-          gcTime: 3e5,
-        });
+        return {};
       }
       function f() {
         let e = (0, a.NL)();
-        return (0, i.D)({
-          mutationFn: async (e) =>
-            (await s("/v1/messages/admin/".concat(e), { method: "DELETE" }))
-              .data,
-          onSuccess: () => {
-            e.invalidateQueries({ queryKey: ["admin-messages"] }),
-              e.invalidateQueries({ queryKey: ["user-messages"] }),
-              e.invalidateQueries({ queryKey: ["user-page-messages"] }),
-              e.invalidateQueries({ queryKey: ["messages"] });
-          },
-        });
+        return {};
       }
       function x(e) {
         let t = new Date(e),
@@ -4840,7 +4708,7 @@
       });
       var a = n(21770),
         i = n(71632);
-      let r = (0, n(33818).g)("https://api.zenlove.me");
+      let r = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function s() {
         return (0, a.D)({
           mutationFn: async (e) => {
@@ -4943,7 +4811,7 @@
           DATABASE_URL: r.env.DATABASE_URL,
           NEXT_PUBLIC_APP_URL: "https://zenlove.me",
           NODE_ENV: "production",
-          NEXT_PUBLIC_API_URL: "https://api.zenlove.me",
+          NEXT_PUBLIC_API_URL: "https://www.quyctd.dev/wedding/api",
           NEXT_PUBLIC_CLARITY_PROJECT_ID: "vqyzv56fqt",
         },
       });

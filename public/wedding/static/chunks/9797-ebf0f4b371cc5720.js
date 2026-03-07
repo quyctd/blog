@@ -94,7 +94,7 @@
       var a = n(71632),
         r = n(29827),
         i = n(21770);
-      let o = (0, n(33818).g)("https://api.zenlove.me");
+      let o = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function s(e) {
         var t;
         return (0, a.a)({
@@ -295,7 +295,7 @@
         u = n(33818),
         c = n(35502),
         d = n(2265);
-      let l = (0, u.g)("https://api.zenlove.me");
+      let l = (0, u.g)("https://www.quyctd.dev/wedding/api");
       function p() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -502,7 +502,7 @@
           mutationFn: async (e) => {
             let t = await fetch(
               ""
-                .concat("https://api.zenlove.me", "/v1/pages/")
+                .concat("https://www.quyctd.dev/wedding/api", "/v1/pages/")
                 .concat(e.id, "/like"),
               {
                 method: "POST",
@@ -543,48 +543,7 @@
       }
       function S() {
         let e = (0, o.NL)();
-        return (0, s.D)({
-          mutationFn: async (e) => {
-            let t = await fetch(
-              ""
-                .concat("https://api.zenlove.me", "/v1/pages/")
-                .concat(e.id, "/view"),
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-              }
-            );
-            if (!t.ok) throw Error("HTTP error! status: ".concat(t.status));
-            return await t.json();
-          },
-          onSuccess: (t, n) => {
-            e.setQueryData(["page", n.id], (e) =>
-              e
-                ? {
-                    ...e,
-                    page: { ...e.page, viewCount: t.viewCount },
-                    statistics: { ...e.statistics, viewCount: t.viewCount },
-                  }
-                : e
-            ),
-              e.setQueriesData({ queryKey: ["pages"] }, (e) =>
-                e
-                  ? {
-                      ...e,
-                      items: e.items.map((e) =>
-                        e.id === n.id ? { ...e, viewCount: t.viewCount } : e
-                      ),
-                    }
-                  : e
-              );
-          },
-          onError: (e) => {
-            (null == e ? void 0 : e.status) === 429
-              ? console.warn("Rate limited for view action")
-              : (null == e ? void 0 : e.status) === 404 &&
-                console.error("Page not found for view action");
-          },
-        });
+        return null;
       }
       ((a = r || (r = {})).draft = "draft"),
         (a.published = "published"),
@@ -637,7 +596,7 @@
         i = n(29827),
         o = n(21770),
         s = n(71632);
-      let u = (0, n(33818).g)("https://api.zenlove.me");
+      let u = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function c() {
         let e = (0, i.NL)();
         return (0, o.D)({

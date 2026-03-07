@@ -833,7 +833,7 @@
       var a = n(71632),
         r = n(29827),
         i = n(21770);
-      let s = (0, n(33818).g)("https://api.zenlove.me");
+      let s = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function o(e) {
         var t;
         return (0, a.a)({
@@ -991,7 +991,7 @@
         r = n(29827),
         i = n(21770),
         s = n(80605);
-      let o = (0, n(33818).g)("https://api.zenlove.me");
+      let o = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function l() {
         let e =
             !(arguments.length > 0) || void 0 === arguments[0] || arguments[0],

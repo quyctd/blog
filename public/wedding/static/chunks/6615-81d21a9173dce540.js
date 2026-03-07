@@ -4530,7 +4530,7 @@
         eY = a(71632),
         eF = a(29827),
         eL = a(21770);
-      let eO = (0, a(33818).g)("https://api.zenlove.me"),
+      let eO = (0, a(33818).g)("https://www.quyctd.dev/wedding/api"),
         eG = ["fonts-my"];
       function eH(e) {
         let { visible: t, onClose: a, onUploadSuccess: o } = e,
@@ -25094,7 +25094,7 @@
           { loading: i, ready: c, error: m }
         );
       }
-      let m = (0, r.g)("https://api.zenlove.me");
+      let m = (0, r.g)("https://www.quyctd.dev/wedding/api");
       function A() {
         return (0, o.a)({
           queryKey: ["user-fonts-resources"],
@@ -25264,7 +25264,7 @@
       var n = a(2265),
         o = a(71632),
         r = a(58962);
-      let l = (0, a(33818).g)("https://api.zenlove.me");
+      let l = (0, a(33818).g)("https://www.quyctd.dev/wedding/api");
       function i() {
         return (0, o.a)({
           queryKey: ["resources", "music"],
@@ -25400,7 +25400,7 @@
       var n = a(29827),
         o = a(21770),
         r = a(71632);
-      let l = (0, a(33818).g)("https://api.zenlove.me");
+      let l = (0, a(33818).g)("https://www.quyctd.dev/wedding/api");
       class i extends Error {
         constructor(e, t) {
           super(e), (this.name = "RateLimitError"), (this.remainingTime = t);
@@ -25608,7 +25608,7 @@
         o = a(29827),
         r = a(21770),
         l = a(80605);
-      let i = (0, a(33818).g)("https://api.zenlove.me");
+      let i = (0, a(33818).g)("https://www.quyctd.dev/wedding/api");
       function s(e) {
         var t;
         let { status: a } = (0, l.useSession)();

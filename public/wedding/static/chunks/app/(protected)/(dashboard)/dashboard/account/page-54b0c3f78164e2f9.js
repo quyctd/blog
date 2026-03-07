@@ -202,7 +202,7 @@
         k = n(85839),
         S = n(33818);
       let { Title: Z, Text: C } = r.default,
-        I = (0, S.g)("https://api.zenlove.me");
+        I = (0, S.g)("https://www.quyctd.dev/wedding/api");
       function E() {
         var e, t, n, r, v;
         let [w] = l.Z.useForm(),
@@ -645,7 +645,7 @@
         i = n(29827),
         r = n(21770),
         l = n(80605);
-      let o = (0, n(33818).g)("https://api.zenlove.me");
+      let o = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function s() {
         let e =
             !(arguments.length > 0) || void 0 === arguments[0] || arguments[0],

@@ -1175,18 +1175,6 @@
           var D = (0, k.Z)({ height: o, width: o }, v),
             H = null;
           return (
-            null != b &&
-              (H = r.createElement("img", {
-                alt: "QR-Code",
-                src: b,
-                key: b,
-                style: { display: "none" },
-                onLoad: function () {
-                  _(!0);
-                },
-                ref: Z,
-                crossOrigin: null == T ? void 0 : T.crossOrigin,
-              })),
             r.createElement(
               r.Fragment,
               null,

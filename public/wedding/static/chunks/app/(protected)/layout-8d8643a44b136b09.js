@@ -726,7 +726,7 @@
         a = n(29827),
         i = n(21770),
         o = n(80605);
-      let c = (0, n(33818).g)("https://api.zenlove.me");
+      let c = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function s() {
         let e =
             !(arguments.length > 0) || void 0 === arguments[0] || arguments[0],
@@ -887,7 +887,7 @@
         o = n(71632),
         c = n(29827),
         s = n(21770);
-      let l = (0, n(33818).g)("https://api.zenlove.me");
+      let l = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function u() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};

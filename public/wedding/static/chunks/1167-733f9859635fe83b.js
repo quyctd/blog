@@ -598,7 +598,7 @@
         i = a(29827),
         r = a(21770),
         s = a(80605);
-      let o = (0, a(33818).g)("https://api.zenlove.me");
+      let o = (0, a(33818).g)("https://www.quyctd.dev/wedding/api");
       function l() {
         let e =
             !(arguments.length > 0) || void 0 === arguments[0] || arguments[0],
@@ -703,7 +703,7 @@
       var n = a(71632),
         i = a(29827),
         r = a(21770);
-      let s = (0, a(33818).g)("https://api.zenlove.me");
+      let s = (0, a(33818).g)("https://www.quyctd.dev/wedding/api");
       function o() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -719,8 +719,7 @@
               e.sortBy && t.append("sortBy", e.sortBy),
               e.sortOrder && t.append("sortOrder", e.sortOrder);
             let a = t.toString();
-            return (await s("/v1/categories".concat(a ? "?".concat(a) : "")))
-              .data;
+            return null;
           },
           staleTime: 3e5,
           gcTime: 6e5,
@@ -853,7 +852,7 @@
         l = a(33818),
         c = a(35502),
         u = a(2265);
-      let d = (0, l.g)("https://api.zenlove.me");
+      let d = (0, l.g)("https://www.quyctd.dev/wedding/api");
       function p() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -1060,7 +1059,7 @@
           mutationFn: async (e) => {
             let t = await fetch(
               ""
-                .concat("https://api.zenlove.me", "/v1/pages/")
+                .concat("https://www.quyctd.dev/wedding/api", "/v1/pages/")
                 .concat(e.id, "/like"),
               {
                 method: "POST",
@@ -1101,48 +1100,7 @@
       }
       function b() {
         let e = (0, s.NL)();
-        return (0, o.D)({
-          mutationFn: async (e) => {
-            let t = await fetch(
-              ""
-                .concat("https://api.zenlove.me", "/v1/pages/")
-                .concat(e.id, "/view"),
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-              }
-            );
-            if (!t.ok) throw Error("HTTP error! status: ".concat(t.status));
-            return await t.json();
-          },
-          onSuccess: (t, a) => {
-            e.setQueryData(["page", a.id], (e) =>
-              e
-                ? {
-                    ...e,
-                    page: { ...e.page, viewCount: t.viewCount },
-                    statistics: { ...e.statistics, viewCount: t.viewCount },
-                  }
-                : e
-            ),
-              e.setQueriesData({ queryKey: ["pages"] }, (e) =>
-                e
-                  ? {
-                      ...e,
-                      items: e.items.map((e) =>
-                        e.id === a.id ? { ...e, viewCount: t.viewCount } : e
-                      ),
-                    }
-                  : e
-              );
-          },
-          onError: (e) => {
-            (null == e ? void 0 : e.status) === 429
-              ? console.warn("Rate limited for view action")
-              : (null == e ? void 0 : e.status) === 404 &&
-                console.error("Page not found for view action");
-          },
-        });
+        return null;
       }
       ((n = i || (i = {})).draft = "draft"),
         (n.published = "published"),
@@ -1196,7 +1154,7 @@
         r = a(29827),
         s = a(21770),
         o = a(71632);
-      let l = (0, a(33818).g)("https://quyctd.dev/wedding/api");
+      let l = (0, a(33818).g)("https://www.quyctd.dev/wedding/api");
       function c() {
         let e = (0, r.NL)();
         return (0, s.D)({

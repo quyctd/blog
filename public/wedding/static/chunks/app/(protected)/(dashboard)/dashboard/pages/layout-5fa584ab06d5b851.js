@@ -264,7 +264,7 @@
       var a = n(71632),
         i = n(29827),
         r = n(21770);
-      let s = (0, n(33818).g)("https://api.zenlove.me");
+      let s = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function l(e) {
         var t;
         return (0, a.a)({
@@ -613,7 +613,7 @@
         d = n(21770),
         c = n(33818),
         m = n(35502);
-      let p = (0, c.g)("https://api.zenlove.me");
+      let p = (0, c.g)("https://www.quyctd.dev/wedding/api");
       function v() {
         var e;
         let t =

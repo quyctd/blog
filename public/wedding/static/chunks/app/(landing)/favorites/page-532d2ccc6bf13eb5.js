@@ -959,7 +959,7 @@
         a = n(29827),
         s = n(21770),
         l = n(80605);
-      let r = (0, n(33818).g)("https://api.zenlove.me");
+      let r = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function o(e) {
         var t;
         let { status: n } = (0, l.useSession)();

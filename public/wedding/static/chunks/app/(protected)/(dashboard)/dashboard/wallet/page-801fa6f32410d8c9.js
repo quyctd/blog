@@ -893,7 +893,7 @@
         s = n(29827),
         a = n(21770),
         r = n(80605);
-      let l = (0, n(33818).g)("https://api.zenlove.me");
+      let l = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function c() {
         let e =
             !(arguments.length > 0) || void 0 === arguments[0] || arguments[0],
@@ -981,7 +981,7 @@
         },
       });
       var i = n(71632);
-      let s = (0, n(33818).g)("https://api.zenlove.me");
+      let s = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function a() {
         let e =
             arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},

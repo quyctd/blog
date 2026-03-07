@@ -892,7 +892,7 @@
       var n = s(29827),
         a = s(21770),
         r = s(71632);
-      let i = (0, s(33818).g)("https://api.zenlove.me");
+      let i = (0, s(33818).g)("https://www.quyctd.dev/wedding/api");
       function c() {
         let e = (0, n.NL)();
         return (0, a.D)({

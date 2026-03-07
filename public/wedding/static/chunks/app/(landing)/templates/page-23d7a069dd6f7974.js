@@ -156,7 +156,7 @@
             if (!(e > (y.totalPages || e)))
               try {
                 P(!0), M(null);
-                let t = "https://api.zenlove.me".replace(/\/$/, ""),
+                let t = "https://www.quyctd.dev/wedding/api".replace(/\/$/, ""),
                   n = new URLSearchParams({
                     page: String(e),
                     limit: String(m),
@@ -1086,7 +1086,7 @@
         l = n(29827),
         a = n(21770),
         r = n(80605);
-      let o = (0, n(33818).g)("https://api.zenlove.me");
+      let o = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function s(e) {
         var t;
         let { status: n } = (0, r.useSession)();

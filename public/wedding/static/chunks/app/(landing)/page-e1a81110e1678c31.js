@@ -2896,7 +2896,7 @@
       var i = n(71632),
         a = n(29827),
         s = n(21770);
-      let r = (0, n(33818).g)("https://api.zenlove.me");
+      let r = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function l(e) {
         var t;
         return (0, i.a)({
@@ -3054,7 +3054,7 @@
         a = n(29827),
         s = n(21770),
         r = n(80605);
-      let l = (0, n(33818).g)("https://api.zenlove.me");
+      let l = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function o() {
         let e =
             !(arguments.length > 0) || void 0 === arguments[0] || arguments[0],
@@ -3331,7 +3331,7 @@
         a = n(29827),
         s = n(21770),
         r = n(80605);
-      let l = (0, n(33818).g)("https://api.zenlove.me");
+      let l = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function o(e) {
         var t;
         let { status: n } = (0, r.useSession)();
@@ -3484,7 +3484,7 @@
         d = n(21770),
         h = n(33818),
         u = n(35502);
-      let m = (0, h.g)("https://api.zenlove.me");
+      let m = (0, h.g)("https://www.quyctd.dev/wedding/api");
       function g() {
         var e;
         let t =

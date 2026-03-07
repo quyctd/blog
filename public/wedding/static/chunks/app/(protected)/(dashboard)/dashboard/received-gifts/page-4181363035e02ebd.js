@@ -704,7 +704,7 @@
         },
       });
       var s = n(71632);
-      let a = (0, n(33818).g)("https://api.zenlove.me");
+      let a = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       function i() {
         let e =
             arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},

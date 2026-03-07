@@ -863,7 +863,7 @@
       var a = n(29827),
         r = n(21770),
         s = n(71632);
-      let i = (0, n(33818).g)("https://api.zenlove.me");
+      let i = (0, n(33818).g)("https://www.quyctd.dev/wedding/api");
       class c extends Error {
         constructor(e, t) {
           super(e), (this.name = "RateLimitError"), (this.remainingTime = t);

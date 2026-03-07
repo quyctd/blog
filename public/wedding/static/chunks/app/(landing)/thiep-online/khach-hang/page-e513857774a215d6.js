@@ -765,7 +765,7 @@
             if (!(e > (v.totalPages || e)))
               try {
                 z(!0), R(null);
-                let t = "https://api.zenlove.me".replace(/\/$/, ""),
+                let t = "https://www.quyctd.dev/wedding/api".replace(/\/$/, ""),
                   n = new URLSearchParams({
                     page: String(e),
                     limit: String(v.limit || 20),
