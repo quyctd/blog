@@ -943,7 +943,7 @@
                 title: "Zenlove - Tạo thiệp cưới online đẹp nhất",
               }),
               (0, i.jsx)("img", {
-                src: "https://cdn-resource.zenlove.me/assets/logo/logo-zenlove-text-dark.svg",
+                src: "https://www.quyctd.dev/wedding/cdn-resource/assets/logo/logo-zenlove-text-dark.svg",
                 className: "h-4 mr-3 md:h-5",
                 alt: "Zenlove - Website thiệp cưới online miễn ph\xed",
                 title: "Zenlove - Thiệp cưới điện tử đẹp v\xe0 hiện đại",
@@ -1096,7 +1096,7 @@
       }
       function u(n) {
         let e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-          t = "https://cdn.zenlove.me";
+          t = "https://www.quyctd.dev/wedding/cdn";
         t || console.warn("NEXT_PUBLIC_CDN_URL is not defined."),
           n || (n = "/assets/thumb_default.png"),
           n.startsWith("/") && (n = n.slice(1));
@@ -1234,7 +1234,7 @@
         e && (s.set("format", "webp"), s.set("quality", "80"));
         let u = s.toString();
         return ""
-          .concat("https://cdn-resource.zenlove.me".replace(/\/+$/, ""), "/")
+          .concat("https://www.quyctd.dev/wedding/cdn-resource".replace(/\/+$/, ""), "/")
           .concat(t)
           .concat(u ? "?".concat(u) : "");
       }

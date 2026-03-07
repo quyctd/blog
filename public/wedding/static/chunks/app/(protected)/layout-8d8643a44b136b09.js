@@ -1393,7 +1393,7 @@
       }
       function h(e) {
         let t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-          n = "https://cdn.zenlove.me";
+          n = "https://www.quyctd.dev/wedding/cdn";
         n || console.warn("NEXT_PUBLIC_CDN_URL is not defined."),
           e || (e = "/assets/thumb_default.png"),
           e.startsWith("/") && (e = e.slice(1));
@@ -1531,7 +1531,7 @@
         t && (i.set("format", "webp"), i.set("quality", "80"));
         let h = i.toString();
         return ""
-          .concat("https://cdn-resource.zenlove.me".replace(/\/+$/, ""), "/")
+          .concat("https://www.quyctd.dev/wedding/cdn-resource".replace(/\/+$/, ""), "/")
           .concat(n)
           .concat(h ? "?".concat(h) : "");
       }

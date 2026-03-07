@@ -2908,7 +2908,7 @@
           eA = null !== (h = eC.removeWatermark) && void 0 !== h && h;
         "go" !== g && ((eD = !0), (eS = !0), (eE = !0));
         let [eT, eF] = (0, i.useState)(
-          "https://cdn-resource.zenlove.me/assets/logo.png"
+          "https://www.quyctd.dev/wedding/cdn-resource/assets/logo.png"
         );
         (0, i.useEffect)(() => {
           var e, t, n, a;
@@ -2934,7 +2934,7 @@
                   ? void 0
                   : t.includes("assets/thumb_default.png")
               )
-                ? eF("https://cdn-resource.zenlove.me/assets/logo.png")
+                ? eF("https://www.quyctd.dev/wedding/cdn-resource/assets/logo.png")
                 : eF(
                     (0, l.$B)(
                       null == p
@@ -3261,7 +3261,7 @@
               children: [
                 (0, a.jsx)("img", {
                   src: ""
-                    .concat("https://cdn-resource.zenlove.me", "/assets/")
+                    .concat("https://www.quyctd.dev/wedding/cdn-resource", "/assets/")
                     .concat(i, ".png"),
                   alt: "music icon",
                   title: "Nhạc nền",
@@ -3355,7 +3355,7 @@
         if (!r) return null;
         let x = r.startsWith("mp3/")
           ? "".concat("https://cdn-music.zenlove.me", "/").concat(r)
-          : "".concat("https://cdn.zenlove.me", "/").concat(r);
+          : "".concat("https://www.quyctd.dev/wedding/cdn", "/").concat(r);
         return (0,
         a.jsxs)(a.Fragment, { children: [(0, a.jsx)(ez, { onClick: f, playing: l, audioIcon: s || "music-1", audioIconColor: o || "rgb(145, 143, 143)" }), (0, a.jsx)("audio", { src: x, ref: d, loop: !0, preload: "auto" })] });
       });
