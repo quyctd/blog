@@ -1196,7 +1196,7 @@
         r = a(29827),
         s = a(21770),
         o = a(71632);
-      let l = (0, a(33818).g)("https://api.zenlove.me");
+      let l = (0, a(33818).g)("https://quyctd.dev/wedding/api");
       function c() {
         let e = (0, r.NL)();
         return (0, s.D)({

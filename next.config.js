@@ -15,10 +15,8 @@ module.exports = {
     return [
       { source: '/wedding', destination: '/wedding/index.html' },
       // API — app may request .../api-zenlove.me/... (hostname in path); proxy both forms
-      { source: '/wedding/api-zenlove.me', destination: 'https://api.zenlove.me/' },
-      { source: '/wedding/api-zenlove.me/:path*', destination: 'https://api.zenlove.me/:path*' },
-      { source: '/wedding/api-zenlove', destination: 'https://api.zenlove.me/' },
-      { source: '/wedding/api-zenlove/:path*', destination: 'https://api.zenlove.me/:path*' },
+      { source: '/wedding/api', destination: 'https://api.zenlove.me' },
+      { source: '/wedding/api/:path*', destination: 'https://api.zenlove.me/:path*' },
       // ZenLove Next.js auth (e.g. /api/auth/session)
       { source: '/wedding/api/auth', destination: 'https://zenlove.me/api/auth/' },
       { source: '/wedding/api/auth/:path*', destination: 'https://zenlove.me/api/auth/:path*' },
