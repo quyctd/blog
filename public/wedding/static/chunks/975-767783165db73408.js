@@ -1237,7 +1237,7 @@
                 title: "@quyctd - Thiệp cưới online đẹp nhất",
               }),
               (0, i.jsx)("img", {
-                src: "https://www.quyctd.dev/wedding/cdn-resource/assets/logo/logo-zenlove-text-dark.svg",
+                src: "https://www.quyctd.dev/og.png",
                 className: "h-4 mr-3 md:h-5",
                 alt: "Website thiệp cưới online",
                 title: "@quyctd - Thiệp cưới điện tử đẹp nhất",

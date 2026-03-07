@@ -940,13 +940,13 @@
                 src: "/assets/og.png",
                 className: "h-7 mr-2 md:h-9",
                 alt: "Quy & Hai - Wedding\xed",
-                title: "Zenlove - Tạo thiệp cưới online đẹp nhất",
+                title: "Thiệp cưới online",
               }),
               (0, i.jsx)("img", {
-                src: "https://www.quyctd.dev/wedding/cdn-resource/assets/logo/logo-zenlove-text-dark.svg",
+                src: "https://www.quyctd.dev/og.png",
                 className: "h-4 mr-3 md:h-5",
-                alt: "Zenlove - Website thiệp cưới online miễn ph\xed",
-                title: "Zenlove - Thiệp cưới điện tử đẹp v\xe0 hiện đại",
+                alt: "Thiệp cưới online",
+                title: "Thiệp cưới online",
               }),
               (0, i.jsx)("div", {
                 className:
