@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "BaskervilleBook";
+  src: url("https://cdn.zenlove.me/fonts/webfonts/baskervillebook/baskervillebook-1763158681936-1yo3xx.woff2")
+      format("woff2"),
+    url("https://cdn.zenlove.me/fonts/webfonts/baskervillebook/baskervillebook-1763158681936-1yo3xx.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

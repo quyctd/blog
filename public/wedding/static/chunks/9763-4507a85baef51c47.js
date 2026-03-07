@@ -1,0 +1,1026 @@
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [9763],
+  {
+    87045: function (t, e, i) {
+      i.d(e, {
+        j: function () {
+          return s;
+        },
+      });
+      var n = i(24112),
+        r = i(45345),
+        s = new (class extends n.l {
+          #t;
+          #e;
+          #i;
+          constructor() {
+            super(),
+              (this.#i = (t) => {
+                if (!r.sk && window.addEventListener) {
+                  let e = () => t();
+                  return (
+                    window.addEventListener("visibilitychange", e, !1),
+                    () => {
+                      window.removeEventListener("visibilitychange", e);
+                    }
+                  );
+                }
+              });
+          }
+          onSubscribe() {
+            this.#e || this.setEventListener(this.#i);
+          }
+          onUnsubscribe() {
+            this.hasListeners() || (this.#e?.(), (this.#e = void 0));
+          }
+          setEventListener(t) {
+            (this.#i = t),
+              this.#e?.(),
+              (this.#e = t((t) => {
+                "boolean" == typeof t ? this.setFocused(t) : this.onFocus();
+              }));
+          }
+          setFocused(t) {
+            this.#t !== t && ((this.#t = t), this.onFocus());
+          }
+          onFocus() {
+            let t = this.isFocused();
+            this.listeners.forEach((e) => {
+              e(t);
+            });
+          }
+          isFocused() {
+            return "boolean" == typeof this.#t
+              ? this.#t
+              : globalThis.document?.visibilityState !== "hidden";
+          }
+        })();
+    },
+    18238: function (t, e, i) {
+      i.d(e, {
+        Vr: function () {
+          return r;
+        },
+      });
+      var n = i(84554).Hp,
+        r = (function () {
+          let t = [],
+            e = 0,
+            i = (t) => {
+              t();
+            },
+            r = (t) => {
+              t();
+            },
+            s = n,
+            o = (n) => {
+              e
+                ? t.push(n)
+                : s(() => {
+                    i(n);
+                  });
+            },
+            u = () => {
+              let e = t;
+              (t = []),
+                e.length &&
+                  s(() => {
+                    r(() => {
+                      e.forEach((t) => {
+                        i(t);
+                      });
+                    });
+                  });
+            };
+          return {
+            batch: (t) => {
+              let i;
+              e++;
+              try {
+                i = t();
+              } finally {
+                --e || u();
+              }
+              return i;
+            },
+            batchCalls:
+              (t) =>
+              (...e) => {
+                o(() => {
+                  t(...e);
+                });
+              },
+            schedule: o,
+            setNotifyFunction: (t) => {
+              i = t;
+            },
+            setBatchNotifyFunction: (t) => {
+              r = t;
+            },
+            setScheduler: (t) => {
+              s = t;
+            },
+          };
+        })();
+    },
+    57853: function (t, e, i) {
+      i.d(e, {
+        N: function () {
+          return s;
+        },
+      });
+      var n = i(24112),
+        r = i(45345),
+        s = new (class extends n.l {
+          #n = !0;
+          #e;
+          #i;
+          constructor() {
+            super(),
+              (this.#i = (t) => {
+                if (!r.sk && window.addEventListener) {
+                  let e = () => t(!0),
+                    i = () => t(!1);
+                  return (
+                    window.addEventListener("online", e, !1),
+                    window.addEventListener("offline", i, !1),
+                    () => {
+                      window.removeEventListener("online", e),
+                        window.removeEventListener("offline", i);
+                    }
+                  );
+                }
+              });
+          }
+          onSubscribe() {
+            this.#e || this.setEventListener(this.#i);
+          }
+          onUnsubscribe() {
+            this.hasListeners() || (this.#e?.(), (this.#e = void 0));
+          }
+          setEventListener(t) {
+            (this.#i = t),
+              this.#e?.(),
+              (this.#e = t(this.setOnline.bind(this)));
+          }
+          setOnline(t) {
+            this.#n !== t &&
+              ((this.#n = t),
+              this.listeners.forEach((e) => {
+                e(t);
+              }));
+          }
+          isOnline() {
+            return this.#n;
+          }
+        })();
+    },
+    21733: function (t, e, i) {
+      i.d(e, {
+        A: function () {
+          return u;
+        },
+        z: function () {
+          return a;
+        },
+      });
+      var n = i(45345),
+        r = i(18238),
+        s = i(11255),
+        o = i(7989),
+        u = class extends o.F {
+          #r;
+          #s;
+          #o;
+          #u;
+          #a;
+          #c;
+          #h;
+          constructor(t) {
+            super(),
+              (this.#h = !1),
+              (this.#c = t.defaultOptions),
+              this.setOptions(t.options),
+              (this.observers = []),
+              (this.#u = t.client),
+              (this.#o = this.#u.getQueryCache()),
+              (this.queryKey = t.queryKey),
+              (this.queryHash = t.queryHash),
+              (this.#r = c(this.options)),
+              (this.state = t.state ?? this.#r),
+              this.scheduleGc();
+          }
+          get meta() {
+            return this.options.meta;
+          }
+          get promise() {
+            return this.#a?.promise;
+          }
+          setOptions(t) {
+            if (
+              ((this.options = { ...this.#c, ...t }),
+              this.updateGcTime(this.options.gcTime),
+              this.state && void 0 === this.state.data)
+            ) {
+              let t = c(this.options);
+              void 0 !== t.data &&
+                (this.setData(t.data, {
+                  updatedAt: t.dataUpdatedAt,
+                  manual: !0,
+                }),
+                (this.#r = t));
+            }
+          }
+          optionalRemove() {
+            this.observers.length ||
+              "idle" !== this.state.fetchStatus ||
+              this.#o.remove(this);
+          }
+          setData(t, e) {
+            let i = (0, n.oE)(this.state.data, t, this.options);
+            return (
+              this.#l({
+                data: i,
+                type: "success",
+                dataUpdatedAt: e?.updatedAt,
+                manual: e?.manual,
+              }),
+              i
+            );
+          }
+          setState(t, e) {
+            this.#l({ type: "setState", state: t, setStateOptions: e });
+          }
+          cancel(t) {
+            let e = this.#a?.promise;
+            return (
+              this.#a?.cancel(t),
+              e ? e.then(n.ZT).catch(n.ZT) : Promise.resolve()
+            );
+          }
+          destroy() {
+            super.destroy(), this.cancel({ silent: !0 });
+          }
+          reset() {
+            this.destroy(), this.setState(this.#r);
+          }
+          isActive() {
+            return this.observers.some(
+              (t) => !1 !== (0, n.Nc)(t.options.enabled, this)
+            );
+          }
+          isDisabled() {
+            return this.getObserversCount() > 0
+              ? !this.isActive()
+              : this.options.queryFn === n.CN ||
+                  this.state.dataUpdateCount + this.state.errorUpdateCount ===
+                    0;
+          }
+          isStatic() {
+            return (
+              this.getObserversCount() > 0 &&
+              this.observers.some(
+                (t) => "static" === (0, n.KC)(t.options.staleTime, this)
+              )
+            );
+          }
+          isStale() {
+            return this.getObserversCount() > 0
+              ? this.observers.some((t) => t.getCurrentResult().isStale)
+              : void 0 === this.state.data || this.state.isInvalidated;
+          }
+          isStaleByTime(t = 0) {
+            return (
+              void 0 === this.state.data ||
+              ("static" !== t &&
+                (!!this.state.isInvalidated ||
+                  !(0, n.Kp)(this.state.dataUpdatedAt, t)))
+            );
+          }
+          onFocus() {
+            let t = this.observers.find((t) => t.shouldFetchOnWindowFocus());
+            t?.refetch({ cancelRefetch: !1 }), this.#a?.continue();
+          }
+          onOnline() {
+            let t = this.observers.find((t) => t.shouldFetchOnReconnect());
+            t?.refetch({ cancelRefetch: !1 }), this.#a?.continue();
+          }
+          addObserver(t) {
+            this.observers.includes(t) ||
+              (this.observers.push(t),
+              this.clearGcTimeout(),
+              this.#o.notify({
+                type: "observerAdded",
+                query: this,
+                observer: t,
+              }));
+          }
+          removeObserver(t) {
+            this.observers.includes(t) &&
+              ((this.observers = this.observers.filter((e) => e !== t)),
+              this.observers.length ||
+                (this.#a &&
+                  (this.#h
+                    ? this.#a.cancel({ revert: !0 })
+                    : this.#a.cancelRetry()),
+                this.scheduleGc()),
+              this.#o.notify({
+                type: "observerRemoved",
+                query: this,
+                observer: t,
+              }));
+          }
+          getObserversCount() {
+            return this.observers.length;
+          }
+          invalidate() {
+            this.state.isInvalidated || this.#l({ type: "invalidate" });
+          }
+          async fetch(t, e) {
+            if (
+              "idle" !== this.state.fetchStatus &&
+              this.#a?.status() !== "rejected"
+            ) {
+              if (void 0 !== this.state.data && e?.cancelRefetch)
+                this.cancel({ silent: !0 });
+              else if (this.#a) return this.#a.continueRetry(), this.#a.promise;
+            }
+            if ((t && this.setOptions(t), !this.options.queryFn)) {
+              let t = this.observers.find((t) => t.options.queryFn);
+              t && this.setOptions(t.options);
+            }
+            let i = new AbortController(),
+              r = (t) => {
+                Object.defineProperty(t, "signal", {
+                  enumerable: !0,
+                  get: () => ((this.#h = !0), i.signal),
+                });
+              },
+              o = () => {
+                let t = (0, n.cG)(this.options, e),
+                  i = (() => {
+                    let t = {
+                      client: this.#u,
+                      queryKey: this.queryKey,
+                      meta: this.meta,
+                    };
+                    return r(t), t;
+                  })();
+                return ((this.#h = !1), this.options.persister)
+                  ? this.options.persister(t, i, this)
+                  : t(i);
+              },
+              u = (() => {
+                let t = {
+                  fetchOptions: e,
+                  options: this.options,
+                  queryKey: this.queryKey,
+                  client: this.#u,
+                  state: this.state,
+                  fetchFn: o,
+                };
+                return r(t), t;
+              })();
+            this.options.behavior?.onFetch(u, this),
+              (this.#s = this.state),
+              ("idle" === this.state.fetchStatus ||
+                this.state.fetchMeta !== u.fetchOptions?.meta) &&
+                this.#l({ type: "fetch", meta: u.fetchOptions?.meta }),
+              (this.#a = (0, s.Mz)({
+                initialPromise: e?.initialPromise,
+                fn: u.fetchFn,
+                onCancel: (t) => {
+                  t instanceof s.p8 &&
+                    t.revert &&
+                    this.setState({ ...this.#s, fetchStatus: "idle" }),
+                    i.abort();
+                },
+                onFail: (t, e) => {
+                  this.#l({ type: "failed", failureCount: t, error: e });
+                },
+                onPause: () => {
+                  this.#l({ type: "pause" });
+                },
+                onContinue: () => {
+                  this.#l({ type: "continue" });
+                },
+                retry: u.options.retry,
+                retryDelay: u.options.retryDelay,
+                networkMode: u.options.networkMode,
+                canRun: () => !0,
+              }));
+            try {
+              let t = await this.#a.start();
+              if (void 0 === t)
+                throw Error(`${this.queryHash} data is undefined`);
+              return (
+                this.setData(t),
+                this.#o.config.onSuccess?.(t, this),
+                this.#o.config.onSettled?.(t, this.state.error, this),
+                t
+              );
+            } catch (t) {
+              if (t instanceof s.p8) {
+                if (t.silent) return this.#a.promise;
+                if (t.revert) {
+                  if (void 0 === this.state.data) throw t;
+                  return this.state.data;
+                }
+              }
+              throw (
+                (this.#l({ type: "error", error: t }),
+                this.#o.config.onError?.(t, this),
+                this.#o.config.onSettled?.(this.state.data, t, this),
+                t)
+              );
+            } finally {
+              this.scheduleGc();
+            }
+          }
+          #l(t) {
+            (this.state = ((e) => {
+              switch (t.type) {
+                case "failed":
+                  return {
+                    ...e,
+                    fetchFailureCount: t.failureCount,
+                    fetchFailureReason: t.error,
+                  };
+                case "pause":
+                  return { ...e, fetchStatus: "paused" };
+                case "continue":
+                  return { ...e, fetchStatus: "fetching" };
+                case "fetch":
+                  return {
+                    ...e,
+                    ...a(e.data, this.options),
+                    fetchMeta: t.meta ?? null,
+                  };
+                case "success":
+                  let i = {
+                    ...e,
+                    data: t.data,
+                    dataUpdateCount: e.dataUpdateCount + 1,
+                    dataUpdatedAt: t.dataUpdatedAt ?? Date.now(),
+                    error: null,
+                    isInvalidated: !1,
+                    status: "success",
+                    ...(!t.manual && {
+                      fetchStatus: "idle",
+                      fetchFailureCount: 0,
+                      fetchFailureReason: null,
+                    }),
+                  };
+                  return (this.#s = t.manual ? i : void 0), i;
+                case "error":
+                  let n = t.error;
+                  return {
+                    ...e,
+                    error: n,
+                    errorUpdateCount: e.errorUpdateCount + 1,
+                    errorUpdatedAt: Date.now(),
+                    fetchFailureCount: e.fetchFailureCount + 1,
+                    fetchFailureReason: n,
+                    fetchStatus: "idle",
+                    status: "error",
+                  };
+                case "invalidate":
+                  return { ...e, isInvalidated: !0 };
+                case "setState":
+                  return { ...e, ...t.state };
+              }
+            })(this.state)),
+              r.Vr.batch(() => {
+                this.observers.forEach((t) => {
+                  t.onQueryUpdate();
+                }),
+                  this.#o.notify({ query: this, type: "updated", action: t });
+              });
+          }
+        };
+      function a(t, e) {
+        return {
+          fetchFailureCount: 0,
+          fetchFailureReason: null,
+          fetchStatus: (0, s.Kw)(e.networkMode) ? "fetching" : "paused",
+          ...(void 0 === t && { error: null, status: "pending" }),
+        };
+      }
+      function c(t) {
+        let e =
+            "function" == typeof t.initialData
+              ? t.initialData()
+              : t.initialData,
+          i = void 0 !== e,
+          n = i
+            ? "function" == typeof t.initialDataUpdatedAt
+              ? t.initialDataUpdatedAt()
+              : t.initialDataUpdatedAt
+            : 0;
+        return {
+          data: e,
+          dataUpdateCount: 0,
+          dataUpdatedAt: i ? n ?? Date.now() : 0,
+          error: null,
+          errorUpdateCount: 0,
+          errorUpdatedAt: 0,
+          fetchFailureCount: 0,
+          fetchFailureReason: null,
+          fetchMeta: null,
+          isInvalidated: !1,
+          status: i ? "success" : "pending",
+          fetchStatus: "idle",
+        };
+      }
+    },
+    7989: function (t, e, i) {
+      i.d(e, {
+        F: function () {
+          return s;
+        },
+      });
+      var n = i(84554),
+        r = i(45345),
+        s = class {
+          #f;
+          destroy() {
+            this.clearGcTimeout();
+          }
+          scheduleGc() {
+            this.clearGcTimeout(),
+              (0, r.PN)(this.gcTime) &&
+                (this.#f = n.mr.setTimeout(() => {
+                  this.optionalRemove();
+                }, this.gcTime));
+          }
+          updateGcTime(t) {
+            this.gcTime = Math.max(this.gcTime || 0, t ?? (r.sk ? 1 / 0 : 3e5));
+          }
+          clearGcTimeout() {
+            this.#f && (n.mr.clearTimeout(this.#f), (this.#f = void 0));
+          }
+        };
+    },
+    11255: function (t, e, i) {
+      i.d(e, {
+        Kw: function () {
+          return a;
+        },
+        Mz: function () {
+          return h;
+        },
+        p8: function () {
+          return c;
+        },
+      });
+      var n = i(87045),
+        r = i(57853),
+        s = i(16803),
+        o = i(45345);
+      function u(t) {
+        return Math.min(1e3 * 2 ** t, 3e4);
+      }
+      function a(t) {
+        return (t ?? "online") !== "online" || r.N.isOnline();
+      }
+      var c = class extends Error {
+        constructor(t) {
+          super("CancelledError"),
+            (this.revert = t?.revert),
+            (this.silent = t?.silent);
+        }
+      };
+      function h(t) {
+        let e,
+          i = !1,
+          h = 0,
+          l = (0, s.O)(),
+          f = () => "pending" !== l.status,
+          d = () =>
+            n.j.isFocused() &&
+            ("always" === t.networkMode || r.N.isOnline()) &&
+            t.canRun(),
+          p = () => a(t.networkMode) && t.canRun(),
+          y = (t) => {
+            f() || (e?.(), l.resolve(t));
+          },
+          v = (t) => {
+            f() || (e?.(), l.reject(t));
+          },
+          m = () =>
+            new Promise((i) => {
+              (e = (t) => {
+                (f() || d()) && i(t);
+              }),
+                t.onPause?.();
+            }).then(() => {
+              (e = void 0), f() || t.onContinue?.();
+            }),
+          b = () => {
+            let e;
+            if (f()) return;
+            let n = 0 === h ? t.initialPromise : void 0;
+            try {
+              e = n ?? t.fn();
+            } catch (t) {
+              e = Promise.reject(t);
+            }
+            Promise.resolve(e)
+              .then(y)
+              .catch((e) => {
+                if (f()) return;
+                let n = t.retry ?? (o.sk ? 0 : 3),
+                  r = t.retryDelay ?? u,
+                  s = "function" == typeof r ? r(h, e) : r,
+                  a =
+                    !0 === n ||
+                    ("number" == typeof n && h < n) ||
+                    ("function" == typeof n && n(h, e));
+                if (i || !a) {
+                  v(e);
+                  return;
+                }
+                h++,
+                  t.onFail?.(h, e),
+                  (0, o._v)(s)
+                    .then(() => (d() ? void 0 : m()))
+                    .then(() => {
+                      i ? v(e) : b();
+                    });
+              });
+          };
+        return {
+          promise: l,
+          status: () => l.status,
+          cancel: (e) => {
+            if (!f()) {
+              let i = new c(e);
+              v(i), t.onCancel?.(i);
+            }
+          },
+          continue: () => (e?.(), l),
+          cancelRetry: () => {
+            i = !0;
+          },
+          continueRetry: () => {
+            i = !1;
+          },
+          canStart: p,
+          start: () => (p() ? b() : m().then(b), l),
+        };
+      }
+    },
+    24112: function (t, e, i) {
+      i.d(e, {
+        l: function () {
+          return n;
+        },
+      });
+      var n = class {
+        constructor() {
+          (this.listeners = new Set()),
+            (this.subscribe = this.subscribe.bind(this));
+        }
+        subscribe(t) {
+          return (
+            this.listeners.add(t),
+            this.onSubscribe(),
+            () => {
+              this.listeners.delete(t), this.onUnsubscribe();
+            }
+          );
+        }
+        hasListeners() {
+          return this.listeners.size > 0;
+        }
+        onSubscribe() {}
+        onUnsubscribe() {}
+      };
+    },
+    16803: function (t, e, i) {
+      i.d(e, {
+        O: function () {
+          return n;
+        },
+      });
+      function n() {
+        let t, e;
+        let i = new Promise((i, n) => {
+          (t = i), (e = n);
+        });
+        function n(t) {
+          Object.assign(i, t), delete i.resolve, delete i.reject;
+        }
+        return (
+          (i.status = "pending"),
+          i.catch(() => {}),
+          (i.resolve = (e) => {
+            n({ status: "fulfilled", value: e }), t(e);
+          }),
+          (i.reject = (t) => {
+            n({ status: "rejected", reason: t }), e(t);
+          }),
+          i
+        );
+      }
+    },
+    84554: function (t, e, i) {
+      i.d(e, {
+        Hp: function () {
+          return s;
+        },
+        mr: function () {
+          return r;
+        },
+      });
+      var n = {
+          setTimeout: (t, e) => setTimeout(t, e),
+          clearTimeout: (t) => clearTimeout(t),
+          setInterval: (t, e) => setInterval(t, e),
+          clearInterval: (t) => clearInterval(t),
+        },
+        r = new (class {
+          #d = n;
+          #p = !1;
+          setTimeoutProvider(t) {
+            this.#d = t;
+          }
+          setTimeout(t, e) {
+            return this.#d.setTimeout(t, e);
+          }
+          clearTimeout(t) {
+            this.#d.clearTimeout(t);
+          }
+          setInterval(t, e) {
+            return this.#d.setInterval(t, e);
+          }
+          clearInterval(t) {
+            this.#d.clearInterval(t);
+          }
+        })();
+      function s(t) {
+        setTimeout(t, 0);
+      }
+    },
+    45345: function (t, e, i) {
+      i.d(e, {
+        CN: function () {
+          return T;
+        },
+        Ht: function () {
+          return F;
+        },
+        KC: function () {
+          return c;
+        },
+        Kp: function () {
+          return a;
+        },
+        L3: function () {
+          return E;
+        },
+        Nc: function () {
+          return h;
+        },
+        PN: function () {
+          return u;
+        },
+        Rm: function () {
+          return d;
+        },
+        SE: function () {
+          return o;
+        },
+        VS: function () {
+          return m;
+        },
+        VX: function () {
+          return C;
+        },
+        X7: function () {
+          return f;
+        },
+        Ym: function () {
+          return p;
+        },
+        ZT: function () {
+          return s;
+        },
+        _v: function () {
+          return S;
+        },
+        _x: function () {
+          return l;
+        },
+        cG: function () {
+          return j;
+        },
+        oE: function () {
+          return O;
+        },
+        sk: function () {
+          return r;
+        },
+        to: function () {
+          return y;
+        },
+      });
+      var n = i(84554),
+        r = "undefined" == typeof window || "Deno" in globalThis;
+      function s() {}
+      function o(t, e) {
+        return "function" == typeof t ? t(e) : t;
+      }
+      function u(t) {
+        return "number" == typeof t && t >= 0 && t !== 1 / 0;
+      }
+      function a(t, e) {
+        return Math.max(t + (e || 0) - Date.now(), 0);
+      }
+      function c(t, e) {
+        return "function" == typeof t ? t(e) : t;
+      }
+      function h(t, e) {
+        return "function" == typeof t ? t(e) : t;
+      }
+      function l(t, e) {
+        let {
+          type: i = "all",
+          exact: n,
+          fetchStatus: r,
+          predicate: s,
+          queryKey: o,
+          stale: u,
+        } = t;
+        if (o) {
+          if (n) {
+            if (e.queryHash !== d(o, e.options)) return !1;
+          } else if (!y(e.queryKey, o)) return !1;
+        }
+        if ("all" !== i) {
+          let t = e.isActive();
+          if (("active" === i && !t) || ("inactive" === i && t)) return !1;
+        }
+        return (
+          ("boolean" != typeof u || e.isStale() === u) &&
+          (!r || r === e.state.fetchStatus) &&
+          (!s || !!s(e))
+        );
+      }
+      function f(t, e) {
+        let { exact: i, status: n, predicate: r, mutationKey: s } = t;
+        if (s) {
+          if (!e.options.mutationKey) return !1;
+          if (i) {
+            if (p(e.options.mutationKey) !== p(s)) return !1;
+          } else if (!y(e.options.mutationKey, s)) return !1;
+        }
+        return (!n || e.state.status === n) && (!r || !!r(e));
+      }
+      function d(t, e) {
+        return (e?.queryKeyHashFn || p)(t);
+      }
+      function p(t) {
+        return JSON.stringify(t, (t, e) =>
+          g(e)
+            ? Object.keys(e)
+                .sort()
+                .reduce((t, i) => ((t[i] = e[i]), t), {})
+            : e
+        );
+      }
+      function y(t, e) {
+        return (
+          t === e ||
+          (typeof t == typeof e &&
+            !!t &&
+            !!e &&
+            "object" == typeof t &&
+            "object" == typeof e &&
+            Object.keys(e).every((i) => y(t[i], e[i])))
+        );
+      }
+      var v = Object.prototype.hasOwnProperty;
+      function m(t, e) {
+        if (!e || Object.keys(t).length !== Object.keys(e).length) return !1;
+        for (let i in t) if (t[i] !== e[i]) return !1;
+        return !0;
+      }
+      function b(t) {
+        return Array.isArray(t) && t.length === Object.keys(t).length;
+      }
+      function g(t) {
+        if (!w(t)) return !1;
+        let e = t.constructor;
+        if (void 0 === e) return !0;
+        let i = e.prototype;
+        return (
+          !!(w(i) && i.hasOwnProperty("isPrototypeOf")) &&
+          Object.getPrototypeOf(t) === Object.prototype
+        );
+      }
+      function w(t) {
+        return "[object Object]" === Object.prototype.toString.call(t);
+      }
+      function S(t) {
+        return new Promise((e) => {
+          n.mr.setTimeout(e, t);
+        });
+      }
+      function O(t, e, i) {
+        return "function" == typeof i.structuralSharing
+          ? i.structuralSharing(t, e)
+          : !1 !== i.structuralSharing
+          ? (function t(e, i) {
+              if (e === i) return e;
+              let n = b(e) && b(i);
+              if (!n && !(g(e) && g(i))) return i;
+              let r = (n ? e : Object.keys(e)).length,
+                s = n ? i : Object.keys(i),
+                o = s.length,
+                u = n ? Array(o) : {},
+                a = 0;
+              for (let c = 0; c < o; c++) {
+                let o = n ? c : s[c],
+                  h = e[o],
+                  l = i[o];
+                if (h === l) {
+                  (u[o] = h), (n ? c < r : v.call(e, o)) && a++;
+                  continue;
+                }
+                if (
+                  null === h ||
+                  null === l ||
+                  "object" != typeof h ||
+                  "object" != typeof l
+                ) {
+                  u[o] = l;
+                  continue;
+                }
+                let f = t(h, l);
+                (u[o] = f), f === h && a++;
+              }
+              return r === o && a === r ? e : u;
+            })(t, e)
+          : e;
+      }
+      function C(t, e, i = 0) {
+        let n = [...t, e];
+        return i && n.length > i ? n.slice(1) : n;
+      }
+      function F(t, e, i = 0) {
+        let n = [e, ...t];
+        return i && n.length > i ? n.slice(0, -1) : n;
+      }
+      var T = Symbol();
+      function j(t, e) {
+        return !t.queryFn && e?.initialPromise
+          ? () => e.initialPromise
+          : t.queryFn && t.queryFn !== T
+          ? t.queryFn
+          : () => Promise.reject(Error(`Missing queryFn: '${t.queryHash}'`));
+      }
+      function E(t, e) {
+        return "function" == typeof t ? t(...e) : !!t;
+      }
+    },
+    29827: function (t, e, i) {
+      i.d(e, {
+        NL: function () {
+          return o;
+        },
+        aH: function () {
+          return u;
+        },
+      });
+      var n = i(2265),
+        r = i(57437),
+        s = n.createContext(void 0),
+        o = (t) => {
+          let e = n.useContext(s);
+          if (t) return t;
+          if (!e)
+            throw Error(
+              "No QueryClient set, use QueryClientProvider to set one"
+            );
+          return e;
+        },
+        u = (t) => {
+          let { client: e, children: i } = t;
+          return (
+            n.useEffect(
+              () => (
+                e.mount(),
+                () => {
+                  e.unmount();
+                }
+              ),
+              [e]
+            ),
+            (0, r.jsx)(s.Provider, { value: e, children: i })
+          );
+        };
+    },
+  },
+]);

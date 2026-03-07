@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("https://cdn.zenlove.me/fonts/webfonts/poppins/poppins-1760783654459-s6i3qj.woff2")
+      format("woff2"),
+    url("https://cdn.zenlove.me/fonts/webfonts/poppins/poppins-1760783654459-s6i3qj.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

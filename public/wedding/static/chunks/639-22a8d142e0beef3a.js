@@ -1,0 +1,2371 @@
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [639],
+  {
+    96473: function (e, t, n) {
+      n.d(t, {
+        Z: function () {
+          return i;
+        },
+      });
+      var a = n(2265),
+        o = {
+          icon: {
+            tag: "svg",
+            attrs: { viewBox: "64 64 896 896", focusable: "false" },
+            children: [
+              {
+                tag: "path",
+                attrs: {
+                  d: "M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z",
+                },
+              },
+              {
+                tag: "path",
+                attrs: {
+                  d: "M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z",
+                },
+              },
+            ],
+          },
+          name: "plus",
+          theme: "outlined",
+        },
+        r = n(55015);
+      function c() {
+        return (c = Object.assign
+          ? Object.assign.bind()
+          : function (e) {
+              for (var t = 1; t < arguments.length; t++) {
+                var n = arguments[t];
+                for (var a in n)
+                  Object.prototype.hasOwnProperty.call(n, a) && (e[a] = n[a]);
+              }
+              return e;
+            }).apply(this, arguments);
+      }
+      var i = a.forwardRef((e, t) =>
+        a.createElement(r.Z, c({}, e, { ref: t, icon: o }))
+      );
+    },
+    50639: function (e, t, n) {
+      let a;
+      n.d(t, {
+        default: function () {
+          return em;
+        },
+      });
+      var o = n(2265),
+        r = n(49638),
+        c = n(39760),
+        i = n(96473),
+        l = n(61994),
+        d = n(26107),
+        s = n(16986),
+        u = n.n(s),
+        p = () => (void 0 === a && (a = u()()), a),
+        f = (0, o.createContext)(null),
+        b = n(25532),
+        v = n(31311),
+        h = n(90062),
+        m = n(72014),
+        g = (e) => {
+          let {
+              activeTabOffset: t,
+              horizontal: n,
+              rtl: a,
+              indicator: r = {},
+            } = e,
+            { size: c, align: i = "center" } = r,
+            [l, d] = (0, o.useState)(),
+            s = (0, o.useRef)(),
+            u = o.useCallback(
+              (e) =>
+                "function" == typeof c ? c(e) : "number" == typeof c ? c : e,
+              [c]
+            );
+          function p() {
+            m.Z.cancel(s.current);
+          }
+          return (
+            (0, o.useEffect)(() => {
+              let e = {};
+              if (t) {
+                if (n) {
+                  e.width = u(t.width);
+                  let n = a ? "right" : "left";
+                  "start" === i && (e[n] = t[n]),
+                    "center" === i &&
+                      ((e[n] = t[n] + t.width / 2),
+                      (e.transform = a
+                        ? "translateX(50%)"
+                        : "translateX(-50%)")),
+                    "end" === i &&
+                      ((e[n] = t[n] + t.width),
+                      (e.transform = "translateX(-100%)"));
+                } else
+                  (e.height = u(t.height)),
+                    "start" === i && (e.top = t.top),
+                    "center" === i &&
+                      ((e.top = t.top + t.height / 2),
+                      (e.transform = "translateY(-50%)")),
+                    "end" === i &&
+                      ((e.top = t.top + t.height),
+                      (e.transform = "translateY(-100%)"));
+              }
+              return (
+                p(),
+                (s.current = (0, m.Z)(() => {
+                  (l &&
+                    e &&
+                    Object.keys(e).every((t) => {
+                      let n = e[t],
+                        a = l[t];
+                      return "number" == typeof n && "number" == typeof a
+                        ? Math.round(n) === Math.round(a)
+                        : n === a;
+                    })) ||
+                    d(e);
+                })),
+                p
+              );
+            }, [JSON.stringify(t), n, a, i, u]),
+            { style: l }
+          );
+        };
+      let k = { width: 0, height: 0, left: 0, top: 0 };
+      function y(e, t) {
+        let n = o.useRef(e),
+          [, a] = o.useState({});
+        return [
+          n.current,
+          function (e) {
+            let o = "function" == typeof e ? e(n.current) : e;
+            o !== n.current && t(o, n.current), (n.current = o), a({});
+          },
+        ];
+      }
+      var w = n(90891);
+      function _(e) {
+        let [t, n] = (0, o.useState)(0),
+          a = (0, o.useRef)(0),
+          r = (0, o.useRef)();
+        return (
+          (r.current = e),
+          (0, w.o)(() => {
+            r.current?.();
+          }, [t]),
+          () => {
+            a.current === t && ((a.current += 1), n(a.current));
+          }
+        );
+      }
+      let x = { width: 0, height: 0, left: 0, top: 0, right: 0 };
+      function S(e) {
+        let t;
+        return (
+          e instanceof Map
+            ? ((t = {}),
+              e.forEach((e, n) => {
+                t[n] = e;
+              }))
+            : (t = e),
+          JSON.stringify(t)
+        );
+      }
+      function E(e) {
+        return String(e).replace(/"/g, "TABS_DQ");
+      }
+      function R(e, t, n, a) {
+        return (
+          !!n && !a && !1 !== e && (void 0 !== e || (!1 !== t && null !== t))
+        );
+      }
+      let M = o.forwardRef((e, t) => {
+          let { prefixCls: n, editable: a, locale: r, style: c } = e;
+          return a && !1 !== a.showAdd
+            ? o.createElement(
+                "button",
+                {
+                  ref: t,
+                  type: "button",
+                  className: `${n}-nav-add`,
+                  style: c,
+                  "aria-label": r?.addAriaLabel || "Add tab",
+                  onClick: (e) => {
+                    a.onEdit("add", { event: e });
+                  },
+                },
+                a.addIcon || "+"
+              )
+            : null;
+        }),
+        C = o.forwardRef((e, t) => {
+          let n;
+          let { position: a, prefixCls: r, extra: c } = e;
+          if (!c) return null;
+          let i = {};
+          return (
+            "object" != typeof c || o.isValidElement(c)
+              ? (i.right = c)
+              : (i = c),
+            "right" === a && (n = i.right),
+            "left" === a && (n = i.left),
+            n
+              ? o.createElement(
+                  "div",
+                  { className: `${r}-extra-content`, ref: t },
+                  n
+                )
+              : null
+          );
+        });
+      var $ = n(88412),
+        P = n(38537),
+        I = n(74576);
+      function L() {
+        return (L = Object.assign
+          ? Object.assign.bind()
+          : function (e) {
+              for (var t = 1; t < arguments.length; t++) {
+                var n = arguments[t];
+                for (var a in n)
+                  Object.prototype.hasOwnProperty.call(n, a) && (e[a] = n[a]);
+              }
+              return e;
+            }).apply(this, arguments);
+      }
+      let D = o.forwardRef((e, t) => {
+        let {
+            prefixCls: n,
+            id: a,
+            tabs: r,
+            locale: c,
+            mobile: i,
+            more: d = {},
+            style: s,
+            className: u,
+            editable: p,
+            tabBarGutter: f,
+            rtl: b,
+            removeAriaLabel: v,
+            onTabClick: h,
+            getPopupContainer: m,
+            popupClassName: g,
+            popupStyle: k,
+          } = e,
+          [y, w] = (0, o.useState)(!1),
+          [_, x] = (0, o.useState)(null),
+          { icon: S = "More" } = d,
+          E = `${a}-more-popup`,
+          C = `${n}-dropdown`,
+          D = null !== _ ? `${E}-${_}` : null,
+          N = c?.dropdownAriaLabel,
+          z = o.createElement(
+            P.ZP,
+            {
+              onClick: ({ key: e, domEvent: t }) => {
+                h(e, t), w(!1);
+              },
+              prefixCls: `${C}-menu`,
+              id: E,
+              tabIndex: -1,
+              role: "listbox",
+              "aria-activedescendant": D,
+              selectedKeys: [_],
+              "aria-label": void 0 !== N ? N : "expanded dropdown",
+            },
+            r.map((e) => {
+              let {
+                  closable: t,
+                  disabled: n,
+                  closeIcon: r,
+                  key: c,
+                  label: i,
+                } = e,
+                l = R(t, r, p, n);
+              return o.createElement(
+                P.sN,
+                {
+                  key: c,
+                  id: `${E}-${c}`,
+                  role: "option",
+                  "aria-controls": a && `${a}-panel-${c}`,
+                  disabled: n,
+                },
+                o.createElement("span", null, i),
+                l &&
+                  o.createElement(
+                    "button",
+                    {
+                      type: "button",
+                      "aria-label": v || "remove",
+                      tabIndex: 0,
+                      className: `${C}-menu-item-remove`,
+                      onClick: (e) => {
+                        e.stopPropagation(),
+                          e.preventDefault(),
+                          e.stopPropagation(),
+                          p.onEdit("remove", { key: c, event: e });
+                      },
+                    },
+                    r || p.removeIcon || "\xd7"
+                  )
+              );
+            })
+          );
+        function T(e) {
+          let t = r.filter((e) => !e.disabled),
+            n = t.findIndex((e) => e.key === _) || 0,
+            a = t.length;
+          for (let o = 0; o < a; o += 1) {
+            let o = t[(n = (n + e + a) % a)];
+            if (!o.disabled) {
+              x(o.key);
+              return;
+            }
+          }
+        }
+        (0, o.useEffect)(() => {
+          let e = document.getElementById(D);
+          e?.scrollIntoView && e.scrollIntoView(!1);
+        }, [D, _]),
+          (0, o.useEffect)(() => {
+            y || x(null);
+          }, [y]);
+        let W = { marginInlineStart: f };
+        r.length || ((W.visibility = "hidden"), (W.order = 1));
+        let O = (0, l.W)(g, { [`${C}-rtl`]: b }),
+          B = i
+            ? null
+            : o.createElement(
+                $.Z,
+                L(
+                  {
+                    prefixCls: C,
+                    overlay: z,
+                    visible: !!r.length && y,
+                    onVisibleChange: w,
+                    overlayClassName: O,
+                    overlayStyle: k,
+                    mouseEnterDelay: 0.1,
+                    mouseLeaveDelay: 0.1,
+                    getPopupContainer: m,
+                  },
+                  d
+                ),
+                o.createElement(
+                  "button",
+                  {
+                    type: "button",
+                    className: `${n}-nav-more`,
+                    style: W,
+                    "aria-haspopup": "listbox",
+                    "aria-controls": E,
+                    id: `${a}-more`,
+                    "aria-expanded": y,
+                    onKeyDown: function (e) {
+                      let { which: t } = e;
+                      if (!y) {
+                        [
+                          I.default.DOWN,
+                          I.default.SPACE,
+                          I.default.ENTER,
+                        ].includes(t) && (w(!0), e.preventDefault());
+                        return;
+                      }
+                      switch (t) {
+                        case I.default.UP:
+                          T(-1), e.preventDefault();
+                          break;
+                        case I.default.DOWN:
+                          T(1), e.preventDefault();
+                          break;
+                        case I.default.ESC:
+                          w(!1);
+                          break;
+                        case I.default.SPACE:
+                        case I.default.ENTER:
+                          null !== _ && h(_, e);
+                      }
+                    },
+                  },
+                  S
+                )
+              );
+        return o.createElement(
+          "div",
+          { className: (0, l.W)(`${n}-nav-operations`, u), style: s, ref: t },
+          B,
+          o.createElement(M, { prefixCls: n, locale: c, editable: p })
+        );
+      });
+      var N = o.memo(D, (e, t) => t.tabMoving),
+        z = (e) => {
+          let {
+              prefixCls: t,
+              id: n,
+              active: a,
+              focus: r,
+              tab: { key: c, label: i, disabled: d, closeIcon: s, icon: u },
+              closable: p,
+              renderWrapper: f,
+              removeAriaLabel: b,
+              editable: v,
+              onClick: h,
+              onFocus: m,
+              onBlur: g,
+              onKeyDown: k,
+              onMouseDown: y,
+              onMouseUp: w,
+              style: _,
+              className: x,
+              tabCount: S,
+              currentPosition: M,
+            } = e,
+            C = `${t}-tab`,
+            $ = R(p, s, v, d);
+          function P(e) {
+            d || h(e);
+          }
+          let I = o.useMemo(
+              () =>
+                u && "string" == typeof i
+                  ? o.createElement("span", null, i)
+                  : i,
+              [i, u]
+            ),
+            L = o.useRef(null);
+          o.useEffect(() => {
+            r && L.current && L.current.focus();
+          }, [r]);
+          let D = o.createElement(
+            "div",
+            {
+              key: c,
+              "data-node-key": E(c),
+              className: (0, l.W)(C, x, {
+                [`${C}-with-remove`]: $,
+                [`${C}-active`]: a,
+                [`${C}-disabled`]: d,
+                [`${C}-focus`]: r,
+              }),
+              style: _,
+              onClick: P,
+            },
+            o.createElement(
+              "div",
+              {
+                ref: L,
+                role: "tab",
+                "aria-selected": a,
+                id: n && `${n}-tab-${c}`,
+                className: `${C}-btn`,
+                "aria-controls": n && `${n}-panel-${c}`,
+                "aria-disabled": d,
+                tabIndex: d ? null : a ? 0 : -1,
+                onClick: (e) => {
+                  e.stopPropagation(), P(e);
+                },
+                onKeyDown: k,
+                onMouseDown: y,
+                onMouseUp: w,
+                onFocus: m,
+                onBlur: g,
+              },
+              r &&
+                o.createElement(
+                  "div",
+                  {
+                    "aria-live": "polite",
+                    style: {
+                      width: 0,
+                      height: 0,
+                      position: "absolute",
+                      overflow: "hidden",
+                      opacity: 0,
+                    },
+                  },
+                  `Tab ${M} of ${S}`
+                ),
+              u && o.createElement("span", { className: `${C}-icon` }, u),
+              i && I
+            ),
+            $ &&
+              o.createElement(
+                "button",
+                {
+                  type: "button",
+                  "aria-label": b || "remove",
+                  tabIndex: a ? 0 : -1,
+                  className: `${C}-remove`,
+                  onClick: (e) => {
+                    e.stopPropagation(),
+                      e.preventDefault(),
+                      e.stopPropagation(),
+                      v.onEdit("remove", { key: c, event: e });
+                  },
+                },
+                s || v.removeIcon || "\xd7"
+              )
+          );
+          return f ? f(D) : D;
+        };
+      function T() {
+        return (T = Object.assign
+          ? Object.assign.bind()
+          : function (e) {
+              for (var t = 1; t < arguments.length; t++) {
+                var n = arguments[t];
+                for (var a in n)
+                  Object.prototype.hasOwnProperty.call(n, a) && (e[a] = n[a]);
+              }
+              return e;
+            }).apply(this, arguments);
+      }
+      let W = (e, t) => {
+          let {
+              offsetWidth: n,
+              offsetHeight: a,
+              offsetTop: o,
+              offsetLeft: r,
+            } = e,
+            {
+              width: c,
+              height: i,
+              left: l,
+              top: d,
+            } = e.getBoundingClientRect();
+          return 1 > Math.abs(c - n)
+            ? [c, i, l - t.left, d - t.top]
+            : [n, a, r, o];
+        },
+        O = (e) => {
+          let { offsetWidth: t = 0, offsetHeight: n = 0 } = e.current || {};
+          if (e.current) {
+            let { width: n, height: a } = e.current.getBoundingClientRect();
+            if (1 > Math.abs(n - t)) return [n, a];
+          }
+          return [t, n];
+        },
+        B = (e, t) => e[t ? 0 : 1],
+        H = o.forwardRef((e, t) => {
+          var n;
+          let a, r, c, i;
+          let {
+              className: d,
+              style: s,
+              id: u,
+              animated: p,
+              activeKey: m,
+              rtl: w,
+              extra: $,
+              editable: P,
+              locale: I,
+              tabPosition: L,
+              tabBarGutter: D,
+              children: H,
+              onTabClick: G,
+              onTabScroll: j,
+              indicator: A,
+              classNames: X,
+              styles: Z,
+            } = e,
+            { prefixCls: q, tabs: F } = o.useContext(f),
+            K = (0, o.useRef)(null),
+            V = (0, o.useRef)(null),
+            Q = (0, o.useRef)(null),
+            U = (0, o.useRef)(null),
+            Y = (0, o.useRef)(null),
+            J = (0, o.useRef)(null),
+            ee = (0, o.useRef)(null),
+            et = "top" === L || "bottom" === L,
+            [en, ea] = y(0, (e, t) => {
+              et && j && j({ direction: e > t ? "left" : "right" });
+            }),
+            [eo, er] = y(0, (e, t) => {
+              !et && j && j({ direction: e > t ? "top" : "bottom" });
+            }),
+            [ec, ei] = (0, o.useState)([0, 0]),
+            [el, ed] = (0, o.useState)([0, 0]),
+            [es, eu] = (0, o.useState)([0, 0]),
+            [ep, ef] = (0, o.useState)([0, 0]),
+            [eb, ev] = (function (e) {
+              let t = (0, o.useRef)([]),
+                [, n] = (0, o.useState)({}),
+                a = (0, o.useRef)("function" == typeof e ? e() : e),
+                r = _(() => {
+                  let e = a.current;
+                  t.current.forEach((t) => {
+                    e = t(e);
+                  }),
+                    (t.current = []),
+                    (a.current = e),
+                    n({});
+                });
+              return [
+                a.current,
+                function (e) {
+                  t.current.push(e), r();
+                },
+              ];
+            })(new Map()),
+            eh =
+              ((n = el[0]),
+              (0, o.useMemo)(() => {
+                let e = new Map(),
+                  t = eb.get(F[0]?.key) || k,
+                  n = t.left + t.width;
+                for (let t = 0; t < F.length; t += 1) {
+                  let { key: a } = F[t],
+                    o = eb.get(a);
+                  o || (o = eb.get(F[t - 1]?.key) || k);
+                  let r = e.get(a) || { ...o };
+                  (r.right = n - r.left - r.width), e.set(a, r);
+                }
+                return e;
+              }, [F.map((e) => e.key).join("_"), eb, n])),
+            em = B(ec, et),
+            eg = B(el, et),
+            ek = B(es, et),
+            ey = B(ep, et),
+            ew = Math.floor(em) < Math.floor(eg + ek),
+            e_ = ew ? em - ey : em - ek,
+            ex = `${q}-nav-operations-hidden`,
+            eS = 0,
+            eE = 0;
+          function eR(e) {
+            return e < eS ? eS : e > eE ? eE : e;
+          }
+          et && w
+            ? ((eS = 0), (eE = Math.max(0, eg - e_)))
+            : ((eS = Math.min(0, e_ - eg)), (eE = 0));
+          let eM = (0, o.useRef)(null),
+            [eC, e$] = (0, o.useState)();
+          function eP() {
+            e$(Date.now());
+          }
+          function eI() {
+            eM.current && clearTimeout(eM.current);
+          }
+          !(function (e, t) {
+            let [n, a] = (0, o.useState)(),
+              [r, c] = (0, o.useState)(0),
+              [i, l] = (0, o.useState)(0),
+              [d, s] = (0, o.useState)(),
+              u = (0, o.useRef)(),
+              p = (0, o.useRef)(),
+              f = (0, o.useRef)(null);
+            (f.current = {
+              onTouchStart: function (e) {
+                let { screenX: t, screenY: n } = e.touches[0];
+                a({ x: t, y: n }), window.clearInterval(u.current);
+              },
+              onTouchMove: function (e) {
+                if (!n) return;
+                let { screenX: o, screenY: i } = e.touches[0];
+                a({ x: o, y: i });
+                let d = o - n.x,
+                  u = i - n.y;
+                t(d, u);
+                let p = Date.now();
+                c(p), l(p - r), s({ x: d, y: u });
+              },
+              onTouchEnd: function () {
+                if (n && (a(null), s(null), d)) {
+                  let e = d.x / i,
+                    n = d.y / i;
+                  if (0.1 > Math.max(Math.abs(e), Math.abs(n))) return;
+                  let a = e,
+                    o = n;
+                  u.current = window.setInterval(() => {
+                    if (0.01 > Math.abs(a) && 0.01 > Math.abs(o)) {
+                      window.clearInterval(u.current);
+                      return;
+                    }
+                    (a *= 0.9046104802746175),
+                      (o *= 0.9046104802746175),
+                      t(20 * a, 20 * o);
+                  }, 20);
+                }
+              },
+              onWheel: function (e) {
+                let { deltaX: n, deltaY: a } = e,
+                  o = 0,
+                  r = Math.abs(n),
+                  c = Math.abs(a);
+                r === c
+                  ? (o = "x" === p.current ? n : a)
+                  : r > c
+                  ? ((o = n), (p.current = "x"))
+                  : ((o = a), (p.current = "y")),
+                  t(-o, -o) && e.preventDefault();
+              },
+            }),
+              o.useEffect(() => {
+                function t(e) {
+                  f.current.onTouchMove(e);
+                }
+                function n(e) {
+                  f.current.onTouchEnd(e);
+                }
+                return (
+                  document.addEventListener("touchmove", t, { passive: !1 }),
+                  document.addEventListener("touchend", n, { passive: !0 }),
+                  e.current.addEventListener(
+                    "touchstart",
+                    function (e) {
+                      f.current.onTouchStart(e);
+                    },
+                    { passive: !0 }
+                  ),
+                  e.current.addEventListener(
+                    "wheel",
+                    function (e) {
+                      f.current.onWheel(e);
+                    },
+                    { passive: !1 }
+                  ),
+                  () => {
+                    document.removeEventListener("touchmove", t),
+                      document.removeEventListener("touchend", n);
+                  }
+                );
+              }, []);
+          })(
+            U,
+            (e, t) =>
+              !!ew &&
+              (et ? ea((t) => eR(t + e)) : er((e) => eR(e + t)), eI(), eP(), !0)
+          ),
+            (0, o.useEffect)(
+              () => (
+                eI(),
+                eC &&
+                  (eM.current = setTimeout(() => {
+                    e$(0);
+                  }, 100)),
+                eI
+              ),
+              [eC]
+            );
+          let [eL, eD] = (function (
+              e,
+              t,
+              n,
+              a,
+              r,
+              c,
+              { tabs: i, tabPosition: l, rtl: d }
+            ) {
+              let s, u, p;
+              return (
+                ["top", "bottom"].includes(l)
+                  ? ((s = "width"),
+                    (u = d ? "right" : "left"),
+                    (p = Math.abs(n)))
+                  : ((s = "height"), (u = "top"), (p = -n)),
+                (0, o.useMemo)(() => {
+                  if (!i.length) return [0, 0];
+                  let n = i.length,
+                    a = n;
+                  for (let o = 0; o < n; o += 1) {
+                    let n = e.get(i[o].key) || x;
+                    if (Math.floor(n[u] + n[s]) > Math.floor(p + t)) {
+                      a = o - 1;
+                      break;
+                    }
+                  }
+                  let o = 0;
+                  for (let t = n - 1; t >= 0; t -= 1)
+                    if ((e.get(i[t].key) || x)[u] < p) {
+                      o = t + 1;
+                      break;
+                    }
+                  return o > a ? [0, -1] : [o, a];
+                }, [e, t, a, r, c, p, l, i.map((e) => e.key).join("_"), d])
+              );
+            })(eh, e_, et ? en : eo, eg, ek, ey, { ...e, tabs: F }),
+            eN = (0, v.Z)((e = m) => {
+              let t = eh.get(e) || {
+                width: 0,
+                height: 0,
+                left: 0,
+                right: 0,
+                top: 0,
+              };
+              if (et) {
+                let e = en;
+                w
+                  ? t.right < en
+                    ? (e = t.right)
+                    : t.right + t.width > en + e_ &&
+                      (e = t.right + t.width - e_)
+                  : t.left < -en
+                  ? (e = -t.left)
+                  : t.left + t.width > -en + e_ &&
+                    (e = -(t.left + t.width - e_)),
+                  er(0),
+                  ea(eR(e));
+              } else {
+                let e = eo;
+                t.top < -eo
+                  ? (e = -t.top)
+                  : t.top + t.height > -eo + e_ &&
+                    (e = -(t.top + t.height - e_)),
+                  ea(0),
+                  er(eR(e));
+              }
+            }),
+            [ez, eT] = (0, o.useState)(),
+            [eW, eO] = (0, o.useState)(!1),
+            eB = F.filter((e) => !e.disabled).map((e) => e.key),
+            eH = (e) => {
+              let t = eB.indexOf(ez || m),
+                n = eB.length;
+              eT(eB[(t + e + n) % n]);
+            },
+            eG = (e, t) => {
+              let n = eB.indexOf(e),
+                a = F.find((t) => t.key === e);
+              R(a?.closable, a?.closeIcon, P, a?.disabled) &&
+                (t.preventDefault(),
+                t.stopPropagation(),
+                P.onEdit("remove", { key: e, event: t }),
+                n === eB.length - 1 ? eH(-1) : eH(1));
+            },
+            ej = (e, t) => {
+              eO(!0), 1 === t.button && eG(e, t);
+            },
+            eA = (e) => {
+              let { code: t } = e,
+                n = w && et,
+                a = eB[0],
+                o = eB[eB.length - 1];
+              switch (t) {
+                case "ArrowLeft":
+                  et && eH(n ? 1 : -1);
+                  break;
+                case "ArrowRight":
+                  et && eH(n ? -1 : 1);
+                  break;
+                case "ArrowUp":
+                  e.preventDefault(), et || eH(-1);
+                  break;
+                case "ArrowDown":
+                  e.preventDefault(), et || eH(1);
+                  break;
+                case "Home":
+                  e.preventDefault(), eT(a);
+                  break;
+                case "End":
+                  e.preventDefault(), eT(o);
+                  break;
+                case "Enter":
+                case "Space":
+                  e.preventDefault(), G(ez ?? m, e);
+                  break;
+                case "Backspace":
+                case "Delete":
+                  eG(ez, e);
+              }
+            },
+            eX = {};
+          et ? (eX.marginInlineStart = D) : (eX.marginTop = D);
+          let eZ = F.map((e, t) => {
+              let { key: n } = e;
+              return o.createElement(z, {
+                id: u,
+                prefixCls: q,
+                key: n,
+                tab: e,
+                className: X?.item,
+                style: 0 === t ? Z?.item : { ...eX, ...Z?.item },
+                closable: e.closable,
+                editable: P,
+                active: n === m,
+                focus: n === ez,
+                renderWrapper: H,
+                removeAriaLabel: I?.removeAriaLabel,
+                tabCount: eB.length,
+                currentPosition: t + 1,
+                onClick: (e) => {
+                  G(n, e);
+                },
+                onKeyDown: eA,
+                onFocus: () => {
+                  eW || eT(n),
+                    eN(n),
+                    eP(),
+                    U.current &&
+                      (w || (U.current.scrollLeft = 0),
+                      (U.current.scrollTop = 0));
+                },
+                onBlur: () => {
+                  eT(void 0);
+                },
+                onMouseDown: (e) => ej(n, e),
+                onMouseUp: () => {
+                  eO(!1);
+                },
+              });
+            }),
+            eq = () =>
+              ev(() => {
+                let e = new Map(),
+                  t = Y.current?.getBoundingClientRect();
+                return (
+                  F.forEach(({ key: n }) => {
+                    let a = Y.current?.querySelector(
+                      `[data-node-key="${E(n)}"]`
+                    );
+                    if (a) {
+                      let [o, r, c, i] = W(a, t);
+                      e.set(n, { width: o, height: r, left: c, top: i });
+                    }
+                  }),
+                  e
+                );
+              });
+          (0, o.useEffect)(() => {
+            eq();
+          }, [F.map((e) => e.key).join("_")]);
+          let eF = _(() => {
+              let e = O(K),
+                t = O(V),
+                n = O(Q);
+              ei([e[0] - t[0] - n[0], e[1] - t[1] - n[1]]);
+              let a = O(ee);
+              eu(a), ef(O(J));
+              let o = O(Y);
+              ed([o[0] - a[0], o[1] - a[1]]), eq();
+            }),
+            eK = [...F.slice(0, eL), ...F.slice(eD + 1)],
+            eV = eh.get(m),
+            { style: eQ } = g({
+              activeTabOffset: eV,
+              horizontal: et,
+              indicator: A,
+              rtl: w,
+            });
+          (0, o.useEffect)(() => {
+            eN();
+          }, [m, eS, eE, S(eV), S(eh), et]),
+            (0, o.useEffect)(() => {
+              eF();
+            }, [w]);
+          let eU = !!eK.length,
+            eY = `${q}-nav-wrap`;
+          return (
+            et
+              ? w
+                ? ((r = en > 0), (a = en !== eE))
+                : ((a = en < 0), (r = en !== eS))
+              : ((c = eo < 0), (i = eo !== eS)),
+            o.createElement(
+              b.Z,
+              { onResize: eF },
+              o.createElement(
+                "div",
+                {
+                  ref: (0, h.x1)(t, K),
+                  role: "tablist",
+                  "aria-orientation": et ? "horizontal" : "vertical",
+                  className: (0, l.W)(`${q}-nav`, d, X?.header),
+                  style: { ...Z?.header, ...s },
+                  onKeyDown: () => {
+                    eP();
+                  },
+                },
+                o.createElement(C, {
+                  ref: V,
+                  position: "left",
+                  extra: $,
+                  prefixCls: q,
+                }),
+                o.createElement(
+                  b.Z,
+                  { onResize: eF },
+                  o.createElement(
+                    "div",
+                    {
+                      className: (0, l.W)(eY, {
+                        [`${eY}-ping-left`]: a,
+                        [`${eY}-ping-right`]: r,
+                        [`${eY}-ping-top`]: c,
+                        [`${eY}-ping-bottom`]: i,
+                      }),
+                      ref: U,
+                    },
+                    o.createElement(
+                      b.Z,
+                      { onResize: eF },
+                      o.createElement(
+                        "div",
+                        {
+                          ref: Y,
+                          className: `${q}-nav-list`,
+                          style: {
+                            transform: `translate(${en}px, ${eo}px)`,
+                            transition: eC ? "none" : void 0,
+                          },
+                        },
+                        eZ,
+                        o.createElement(M, {
+                          ref: ee,
+                          prefixCls: q,
+                          locale: I,
+                          editable: P,
+                          style: {
+                            ...(0 === eZ.length ? void 0 : eX),
+                            visibility: eU ? "hidden" : null,
+                          },
+                        }),
+                        o.createElement("div", {
+                          className: (0, l.W)(`${q}-ink-bar`, X?.indicator, {
+                            [`${q}-ink-bar-animated`]: p.inkBar,
+                          }),
+                          style: { ...eQ, ...Z?.indicator },
+                        })
+                      )
+                    )
+                  )
+                ),
+                o.createElement(
+                  N,
+                  T({}, e, {
+                    removeAriaLabel: I?.removeAriaLabel,
+                    ref: J,
+                    prefixCls: q,
+                    tabs: eK,
+                    className: !eU && ex,
+                    popupStyle: Z?.popup,
+                    tabMoving: !!eC,
+                  })
+                ),
+                o.createElement(C, {
+                  ref: Q,
+                  position: "right",
+                  extra: $,
+                  prefixCls: q,
+                })
+              )
+            )
+          );
+        });
+      var G = ({ renderTabBar: e, ...t }) =>
+          e ? e(t, H) : o.createElement(H, t),
+        j = n(77031);
+      let A = o.forwardRef((e, t) => {
+        let {
+            prefixCls: n,
+            className: a,
+            style: r,
+            id: c,
+            active: i,
+            tabKey: d,
+            children: s,
+          } = e,
+          u = o.Children.count(s) > 0;
+        return o.createElement(
+          "div",
+          {
+            id: c && `${c}-panel-${d}`,
+            role: "tabpanel",
+            tabIndex: i && u ? 0 : -1,
+            "aria-labelledby": c && `${c}-tab-${d}`,
+            "aria-hidden": !i,
+            style: r,
+            className: (0, l.W)(n, i && `${n}-active`, a),
+            ref: t,
+          },
+          s
+        );
+      });
+      function X() {
+        return (X = Object.assign
+          ? Object.assign.bind()
+          : function (e) {
+              for (var t = 1; t < arguments.length; t++) {
+                var n = arguments[t];
+                for (var a in n)
+                  Object.prototype.hasOwnProperty.call(n, a) && (e[a] = n[a]);
+              }
+              return e;
+            }).apply(this, arguments);
+      }
+      var Z = (e) => {
+        let {
+            id: t,
+            activeKey: n,
+            animated: a,
+            tabPosition: r,
+            destroyOnHidden: c,
+            contentStyle: i,
+            contentClassName: d,
+          } = e,
+          { prefixCls: s, tabs: u } = o.useContext(f),
+          p = a.tabPane,
+          b = `${s}-tabpane`;
+        return o.createElement(
+          "div",
+          { className: (0, l.W)(`${s}-content-holder`) },
+          o.createElement(
+            "div",
+            {
+              className: (0, l.W)(`${s}-content`, `${s}-content-${r}`, {
+                [`${s}-content-animated`]: p,
+              }),
+            },
+            u.map((e) => {
+              let {
+                  key: r,
+                  forceRender: s,
+                  style: u,
+                  className: f,
+                  destroyOnHidden: v,
+                  ...h
+                } = e,
+                m = r === n;
+              return o.createElement(
+                j.ZP,
+                X(
+                  {
+                    key: r,
+                    visible: m,
+                    forceRender: s,
+                    removeOnLeave: !!(c ?? v),
+                    leavedClassName: `${b}-hidden`,
+                  },
+                  a.tabPaneMotion
+                ),
+                ({ style: e, className: n }, a) =>
+                  o.createElement(
+                    A,
+                    X({}, h, {
+                      prefixCls: b,
+                      id: t,
+                      tabKey: r,
+                      animated: p,
+                      active: m,
+                      style: { ...i, ...u, ...e },
+                      className: (0, l.W)(d, f, n),
+                      ref: a,
+                    })
+                  )
+              );
+            })
+          )
+        );
+      };
+      function q() {
+        return (q = Object.assign
+          ? Object.assign.bind()
+          : function (e) {
+              for (var t = 1; t < arguments.length; t++) {
+                var n = arguments[t];
+                for (var a in n)
+                  Object.prototype.hasOwnProperty.call(n, a) && (e[a] = n[a]);
+              }
+              return e;
+            }).apply(this, arguments);
+      }
+      n(71134);
+      let F = 0,
+        K = o.forwardRef((e, t) => {
+          let {
+              id: n,
+              prefixCls: a = "rc-tabs",
+              className: r,
+              items: c,
+              direction: i,
+              activeKey: s,
+              defaultActiveKey: u,
+              editable: b,
+              animated: v,
+              tabPosition: h = "top",
+              tabBarGutter: m,
+              tabBarStyle: g,
+              tabBarExtraContent: k,
+              locale: y,
+              more: w,
+              destroyOnHidden: _,
+              renderTabBar: x,
+              onChange: S,
+              onTabClick: E,
+              onTabScroll: R,
+              getPopupContainer: M,
+              popupClassName: C,
+              indicator: $,
+              classNames: P,
+              styles: I,
+              ...L
+            } = e,
+            D = o.useMemo(
+              () =>
+                (c || []).filter(
+                  (e) => e && "object" == typeof e && "key" in e
+                ),
+              [c]
+            ),
+            N = "rtl" === i,
+            z = (function (e = { inkBar: !0, tabPane: !1 }) {
+              let t;
+              return (
+                (t =
+                  !1 === e
+                    ? { inkBar: !1, tabPane: !1 }
+                    : !0 === e
+                    ? { inkBar: !0, tabPane: !1 }
+                    : { inkBar: !0, ...("object" == typeof e ? e : {}) })
+                  .tabPaneMotion &&
+                  void 0 === t.tabPane &&
+                  (t.tabPane = !0),
+                !t.tabPaneMotion && t.tabPane && (t.tabPane = !1),
+                t
+              );
+            })(v),
+            [T, W] = (0, o.useState)(!1);
+          (0, o.useEffect)(() => {
+            W(p());
+          }, []);
+          let [O, B] = (0, d.Z)(u ?? D[0]?.key, s),
+            [H, j] = (0, o.useState)(() => D.findIndex((e) => e.key === O));
+          (0, o.useEffect)(() => {
+            let e = D.findIndex((e) => e.key === O);
+            -1 === e &&
+              ((e = Math.max(0, Math.min(H, D.length - 1))), B(D[e]?.key)),
+              j(e);
+          }, [D.map((e) => e.key).join("_"), O, H]);
+          let [A, X] = (0, d.Z)(null, n);
+          (0, o.useEffect)(() => {
+            n || (X(`rc-tabs-${F}`), (F += 1));
+          }, []);
+          let K = {
+              id: A,
+              activeKey: O,
+              animated: z,
+              tabPosition: h,
+              rtl: N,
+              mobile: T,
+            },
+            V = {
+              ...K,
+              editable: b,
+              locale: y,
+              more: w,
+              tabBarGutter: m,
+              onTabClick: function (e, t) {
+                E?.(e, t);
+                let n = e !== O;
+                B(e), n && S?.(e);
+              },
+              onTabScroll: R,
+              extra: k,
+              style: g,
+              getPopupContainer: M,
+              popupClassName: (0, l.W)(C, P?.popup),
+              indicator: $,
+              styles: I,
+              classNames: P,
+            },
+            Q = o.useMemo(() => ({ tabs: D, prefixCls: a }), [D, a]);
+          return o.createElement(
+            f.Provider,
+            { value: Q },
+            o.createElement(
+              "div",
+              q(
+                {
+                  ref: t,
+                  id: n,
+                  className: (0, l.W)(
+                    a,
+                    `${a}-${h}`,
+                    {
+                      [`${a}-mobile`]: T,
+                      [`${a}-editable`]: b,
+                      [`${a}-rtl`]: N,
+                    },
+                    r
+                  ),
+                },
+                L
+              ),
+              o.createElement(G, q({}, V, { renderTabBar: x })),
+              o.createElement(
+                Z,
+                q({ destroyOnHidden: _ }, K, {
+                  contentStyle: I?.content,
+                  contentClassName: P?.content,
+                  animated: z,
+                })
+              )
+            )
+          );
+        });
+      var V = n(80052),
+        Q = n(71744),
+        U = n(64024),
+        Y = n(33759),
+        J = n(68710);
+      let ee = { motionAppear: !1, motionEnter: !0, motionLeave: !0 };
+      var et = n(73627),
+        en = n(38775),
+        ea = n(12918),
+        eo = n(99320),
+        er = n(19224),
+        ec = n(18544),
+        ei = (e) => {
+          let { componentCls: t, motionDurationSlow: n } = e;
+          return [
+            {
+              [t]: {
+                ["".concat(t, "-switch")]: {
+                  "&-appear, &-enter": {
+                    transition: "none",
+                    "&-start": { opacity: 0 },
+                    "&-active": {
+                      opacity: 1,
+                      transition: "opacity ".concat(n),
+                    },
+                  },
+                  "&-leave": {
+                    position: "absolute",
+                    transition: "none",
+                    inset: 0,
+                    "&-start": { opacity: 1 },
+                    "&-active": {
+                      opacity: 0,
+                      transition: "opacity ".concat(n),
+                    },
+                  },
+                },
+              },
+            },
+            [(0, ec.oN)(e, "slide-up"), (0, ec.oN)(e, "slide-down")],
+          ];
+        };
+      let el = (e) => {
+          let {
+            componentCls: t,
+            tabsCardPadding: n,
+            cardBg: a,
+            cardGutter: o,
+            colorBorderSecondary: r,
+            itemSelectedColor: c,
+          } = e;
+          return {
+            ["".concat(t, "-card")]: {
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                ["".concat(t, "-tab")]: {
+                  margin: 0,
+                  padding: n,
+                  background: a,
+                  border: ""
+                    .concat((0, en.bf)(e.lineWidth), " ")
+                    .concat(e.lineType, " ")
+                    .concat(r),
+                  transition: "all "
+                    .concat(e.motionDurationSlow, " ")
+                    .concat(e.motionEaseInOut),
+                },
+                ["".concat(t, "-tab-active")]: {
+                  color: c,
+                  background: e.colorBgContainer,
+                },
+                [""
+                  .concat(t, "-tab-focus:has(")
+                  .concat(t, "-tab-btn:focus-visible)")]: (0, ea.oN)(e, -3),
+                ["& "
+                  .concat(t, "-tab")
+                  .concat(t, "-tab-focus ")
+                  .concat(t, "-tab-btn:focus-visible")]: { outline: "none" },
+                ["".concat(t, "-ink-bar")]: { visibility: "hidden" },
+              },
+              ["&".concat(t, "-top, &").concat(t, "-bottom")]: {
+                ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                  ["".concat(t, "-tab + ").concat(t, "-tab")]: {
+                    marginLeft: { _skip_check_: !0, value: (0, en.bf)(o) },
+                  },
+                },
+              },
+              ["&".concat(t, "-top")]: {
+                ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: {
+                    borderRadius: ""
+                      .concat((0, en.bf)(e.borderRadiusLG), " ")
+                      .concat((0, en.bf)(e.borderRadiusLG), " 0 0"),
+                  },
+                  ["".concat(t, "-tab-active")]: {
+                    borderBottomColor: e.colorBgContainer,
+                  },
+                },
+              },
+              ["&".concat(t, "-bottom")]: {
+                ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: {
+                    borderRadius: "0 0 "
+                      .concat((0, en.bf)(e.borderRadiusLG), " ")
+                      .concat((0, en.bf)(e.borderRadiusLG)),
+                  },
+                  ["".concat(t, "-tab-active")]: {
+                    borderTopColor: e.colorBgContainer,
+                  },
+                },
+              },
+              ["&".concat(t, "-left, &").concat(t, "-right")]: {
+                ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                  ["".concat(t, "-tab + ").concat(t, "-tab")]: {
+                    marginTop: (0, en.bf)(o),
+                  },
+                },
+              },
+              ["&".concat(t, "-left")]: {
+                ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: {
+                    borderRadius: {
+                      _skip_check_: !0,
+                      value: ""
+                        .concat((0, en.bf)(e.borderRadiusLG), " 0 0 ")
+                        .concat((0, en.bf)(e.borderRadiusLG)),
+                    },
+                  },
+                  ["".concat(t, "-tab-active")]: {
+                    borderRightColor: {
+                      _skip_check_: !0,
+                      value: e.colorBgContainer,
+                    },
+                  },
+                },
+              },
+              ["&".concat(t, "-right")]: {
+                ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: {
+                    borderRadius: {
+                      _skip_check_: !0,
+                      value: "0 "
+                        .concat((0, en.bf)(e.borderRadiusLG), " ")
+                        .concat((0, en.bf)(e.borderRadiusLG), " 0"),
+                    },
+                  },
+                  ["".concat(t, "-tab-active")]: {
+                    borderLeftColor: {
+                      _skip_check_: !0,
+                      value: e.colorBgContainer,
+                    },
+                  },
+                },
+              },
+            },
+          };
+        },
+        ed = (e) => {
+          let {
+            componentCls: t,
+            itemHoverColor: n,
+            dropdownEdgeChildVerticalPadding: a,
+          } = e;
+          return {
+            ["".concat(t, "-dropdown")]: {
+              ...(0, ea.Wf)(e),
+              position: "absolute",
+              top: -9999,
+              left: { _skip_check_: !0, value: -9999 },
+              zIndex: e.zIndexPopup,
+              display: "block",
+              "&-hidden": { display: "none" },
+              ["".concat(t, "-dropdown-menu")]: {
+                maxHeight: e.tabsDropdownHeight,
+                margin: 0,
+                padding: "".concat((0, en.bf)(a), " 0"),
+                overflowX: "hidden",
+                overflowY: "auto",
+                textAlign: { _skip_check_: !0, value: "left" },
+                listStyleType: "none",
+                backgroundColor: e.colorBgContainer,
+                backgroundClip: "padding-box",
+                borderRadius: e.borderRadiusLG,
+                outline: "none",
+                boxShadow: e.boxShadowSecondary,
+                "&-item": {
+                  ...ea.vS,
+                  display: "flex",
+                  alignItems: "center",
+                  minWidth: e.tabsDropdownWidth,
+                  margin: 0,
+                  padding: ""
+                    .concat((0, en.bf)(e.paddingXXS), " ")
+                    .concat((0, en.bf)(e.paddingSM)),
+                  color: e.colorText,
+                  fontWeight: "normal",
+                  fontSize: e.fontSize,
+                  lineHeight: e.lineHeight,
+                  cursor: "pointer",
+                  transition: "all ".concat(e.motionDurationSlow),
+                  "> span": { flex: 1, whiteSpace: "nowrap" },
+                  "&-remove": {
+                    flex: "none",
+                    marginLeft: { _skip_check_: !0, value: e.marginSM },
+                    color: e.colorIcon,
+                    fontSize: e.fontSizeSM,
+                    background: "transparent",
+                    border: 0,
+                    cursor: "pointer",
+                    "&:hover": { color: n },
+                  },
+                  "&:hover": { background: e.controlItemBgHover },
+                  "&-disabled": {
+                    "&, &:hover": {
+                      color: e.colorTextDisabled,
+                      background: "transparent",
+                      cursor: "not-allowed",
+                    },
+                  },
+                },
+              },
+            },
+          };
+        },
+        es = (e) => {
+          let {
+            componentCls: t,
+            margin: n,
+            colorBorderSecondary: a,
+            horizontalMargin: o,
+            verticalItemPadding: r,
+            verticalItemMargin: c,
+            calc: i,
+          } = e;
+          return {
+            ["".concat(t, "-top, ").concat(t, "-bottom")]: {
+              flexDirection: "column",
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                margin: o,
+                "&::before": {
+                  position: "absolute",
+                  right: { _skip_check_: !0, value: 0 },
+                  left: { _skip_check_: !0, value: 0 },
+                  borderBottom: ""
+                    .concat((0, en.bf)(e.lineWidth), " ")
+                    .concat(e.lineType, " ")
+                    .concat(a),
+                  content: "''",
+                },
+                ["".concat(t, "-ink-bar")]: {
+                  height: e.lineWidthBold,
+                  "&-animated": {
+                    transition: "width "
+                      .concat(e.motionDurationSlow, ", left ")
+                      .concat(e.motionDurationSlow, ",\n            right ")
+                      .concat(e.motionDurationSlow),
+                  },
+                },
+                ["".concat(t, "-nav-wrap")]: {
+                  "&::before, &::after": {
+                    top: 0,
+                    bottom: 0,
+                    width: e.controlHeight,
+                  },
+                  "&::before": {
+                    left: { _skip_check_: !0, value: 0 },
+                    boxShadow: e.boxShadowTabsOverflowLeft,
+                  },
+                  "&::after": {
+                    right: { _skip_check_: !0, value: 0 },
+                    boxShadow: e.boxShadowTabsOverflowRight,
+                  },
+                  ["&".concat(t, "-nav-wrap-ping-left::before")]: {
+                    opacity: 1,
+                  },
+                  ["&".concat(t, "-nav-wrap-ping-right::after")]: {
+                    opacity: 1,
+                  },
+                },
+              },
+            },
+            ["".concat(t, "-top")]: {
+              ["> ".concat(t, "-nav,\n        > div > ").concat(t, "-nav")]: {
+                "&::before": { bottom: 0 },
+                ["".concat(t, "-ink-bar")]: { bottom: 0 },
+              },
+            },
+            ["".concat(t, "-bottom")]: {
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                order: 1,
+                marginTop: n,
+                marginBottom: 0,
+                "&::before": { top: 0 },
+                ["".concat(t, "-ink-bar")]: { top: 0 },
+              },
+              ["> "
+                .concat(t, "-content-holder, > div > ")
+                .concat(t, "-content-holder")]: { order: 0 },
+            },
+            ["".concat(t, "-left, ").concat(t, "-right")]: {
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                flexDirection: "column",
+                minWidth: i(e.controlHeight).mul(1.25).equal(),
+                ["".concat(t, "-tab")]: { padding: r, textAlign: "center" },
+                ["".concat(t, "-tab + ").concat(t, "-tab")]: { margin: c },
+                ["".concat(t, "-nav-wrap")]: {
+                  flexDirection: "column",
+                  "&::before, &::after": {
+                    right: { _skip_check_: !0, value: 0 },
+                    left: { _skip_check_: !0, value: 0 },
+                    height: e.controlHeight,
+                  },
+                  "&::before": {
+                    top: 0,
+                    boxShadow: e.boxShadowTabsOverflowTop,
+                  },
+                  "&::after": {
+                    bottom: 0,
+                    boxShadow: e.boxShadowTabsOverflowBottom,
+                  },
+                  ["&".concat(t, "-nav-wrap-ping-top::before")]: { opacity: 1 },
+                  ["&".concat(t, "-nav-wrap-ping-bottom::after")]: {
+                    opacity: 1,
+                  },
+                },
+                ["".concat(t, "-ink-bar")]: {
+                  width: e.lineWidthBold,
+                  "&-animated": {
+                    transition: "height "
+                      .concat(e.motionDurationSlow, ", top ")
+                      .concat(e.motionDurationSlow),
+                  },
+                },
+                ["".concat(t, "-nav-list, ").concat(t, "-nav-operations")]: {
+                  flex: "1 0 auto",
+                  flexDirection: "column",
+                },
+              },
+            },
+            ["".concat(t, "-left")]: {
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                ["".concat(t, "-ink-bar")]: {
+                  right: { _skip_check_: !0, value: 0 },
+                },
+              },
+              ["> "
+                .concat(t, "-content-holder, > div > ")
+                .concat(t, "-content-holder")]: {
+                marginLeft: {
+                  _skip_check_: !0,
+                  value: (0, en.bf)(i(e.lineWidth).mul(-1).equal()),
+                },
+                borderLeft: {
+                  _skip_check_: !0,
+                  value: ""
+                    .concat((0, en.bf)(e.lineWidth), " ")
+                    .concat(e.lineType, " ")
+                    .concat(e.colorBorder),
+                },
+                ["> ".concat(t, "-content > ").concat(t, "-tabpane")]: {
+                  paddingLeft: { _skip_check_: !0, value: e.paddingLG },
+                },
+              },
+            },
+            ["".concat(t, "-right")]: {
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                order: 1,
+                ["".concat(t, "-ink-bar")]: {
+                  left: { _skip_check_: !0, value: 0 },
+                },
+              },
+              ["> "
+                .concat(t, "-content-holder, > div > ")
+                .concat(t, "-content-holder")]: {
+                order: 0,
+                marginRight: {
+                  _skip_check_: !0,
+                  value: i(e.lineWidth).mul(-1).equal(),
+                },
+                borderRight: {
+                  _skip_check_: !0,
+                  value: ""
+                    .concat((0, en.bf)(e.lineWidth), " ")
+                    .concat(e.lineType, " ")
+                    .concat(e.colorBorder),
+                },
+                ["> ".concat(t, "-content > ").concat(t, "-tabpane")]: {
+                  paddingRight: { _skip_check_: !0, value: e.paddingLG },
+                },
+              },
+            },
+          };
+        },
+        eu = (e) => {
+          let {
+            componentCls: t,
+            cardPaddingSM: n,
+            cardPaddingLG: a,
+            cardHeightSM: o,
+            cardHeightLG: r,
+            horizontalItemPaddingSM: c,
+            horizontalItemPaddingLG: i,
+          } = e;
+          return {
+            [t]: {
+              "&-small": {
+                ["> ".concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: {
+                    padding: c,
+                    fontSize: e.titleFontSizeSM,
+                  },
+                },
+              },
+              "&-large": {
+                ["> ".concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: {
+                    padding: i,
+                    fontSize: e.titleFontSizeLG,
+                    lineHeight: e.lineHeightLG,
+                  },
+                },
+              },
+            },
+            ["".concat(t, "-card")]: {
+              ["&".concat(t, "-small")]: {
+                ["> ".concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: { padding: n },
+                  ["".concat(t, "-nav-add")]: { minWidth: o, minHeight: o },
+                },
+                ["&".concat(t, "-bottom")]: {
+                  ["> ".concat(t, "-nav ").concat(t, "-tab")]: {
+                    borderRadius: "0 0 "
+                      .concat((0, en.bf)(e.borderRadius), " ")
+                      .concat((0, en.bf)(e.borderRadius)),
+                  },
+                },
+                ["&".concat(t, "-top")]: {
+                  ["> ".concat(t, "-nav ").concat(t, "-tab")]: {
+                    borderRadius: ""
+                      .concat((0, en.bf)(e.borderRadius), " ")
+                      .concat((0, en.bf)(e.borderRadius), " 0 0"),
+                  },
+                },
+                ["&".concat(t, "-right")]: {
+                  ["> ".concat(t, "-nav ").concat(t, "-tab")]: {
+                    borderRadius: {
+                      _skip_check_: !0,
+                      value: "0 "
+                        .concat((0, en.bf)(e.borderRadius), " ")
+                        .concat((0, en.bf)(e.borderRadius), " 0"),
+                    },
+                  },
+                },
+                ["&".concat(t, "-left")]: {
+                  ["> ".concat(t, "-nav ").concat(t, "-tab")]: {
+                    borderRadius: {
+                      _skip_check_: !0,
+                      value: ""
+                        .concat((0, en.bf)(e.borderRadius), " 0 0 ")
+                        .concat((0, en.bf)(e.borderRadius)),
+                    },
+                  },
+                },
+              },
+              ["&".concat(t, "-large")]: {
+                ["> ".concat(t, "-nav")]: {
+                  ["".concat(t, "-tab")]: { padding: a },
+                  ["".concat(t, "-nav-add")]: { minWidth: r, minHeight: r },
+                },
+              },
+            },
+          };
+        },
+        ep = (e) => {
+          let {
+              componentCls: t,
+              itemActiveColor: n,
+              itemHoverColor: a,
+              iconCls: o,
+              tabsHorizontalItemMargin: r,
+              horizontalItemPadding: c,
+              itemSelectedColor: i,
+              itemColor: l,
+            } = e,
+            d = "".concat(t, "-tab");
+          return {
+            [d]: {
+              position: "relative",
+              WebkitTouchCallout: "none",
+              WebkitTapHighlightColor: "transparent",
+              display: "inline-flex",
+              alignItems: "center",
+              padding: c,
+              fontSize: e.titleFontSize,
+              background: "transparent",
+              border: 0,
+              outline: "none",
+              cursor: "pointer",
+              color: l,
+              "&-btn, &-remove": {
+                "&:focus:not(:focus-visible), &:active": { color: n },
+              },
+              "&-btn": {
+                outline: "none",
+                transition: "all ".concat(e.motionDurationSlow),
+                ["".concat(d, "-icon:not(:last-child)")]: {
+                  marginInlineEnd: e.marginSM,
+                },
+              },
+              "&-remove": {
+                flex: "none",
+                lineHeight: 1,
+                marginRight: {
+                  _skip_check_: !0,
+                  value: e.calc(e.marginXXS).mul(-1).equal(),
+                },
+                marginLeft: { _skip_check_: !0, value: e.marginXS },
+                color: e.colorIcon,
+                fontSize: e.fontSizeSM,
+                background: "transparent",
+                border: "none",
+                outline: "none",
+                cursor: "pointer",
+                transition: "all ".concat(e.motionDurationSlow),
+                "&:hover": { color: e.colorTextHeading },
+                ...(0, ea.Qy)(e),
+              },
+              "&:hover": { color: a },
+              ["&".concat(d, "-active ").concat(d, "-btn")]: { color: i },
+              ["&".concat(d, "-focus ").concat(d, "-btn:focus-visible")]: (0,
+              ea.oN)(e),
+              ["&".concat(d, "-disabled")]: {
+                color: e.colorTextDisabled,
+                cursor: "not-allowed",
+              },
+              ["&"
+                .concat(d, "-disabled ")
+                .concat(d, "-btn, &")
+                .concat(d, "-disabled ")
+                .concat(t, "-remove")]: {
+                "&:focus, &:active": { color: e.colorTextDisabled },
+              },
+              ["& ".concat(d, "-remove ").concat(o)]: {
+                margin: 0,
+                verticalAlign: "middle",
+              },
+              ["".concat(o, ":not(:last-child)")]: {
+                marginRight: { _skip_check_: !0, value: e.marginSM },
+              },
+            },
+            ["".concat(d, " + ").concat(d)]: {
+              margin: { _skip_check_: !0, value: r },
+            },
+          };
+        },
+        ef = (e) => {
+          let {
+            componentCls: t,
+            tabsHorizontalItemMarginRTL: n,
+            iconCls: a,
+            cardGutter: o,
+            calc: r,
+          } = e;
+          return {
+            ["".concat(t, "-rtl")]: {
+              direction: "rtl",
+              ["".concat(t, "-nav")]: {
+                ["".concat(t, "-tab")]: {
+                  margin: { _skip_check_: !0, value: n },
+                  ["".concat(t, "-tab:last-of-type")]: {
+                    marginLeft: { _skip_check_: !0, value: 0 },
+                  },
+                  [a]: {
+                    marginRight: { _skip_check_: !0, value: 0 },
+                    marginLeft: {
+                      _skip_check_: !0,
+                      value: (0, en.bf)(e.marginSM),
+                    },
+                  },
+                  ["".concat(t, "-tab-remove")]: {
+                    marginRight: {
+                      _skip_check_: !0,
+                      value: (0, en.bf)(e.marginXS),
+                    },
+                    marginLeft: {
+                      _skip_check_: !0,
+                      value: (0, en.bf)(r(e.marginXXS).mul(-1).equal()),
+                    },
+                    [a]: { margin: 0 },
+                  },
+                },
+              },
+              ["&".concat(t, "-left")]: {
+                ["> ".concat(t, "-nav")]: { order: 1 },
+                ["> ".concat(t, "-content-holder")]: { order: 0 },
+              },
+              ["&".concat(t, "-right")]: {
+                ["> ".concat(t, "-nav")]: { order: 0 },
+                ["> ".concat(t, "-content-holder")]: { order: 1 },
+              },
+              ["&"
+                .concat(t, "-card")
+                .concat(t, "-top, &")
+                .concat(t, "-card")
+                .concat(t, "-bottom")]: {
+                ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                  ["".concat(t, "-tab + ").concat(t, "-tab")]: {
+                    marginRight: { _skip_check_: !0, value: o },
+                    marginLeft: { _skip_check_: !0, value: 0 },
+                  },
+                },
+              },
+            },
+            ["".concat(t, "-dropdown-rtl")]: { direction: "rtl" },
+            ["".concat(t, "-menu-item")]: {
+              ["".concat(t, "-dropdown-rtl")]: {
+                textAlign: { _skip_check_: !0, value: "right" },
+              },
+            },
+          };
+        },
+        eb = (e) => {
+          let {
+            componentCls: t,
+            tabsCardPadding: n,
+            cardHeight: a,
+            cardGutter: o,
+            itemHoverColor: r,
+            itemActiveColor: c,
+            colorBorderSecondary: i,
+          } = e;
+          return {
+            [t]: {
+              ...(0, ea.Wf)(e),
+              display: "flex",
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                position: "relative",
+                display: "flex",
+                flex: "none",
+                alignItems: "center",
+                ["".concat(t, "-nav-wrap")]: {
+                  position: "relative",
+                  display: "flex",
+                  flex: "auto",
+                  alignSelf: "stretch",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  transform: "translate(0)",
+                  "&::before, &::after": {
+                    position: "absolute",
+                    zIndex: 1,
+                    opacity: 0,
+                    transition: "opacity ".concat(e.motionDurationSlow),
+                    content: "''",
+                    pointerEvents: "none",
+                  },
+                },
+                ["".concat(t, "-nav-list")]: {
+                  position: "relative",
+                  display: "flex",
+                  transition: "opacity ".concat(e.motionDurationSlow),
+                },
+                ["".concat(t, "-nav-operations")]: {
+                  display: "flex",
+                  alignSelf: "stretch",
+                },
+                ["".concat(t, "-nav-operations-hidden")]: {
+                  position: "absolute",
+                  visibility: "hidden",
+                  pointerEvents: "none",
+                },
+                ["".concat(t, "-nav-more")]: {
+                  position: "relative",
+                  padding: n,
+                  background: "transparent",
+                  border: 0,
+                  color: e.colorText,
+                  "&::after": {
+                    position: "absolute",
+                    right: { _skip_check_: !0, value: 0 },
+                    bottom: 0,
+                    left: { _skip_check_: !0, value: 0 },
+                    height: e.calc(e.controlHeightLG).div(8).equal(),
+                    transform: "translateY(100%)",
+                    content: "''",
+                  },
+                },
+                ["".concat(t, "-nav-add")]: {
+                  minWidth: a,
+                  minHeight: a,
+                  marginLeft: { _skip_check_: !0, value: o },
+                  background: "transparent",
+                  border: ""
+                    .concat((0, en.bf)(e.lineWidth), " ")
+                    .concat(e.lineType, " ")
+                    .concat(i),
+                  borderRadius: ""
+                    .concat((0, en.bf)(e.borderRadiusLG), " ")
+                    .concat((0, en.bf)(e.borderRadiusLG), " 0 0"),
+                  outline: "none",
+                  cursor: "pointer",
+                  color: e.colorText,
+                  transition: "all "
+                    .concat(e.motionDurationSlow, " ")
+                    .concat(e.motionEaseInOut),
+                  "&:hover": { color: r },
+                  "&:active, &:focus:not(:focus-visible)": { color: c },
+                  ...(0, ea.Qy)(e, -3),
+                },
+              },
+              ["".concat(t, "-extra-content")]: { flex: "none" },
+              ["".concat(t, "-ink-bar")]: {
+                position: "absolute",
+                background: e.inkBarColor,
+                pointerEvents: "none",
+              },
+              ...ep(e),
+              ["".concat(t, "-content")]: {
+                position: "relative",
+                width: "100%",
+              },
+              ["".concat(t, "-content-holder")]: {
+                flex: "auto",
+                minWidth: 0,
+                minHeight: 0,
+              },
+              ["".concat(t, "-tabpane")]: {
+                ...(0, ea.Qy)(e),
+                "&-hidden": { display: "none" },
+              },
+            },
+            ["".concat(t, "-centered")]: {
+              ["> ".concat(t, "-nav, > div > ").concat(t, "-nav")]: {
+                ["".concat(t, "-nav-wrap")]: {
+                  ["&:not([class*='"
+                    .concat(t, "-nav-wrap-ping']) > ")
+                    .concat(t, "-nav-list")]: { margin: "auto" },
+                },
+              },
+            },
+          };
+        };
+      var ev = (0, eo.I$)(
+        "Tabs",
+        (e) => {
+          let t = (0, er.IX)(e, {
+            tabsCardPadding: e.cardPadding,
+            dropdownEdgeChildVerticalPadding: e.paddingXXS,
+            tabsDropdownHeight: 200,
+            tabsDropdownWidth: 120,
+            tabsHorizontalItemMargin: "0 0 0 ".concat(
+              (0, en.bf)(e.horizontalItemGutter)
+            ),
+            tabsHorizontalItemMarginRTL: "0 0 0 ".concat(
+              (0, en.bf)(e.horizontalItemGutter)
+            ),
+          });
+          return [eu(t), ef(t), es(t), ed(t), el(t), eb(t), ei(t)];
+        },
+        (e) => {
+          let {
+              cardHeight: t,
+              cardHeightSM: n,
+              cardHeightLG: a,
+              controlHeight: o,
+              controlHeightLG: r,
+            } = e,
+            c = t || r,
+            i = n || o,
+            l = a || r + 8;
+          return {
+            zIndexPopup: e.zIndexPopupBase + 50,
+            cardBg: e.colorFillAlter,
+            cardHeight: c,
+            cardHeightSM: i,
+            cardHeightLG: l,
+            cardPadding: ""
+              .concat((c - e.fontHeight) / 2 - e.lineWidth, "px ")
+              .concat(e.padding, "px"),
+            cardPaddingSM: ""
+              .concat((i - e.fontHeight) / 2 - e.lineWidth, "px ")
+              .concat(e.paddingXS, "px"),
+            cardPaddingLG: ""
+              .concat((l - e.fontHeightLG) / 2 - e.lineWidth, "px ")
+              .concat(e.padding, "px"),
+            titleFontSize: e.fontSize,
+            titleFontSizeLG: e.fontSizeLG,
+            titleFontSizeSM: e.fontSize,
+            inkBarColor: e.colorPrimary,
+            horizontalMargin: "0 0 ".concat(e.margin, "px 0"),
+            horizontalItemGutter: 32,
+            horizontalItemMargin: "",
+            horizontalItemMarginRTL: "",
+            horizontalItemPadding: "".concat(e.paddingSM, "px 0"),
+            horizontalItemPaddingSM: "".concat(e.paddingXS, "px 0"),
+            horizontalItemPaddingLG: "".concat(e.padding, "px 0"),
+            verticalItemPadding: ""
+              .concat(e.paddingXS, "px ")
+              .concat(e.paddingLG, "px"),
+            verticalItemMargin: "".concat(e.margin, "px 0 0 0"),
+            itemColor: e.colorText,
+            itemSelectedColor: e.colorPrimary,
+            itemHoverColor: e.colorPrimaryHover,
+            itemActiveColor: e.colorPrimaryActive,
+            cardGutter: e.marginXXS / 2,
+          };
+        }
+      );
+      let eh = o.forwardRef((e, t) => {
+        var n, a, d, s, u, p, f, b, v, h, m, g;
+        let k;
+        let {
+            type: y,
+            className: w,
+            rootClassName: _,
+            size: x,
+            onEdit: S,
+            hideAdd: E,
+            centered: R,
+            addIcon: M,
+            removeIcon: C,
+            moreIcon: $,
+            more: P,
+            popupClassName: I,
+            children: L,
+            items: D,
+            animated: N,
+            style: z,
+            indicatorSize: T,
+            indicator: W,
+            classNames: O,
+            styles: B,
+            destroyInactiveTabPane: H,
+            destroyOnHidden: G,
+            tabPlacement: j,
+            tabPosition: A,
+            ...X
+          } = e,
+          { prefixCls: Z } = X,
+          {
+            getPrefixCls: q,
+            direction: F,
+            getPopupContainer: en,
+            className: ea,
+            style: eo,
+            classNames: er,
+            styles: ec,
+          } = (0, Q.dj)("tabs"),
+          { tabs: ei } = o.useContext(Q.E_),
+          el = q("tabs", Z),
+          ed = (0, U.Z)(el),
+          [es, eu] = ev(el, ed),
+          ep = o.useRef(null);
+        o.useImperativeHandle(t, () => ({ nativeElement: ep.current })),
+          "editable-card" === y &&
+            (k = {
+              onEdit: (e, t) => {
+                let { key: n, event: a } = t;
+                null == S || S("add" === e ? a : n, e);
+              },
+              removeIcon:
+                null !==
+                  (u = null != C ? C : null == ei ? void 0 : ei.removeIcon) &&
+                void 0 !== u
+                  ? u
+                  : o.createElement(r.Z, null),
+              addIcon:
+                (null != M ? M : null == ei ? void 0 : ei.addIcon) ||
+                o.createElement(i.Z, null),
+              showAdd: !0 !== E,
+            });
+        let ef = q(),
+          eb = (0, Y.Z)(x),
+          eh = D
+            ? D.map((e) => {
+                var t;
+                return {
+                  ...e,
+                  destroyOnHidden:
+                    null !== (t = e.destroyOnHidden) && void 0 !== t
+                      ? t
+                      : e.destroyInactiveTabPane,
+                };
+              })
+            : (0, et.qo)(L)
+                .map((e) => {
+                  if (o.isValidElement(e)) {
+                    let { key: t, props: n } = e,
+                      { tab: a, ...o } = n || {};
+                    return { key: String(t), ...o, label: a };
+                  }
+                  return null;
+                })
+                .filter((e) => e),
+          em = (function (e) {
+            let t,
+              n =
+                arguments.length > 1 && void 0 !== arguments[1]
+                  ? arguments[1]
+                  : { inkBar: !0, tabPane: !1 };
+            return (
+              (t =
+                !1 === n
+                  ? { inkBar: !1, tabPane: !1 }
+                  : !0 === n
+                  ? { inkBar: !0, tabPane: !0 }
+                  : { inkBar: !0, ...("object" == typeof n ? n : {}) })
+                .tabPane &&
+                (t.tabPaneMotion = {
+                  ...ee,
+                  motionName: (0, J.m)(e, "switch"),
+                }),
+              t
+            );
+          })(el, N),
+          eg = {
+            align:
+              null !== (p = null == W ? void 0 : W.align) && void 0 !== p
+                ? p
+                : null == ei
+                ? void 0
+                : null === (n = ei.indicator) || void 0 === n
+                ? void 0
+                : n.align,
+            size:
+              null !==
+                (v =
+                  null !==
+                    (b =
+                      null !== (f = null == W ? void 0 : W.size) && void 0 !== f
+                        ? f
+                        : T) && void 0 !== b
+                    ? b
+                    : null == ei
+                    ? void 0
+                    : null === (a = ei.indicator) || void 0 === a
+                    ? void 0
+                    : a.size) && void 0 !== v
+                ? v
+                : null == ei
+                ? void 0
+                : ei.indicatorSize,
+          },
+          ek = o.useMemo(() => {
+            var e;
+            let t =
+                null !== (e = null != j ? j : A) && void 0 !== e ? e : void 0,
+              n = "rtl" === F;
+            switch (t) {
+              case "start":
+                return n ? "right" : "left";
+              case "end":
+                return n ? "left" : "right";
+              default:
+                return t;
+            }
+          }, [j, A, F]),
+          ey = { ...e, size: eb, tabPlacement: ek, items: eh },
+          [ew, e_] = (0, V.MW)(
+            [er, O],
+            [ec, B],
+            { props: ey },
+            { popup: { _default: "root" } }
+          );
+        return o.createElement(K, {
+          ref: ep,
+          direction: F,
+          getPopupContainer: en,
+          ...X,
+          items: eh,
+          className: (0, l.W)(
+            {
+              ["".concat(el, "-").concat(eb)]: eb,
+              ["".concat(el, "-card")]: ["card", "editable-card"].includes(y),
+              ["".concat(el, "-editable-card")]: "editable-card" === y,
+              ["".concat(el, "-centered")]: R,
+            },
+            ea,
+            w,
+            _,
+            ew.root,
+            es,
+            eu,
+            ed
+          ),
+          classNames: {
+            ...ew,
+            popup: (0, l.W)(
+              I,
+              es,
+              eu,
+              ed,
+              null === (d = ew.popup) || void 0 === d ? void 0 : d.root
+            ),
+          },
+          styles: e_,
+          style: { ...e_.root, ...eo, ...z },
+          editable: k,
+          more: {
+            icon:
+              null !==
+                (g =
+                  null !==
+                    (m =
+                      null !==
+                        (h =
+                          null == ei
+                            ? void 0
+                            : null === (s = ei.more) || void 0 === s
+                            ? void 0
+                            : s.icon) && void 0 !== h
+                        ? h
+                        : null == ei
+                        ? void 0
+                        : ei.moreIcon) && void 0 !== m
+                    ? m
+                    : $) && void 0 !== g
+                ? g
+                : o.createElement(c.Z, null),
+            transitionName: "".concat(ef, "-slide-up"),
+            ...P,
+          },
+          prefixCls: el,
+          animated: em,
+          indicator: eg,
+          destroyOnHidden: null != G ? G : H,
+          tabPosition: ek,
+        });
+      });
+      eh.TabPane = () => null;
+      var em = eh;
+    },
+    16986: function (e) {
+      (e.exports = o), (e.exports.isMobile = o), (e.exports.default = o);
+      let t =
+          /(android|bb\d+|meego).+mobile|armv7l|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|redmi|series[46]0|samsungbrowser.*mobile|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i,
+        n = /CrOS/,
+        a = /android|ipad|playbook|silk/i;
+      function o(e) {
+        e || (e = {});
+        let o = e.ua;
+        if (
+          (o || "undefined" == typeof navigator || (o = navigator.userAgent),
+          o &&
+            o.headers &&
+            "string" == typeof o.headers["user-agent"] &&
+            (o = o.headers["user-agent"]),
+          "string" != typeof o)
+        )
+          return !1;
+        let r = (t.test(o) && !n.test(o)) || (!!e.tablet && a.test(o));
+        return (
+          !r &&
+            e.tablet &&
+            e.featureDetect &&
+            navigator &&
+            navigator.maxTouchPoints > 1 &&
+            -1 !== o.indexOf("Macintosh") &&
+            -1 !== o.indexOf("Safari") &&
+            (r = !0),
+          r
+        );
+      }
+    },
+  },
+]);

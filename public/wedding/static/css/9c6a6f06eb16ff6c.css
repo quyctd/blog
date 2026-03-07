@@ -1,0 +1,338 @@
+.global-com {
+  width: 2.1875rem;
+  height: auto;
+  border: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  cursor: pointer;
+}
+.global-com span {
+  font-size: 0.75rem;
+}
+.global-ele {
+  margin-bottom: 0.8125rem;
+}
+.global-right {
+  position: absolute;
+  right: 0.625rem;
+  top: 12.5rem;
+  z-index: 100;
+  height: 16.25rem;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: flex-end;
+  transition: all 0.2s linear;
+}
+.global-right .z-icon {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.global-right span {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+.show-list-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+}
+.show-list-contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  width: 100%;
+}
+.show-list-contact-item span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.show-list-contact-item button {
+  background: linear-gradient(270deg, #ff4874, #ff9061);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.show-list-contact-item button:hover {
+  border: 1px solid #ff4874;
+}
+.calendar .template-one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.calendar .template-one .one-back {
+  width: 96%;
+  height: 96%;
+  background-color: #fff;
+}
+.calendar .template-one .one-head {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  top: 6%;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  font-size: 29px;
+  color: #fff;
+}
+.calendar .template-one .one-body {
+  position: absolute;
+  top: 25%;
+  left: 3%;
+  width: 94%;
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.calendar .template-one .one-body > div {
+  width: 14%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar .template-two {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 1px;
+}
+.calendar .template-two .two-back {
+  width: 92%;
+  height: 92%;
+  margin-left: 2%;
+  background-color: #fff;
+}
+.calendar .template-two .two-body {
+  width: 92%;
+  height: 92%;
+  background-color: #fff;
+  bottom: 0;
+  right: 2%;
+  justify-content: center;
+}
+.calendar .template-two .two-body,
+.calendar .template-two .two-body .body-axis {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.calendar .template-two .two-body .body-axis {
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 66%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.calendar .template-two .two-body .body-axis > div {
+  height: 38px;
+  width: 100%;
+  border-radius: 10px;
+}
+.calendar .template-two .two-body .body-box {
+  width: 87%;
+  height: 87%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.calendar .template-two .two-body .body-box .two-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+}
+.calendar .template-two .two-body .body-box .two-date {
+  width: 100%;
+  height: 83%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.calendar .template-two .two-body .body-box .two-date > div {
+  width: 14%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar .template-two .two-body .body-box .two-date .shadow {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 8%;
+  height: 10%;
+  border-radius: 10px;
+}
+.calendar .template-no-style {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.calendar .template-no-style > div {
+  width: 14%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body-week {
+  color: #000 !important;
+  z-index: 10;
+}
+.body-year {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.15;
+  font-size: 100px;
+}
+img.heart-date {
+  position: absolute;
+  width: 13%;
+  height: 18%;
+}
+.template-two img.heart-date {
+  position: absolute;
+  width: 15%;
+  height: 18%;
+}
+.template-no-style img.heart-date {
+  position: absolute;
+  width: 15%;
+  height: 15%;
+}
+.calendar .template-three {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: clamp(8px, 4.5%, 20px) clamp(8px, 4.5%, 20px) clamp(8px, 5%, 22px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.calendar .template-three .three-back {
+  display: none;
+}
+.calendar .template-three .three-body,
+.calendar .template-three .three-body .body-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.calendar .template-three .three-body .body-box {
+  gap: clamp(8px, 3%, 16px);
+  align-items: center;
+}
+.calendar .template-three .three-body .body-box .three-head {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: clamp(22px, 3.5%, 18px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.calendar .template-three .three-body .body-box .three-head > div:first-child {
+  font-size: clamp(22px, 3.5%, 18px);
+  font-weight: 400;
+}
+.calendar .template-three .three-body .body-box .three-head > div:last-child {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(5px, 0.5%, 4px);
+  font-size: clamp(22px, 3.5%, 18px);
+  font-weight: 400;
+}
+.calendar
+  .template-three
+  .three-body
+  .body-box
+  .three-head
+  > div:last-child
+  span {
+  font-size: clamp(45px, 5.5%, 32px);
+  font-weight: 500;
+}
+.calendar .template-three .three-body .body-box .three-date {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  flex: 1;
+}
+.calendar .template-three .three-body .body-box .three-date > div {
+  width: 14%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar .template-three .three-body .body-box .three-date .week-days-bar {
+  width: 100%;
+  display: flex;
+  border-radius: clamp(12px, 5%, 20px);
+  padding: 0;
+  box-sizing: border-box;
+  margin-bottom: 2%;
+}
+.calendar
+  .template-three
+  .three-body
+  .body-box
+  .three-date
+  .week-days-bar
+  .body-week {
+  width: 14%;
+  color: #fff !important;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calendar
+  .template-three
+  .three-body
+  .body-box
+  .three-date
+  > div:not(.week-days-bar):not(.shadow) {
+  position: relative;
+}
+.calendar .template-three .three-body .body-box .three-date img.heart-date {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+.calendar
+  .template-three
+  .three-body
+  .body-box
+  .three-date
+  > div:not(.week-days-bar):not(.shadow):has(img.heart-date) {
+  color: #fff;
+  z-index: 2;
+  font-weight: 500;
+}
+.calendar .template-three .three-body .body-box .three-date .shadow {
+  display: none;
+}

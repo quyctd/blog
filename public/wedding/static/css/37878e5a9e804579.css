@@ -1,0 +1,78 @@
+#zen-app-view {
+  height: 100vh;
+  max-width: 500px;
+  overflow: hidden;
+  margin: auto;
+}
+#zen-app-view,
+.ani-wrap {
+  position: relative;
+  width: 100%;
+}
+.ani-wrap {
+  height: 100%;
+}
+.ani-wrap * {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.scroll-trigger-container {
+  position: relative;
+  overflow: visible;
+}
+.qrCodeShow {
+  position: absolute;
+  bottom: 5vh;
+  right: 10vh;
+  z-index: 1000;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  animation: giftJump 3s ease infinite;
+}
+.qrCodeShow,
+.qrFloatingButton {
+  background: #fff;
+  align-items: center;
+}
+.qrFloatingButton {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 50;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.qrFloatingButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+.qrCodeShowContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.2rem;
+}
+.qrToggleButton {
+  position: absolute;
+  right: -16px;
+  top: -20px;
+  width: auto;
+  height: auto;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.qrToggleButton:hover {
+  transform: rotate(238deg);
+}

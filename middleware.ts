@@ -3,17 +3,17 @@ import { NextResponse } from 'next/server'
 
 const CDN_ZENLOVE = 'https://cdn.zenlove.me'
 const CDN_RESOURCE = 'https://cdn-resource.zenlove.me'
-const PROXY_PREFIX = '/my-wedding'
+const PROXY_PREFIX = '/wedding'
 
 /**
  * Proxy CDN requests and rewrite URL references in CSS/JS so fonts and assets
  * load same-origin on Vercel (avoids CORS with cdn.zenlove.me in production).
  *
- * Handles i18n: path can be /my-wedding/... or /en/my-wedding/... (locale prefix).
+ * Handles i18n: path can be /wedding/... or /en/wedding/... (locale prefix).
  */
 export async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname
-  // Strip locale prefix so we match and proxy correctly (e.g. /en/my-wedding/... -> /my-wedding/...)
+  // Strip locale prefix so we match and proxy correctly (e.g. /en/wedding/... -> /wedding/...)
   const pathnameWithoutLocale = pathname.replace(/^\/en(?=\/)/, '')
   const isCdnZenlove = pathnameWithoutLocale.startsWith(`${PROXY_PREFIX}/cdn-zenlove`)
   const isCdnResource = pathnameWithoutLocale.startsWith(`${PROXY_PREFIX}/cdn-resource`)
@@ -68,7 +68,7 @@ export async function middleware(req: NextRequest) {
 
     return new NextResponse(rewritten, { status: 200, headers: outHeaders })
   } catch (err) {
-    console.error('[my-wedding CDN]', targetUrl, err)
+    console.error('[wedding CDN]', targetUrl, err)
     return new NextResponse('CDN proxy error', { status: 502 })
   }
 }
@@ -80,9 +80,9 @@ function escapeRe(s: string): string {
 export const config = {
   // With i18n, production may use /en/ prefix; match both so middleware runs and rewrites CSS
   matcher: [
-    '/my-wedding/cdn-zenlove/:path*',
-    '/my-wedding/cdn-resource/:path*',
-    '/en/my-wedding/cdn-zenlove/:path*',
-    '/en/my-wedding/cdn-resource/:path*',
+    '/wedding/cdn-zenlove/:path*',
+    '/wedding/cdn-resource/:path*',
+    '/en/wedding/cdn-zenlove/:path*',
+    '/en/wedding/cdn-resource/:path*',
   ],
 }

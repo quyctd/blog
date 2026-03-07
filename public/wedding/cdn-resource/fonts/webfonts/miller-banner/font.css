@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Miller Banner";
+  src: url("https://cdn-resource.zenlove.me/fonts/webfonts/miller-banner/miller-banner-1765474869397-bufhh7.woff2")
+      format("woff2"),
+    url("https://cdn-resource.zenlove.me/fonts/webfonts/miller-banner/miller-banner-1765474869397-bufhh7.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

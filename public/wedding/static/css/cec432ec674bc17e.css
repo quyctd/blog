@@ -1,0 +1,19 @@
+@font-face {
+  font-family: __comicSansMS_6edb23;
+  src: url(/wedding/static/media/a5f30239d7a4b6a0-s.p.ttf) format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: __comicSansMS_Fallback_6edb23;
+  src: local("Arial");
+  ascent-override: 115.45%;
+  descent-override: 26.92%;
+  line-gap-override: 0%;
+  size-adjust: 81.63%;
+}
+.__className_6edb23 {
+  font-family: __comicSansMS_6edb23, __comicSansMS_Fallback_6edb23;
+}
+.__variable_6edb23 {
+  --font-comic-sans-ms: "__comicSansMS_6edb23", "__comicSansMS_Fallback_6edb23";
+}
