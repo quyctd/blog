@@ -2126,39 +2126,7 @@
             let e = document.getElementById("boxwrap");
             e && (q.current = e);
           }
-        }, []),
-          (0, o.useEffect)(() => {
-            let e = !1;
-            return (
-              (async function () {
-                if ("svg" === H && W)
-                  try {
-                    let t = await fetch("".concat((0, f.ud)(W)), {
-                        cache: "no-store",
-                      }),
-                      a = await t.text();
-                    (a = a.replace(
-                      /<svg/,
-                      '<svg preserveAspectRatio="none" width="100%" height="100%"'
-                    )),
-                      J &&
-                        "transparent" !== J &&
-                        (a = a.replace(
-                          /<svg([^>]*)>/,
-                          "<svg$1><style>#svg-"
-                            .concat(h, " svg path { fill: ")
-                            .concat(J, "; }</style>")
-                        )),
-                      e || $(a);
-                  } catch (e) {
-                    console.error("Failed to fetch SVG:", e);
-                  }
-              })(),
-              () => {
-                e = !0;
-              }
-            );
-          }, [H, W, J, h]);
+        }, []);
         let er = (function () {
             let e = "".concat(M, "px ").concat(Y, " ").concat(F);
             switch (R) {
@@ -2289,12 +2257,24 @@
                       style: ei,
                     }),
                   "svg" === H &&
-                    _ &&
                     (0, n.jsx)("div", {
                       id: "svg-".concat(h),
                       className: "svg-wrap",
-                      style: es,
-                      dangerouslySetInnerHTML: { __html: _ },
+                      style: {
+                        width: "100%",
+                        height: "100%",
+                        overflow: "hidden",
+                        borderRadius: "0px",
+                        padding: "0px",
+                        boxShadow: "none",
+                        border: "0px solid",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      },
+                      dangerouslySetInnerHTML: {
+                        __html: '<svg preserveAspectRatio="none" width="100%" height="100%" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve"><style>#svg-' + h + ' svg path { fill: rgba(180, 188, 168, 0.77); }</style><path fill="#999999" d="M100,100H0V0h100V100z"></path></svg>',
+                      },
                     }),
                 ],
               }),
