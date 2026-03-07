@@ -6,6 +6,11 @@ module.exports = {
     locales: ['en'],
     defaultLocale: 'en',
   },
+  async redirects() {
+    return [
+      { source: '/my-wedding', destination: '/wedding', permanent: false },
+    ]
+  },
   async rewrites() {
     return [
       { source: '/wedding', destination: '/wedding/index.html' },
@@ -33,7 +38,6 @@ module.exports = {
       { source: '/wedding/assets/:path*', destination: 'https://zenlove.me/assets/:path*' },
       { source: '/wedding/static/:path*', destination: 'https://zenlove.me/static/:path*' },
       { source: '/wedding/:path*', destination: `${ZENLOVE_WEDDING}/:path*` },
-      { source: '/my-wedding', destination: '/wedding' },
       // Serve the static wedding page from public/wedding/index.html
     ]
   },
