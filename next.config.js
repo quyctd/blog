@@ -17,11 +17,12 @@ module.exports = {
     return {
       // beforeFiles runs ahead of Next.js's i18n + page resolution, so `/`
       // on the subdomain isn't swallowed by the main portfolio page.
+      // `locale: false` stops i18n from prefixing the destination with /en/.
       beforeFiles: [
-        { source: '/',        has: AN_DIEM_HOST, destination: '/an-diem/index.html' },
-        { source: '/privacy', has: AN_DIEM_HOST, destination: '/an-diem/privacy.html' },
-        { source: '/terms',   has: AN_DIEM_HOST, destination: '/an-diem/terms.html' },
-        { source: '/:path*',  has: AN_DIEM_HOST, destination: '/an-diem/:path*' },
+        { source: '/',        has: AN_DIEM_HOST, destination: '/an-diem/index.html',   locale: false },
+        { source: '/privacy', has: AN_DIEM_HOST, destination: '/an-diem/privacy.html', locale: false },
+        { source: '/terms',   has: AN_DIEM_HOST, destination: '/an-diem/terms.html',   locale: false },
+        { source: '/:path*',  has: AN_DIEM_HOST, destination: '/an-diem/:path*',       locale: false },
       ],
       afterFiles: [
         // Wedding is a static iframe wrapper — no proxying needed.
