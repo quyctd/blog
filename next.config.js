@@ -22,6 +22,7 @@ module.exports = {
       afterFiles: [
         { source: '/privacy', has: AN_DIEM_HOST, destination: '/an-diem/privacy.html' },
         { source: '/terms',   has: AN_DIEM_HOST, destination: '/an-diem/terms.html' },
+        { source: '/support', has: AN_DIEM_HOST, destination: '/an-diem/support.html' },
         { source: '/:path*',  has: AN_DIEM_HOST, destination: '/an-diem/:path*' },
         { source: '/wedding', destination: '/wedding/index.html' },
       ],
