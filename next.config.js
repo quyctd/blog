@@ -1,5 +1,9 @@
 const ZENLOVE_WEDDING = 'https://zenlove.me/s/quy-hai-220326'
 
+// andiem.quyctd.dev serves the Ấn Điểm landing + legal pages from /public/an-diem/.
+// `has: host` runs before path matching so the subdomain is a virtual root.
+const AN_DIEM_HOST = [{ type: 'host', value: 'andiem.quyctd.dev' }]
+
 module.exports = {
   reactStrictMode: true,
   i18n: {
@@ -13,6 +17,16 @@ module.exports = {
   },
   async rewrites() {
     return [
+      // ── Ấn Điểm subdomain ───────────────────────────────────────────────
+      // Pretty URLs → static HTML in /public/an-diem/. Listed before the
+      // catch-all so /privacy doesn't get caught by /:path*.
+      { source: '/',        has: AN_DIEM_HOST, destination: '/an-diem/index.html' },
+      { source: '/privacy', has: AN_DIEM_HOST, destination: '/an-diem/privacy.html' },
+      { source: '/terms',   has: AN_DIEM_HOST, destination: '/an-diem/terms.html' },
+      // Static assets on subdomain (styles.css, icon.png, …) → /an-diem/*
+      { source: '/:path*',  has: AN_DIEM_HOST, destination: '/an-diem/:path*' },
+
+      // ── Wedding (existing) ──────────────────────────────────────────────
       { source: '/wedding', destination: '/wedding/index.html' },
       // API — app may request .../api-zenlove.me/... (hostname in path); proxy both forms
       { source: '/wedding/api', destination: 'https://api.zenlove.me' },

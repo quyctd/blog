@@ -1,0 +1,776 @@
+/* Ấn Điểm — Hà Nội cũ register (lacquer cinnabar + cream ink + gold leaf). */
+/* Tokens mirror saam-app/DESIGN.md. */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Serif:wght@400;500;600&family=Spectral:wght@400;500;600&display=swap');
+
+:root {
+  --cinnabar:        #8c2a22;
+  --cinnabar-deep:   #5a1612;
+  --cinnabar-light:  #a8362d;
+  --cream:           #f3e8d2;
+  --cream-dim:       #d6c4a0;
+  --cream-faint:     rgba(243, 232, 210, 0.34);
+  --cream-stroke:    rgba(243, 232, 210, 0.18);
+  --gold:            #d9b25a;
+  --gold-bright:     #e8c570;
+  --gold-dim:        #a88438;
+  --gold-tint:       rgba(217, 178, 90, 0.12);
+  --mint:            #b6e0c2;
+  --ochre:           #e6a665;
+
+  --font-display: 'Noto Serif Display', 'Cormorant Garamond', serif;
+  --font-name:    'Cormorant Garamond', serif;
+  --font-num:     'IBM Plex Serif', serif;
+  --font-body:    'Spectral', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--cinnabar);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page-wide halftone dots + warm vignette + paper grain — replaces glassmorphism. */
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 30% 18%, rgba(255,220,180,0.10), transparent 55%),
+    radial-gradient(circle at 70% 82%, rgba(0,0,0,0.22), transparent 60%),
+    radial-gradient(rgba(243, 232, 210, 0.055) 1px, transparent 1px);
+  background-size: auto, auto, 4px 4px;
+  background-attachment: fixed;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── nav ───────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 56px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.nav-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cream);
+  text-decoration: none;
+}
+.nav-mark img {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.28);
+}
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color 0.16s ease-out;
+}
+.nav-links a:hover { color: var(--gold-bright); }
+
+/* ─── seal mark ─────────────────────────────────────────── */
+/* The gold seal is the brand's only ornament; we render it inline. */
+.seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  border: 1.5px solid var(--gold-bright);
+  color: var(--cinnabar-deep);
+  font-family: var(--font-display);
+  font-weight: 800;
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.32),
+    0 1px 0 rgba(0,0,0,0.28);
+}
+.seal-lg {
+  width: 56px;
+  height: 56px;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  transform: rotate(-3deg);
+}
+
+/* ─── hero ──────────────────────────────────────────────── */
+.hero {
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--cream-stroke);
+  margin-bottom: 56px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 36px;
+  align-items: center;
+}
+/* Hero seal — matches Seal.swift winner variant + AppIcon-1024.png: single
+   Hán-Việt glyph 壹, solid gold fill, cinnabar-deep glyph, 4px radius, rotated -3°. */
+.hero-seal {
+  width: 168px;
+  height: 168px;
+  background: var(--gold);
+  border: 1.5px solid var(--gold);
+  border-radius: 18px;
+  color: var(--cinnabar-deep);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 110px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: grid;
+  place-items: center;
+  transform: rotate(-3deg);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.32),
+    inset 0 -2px 0 rgba(90,22,18,0.18),
+    0 4px 0 rgba(0,0,0,0.32),
+    0 12px 28px rgba(0,0,0,0.34);
+  position: relative;
+}
+.hero-seal::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 24px;
+  background: radial-gradient(circle, rgba(232,197,112,0.22), transparent 65%);
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-side { padding: 4px 0; }
+.hero-wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 7.2vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.022em;
+  color: var(--cream);
+  margin-bottom: 14px;
+}
+.hero-wordmark .accent { color: var(--gold); font-style: italic; font-weight: 700; }
+.hero-lede {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(17px, 2.4vw, 19px);
+  line-height: 1.35;
+  color: var(--cream-dim);
+  margin-bottom: 22px;
+  max-width: 36ch;
+}
+.hero-meta {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  color: var(--cream-dim);
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.hero-meta span + span { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--cream-stroke); }
+
+/* ─── cta ───────────────────────────────────────────────── */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin: 28px 0 0;
+}
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px 16px 20px;
+  background: var(--gold);
+  color: var(--cinnabar-deep);
+  border: 1.5px solid var(--gold-bright);
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.28),
+    0 2px 0 rgba(0,0,0,0.28),
+    0 8px 20px rgba(0,0,0,0.24);
+  transition: transform 0.14s ease-out, background 0.14s ease-out, box-shadow 0.14s ease-out;
+}
+.btn-download:hover {
+  background: var(--gold-bright);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 3px 0 rgba(0,0,0,0.28), 0 12px 24px rgba(0,0,0,0.3);
+}
+.btn-download:active { transform: translateY(1px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 rgba(0,0,0,0); }
+.btn-download .arrow {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1;
+}
+.btn-download .copy { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.btn-download .lead {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  line-height: 1;
+}
+.btn-download .label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  line-height: 1.05;
+}
+.text-link {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cream-stroke);
+  padding-bottom: 2px;
+  transition: color 0.14s ease-out, border-color 0.14s ease-out;
+}
+.text-link:hover { color: var(--gold-bright); border-bottom-color: var(--gold); }
+
+/* ─── section ───────────────────────────────────────────── */
+.section { margin-bottom: 56px; }
+.section-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--cream-stroke);
+}
+.prose p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--cream);
+  max-width: 60ch;
+  margin-bottom: 14px;
+}
+.prose p + p { margin-top: 0; }
+.prose em {
+  font-family: var(--font-name);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.05em;
+  color: var(--gold-bright);
+  font-variant-numeric: normal;
+}
+
+/* ─── leaderboard demo ──────────────────────────────────── */
+/* Recreates the SwiftUI leaderboard so the page IS the product. */
+.scorebook {
+  background: var(--cinnabar-deep);
+  border: 1px solid var(--cream-stroke);
+  border-radius: 4px;
+  padding: 20px 18px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.25);
+  position: relative;
+  overflow: hidden;
+}
+.scorebook::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(243, 232, 210, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+}
+.scorebook-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--cream-stroke);
+  margin-bottom: 6px;
+}
+.scorebook-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--cream);
+}
+.scorebook-meta {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  color: var(--cream-dim);
+  letter-spacing: 0.04em;
+}
+.row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--cream-stroke);
+  position: relative;
+  z-index: 1;
+}
+.row:last-of-type { border-bottom: 0; }
+.row .seal { width: 32px; height: 32px; font-size: 17px; }
+.row .seal-mid {
+  background: var(--gold-tint);
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  box-shadow: none;
+}
+.row .seal-last {
+  background: transparent;
+  border: 1.5px solid var(--cream-faint);
+  color: var(--cream-faint);
+  box-shadow: none;
+}
+.row .name {
+  font-family: var(--font-name);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -0.005em;
+  color: var(--cream);
+}
+.row .total {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
+.row .total.up   { color: var(--mint); }
+.row .total.down { color: var(--ochre); }
+
+.scorebook-foot {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--cream-stroke);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream-dim);
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+}
+.scorebook-foot .auto {
+  font-family: var(--font-name);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold-bright);
+  font-variant-numeric: normal;
+}
+
+/* ─── round-entry demo (teaches auto-fill visually, not in words) ── */
+.entry {
+  background: var(--cinnabar-deep);
+  border: 1px solid var(--cream-stroke);
+  border-radius: 4px;
+  padding: 18px 18px 14px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), 0 6px 18px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+}
+.entry::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(243, 232, 210, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+}
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--cream-stroke);
+  margin-bottom: 4px;
+}
+.entry-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cream);
+}
+.entry-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--cream-stroke);
+  position: relative;
+  z-index: 1;
+}
+.entry-row:last-of-type { border-bottom: 0; }
+.entry-row .name {
+  font-family: var(--font-name);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--cream);
+}
+.entry-row .val {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
+/* Auto-filled cell: italic Cormorant in gold — "the machine wrote this". */
+.entry-row.auto { background: var(--gold-tint); margin: 0 -10px; padding-left: 10px; padding-right: 10px; border-radius: 3px; border-bottom-color: transparent; }
+.entry-row.auto .val {
+  font-family: var(--font-name);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold-bright);
+  letter-spacing: 0;
+}
+.entry-row.auto .tag {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-left: 10px;
+  vertical-align: 4px;
+}
+.entry-foot {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--cream-stroke);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream-dim);
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+}
+.entry-foot .sum {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--mint);
+}
+
+/* Side-by-side product mock grid on wider screens. */
+.mocks {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+}
+.mock-caption {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mock-caption .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); display: inline-block; }
+
+/* ─── two columns ───────────────────────────────────────── */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.cols h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cream);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--cream-stroke);
+}
+.cols ul { list-style: none; }
+.cols li {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--cream);
+  padding: 7px 0 7px 22px;
+  position: relative;
+}
+.cols .mark {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.cols .has  .mark { color: var(--gold); }
+.cols .lack .mark { color: var(--cream-faint); }
+
+/* ─── legal pages (privacy / terms) ─────────────────────── */
+.legal h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.legal .meta {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--cream-dim);
+  letter-spacing: 0.04em;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--cream-stroke);
+}
+.legal h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--cream);
+  margin: 36px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream-stroke);
+}
+.legal h2:first-of-type { margin-top: 0; }
+.legal p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--cream);
+  max-width: 62ch;
+  margin-bottom: 12px;
+}
+.legal strong { color: var(--gold-bright); font-weight: 600; }
+.legal a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--gold-dim);
+  text-underline-offset: 3px;
+}
+.legal a:hover { text-decoration-color: var(--gold-bright); }
+.legal code {
+  font-family: var(--font-num);
+  font-size: 0.92em;
+  background: rgba(0,0,0,0.22);
+  padding: 1px 6px;
+  border-radius: 2px;
+  color: var(--gold-bright);
+}
+.legal hr {
+  border: 0;
+  border-top: 1px solid var(--cream-stroke);
+  margin: 56px 0 40px;
+}
+
+/* ─── footer ────────────────────────────────────────────── */
+.foot {
+  margin-top: 80px;
+  padding-top: 28px;
+  border-top: 1px solid var(--cream-stroke);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+.foot a { color: var(--cream-dim); text-decoration: none; transition: color 0.16s ease-out; }
+.foot a:hover { color: var(--gold-bright); }
+.foot-links { display: flex; gap: 22px; }
+
+/* ─── motion ────────────────────────────────────────────── */
+/* Easing curve: ease-out-quart — fast settle, no bounce. Matches the brand's
+   "deliberate, not springy" voice. */
+:root { --ease: cubic-bezier(0.165, 0.84, 0.44, 1); }
+
+/* Hero seal — presses onto the page like a real ấn vàng being stamped:
+   begins slightly larger, no rotation, no shadow; settles to its final tilt
+   with the lacquer shadow expanding underneath. */
+@keyframes seal-press {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(1.18) translateY(-8px);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,0.32),
+      inset 0 -2px 0 rgba(90,22,18,0.18),
+      0 0 0 rgba(0,0,0,0),
+      0 0 0 rgba(0,0,0,0);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-3deg) scale(1) translateY(0);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,0.32),
+      inset 0 -2px 0 rgba(90,22,18,0.18),
+      0 4px 0 rgba(0,0,0,0.32),
+      0 12px 28px rgba(0,0,0,0.34);
+  }
+}
+.hero-seal {
+  animation: seal-press 0.7s var(--ease) both;
+}
+
+/* Hero text: staggered fade-up. Each line trails the seal by 120ms steps. */
+@keyframes ink-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-wordmark { animation: ink-rise 0.55s var(--ease) 0.18s both; }
+.hero-lede     { animation: ink-rise 0.55s var(--ease) 0.30s both; }
+.hero-meta     { animation: ink-rise 0.55s var(--ease) 0.42s both; }
+.cta-row       { animation: ink-rise 0.55s var(--ease) 0.54s both; }
+
+/* Auto-fill demo: the last cell calculates itself once on page load — the
+   row tints gold, the italic value drops in, the TỔNG ticks to 0. One-shot,
+   stays put. Deliberate, not busy. */
+@keyframes autofill-tint {
+  from { background: transparent; }
+  to   { background: var(--gold-tint); }
+}
+@keyframes autofill-value {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes autofill-tag {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes autofill-sum {
+  from { opacity: 0; color: var(--cream-faint); }
+  to   { opacity: 1; color: var(--mint); }
+}
+.entry-row.auto       { animation: autofill-tint  0.6s var(--ease) 1.5s both; }
+.entry-row.auto .val  { animation: autofill-value 0.5s var(--ease) 1.7s both; }
+.entry-row.auto .tag  { animation: autofill-tag   0.5s var(--ease) 2.0s both; }
+.entry-foot .sum      { animation: autofill-sum   0.5s var(--ease) 1.9s both; }
+
+/* Mock cards: gentle drift-in on first paint, sequenced after hero settles. */
+@keyframes mock-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.mocks > div:nth-child(1) { animation: mock-rise 0.7s var(--ease) 0.7s both; }
+.mocks > div:nth-child(2) { animation: mock-rise 0.7s var(--ease) 0.82s both; }
+
+/* Ambient halo behind the seal — only continuous motion on the page. Very slow
+   breath (8s), tiny scale + opacity range. Reads as ink absorbing into paper. */
+@keyframes seal-breath {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.06); }
+}
+.hero-seal::after {
+  animation: seal-breath 7s ease-in-out 0.9s infinite both;
+}
+
+/* Subtle text-link underline draw on hover. */
+.text-link { background-image: linear-gradient(var(--gold-bright), var(--gold-bright)); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size 0.35s var(--ease), color 0.2s var(--ease); border-bottom: 0; padding-bottom: 3px; }
+.text-link:hover { background-size: 100% 1px; border-bottom: 0; }
+
+/* Respect users who opt out of motion. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-seal,
+  .hero-seal::after,
+  .hero-wordmark,
+  .hero-lede,
+  .hero-meta,
+  .cta-row,
+  .mocks > div,
+  .entry-row.auto,
+  .entry-row.auto .val,
+  .entry-row.auto .tag,
+  .entry-foot .sum {
+    animation: none !important;
+  }
+}
+
+/* ─── responsive ────────────────────────────────────────── */
+@media (max-width: 620px) {
+  .page { padding: 24px 20px 60px; }
+  .nav { padding-bottom: 40px; }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 48px;
+    margin-bottom: 40px;
+  }
+  .hero-seal { width: 160px; height: 160px; }
+  .hero-seal .line { font-size: 44px; }
+  .section { margin-bottom: 40px; }
+  .cols { grid-template-columns: 1fr; gap: 28px; }
+  .mocks { grid-template-columns: 1fr; gap: 24px; }
+  .row { grid-template-columns: 30px 1fr auto; gap: 12px; }
+  .row .seal { width: 28px; height: 28px; font-size: 15px; }
+  .row .name { font-size: 18px; }
+  .row .total { font-size: 22px; }
+  .hero-meta span + span { margin-left: 12px; padding-left: 12px; }
+}
