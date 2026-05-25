@@ -11,16 +11,18 @@ module.exports = {
   },
   async rewrites() {
     return {
-      // beforeFiles runs ahead of page resolution, so `/` on the subdomain
-      // isn't swallowed by the main portfolio's index page.
+      // Only `/` needs beforeFiles — the portfolio's pages/index.tsx would
+      // otherwise win. beforeFiles rules chain, so keep this list to one.
       beforeFiles: [
-        { source: '/',        has: AN_DIEM_HOST, destination: '/an-diem/index.html' },
+        { source: '/', has: AN_DIEM_HOST, destination: '/an-diem/index.html' },
+      ],
+      // afterFiles short-circuits on the first match + filesystem hit, so
+      // the catch-all here doesn't double-rewrite paths the explicit rules
+      // (or beforeFiles) already handled.
+      afterFiles: [
         { source: '/privacy', has: AN_DIEM_HOST, destination: '/an-diem/privacy.html' },
         { source: '/terms',   has: AN_DIEM_HOST, destination: '/an-diem/terms.html' },
         { source: '/:path*',  has: AN_DIEM_HOST, destination: '/an-diem/:path*' },
-      ],
-      afterFiles: [
-        // Wedding is a static iframe wrapper — no proxying needed.
         { source: '/wedding', destination: '/wedding/index.html' },
       ],
       fallback: [],
