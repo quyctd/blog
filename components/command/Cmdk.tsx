@@ -109,67 +109,48 @@ export default function CommandMenu() {
       </button>
 
       <CMDKWrapper>
-        <Command
-          onKeyDown={(e: React.KeyboardEvent) => {
-            if (e.key === 'Enter') {
-              bounce()
-            }
-
-            if (isHome || inputValue.length) {
-              return
-            }
-
-            if (e.key === 'Backspace') {
-              e.preventDefault()
-              popPage()
-              bounce()
-            }
-          }}
-        >
-          <AnimatePresence>
-            {open && (
-              <Command.Dialog
-                ref={ref}
-                open={open}
-                onOpenChange={setOpen}
-                label="Global Command Menu"
-                className="contents"
+        <AnimatePresence>
+          {open && (
+            <Command.Dialog
+              ref={ref}
+              open={open}
+              onOpenChange={setOpen}
+              onKeyDown={onKeyDown}
+              label="Global Command Menu"
+              className="contents"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Command.Input
-                    autoFocus
-                    placeholder={placeholder}
-                    onValueChange={(value) => {
-                      setInputValue(value)
-                    }}
-                    onKeyDown={onKeyDown}
-                    className="h-[60px] w-full border-none bg-[initial] px-5 py-0 text-base text-[#000] outline-none placeholder:text-[#888] dark:text-[#fafbfc] dark:placeholder:text-[#666]"
-                  />
-                  <Command.List className="h-[min(300px,calc(var(--cmdk-list-height)))] overflow-y-auto transition-all will-change-auto">
-                    <Command.Empty className="flex h-12 items-center justify-center whitespace-pre-wrap py-[2px] text-sm text-[#888] dark:text-[#666]">
-                      No results found.
-                    </Command.Empty>
-                    {activePage === 'home' && (
-                      <HomeItems
-                        selectThemes={() => setPages([...pages, 'themes'])}
-                        searchBlog={() => setPages([...pages, 'blogs'])}
-                      />
-                    )}
-                    {activePage === 'themes' && (
-                      <ThemeItems onSelect={() => setOpen(false)} />
-                    )}
-                    {activePage === 'blogs' && <BlogItems />}
-                  </Command.List>
-                </motion.div>
-              </Command.Dialog>
-            )}
-          </AnimatePresence>
-        </Command>
+                <Command.Input
+                  autoFocus
+                  placeholder={placeholder}
+                  value={inputValue}
+                  onValueChange={setInputValue}
+                  className="h-[60px] w-full border-none bg-[initial] px-5 py-0 text-base text-[#000] outline-none placeholder:text-[#888] dark:text-[#fafbfc] dark:placeholder:text-[#666]"
+                />
+                <Command.List className="h-[min(300px,calc(var(--cmdk-list-height)))] overflow-y-auto transition-all will-change-auto">
+                  <Command.Empty className="flex h-12 items-center justify-center whitespace-pre-wrap py-[2px] text-sm text-[#888] dark:text-[#666]">
+                    No results found.
+                  </Command.Empty>
+                  {activePage === 'home' && (
+                    <HomeItems
+                      selectThemes={() => setPages([...pages, 'themes'])}
+                      searchBlog={() => setPages([...pages, 'blogs'])}
+                    />
+                  )}
+                  {activePage === 'themes' && (
+                    <ThemeItems onSelect={() => setOpen(false)} />
+                  )}
+                  {activePage === 'blogs' && <BlogItems />}
+                </Command.List>
+              </motion.div>
+            </Command.Dialog>
+          )}
+        </AnimatePresence>
       </CMDKWrapper>
     </>
   )

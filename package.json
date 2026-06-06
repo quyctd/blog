@@ -16,7 +16,7 @@
   "dependencies": {
     "cheerio": "^1.0.0",
     "clsx": "^1.2.1",
-    "cmdk": "^0.1.21",
+    "cmdk": "^1.1.1",
     "framer-motion": "^7.10.2",
     "marked": "^4.0.10",
     "next": "^13.4.12",
