@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import { marked } from 'marked'
 import { Highlight, Language, themes } from 'prism-react-renderer'
 import { renderToStaticMarkup } from 'react-dom/server'

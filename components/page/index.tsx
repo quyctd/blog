@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 import Head from '@components/head'
 import Header from '@components/header'
@@ -9,6 +9,7 @@ interface Props {
   title?: string
   description?: string
   image?: string
+  children?: ReactNode
 }
 
 const Page: FC<Props> = ({
@@ -18,7 +19,7 @@ const Page: FC<Props> = ({
   description,
   image,
   children,
-}): JSX.Element => {
+}) => {
   const year = new Date().getFullYear()
 
   return (

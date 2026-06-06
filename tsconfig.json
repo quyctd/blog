@@ -2,12 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "allowJs": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "target": "esnext",
     "module": "esnext",
-    "lib": ["dom", "es2019"],
+    "lib": [
+      "dom",
+      "es2019"
+    ],
     "noEmit": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "noImplicitAny": true,
@@ -26,14 +29,31 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "@components/*": ["components/*"],
-      "@lib/*": ["lib/*"],
-      "@styles/*": ["styles/*"],
-      "@data/*": ["data/*"],
-      "@interfaces/*": ["interfaces/*"]
+      "@components/*": [
+        "components/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@data/*": [
+        "data/*"
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ]
     },
     "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
+  ]
 }

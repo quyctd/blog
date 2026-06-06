@@ -18,16 +18,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <style jsx global>{`
-        html {
-          font-family: ${inter.style.fontFamily};
-        }
-      `}</style>
-      <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class">
+      <div className={inter.className}>
         <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+      </div>
+    </ThemeProvider>
   )
 }
 export default MyApp

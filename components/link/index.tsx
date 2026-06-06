@@ -6,7 +6,6 @@ interface IProps {
   external?: boolean
   href: string
   as?: string
-  passHref?: boolean
   className?: string
   underline?: boolean
   gray?: boolean
@@ -30,7 +29,6 @@ const Link: FC<IProps> = ({
   external,
   href,
   as,
-  passHref,
   children,
   className,
 
@@ -63,23 +61,15 @@ const Link: FC<IProps> = ({
   }
 
   return (
-    <>
-      <NextLink
-        href={href}
-        as={as}
-        prefetch={canPrefetch(href) ? undefined : false}
-        passHref={passHref}
-        legacyBehavior
-      >
-        {passHref ? (
-          children
-        ) : (
-          <a className={c} {...props}>
-            {children}
-          </a>
-        )}
-      </NextLink>
-    </>
+    <NextLink
+      href={href}
+      as={as}
+      prefetch={canPrefetch(href) ? undefined : false}
+      className={c}
+      {...props}
+    >
+      {children}
+    </NextLink>
   )
 }
 

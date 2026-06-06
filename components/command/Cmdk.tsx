@@ -1,5 +1,6 @@
 import { useMemo, useEffect, useState, useRef, useCallback } from 'react'
 import { Command } from 'cmdk'
+import * as Dialog from '@radix-ui/react-dialog'
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { tinykeys } from 'tinykeys'
@@ -119,6 +120,12 @@ export default function CommandMenu() {
               label="Global Command Menu"
               className="contents"
             >
+              <Dialog.Title className="sr-only">
+                Global Command Menu
+              </Dialog.Title>
+              <Dialog.Description className="sr-only">
+                Search for pages and posts, or switch the theme.
+              </Dialog.Description>
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}

@@ -1,9 +1,10 @@
 import { Command } from 'cmdk'
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 
 interface Props {
   shortcut?: string
   onSelect?: (value: string) => void
+  children?: ReactNode
 }
 
 const CommandItem: FC<Props> = ({

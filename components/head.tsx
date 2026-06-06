@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import NextHead from 'next/head'
 import { useTheme } from 'next-themes'
 
@@ -6,6 +6,7 @@ interface Props {
   title?: string
   description?: string
   image?: string
+  children?: ReactNode
 }
 
 const Head: FC<Props> = ({
@@ -13,7 +14,7 @@ const Head: FC<Props> = ({
   description = "Hi, I'm Quy. A frontend engineer.",
   image = 'https://www.quyctd.dev/og.png',
   children,
-}): JSX.Element => {
+}) => {
   const { systemTheme } = useTheme()
 
   return (
