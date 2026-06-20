@@ -139,9 +139,10 @@ body::before {
 .hero-seal {
   width: 168px;
   height: 168px;
-  background: var(--gold);
-  border: 1.5px solid var(--gold);
+  background: transparent;
+  border: none;
   border-radius: 18px;
+  overflow: hidden;
   color: var(--cinnabar-deep);
   font-family: var(--font-display);
   font-weight: 800;
@@ -157,6 +158,12 @@ body::before {
     0 4px 0 rgba(0,0,0,0.32),
     0 12px 28px rgba(0,0,0,0.34);
   position: relative;
+}
+.hero-seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .hero-seal::after {
   content: '';
