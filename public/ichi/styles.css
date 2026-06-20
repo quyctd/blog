@@ -85,7 +85,12 @@ body::before {
 .nav-links a:hover { color: var(--accent); }
 
 /* ─── hero ──────────────────────────────────────────────── */
-.hero { padding: 70px 0 40px; text-align: center; }
+.hero { padding: 64px 0 40px; text-align: center; }
+.app-icon {
+  display: block; width: 92px; height: 92px; margin: 0 auto 30px;
+  border-radius: 21px;
+  box-shadow: 0 14px 34px -10px rgba(46,40,32,0.38), 0 0 0 1px var(--hair);
+}
 .kicker {
   font-size: 13px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 26px;
@@ -109,9 +114,9 @@ body::before {
 .panel {
   position: relative; overflow: hidden;
   background: var(--panel-bg);
-  border-radius: 34px;
-  padding: 56px 48px 40px;
-  min-height: 420px;
+  border-radius: 32px;
+  padding: 38px 44px 34px;
+  min-height: 320px;
   display: flex; flex-direction: column;
   box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 30px 70px -28px var(--panel-shadow), 0 0 0 1px var(--hair);
   text-align: left;
@@ -124,17 +129,17 @@ body::before {
 }
 .panel.cleared .panel-glow { opacity: 1; }
 
-.panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: auto; }
+.panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0; }
 .panel-count { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--panel-muted); font-variant-numeric: tabular-nums; transition: color 0.6s var(--ease-soft); }
 .panel-gear { width: 30px; height: 30px; opacity: 0.4; color: var(--panel-muted); }
 
-/* the one task */
-.task { display: flex; flex-direction: column; gap: 22px; margin: auto 0; position: relative; }
-.task-row { display: flex; align-items: flex-start; gap: 20px; }
+/* the one task — completion circle ABOVE a large title, mirroring the app Home */
+.task { display: flex; flex-direction: column; gap: 22px; margin: 40px 0 auto; position: relative; }
+.task-row { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
 .check {
-  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  flex: none; width: 38px; height: 38px; border-radius: 50%;
   border: 2.5px solid var(--panel-ring); background: transparent;
-  cursor: pointer; position: relative; margin-top: 4px;
+  cursor: pointer; position: relative;
   transition: border-color 0.3s var(--ease), background 0.3s var(--ease), transform 0.18s var(--ease);
 }
 .check:hover { border-color: var(--panel-acc); transform: scale(1.06); }
@@ -147,7 +152,7 @@ body::before {
 
 /* the Calm Bloom — a single expanding ring, never confetti (§7) */
 .bloom {
-  position: absolute; left: 20px; top: 24px; width: 40px; height: 40px;
+  position: absolute; left: 19px; top: 19px; width: 38px; height: 38px;
   border-radius: 50%; border: 2px solid var(--panel-acc);
   transform: translate(-50%,-50%) scale(1); opacity: 0; pointer-events: none;
 }
@@ -262,7 +267,8 @@ body::before {
 
 /* ─── load-in motion ────────────────────────────────────── */
 @keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-.kicker   { animation: up 0.6s var(--ease) 0.02s both; }
+.app-icon { animation: up 0.6s var(--ease) both; }
+.kicker   { animation: up 0.6s var(--ease) 0.12s both; }
 .headline { animation: up 0.7s var(--ease) 0.1s both; }
 .subhead  { animation: up 0.7s var(--ease) 0.2s both; }
 .stage    { animation: up 0.8s var(--ease) 0.32s both; }
@@ -292,8 +298,10 @@ body::before {
 
 @media (max-width: 680px) {
   .wrap { padding: 0 20px; }
-  .hero { padding: 48px 0 30px; }
-  .panel { padding: 40px 28px 30px; min-height: 380px; border-radius: 28px; }
+  .hero { padding: 44px 0 30px; }
+  .app-icon { width: 78px; height: 78px; margin-bottom: 24px; border-radius: 18px; }
+  .panel { padding: 30px 26px 28px; min-height: 280px; border-radius: 26px; }
+  .task { margin-top: 32px; }
   .statement { padding: 80px 0; margin-top: 60px; }
   .principles-grid { grid-template-columns: 1fr; }
   .pro-card { padding: 40px 26px; }
