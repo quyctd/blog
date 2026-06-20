@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ichi — one task at a time</title>
+<meta name="description" content="The calmest way to do one thing at a time. Ichi collapses your whole list to a single, beautiful screen — the one thing you're on right now. No due dates, no streaks, no ads.">
+<meta name="theme-color" content="#ECE3D0">
+<link rel="icon" href="/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon.png">
+<meta property="og:title" content="Ichi — one task at a time">
+<meta property="og:description" content="The calmest way to do one thing at a time.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <a class="nav-mark" href="/"><img src="/icon.png" alt="" aria-hidden="true">Ichi</a>
+    <div class="nav-links">
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker">One task at a time</div>
+    <h1 class="headline">The calmest way to do <em>one</em> thing.</h1>
+    <p class="subhead">Your whole list, collapsed to a single screen — the one thing you're on right now. Finish it, and the next rises to meet you.</p>
+
+    <!-- The page IS the product: a real task you can complete. -->
+    <div class="stage">
+      <div class="panel" id="panel" data-stage="active">
+        <span class="panel-glow" aria-hidden="true"></span>
+        <div class="panel-top">
+          <span class="panel-count" id="count">4 to go</span>
+          <svg class="panel-gear" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.6"/><path d="M19.4 13a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-2.87.95 2 2 0 11-3.99 0 1.7 1.7 0 00-2.87-.95l-.06.06A2 2 0 113.6 14.93l.06-.06A1.7 1.7 0 003.7 13 1.7 1.7 0 002 11.6a2 2 0 010-3.2A1.7 1.7 0 003.7 7a1.7 1.7 0 00-.34-1.87l-.06-.06A2 2 0 116.13 2.24l.06.06A1.7 1.7 0 008 2.66 1.7 1.7 0 019.4 1a2 2 0 013.2 0A1.7 1.7 0 0014 2.66a1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06A1.7 1.7 0 0020.3 7a1.7 1.7 0 001.7 1.4 2 2 0 010 3.2 1.7 1.7 0 00-1.6 1.4z" stroke="currentColor" stroke-width="1.4"/></svg>
+        </div>
+
+        <div class="task entering" id="task">
+          <div class="task-row">
+            <button class="check" id="check" aria-label="Complete this task"></button>
+            <span class="bloom" id="bloom" aria-hidden="true"></span>
+            <span class="task-title" id="title">Write the project brief</span>
+          </div>
+        </div>
+
+        <div class="panel-foot">
+          <span class="hint" id="hint">Tap the circle to finish it →</span>
+          <button class="replay" id="replay" type="button">↺ Start over</button>
+        </div>
+      </div>
+
+      <div class="themes" role="group" aria-label="Theme">
+        <span class="label">Themes</span>
+        <button class="swatch sw-warm" data-theme="warm" aria-pressed="true" aria-label="Warm Paper" title="Warm Paper"></button>
+        <button class="swatch sw-mist" data-theme="mist" aria-pressed="false" aria-label="Cool Mist" title="Cool Mist"></button>
+        <button class="swatch sw-noc"  data-theme="nocturne" aria-pressed="false" aria-label="Nocturne" title="Nocturne"><span class="pro">PRO</span></button>
+        <button class="swatch sw-aur"  data-theme="aurora" aria-pressed="false" aria-label="Aurora" title="Aurora"><span class="pro">PRO</span></button>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="/support">
+        <span class="glyph" aria-hidden="true"><svg width="17" height="20" viewBox="0 0 17 21" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14.07 11.17c-.02-2.27 1.85-3.36 1.94-3.41-1.06-1.55-2.71-1.76-3.29-1.78-1.4-.14-2.73.82-3.44.82-.71 0-1.8-.8-2.96-.78-1.52.02-2.93.88-3.71 2.24-1.58 2.75-.4 6.82 1.13 9.05.75 1.09 1.64 2.32 2.81 2.27 1.13-.05 1.55-.73 2.91-.73 1.36 0 1.74.73 2.93.71 1.21-.02 1.98-1.11 2.72-2.21.86-1.27 1.21-2.5 1.23-2.56-.03-.01-2.36-.9-2.38-3.6zM11.8 4.5c.63-.76 1.05-1.82.93-2.87-.9.04-1.99.6-2.64 1.36-.58.67-1.09 1.75-.95 2.78 1 .08 2.03-.51 2.66-1.27z"/></svg></span>
+        <span class="copy"><span class="lead">Coming soon to the</span><span class="label">App Store</span></span>
+      </a>
+      <div class="cta-meta"><span>iPhone</span><span>iOS 26</span><span>Free</span><span>iCloud sync</span></div>
+    </div>
+  </header>
+
+  <section class="statement">
+    <p>Most to-do apps hand you a wall. Ichi hands you the <em>next thing</em> — and the quiet of knowing nothing slips through.</p>
+    <div class="by">No due dates. No “overdue.” No streaks. No guilt.</div>
+  </section>
+
+  <section class="principles">
+    <div class="principles-grid">
+      <div class="cell"><h3><span class="mk">—</span>One thing, front and center</h3><p>The top of your queue fills the screen in big, calm type. Complete it and the next rises into place.</p></div>
+      <div class="cell"><h3><span class="mk">—</span>Capture without friction</h3><p>Add from the app, a widget, the Share Sheet, or a word to Siri. It waits quietly in the queue until you're ready.</p></div>
+      <div class="cell"><h3><span class="mk">—</span>A widget that's never stale</h3><p>Glance at your current task from the Home Screen, Lock Screen, or StandBy. It always shows the true next thing.</p></div>
+      <div class="cell"><h3><span class="mk">—</span>Yours, and private</h3><p>Tasks sync through your own iCloud — never our servers. No accounts, no trackers, nothing silently deleted.</p></div>
+    </div>
+  </section>
+
+  <section class="pro">
+    <div class="pro-card">
+      <div class="eyebrow">Ichi Pro</div>
+      <h2>Beauty, <em>never</em> limits.</h2>
+      <p>Every feature is <b>free, forever</b>. Pro is purely for the look — the <b>Nocturne</b> and <b>Aurora</b> themes, the StandBy nightstand widget, and alternate app icons. It never sells capacity; there are no caps to lift.</p>
+      <div class="pro-price">A one-time <b>lifetime</b> unlock or a lighter <b>yearly</b> subscription. Always restorable. <a href="/terms">Subscription details →</a></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div>© 2026 quyctd · Made with care</div>
+    <div class="foot-links">
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
