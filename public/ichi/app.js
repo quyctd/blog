@@ -78,20 +78,31 @@
   }
 
   function reset() {
-    i = 0; busy = false;
-    panel.classList.remove('cleared');
-    panel.setAttribute('data-stage', 'active');
+    if (busy) return;
+    busy = true;
+
+    // float the "All clear" state up first, then rise the first task in —
+    // mirroring the completion flow so Start over feels just as smooth.
     var node = document.getElementById('task');
-    node.outerHTML =
-      '<div class="task entering" id="task">' +
-        '<div class="task-row">' +
-          '<button class="check" id="check" aria-label="Complete this task"></button>' +
-          '<span class="bloom" id="bloom" aria-hidden="true"></span>' +
-          '<span class="task-title" id="title">' + TASKS[0] + '</span>' +
-        '</div>' +
-      '</div>';
-    rebind();
-    setCount();
+    if (!reduce) node.classList.add('leaving');
+
+    var after = reduce ? 0 : 300;
+    setTimeout(function () {
+      i = 0;
+      panel.classList.remove('cleared');
+      panel.setAttribute('data-stage', 'active');
+      document.getElementById('task').outerHTML =
+        '<div class="task entering" id="task">' +
+          '<div class="task-row">' +
+            '<button class="check" id="check" aria-label="Complete this task"></button>' +
+            '<span class="bloom" id="bloom" aria-hidden="true"></span>' +
+            '<span class="task-title" id="title">' + TASKS[0] + '</span>' +
+          '</div>' +
+        '</div>';
+      rebind();
+      setCount();
+      busy = false;
+    }, after);
   }
 
   check.addEventListener('click', complete);
