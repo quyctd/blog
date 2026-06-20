@@ -95,8 +95,9 @@ body::before {
   letter-spacing: -0.035em; color: var(--ink); max-width: 16ch; margin: 0 auto;
 }
 .headline em {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  letter-spacing: -0.01em; color: var(--accent); font-size: 1.04em;
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-optical-sizing: auto; letter-spacing: -0.01em; color: var(--accent);
+  font-size: 1.16em; line-height: 0.9;
 }
 .subhead {
   font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); font-weight: 450;
@@ -186,18 +187,23 @@ body::before {
 .themes { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 26px auto 0; }
 .themes .label { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
 .swatch {
-  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; padding: 0;
-  border: 2px solid transparent; position: relative;
-  box-shadow: 0 2px 8px rgba(46,40,32,0.16); transition: transform 0.16s var(--ease), border-color 0.2s var(--ease);
+  width: 32px; height: 32px; border-radius: 9px; cursor: pointer; padding: 0;
+  border: 1.5px solid var(--line); position: relative; background: var(--sw-bg);
+  box-shadow: 0 2px 8px rgba(46,40,32,0.12); transition: transform 0.16s var(--ease), border-color 0.2s var(--ease);
+}
+/* a small accent dot tucked in the bottom-right — mirrors the app's theme swatch */
+.swatch::after {
+  content: ''; position: absolute; right: 5px; bottom: 5px;
+  width: 9px; height: 9px; border-radius: 50%; background: var(--sw-acc);
 }
 .swatch:hover { transform: translateY(-2px) scale(1.06); }
-.swatch[aria-pressed="true"] { border-color: var(--ink); }
+.swatch[aria-pressed="true"] { border-color: var(--ink); border-width: 2px; }
 :root[data-theme="nocturne"] .swatch[aria-pressed="true"] { border-color: var(--accent); }
-.swatch .pro { position: absolute; top: -6px; right: -6px; font-size: 8px; font-weight: 800; letter-spacing: 0.06em; color: #fff; background: var(--accent); padding: 1px 4px; border-radius: 6px; }
-.sw-warm { background: radial-gradient(circle at 32% 30%, #F8F2E6 60%, #B86B43 61%); }
-.sw-mist { background: radial-gradient(circle at 32% 30%, #FFFFFF 60%, #5B8AA6 61%); }
-.sw-noc  { background: radial-gradient(circle at 32% 30%, #1A1C22 60%, #7E88D6 61%); }
-.sw-aur  { background: radial-gradient(circle at 32% 30%, #F7F2FB 60%, #9B7BD4 61%); }
+.swatch .pro { position: absolute; top: -7px; right: -7px; font-size: 8px; font-weight: 800; letter-spacing: 0.06em; color: #fff; background: var(--accent); padding: 1px 4px; border-radius: 6px; box-shadow: 0 1px 3px rgba(46,40,32,0.25); }
+.sw-warm { --sw-bg: #F8F2E6; --sw-acc: #B86B43; }
+.sw-mist { --sw-bg: #FFFFFF; --sw-acc: #5B8AA6; }
+.sw-noc  { --sw-bg: #1A1C22; --sw-acc: #7E88D6; }
+.sw-aur  { --sw-bg: #F7F2FB; --sw-acc: #9B7BD4; }
 
 /* ─── cta ───────────────────────────────────────────────── */
 .cta { text-align: center; margin: 60px 0 0; }
@@ -218,7 +224,7 @@ body::before {
 /* ─── editorial statement ───────────────────────────────── */
 .statement { padding: 120px 0; text-align: center; border-top: 1px solid var(--hair); margin-top: 90px; }
 .statement p { font-size: clamp(26px, 4vw, 40px); font-weight: 500; line-height: 1.28; letter-spacing: -0.025em; color: var(--ink); max-width: 20ch; margin: 0 auto; }
-.statement em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.statement em { font-family: var(--serif); font-style: italic; font-weight: 500; font-optical-sizing: auto; font-size: 1.08em; color: var(--accent); }
 .statement .by { margin-top: 30px; font-size: 14px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
 
 /* ─── principles ────────────────────────────────────────── */
@@ -237,7 +243,7 @@ body::before {
 }
 .pro-card .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
 .pro-card h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 600; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 16px; }
-.pro-card h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.pro-card h2 em { font-family: var(--serif); font-style: italic; font-weight: 500; font-optical-sizing: auto; font-size: 1.08em; color: var(--accent); }
 .pro-card p { font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 50ch; margin: 0 auto; }
 .pro-card p b { color: var(--ink); font-weight: 600; }
 .pro-price { margin-top: 24px; font-size: 14px; color: var(--ink-soft); font-weight: 500; }
