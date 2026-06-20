@@ -15,7 +15,16 @@
   var title  = document.getElementById('title');
   var count  = document.getElementById('count');
   var hint   = document.getElementById('hint');
-  var replay = document.getElementById('replay');
+
+  // counterclockwise refresh glyph for "Start over" — an SVG (not a text
+  // character) so it aligns cleanly with the label inside the flex pill
+  var REPLAY_ICO =
+    '<span class="replay-ico" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="none">' +
+        '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '<path d="M3 3v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg>' +
+    '</span>';
 
   var i = 0;
   var busy = false;
@@ -23,7 +32,7 @@
 
   function setCount() {
     var left = TASKS.length - i;
-    count.textContent = left > 0 ? left + (left === 1 ? ' to go' : ' to go') : 'All clear';
+    count.textContent = left > 0 ? left + ' to go' : '';
   }
 
   function complete() {
@@ -53,7 +62,9 @@
         '<div class="cleared-state" id="task">' +
           '<div class="big">All clear</div>' +
           '<div class="small">Nothing left for now</div>' +
+          '<button class="replay" id="replay" type="button">' + REPLAY_ICO + 'Start over</button>' +
         '</div>';
+      document.getElementById('replay').addEventListener('click', reset);
       return;
     }
     // rebuild the active task row fresh so animations restart cleanly
@@ -106,7 +117,6 @@
   }
 
   check.addEventListener('click', complete);
-  replay.addEventListener('click', reset);
   setCount();
 
   // ── theme switcher ──────────────────────────────────────

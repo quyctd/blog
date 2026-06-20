@@ -132,17 +132,6 @@ body::before {
 
 .panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0; }
 .panel-count { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--panel-muted); font-variant-numeric: tabular-nums; transition: color 0.6s var(--ease-soft); }
-.panel-gear {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px; padding: 0; margin: -6px -8px -6px 0;
-  border: 0; border-radius: 50%; background: transparent; cursor: pointer;
-  color: var(--panel-muted); opacity: 0.5;
-  transition: opacity 0.3s var(--ease), background 0.25s var(--ease), transform 0.55s var(--spring);
-}
-.panel-gear svg { width: 22px; height: 22px; }
-.panel-gear:hover { opacity: 0.95; background: color-mix(in srgb, var(--panel-muted) 12%, transparent); transform: rotate(72deg); }
-.panel-gear:active { transform: rotate(72deg) scale(0.88); }
-
 /* the one task — completion circle ABOVE a large title, mirroring the app Home */
 .task { display: flex; flex-direction: column; gap: 20px; margin: 30px 0 auto; position: relative; }
 .task-row { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
@@ -186,6 +175,7 @@ body::before {
 .cleared-state { text-align: center; margin: auto 0; }
 .cleared-state .big { font-family: var(--ui); font-size: 38px; font-weight: 700; letter-spacing: -0.02em; color: var(--panel-ink); }
 .cleared-state .small { font-size: 16px; color: var(--panel-muted); margin-top: 8px; }
+.cleared-state .replay { margin-top: 26px; }
 .cleared-state { animation: rise-in 0.6s var(--ease) both; }
 .cleared-state.leaving { animation: float-up 0.42s var(--ease) both; }
 
@@ -199,12 +189,14 @@ body::before {
   transition: opacity 0.4s var(--ease), background 0.22s var(--ease), transform 0.22s var(--spring);
   display: inline-flex; align-items: center; gap: 7px;
 }
-.replay-ico { display: inline-block; font-size: 14px; transition: transform 0.5s var(--spring); }
+.replay-ico { display: inline-flex; align-items: center; transition: transform 0.5s var(--spring); }
+.replay-ico svg { width: 15px; height: 15px; display: block; }
 .replay:hover { background: color-mix(in srgb, var(--panel-acc) 20%, transparent); transform: translateY(-1px); }
 .replay:hover .replay-ico { transform: rotate(-180deg); }
 .replay:active { transform: translateY(0) scale(0.95); }
 .panel.cleared .replay { opacity: 1; pointer-events: auto; }
 .panel.cleared .hint { opacity: 0; }
+.panel.cleared .panel-foot { display: none; } /* empty in the cleared state — let the rest content center fully */
 
 /* ─── theme switcher (the Pro lever, made tangible) ─────── */
 .themes { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 26px auto 0; }
