@@ -13,7 +13,6 @@
   var check  = document.getElementById('check');
   var bloom  = document.getElementById('bloom');
   var title  = document.getElementById('title');
-  var count  = document.getElementById('count');
   var hint   = document.getElementById('hint');
 
   // counterclockwise refresh glyph for "Start over" — an SVG (not a text
@@ -30,11 +29,6 @@
   var busy = false;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function setCount() {
-    var left = TASKS.length - i;
-    count.textContent = left > 0 ? left + ' to go' : '';
-  }
-
   function complete() {
     if (busy) return;
     if (i >= TASKS.length) return;
@@ -47,7 +41,6 @@
     setTimeout(function () {
       task.classList.add('leaving');
       i++;
-      setCount();
 
       var after = reduce ? 0 : 300;
       setTimeout(function () { render(); busy = false; }, after);
@@ -111,13 +104,11 @@
           '</div>' +
         '</div>';
       rebind();
-      setCount();
       busy = false;
     }, after);
   }
 
   check.addEventListener('click', complete);
-  setCount();
 
   // ── theme switcher ──────────────────────────────────────
   var swatches = document.querySelectorAll('.swatch');
