@@ -167,15 +167,8 @@ body::before {
 .task-title {
   font-size: clamp(27px, 4.4vw, 33px); font-weight: 600; letter-spacing: -0.025em;
   line-height: 1.12; color: var(--panel-ink); cursor: text; outline: none;
-  border-radius: 9px; max-width: 100%;
-  transition: color 0.6s var(--ease-soft), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
-}
-/* editable affordance: a dotted underline on hover, a calm accent ring on focus */
-.task-title:hover { text-decoration: underline dotted; text-decoration-color: var(--panel-muted); text-underline-offset: 5px; text-decoration-thickness: 1.5px; }
-.task-title:focus {
-  text-decoration: none; padding: 4px 10px; margin: -4px -10px;
-  background: color-mix(in srgb, var(--panel-acc) 7%, transparent);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--panel-acc) 32%, transparent);
+  max-width: 100%; caret-color: var(--panel-acc); /* accent caret, like the app's TextField .tint — no border/box */
+  transition: color 0.6s var(--ease-soft);
 }
 .task.leaving .task-title { text-decoration: line-through; text-decoration-color: var(--panel-muted); }
 .task.entering { animation: rise-in 0.5s var(--ease) both; }
