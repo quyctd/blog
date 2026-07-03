@@ -5,6 +5,9 @@ const AN_DIEM_HOST = [{ type: 'host', value: 'andiem.quyctd.dev' }]
 // ichi.quyctd.dev serves the Ichi landing + legal pages from /public/ichi/.
 const ICHI_HOST = [{ type: 'host', value: 'ichi.quyctd.dev' }]
 
+// teethjudge.quyctd.dev serves the TeethJudge landing + legal pages from /public/teethjudge/.
+const TEETHJUDGE_HOST = [{ type: 'host', value: 'teethjudge.quyctd.dev' }]
+
 module.exports = {
   reactStrictMode: true,
   async redirects() {
@@ -19,6 +22,7 @@ module.exports = {
       beforeFiles: [
         { source: '/', has: AN_DIEM_HOST, destination: '/an-diem/index.html' },
         { source: '/', has: ICHI_HOST, destination: '/ichi/index.html' },
+        { source: '/', has: TEETHJUDGE_HOST, destination: '/teethjudge/index.html' },
       ],
       // afterFiles short-circuits on the first match + filesystem hit, so
       // the catch-all here doesn't double-rewrite paths the explicit rules
@@ -32,6 +36,10 @@ module.exports = {
         { source: '/terms',   has: ICHI_HOST, destination: '/ichi/terms.html' },
         { source: '/support', has: ICHI_HOST, destination: '/ichi/support.html' },
         { source: '/:path*',  has: ICHI_HOST, destination: '/ichi/:path*' },
+        { source: '/privacy', has: TEETHJUDGE_HOST, destination: '/teethjudge/privacy.html' },
+        { source: '/terms',   has: TEETHJUDGE_HOST, destination: '/teethjudge/terms.html' },
+        { source: '/support', has: TEETHJUDGE_HOST, destination: '/teethjudge/support.html' },
+        { source: '/:path*',  has: TEETHJUDGE_HOST, destination: '/teethjudge/:path*' },
         { source: '/wedding', destination: '/wedding/index.html' },
       ],
       fallback: [],
