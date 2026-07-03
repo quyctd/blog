@@ -66,9 +66,8 @@ em{font-style:normal;background:var(--grad);-webkit-background-clip:text;backgro
   font:700 15px/1 "Inter",sans-serif;color:#fff;
   background:var(--grad);border-radius:999px;padding:14px 26px;
   box-shadow:0 6px 28px rgba(122,92,255,.45);
-  transition:transform .15s ease;
+  transition:transform .15s cubic-bezier(0.25,1,0.5,1);
 }
-.judge-btn:hover{transform:translateY(-1px)}
 .judge-btn:active{transform:scale(.97)}
 .stage-note{margin-top:12px;font-size:12px;color:var(--dim)}
 
@@ -76,9 +75,12 @@ em{font-style:normal;background:var(--grad);-webkit-background-clip:text;backgro
 .cta{margin-top:46px;display:flex;flex-direction:column;align-items:center;gap:14px}
 .btn{
   display:inline-flex;align-items:center;gap:12px;background:#fff;color:#0A0A0F;
-  border-radius:14px;padding:12px 22px;transition:transform .15s ease;
+  border-radius:14px;padding:12px 22px;transition:transform .15s cubic-bezier(0.25,1,0.5,1);
 }
-.btn:hover{transform:translateY(-1px)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{transform:translateY(-1px)}
+  .judge-btn:hover{transform:translateY(-1px)}
+}
 .btn .copy{display:flex;flex-direction:column;text-align:left;line-height:1.15}
 .btn .lead{font-size:11px;font-weight:500}
 .btn .label{font:700 18px/1.1 "Inter",sans-serif}
