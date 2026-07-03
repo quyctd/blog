@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TeethJudge — the AI teeth attractiveness scorer</title>
+<meta name="description" content="One selfie. A 0–100 whiteness score, a verdict you'll want to screenshot, and the plan to raise it. Judged on your phone — nothing uploaded, no account.">
+<meta name="theme-color" content="#0A0A0F">
+<link rel="icon" href="/teethjudge/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="/teethjudge/icon.png">
+<meta property="og:title" content="TeethJudge — how white are you, really?">
+<meta property="og:description" content="The AI teeth attractiveness scorer. One selfie → a 0–100 score, a verdict, and the glow-up plan.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://teethjudge.quyctd.dev/teethjudge/icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <a class="nav-mark" href="/"><img src="/teethjudge/icon.png" alt="" aria-hidden="true">TeethJudge</a>
+    <div class="nav-links">
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <img class="app-icon" src="/teethjudge/icon.png" alt="TeethJudge app icon" width="92" height="92">
+    <div class="kicker">The AI teeth attractiveness scorer</div>
+    <h1 class="headline">How white are you, <em>really</em>?</h1>
+    <p class="subhead">One selfie. A 0–100 whiteness score, a verdict you'll want to screenshot, and the plan to raise it — judged on your phone, nothing uploaded.</p>
+
+    <!-- The page IS the product: press the button, take the verdict. -->
+    <div class="stage">
+      <div class="panel">
+        <div class="panel-tag">Smile report</div>
+        <div class="score" id="score" aria-live="polite">73</div>
+        <div class="rating" id="rating">🙂 DECENT CIVILIAN</div>
+        <div class="percentile" id="percentile">Whiter than 82% of smiles scanned</div>
+        <div class="tip"><span aria-hidden="true">💡</span><span id="tip">Solid base. Add a whitening toothpaste and cut back on dark sodas to level up a band.</span></div>
+        <button class="judge-btn" id="judge" type="button">Judge a smile</button>
+        <div class="stage-note">Illustrative — the app judges your actual teeth.</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="/support">
+        <span class="glyph" aria-hidden="true"><svg width="17" height="20" viewBox="0 0 17 21" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14.07 11.17c-.02-2.27 1.85-3.36 1.94-3.41-1.06-1.55-2.71-1.76-3.29-1.78-1.4-.14-2.73.82-3.44.82-.71 0-1.8-.8-2.96-.78-1.52.02-2.93.88-3.71 2.24-1.58 2.75-.4 6.82 1.13 9.05.75 1.09 1.64 2.32 2.81 2.27 1.13-.05 1.55-.73 2.91-.73 1.36 0 1.74.73 2.93.71 1.21-.02 1.98-1.11 2.72-2.21.86-1.27 1.21-2.5 1.23-2.56-.03-.01-2.36-.9-2.38-3.6zM11.8 4.5c.63-.76 1.05-1.82.93-2.87-.9.04-1.99.6-2.64 1.36-.58.67-1.09 1.75-.95 2.78 1 .08 2.03-.51 2.66-1.27z"/></svg></span>
+        <span class="copy"><span class="lead">Coming soon to the</span><span class="label">App Store</span></span>
+      </a>
+      <div class="cta-meta"><span>iPhone</span><span>iOS 17+</span><span>First scan free</span><span>$4.99 once, no subscription</span></div>
+    </div>
+  </header>
+
+  <section class="statement">
+    <p>Umax rated your face. Your smile was <em>getting away with it</em>.</p>
+    <div class="by">No filters. No whitening edits. Just the verdict — and the plan.</div>
+  </section>
+
+  <section class="principles">
+    <div class="principles-grid">
+      <div class="cell"><h3><span class="mk">—</span>The verdict</h3><p>A 0–100 whiteness score with a rating band from COLGATE COMMERCIAL to CALL YOUR DENTIST, your percentile, and a breakdown: whiteness, stains, visibility.</p></div>
+      <div class="cell"><h3><span class="mk">—</span>The plan</h3><p>A daily routine built from your score band — check it off, keep the streak, get the 8:00 and 21:00 nudges, and watch your projected 30-day score.</p></div>
+      <div class="cell"><h3><span class="mk">—</span>The receipts</h3><p>Every scan lands on your progress chart with a goal line and a ▲/▼ delta since last time. Re-scan and prove the glow-up.</p></div>
+      <div class="cell"><h3><span class="mk">—</span>Judged on-device</h3><p>Apple's Vision framework finds your teeth right on your phone. No account, no uploads, no analytics — your face never leaves your hand.</p></div>
+    </div>
+  </section>
+
+  <section class="pro">
+    <div class="pro-card">
+      <div class="eyebrow">TeethJudge Pro</div>
+      <h2>$4.99. Once. <em>That's it.</em></h2>
+      <p>Your <b>first scan is free</b> — full verdict, no strings. Pro unlocks <b>unlimited scans</b> and your personalized <b>Teeth Glow-Up Plan</b>: the daily routine, streaks, reminders, and the 30-day projection. One-time purchase through Apple, restorable on any device with your Apple&nbsp;ID.</p>
+      <div class="pro-price">No subscription. No account. <a href="/terms">Purchase details →</a></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div>© 2026 quyctd · Judgment is entertainment, not dentistry</div>
+    <div class="foot-links">
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
