@@ -18,16 +18,16 @@ const Home = () => {
     >
       <Intro />
 
+      <Section id="experience" title="Experience">
+        <ExperienceList roles={roles} />
+      </Section>
+
       <Section id="apps" title="Apps">
         <div className="space-y-4">
           {projects.map((project) => (
             <AppCard key={project.name} project={project} />
           ))}
         </div>
-      </Section>
-
-      <Section id="experience" title="Experience">
-        <ExperienceList roles={roles} />
       </Section>
 
       <Section id="writing" title="Writing">

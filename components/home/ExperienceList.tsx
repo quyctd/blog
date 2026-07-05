@@ -1,6 +1,10 @@
 import { FC } from 'react'
 import Link from '@components/link'
+import { ArrowUpRight } from '@components/icons'
 import type { Role } from '@data/experience'
+
+const mutedLinkClasses =
+  'inline-flex items-center gap-1 text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100'
 
 const ExperienceList: FC<{ roles: Role[] }> = ({ roles }) => {
   return (
@@ -19,12 +23,39 @@ const ExperienceList: FC<{ roles: Role[] }> = ({ roles }) => {
                 {role.title}
                 <span className="font-normal text-neutral-400 dark:text-neutral-500">
                   {' '}
-                  · {role.company}
+                  ·{' '}
                 </span>
+                {role.url ? (
+                  <Link
+                    external
+                    href={role.url}
+                    className="font-normal text-neutral-500 underline-offset-4 transition-colors hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-100"
+                  >
+                    {role.company}
+                  </Link>
+                ) : (
+                  <span className="font-normal text-neutral-500 dark:text-neutral-400">
+                    {role.company}
+                  </span>
+                )}
               </p>
               <p className="mt-1.5 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
                 {role.summary}
               </p>
+              {role.projects && role.projects.length > 0 && (
+                <div className="mt-2.5 flex flex-wrap gap-4 text-sm">
+                  {role.projects.map((project) => (
+                    <Link
+                      key={project.name}
+                      external
+                      href={project.url}
+                      className={mutedLinkClasses}
+                    >
+                      {project.name} <ArrowUpRight size={14} />
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           </li>
         ))}
