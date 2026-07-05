@@ -17,7 +17,7 @@ export const roles: Role[] = [
     title: 'Product Engineer',
     company: 'mapEDU',
     url: 'https://mapedu.com',
-    period: 'Apr 2025 — Present',
+    period: 'Jan 2025 — Present',
     summary:
       'Working fullstack and leading frontend on an AI curriculum-mapping platform for educators — the v2 launch drove over $500K in net-new revenue.',
   },
