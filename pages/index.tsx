@@ -23,6 +23,9 @@ const Home = () => {
       </Section>
 
       <Section id="apps" title="Apps">
+        <p className="mb-6 text-base leading-7 text-neutral-600 dark:text-neutral-400">
+          Things I build in my free time, for fun.
+        </p>
         <div className="space-y-4">
           {projects.map((project) => (
             <AppCard key={project.name} project={project} />
