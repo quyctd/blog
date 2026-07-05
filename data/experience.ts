@@ -31,10 +31,11 @@ export const roles: Role[] = [
   },
   {
     title: 'Senior Frontend Engineer',
-    company: 'LINE Corporation',
-    url: 'https://line.me',
+    company: 'LINE Corporation (now LY Corporation)',
+    url: 'https://www.lycorp.co.jp/en/',
     period: 'Aug 2021 — Apr 2024',
     summary: 'Healthcare, AI and Lifestyle apps used by millions.',
+    projects: [{ name: 'line.me', url: 'https://line.me' }],
   },
   {
     title: 'Software Engineer',
