@@ -28,10 +28,6 @@ export const roles: Role[] = [
     period: 'Apr 2024 — Apr 2025',
     summary:
       'Led frontend for Web3 platforms — launchpads, DEX aggregators, DeFi tooling.',
-    projects: [
-      { name: '7k.fun', url: 'https://7k.fun' },
-      { name: 'BerAIs.land', url: 'https://berais.land' },
-    ],
   },
   {
     title: 'Senior Frontend Engineer',
@@ -46,6 +42,10 @@ export const roles: Role[] = [
     url: 'https://pixta.jp',
     period: 'Jul 2019 — Jun 2021',
     summary: 'Core development on the pixta.jp e-commerce platform.',
+    projects: [
+      { name: 'pixta.jp', url: 'https://pixta.jp' },
+      { name: 'pixta.vn', url: 'https://pixta.vn' },
+    ],
   },
   {
     title: 'Software Engineer',
