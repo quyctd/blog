@@ -1,26 +1,65 @@
 import Page from '@components/page'
 import Link from '@components/link'
+import Section from '@components/home/Section'
+import Intro from '@components/home/Intro'
+import AppCard from '@components/home/AppCard'
+import ExperienceList from '@components/home/ExperienceList'
+import { projects } from '@data/projects'
+import { roles } from '@data/experience'
 
-const About = () => {
+const inlineLinkClasses =
+  'text-neutral-900 underline underline-offset-4 dark:text-neutral-100'
+
+const Home = () => {
   return (
-    <Page description="Hi, I'm Quy. A product engineer.">
-      <article>
-        <h1>Quy Dinh</h1>
-        <p>
-          Product engineer based in Hanoi, Vietnam. 2 years into building an AI product that&apos;s grown to $500K in revenue — working across the stack.
+    <Page
+      prose={false}
+      description="Quy Dinh — product engineer in Hanoi, Vietnam. Building AI products by day, shipping indie iOS apps by night."
+    >
+      <Intro />
+
+      <Section id="apps" title="Apps">
+        <div className="space-y-4">
+          {projects.map((project) => (
+            <AppCard key={project.name} project={project} />
+          ))}
+        </div>
+      </Section>
+
+      <Section id="experience" title="Experience">
+        <ExperienceList roles={roles} />
+      </Section>
+
+      <Section id="writing" title="Writing">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          I occasionally write about CSS and frontend —{' '}
+          <Link href="/blog" className={inlineLinkClasses}>
+            read the blog
+          </Link>
+          .
         </p>
-        <p>
-          I care deeply about details and user experience, and strongly believe in the power of simplicity in both design and engineering. My life philosophy is rooted in versatility — seeking to develop a wide range of skills in diverse fields that complement each other in unexpected ways.
+      </Section>
+
+      <Section id="contact" title="Contact">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Always open to interesting conversations and collaboration. Reach me
+          at{' '}
+          <Link href="mailto:quy.dc98@gmail.com" className={inlineLinkClasses}>
+            quy.dc98@gmail.com
+          </Link>{' '}
+          or on{' '}
+          <Link
+            external
+            href="https://www.linkedin.com/in/quyctd/"
+            className={inlineLinkClasses}
+          >
+            LinkedIn
+          </Link>
+          . If you&apos;re in Hanoi, let&apos;s have coffee.
         </p>
-        <p>
-          Get in touch —{' '}
-          <Link underline href="mailto:quy.dc98@gmail.com">quy.dc98@gmail.com</Link>
-          {' '}or{' '}
-          <Link underline href="https://www.linkedin.com/in/quyctd/">LinkedIn</Link>.
-        </p>
-      </article>
+      </Section>
     </Page>
   )
 }
 
-export default About
+export default Home

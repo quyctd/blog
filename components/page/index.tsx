@@ -1,4 +1,5 @@
 import { FC, ReactNode } from 'react'
+import clsx from 'clsx'
 
 import Head from '@components/head'
 import Header from '@components/header'
@@ -6,6 +7,7 @@ import Header from '@components/header'
 interface Props {
   header?: boolean
   showHeaderTitle?: boolean
+  prose?: boolean
   title?: string
   description?: string
   image?: string
@@ -15,6 +17,7 @@ interface Props {
 const Page: FC<Props> = ({
   header = true,
   showHeaderTitle = true,
+  prose = true,
   title,
   description,
   image,
@@ -31,7 +34,12 @@ const Page: FC<Props> = ({
       />
       {header && <Header title={showHeaderTitle && title} />}
 
-      <main className="prose prose-lg mx-auto my-0 max-w-[45rem] px-4 dark:prose-invert">
+      <main
+        className={clsx(
+          'mx-auto my-0 w-full max-w-[45rem] px-4',
+          prose && 'prose prose-lg dark:prose-invert'
+        )}
+      >
         {children}
       </main>
       <footer className="">
