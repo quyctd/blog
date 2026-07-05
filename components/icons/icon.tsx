@@ -6,7 +6,7 @@ const Icon = ({ className }: Props) => {
   return (
     <svg
       version="1.1"
-      height="30"
+      height="22"
       viewBox="0 0 24 24"
       fill="currentColor"
       className={className}

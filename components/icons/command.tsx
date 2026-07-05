@@ -5,7 +5,7 @@ interface Props {
 const Command = ({ className }: Props) => {
   return (
     <svg
-      height="30"
+      height="18"
       viewBox="0 0 80 80"
       fill="currentColor"
       className={className}

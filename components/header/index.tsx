@@ -21,7 +21,7 @@ const Header: FC<Props> = ({ title }) => {
         </Link>
         <CommandMenu />
         {title && (
-          <div className="ml-8 overflow-auto font-medium text-neutral-400 dark:text-neutral-500">
+          <div className="ml-6 overflow-auto text-sm font-medium text-neutral-400 dark:text-neutral-500">
             {title}
           </div>
         )}
