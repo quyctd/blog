@@ -12,6 +12,7 @@ import {
 } from '@components/icons'
 
 import type { FC } from 'react'
+import { projects } from '@data/projects'
 
 interface Props {
   selectThemes: Function
@@ -47,10 +48,23 @@ const HomeItems: FC<Props> = ({ selectThemes, searchBlog }) => {
           <Music />
           Music
         </CommandItem>
-        <CommandItem shortcut="g p" onSelect={() => router.push('/projects')}>
+        <CommandItem shortcut="g p" onSelect={() => router.push('/#apps')}>
           <Document />
-          Projects
+          Apps
         </CommandItem>
+      </Command.Group>
+      <Command.Group heading="Apps" className={groupClasses}>
+        {projects
+          .filter((p) => p.site)
+          .map((p) => (
+            <CommandItem
+              key={p.name}
+              onSelect={() => window.open(p.site, '_blank')}
+            >
+              <ArrowRight />
+              {p.name}
+            </CommandItem>
+          ))}
       </Command.Group>
       <Command.Group heading="Navigation" className={groupClasses}>
         <CommandItem shortcut="g h" onSelect={() => router.push('/home')}>
