@@ -13,9 +13,11 @@ export const projects: Project[] = [
   {
     name: 'Ichi',
     tagline: 'A calm to-do & focus app — one task at a time.',
-    status: 'soon',
+    status: 'live',
     icon: '/projects/ichi.webp',
     site: 'https://ichi.quyctd.dev',
+    appStore:
+      'https://apps.apple.com/vn/app/ichi-one-task-to-do-focus/id6780966525',
   },
   {
     name: 'Ấn Điểm',
