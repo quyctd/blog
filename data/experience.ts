@@ -49,5 +49,11 @@ export const roles: Role[] = [
     url: 'https://www.vng.com.vn',
     period: 'Oct 2018 — Jul 2019',
     summary: 'Built the most-played mode of a billiards game (Cocos 2D).',
+    projects: [
+      {
+        name: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=game.bida.vng',
+      },
+    ],
   },
 ]
