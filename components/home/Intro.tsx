@@ -39,9 +39,10 @@ const Intro = () => {
 
       <div className="mt-8 space-y-4 text-base leading-7 text-neutral-600 dark:text-neutral-400">
         <p>
-          I build AI products across the stack — currently leading frontend on
-          mapEDU, an EdTech platform that&apos;s driven nearly $500K in new
-          revenue. On the side, I design and ship my own apps.
+          I build AI products across the stack — currently working fullstack
+          and leading frontend on mapEDU, an EdTech platform that&apos;s driven
+          nearly $500K in new revenue. On the side, I design and ship my own
+          apps.
         </p>
         <p>
           I care deeply about details and user experience, and strongly believe
