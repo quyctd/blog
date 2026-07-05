@@ -10,12 +10,10 @@ interface Props {
 
 const Blog: FC<Props> = ({ posts }) => {
   return (
-    <Page title="Blog" description="The World As I See It">
-      <article>
-        <ul>
-          <PostsList posts={posts} />
-        </ul>
-      </article>
+    <Page title="Blog" description="The World As I See It" prose={false}>
+      <ul className="m-0 list-none p-0">
+        <PostsList posts={posts} />
+      </ul>
     </Page>
   )
 }

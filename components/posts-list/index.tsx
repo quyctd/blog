@@ -12,12 +12,12 @@ const Posts: FC<Props> = ({ posts, paginate }) => {
   const [showMore, setShowMore] = useState(3)
 
   return (
-    <div className="mx-auto my-0 max-w-[45rem]">
+    <>
       {posts.slice(0, paginate ? showMore : undefined).map((post) => {
-        const date = new Date(post.date).toLocaleDateString('default', {
-          month: '2-digit',
-          day: '2-digit',
-          year: '2-digit',
+        const date = new Date(post.date).toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
         })
 
         return (
@@ -32,16 +32,18 @@ const Posts: FC<Props> = ({ posts, paginate }) => {
         )
       })}
       {paginate && showMore < posts.length && (
-        <button
-          onClick={() => {
-            setShowMore(showMore + 3)
-          }}
-          className="mt-16 w-full cursor-pointer rounded-lg border-none bg-[#f5f5f5] px-4 py-2 font-[500] text-[#888] outline-none transition-all hover:text-[#000] focus:text-[#000] active:bg-[#fafafa] dark:bg-[#222] dark:text-[#666] dark:hover:text-[#fafbfc] dark:focus:text-[#fafbfc] dark:active:bg-[#1a1a1a]"
-        >
-          Show More
-        </button>
+        <li className="list-none">
+          <button
+            onClick={() => {
+              setShowMore(showMore + 3)
+            }}
+            className="mt-12 w-full cursor-pointer rounded-lg border-none bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-500 outline-none transition-colors hover:text-neutral-900 focus:text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100 dark:focus:text-neutral-100"
+          >
+            Show More
+          </button>
+        </li>
       )}
-    </div>
+    </>
   )
 }
 

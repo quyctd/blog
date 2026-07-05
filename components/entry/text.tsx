@@ -11,23 +11,23 @@ interface Props {
 
 const TextEntry: FC<Props> = ({ title, description, type, href, as }) => {
   return (
-    <li className="list-none">
+    <li className="list-none border-t border-neutral-100 first:border-t-0 dark:border-neutral-800/60">
       <Link
         href={href}
         as={as}
         external={!as}
         title={`${title} (${description})`}
-        className="group block border-t border-solid border-[#f5f5f5] pb-12 pt-4 text-[#000] no-underline outline-none dark:border-[#222] dark:text-[#fafbfc] sm:flex sm:items-start"
+        className="group grid gap-y-1 py-5 no-underline outline-none sm:grid-cols-[10rem_1fr] sm:gap-x-8"
       >
-        <div className="mr-4 basis-20 whitespace-nowrap text-base leading-[30px] text-[#888] dark:text-[#666]">
+        <div className="text-sm leading-6 tabular-nums text-neutral-400 dark:text-neutral-500">
           {type}
         </div>
-        <div className="flex-1">
-          <p className="m-0 line-clamp-2 break-words text-2xl font-bold leading-[1.3] transition-colors group-hover:text-[#888] dark:group-hover:text-[#666] sm:line-clamp-1">
+        <div>
+          <p className="m-0 line-clamp-2 break-words font-medium text-neutral-900 transition-colors group-hover:text-neutral-500 dark:text-neutral-100 dark:group-hover:text-neutral-400 sm:line-clamp-1">
             {title}
           </p>
           {description && (
-            <p className="mx-0 mb-0 mt-2 line-clamp-2 break-words leading-[1.3] text-[#888] dark:text-[#666] sm:line-clamp-1">
+            <p className="m-0 mt-1 line-clamp-2 break-words text-sm leading-6 text-neutral-600 dark:text-neutral-400 sm:line-clamp-1">
               {description}
             </p>
           )}
