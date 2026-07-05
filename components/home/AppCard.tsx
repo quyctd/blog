@@ -33,7 +33,7 @@ const AppCard: FC<{ project: Project }> = ({ project }) => {
       className={
         isPlaceholder
           ? 'flex items-start gap-4 rounded-xl border border-dashed border-neutral-200 p-5 dark:border-neutral-800'
-          : 'flex items-start gap-4 rounded-xl border border-neutral-200 p-5 transition-colors hover:border-neutral-300 dark:border-neutral-800 dark:hover:border-neutral-700'
+          : 'flex items-start gap-4 rounded-xl border border-neutral-200 p-5 transition-colors [@media(hover:hover)]:hover:border-neutral-300 dark:border-neutral-800 dark:[@media(hover:hover)]:hover:border-neutral-700'
       }
     >
       {project.icon ? (
