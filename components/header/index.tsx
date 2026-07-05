@@ -10,7 +10,7 @@ interface Props {
 
 const Header: FC<Props> = ({ title }) => {
   return (
-    <nav className="sticky top-0 z-10 my-8 bg-white bg-opacity-80 py-4 backdrop-blur-[20px] backdrop-saturate-[1.8] dark:bg-[#131415] dark:bg-opacity-[0.45] lg:my-16">
+    <nav className="sticky top-0 z-10 my-6 bg-white bg-opacity-80 py-4 backdrop-blur-[20px] backdrop-saturate-[1.8] dark:bg-[#131415] dark:bg-opacity-[0.45] lg:my-10">
       <div className="mx-auto my-0 flex h-8 max-w-[45rem] items-center px-4">
         <Link
           href="/"
