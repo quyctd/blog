@@ -19,7 +19,7 @@ export const roles: Role[] = [
     url: 'https://mapedu.com',
     period: 'Apr 2025 — Present',
     summary:
-      'Working fullstack and leading frontend on an AI curriculum-mapping platform for educators — the v2 launch drove nearly $500K in net-new revenue.',
+      'Working fullstack and leading frontend on an AI curriculum-mapping platform for educators — the v2 launch drove over $500K in net-new revenue.',
   },
   {
     title: 'Frontend Lead',

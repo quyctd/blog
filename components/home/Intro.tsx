@@ -41,7 +41,7 @@ const Intro = () => {
         <p>
           I build AI products across the stack — currently working fullstack
           and leading frontend on mapEDU, an EdTech platform that&apos;s driven
-          nearly $500K in new revenue. On the side, I design and ship my own
+          over $500K in new revenue. On the side, I design and ship my own
           apps.
         </p>
         <p>
