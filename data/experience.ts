@@ -7,11 +7,18 @@ export interface Role {
 
 export const roles: Role[] = [
   {
+    title: 'Lead Frontend Engineer',
+    company: 'Sarcix, Inc',
+    period: 'Apr 2025 — Dec 2025',
+    summary:
+      'Led the v2 launch of an AI EdTech platform, driving nearly $500K in net-new revenue.',
+  },
+  {
     title: 'Frontend Lead',
     company: 'AnyAxis Labs',
-    period: 'Apr 2024 — Present',
+    period: 'Apr 2024 — Apr 2025',
     summary:
-      'Leading frontend for Web3 platforms — launchpads, DEX aggregators, DeFi tooling.',
+      'Led frontend for Web3 platforms — launchpads, DEX aggregators, DeFi tooling.',
   },
   {
     title: 'Senior Frontend Engineer',
@@ -30,11 +37,5 @@ export const roles: Role[] = [
     company: 'VNG Corporation',
     period: 'Oct 2018 — Jul 2019',
     summary: 'Built the most-played mode of a billiards game (Cocos 2D).',
-  },
-  {
-    title: 'Associate Developer',
-    company: 'MindX Technology School',
-    period: 'Oct 2017 — Sep 2018',
-    summary: 'Internal tools; taught programming to 200+ students.',
   },
 ]

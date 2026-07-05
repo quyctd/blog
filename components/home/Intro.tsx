@@ -39,9 +39,9 @@ const Intro = () => {
 
       <div className="mt-8 space-y-4 text-[1.0625rem] leading-relaxed text-neutral-700 dark:text-neutral-300">
         <p>
-          Two years into building an AI product that&apos;s grown to $500K in
-          revenue — working across the stack. On the side, I design and ship my
-          own apps.
+          I build AI products across the stack — most recently leading the v2
+          launch of an EdTech platform that drove nearly $500K in new revenue.
+          On the side, I design and ship my own apps.
         </p>
         <p>
           I care deeply about details and user experience, and strongly believe
