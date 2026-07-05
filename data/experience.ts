@@ -42,6 +42,7 @@ export const roles: Role[] = [
     url: 'https://pixta.jp',
     period: 'Jul 2019 — Jun 2021',
     summary: 'Core development on the pixta.jp e-commerce platform.',
+    projects: [{ name: 'pixta.vn', url: 'https://pixta.vn' }],
   },
   {
     title: 'Software Engineer',
