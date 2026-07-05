@@ -51,6 +51,10 @@ export const roles: Role[] = [
     summary: 'Built the most-played mode of a billiards game (Cocos 2D).',
     projects: [
       {
+        name: 'App Store',
+        url: 'https://apps.apple.com/vn/app/bida-zingplay/id1570746506',
+      },
+      {
         name: 'Google Play',
         url: 'https://play.google.com/store/apps/details?id=game.bida.vng',
       },
