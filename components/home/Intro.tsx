@@ -10,7 +10,7 @@ const Intro = () => {
       <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
         Quy Dinh
       </h1>
-      <p className="mt-2 text-neutral-500 dark:text-neutral-400">
+      <p className="mt-2 font-mono text-sm text-neutral-500 dark:text-neutral-400">
         Product engineer · Hanoi, Vietnam
       </p>
 
@@ -37,7 +37,7 @@ const Intro = () => {
         </Link>
       </div>
 
-      <div className="mt-8 space-y-4 text-[1.0625rem] leading-relaxed text-neutral-700 dark:text-neutral-300">
+      <div className="mt-8 space-y-4 leading-relaxed text-neutral-600 dark:text-neutral-400">
         <p>
           I build AI products across the stack — most recently leading the v2
           launch of an EdTech platform that drove nearly $500K in new revenue.

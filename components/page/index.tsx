@@ -46,7 +46,7 @@ const Page: FC<Props> = ({
       </main>
       <footer className="mt-24">
         <div className="mx-auto flex max-w-[45rem] items-center justify-between border-t border-neutral-200 px-4 py-8 dark:border-neutral-800">
-          <p className="text-sm text-neutral-400 dark:text-neutral-500">
+          <p className="font-mono text-xs text-neutral-400 dark:text-neutral-500">
             &copy; {year} Quy Dinh
           </p>
           <div className="flex items-center gap-4 text-neutral-400 dark:text-neutral-500">

@@ -56,7 +56,7 @@ const AppCard: FC<{ project: Project }> = ({ project }) => {
             {project.name}
           </h3>
           <span
-            className={`rounded-full px-2 py-0.5 text-xs font-medium ${status.classes}`}
+            className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${status.classes}`}
           >
             {status.label}
           </span>

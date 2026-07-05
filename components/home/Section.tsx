@@ -20,7 +20,7 @@ const Section: FC<Props> = ({ id, title, children }) => {
       className="mt-20 scroll-mt-28"
     >
       {title && (
-        <h2 className="mb-6 text-xs font-medium uppercase tracking-[0.15em] text-neutral-400 dark:text-neutral-500">
+        <h2 className="mb-6 font-mono text-xs uppercase tracking-[0.15em] text-neutral-400 dark:text-neutral-500">
           {title}
         </h2>
       )}

@@ -50,6 +50,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Faint graph-paper grid behind everything */
+body {
+  background-color: #fff;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.dark body {
+  background-color: #131415;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
 pre,
 code {
   font-family: var(--font-mono) !important;
