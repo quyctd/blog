@@ -13,7 +13,7 @@ const Section: FC<Props> = ({ id, title, children }) => {
   return (
     <motion.section
       id={id}
-      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+      initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
