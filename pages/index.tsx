@@ -31,7 +31,7 @@ const Home = () => {
       </Section>
 
       <Section id="writing" title="Writing">
-        <p className="text-neutral-600 dark:text-neutral-400">
+        <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
           I occasionally write about CSS and frontend —{' '}
           <Link href="/blog" className={inlineLinkClasses}>
             read the blog
@@ -41,7 +41,7 @@ const Home = () => {
       </Section>
 
       <Section id="contact" title="Contact">
-        <p className="text-neutral-600 dark:text-neutral-400">
+        <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
           Always open to interesting conversations and collaboration. Reach me
           at{' '}
           <Link href="mailto:quy.dc98@gmail.com" className={inlineLinkClasses}>

@@ -56,12 +56,12 @@ const AppCard: FC<{ project: Project }> = ({ project }) => {
             {project.name}
           </h3>
           <span
-            className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${status.classes}`}
+            className={`rounded-full px-2 py-0.5 text-xs font-medium ${status.classes}`}
           >
             {status.label}
           </span>
         </div>
-        <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+        <p className="mt-1 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
           {project.tagline}
         </p>
         {(project.site || project.appStore) && (

@@ -46,7 +46,7 @@ const Page: FC<Props> = ({
       </main>
       <footer className="mt-24">
         <div className="mx-auto flex max-w-[45rem] items-center justify-between border-t border-neutral-200 px-4 py-8 dark:border-neutral-800">
-          <p className="font-mono text-xs text-neutral-400 dark:text-neutral-500">
+          <p className="text-sm text-neutral-400 dark:text-neutral-500">
             &copy; {year} Quy Dinh
           </p>
           <div className="flex items-center gap-4 text-neutral-400 dark:text-neutral-500">
@@ -54,7 +54,7 @@ const Page: FC<Props> = ({
               external
               href="https://github.com/quyctd"
               aria-label="GitHub"
-              className="text-neutral-400 transition-colors hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100"
+              className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
               <Github size={16} />
             </Link>
@@ -62,14 +62,14 @@ const Page: FC<Props> = ({
               external
               href="https://www.linkedin.com/in/quyctd/"
               aria-label="LinkedIn"
-              className="text-neutral-400 transition-colors hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100"
+              className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
               <Linkedin size={16} />
             </Link>
             <Link
               href="mailto:quy.dc98@gmail.com"
               aria-label="Email"
-              className="text-neutral-400 transition-colors hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100"
+              className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
               <Mail size={16} />
             </Link>
