@@ -8,6 +8,9 @@ const ICHI_HOST = [{ type: 'host', value: 'ichi.quyctd.dev' }]
 // teethjudge.quyctd.dev serves the TeethJudge landing + legal pages from /public/teethjudge/.
 const TEETHJUDGE_HOST = [{ type: 'host', value: 'teethjudge.quyctd.dev' }]
 
+// grindvocab.quyctd.dev serves the GrindVocab landing + legal pages from /public/grindvocab/.
+const GRINDVOCAB_HOST = [{ type: 'host', value: 'grindvocab.quyctd.dev' }]
+
 module.exports = {
   reactStrictMode: true,
   async redirects() {
@@ -24,6 +27,7 @@ module.exports = {
         { source: '/', has: AN_DIEM_HOST, destination: '/an-diem/index.html' },
         { source: '/', has: ICHI_HOST, destination: '/ichi/index.html' },
         { source: '/', has: TEETHJUDGE_HOST, destination: '/teethjudge/index.html' },
+        { source: '/', has: GRINDVOCAB_HOST, destination: '/grindvocab/index.html' },
       ],
       // afterFiles short-circuits on the first match + filesystem hit, so
       // the catch-all here doesn't double-rewrite paths the explicit rules
@@ -41,6 +45,10 @@ module.exports = {
         { source: '/terms',   has: TEETHJUDGE_HOST, destination: '/teethjudge/terms.html' },
         { source: '/support', has: TEETHJUDGE_HOST, destination: '/teethjudge/support.html' },
         { source: '/:path*',  has: TEETHJUDGE_HOST, destination: '/teethjudge/:path*' },
+        { source: '/privacy', has: GRINDVOCAB_HOST, destination: '/grindvocab/privacy.html' },
+        { source: '/terms',   has: GRINDVOCAB_HOST, destination: '/grindvocab/terms.html' },
+        { source: '/support', has: GRINDVOCAB_HOST, destination: '/grindvocab/support.html' },
+        { source: '/:path*',  has: GRINDVOCAB_HOST, destination: '/grindvocab/:path*' },
         { source: '/wedding', destination: '/wedding/index.html' },
       ],
       fallback: [],
