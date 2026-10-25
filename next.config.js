@@ -50,6 +50,9 @@ module.exports = {
         { source: '/support', has: GRINDVOCAB_HOST, destination: '/grindvocab/support.html' },
         { source: '/:path*',  has: GRINDVOCAB_HOST, destination: '/grindvocab/:path*' },
         { source: '/wedding', destination: '/wedding/index.html' },
+        // An's App Store privacy + support pages live on the main host under /an/.
+        { source: '/an/privacy', destination: '/an/privacy.html' },
+        { source: '/an/support', destination: '/an/support.html' },
       ],
       fallback: [],
     }
