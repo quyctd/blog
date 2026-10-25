@@ -8,6 +8,9 @@ const ICHI_HOST = [{ type: 'host', value: 'ichi.quyctd.dev' }]
 // teethjudge.quyctd.dev serves the TeethJudge landing + legal pages from /public/teethjudge/.
 const TEETHJUDGE_HOST = [{ type: 'host', value: 'teethjudge.quyctd.dev' }]
 
+// an.quyctd.dev serves the An landing + legal pages from /public/an/.
+const AN_HOST = [{ type: 'host', value: 'an.quyctd.dev' }]
+
 // grindvocab.quyctd.dev serves the GrindVocab landing + legal pages from /public/grindvocab/.
 const GRINDVOCAB_HOST = [{ type: 'host', value: 'grindvocab.quyctd.dev' }]
 
@@ -28,6 +31,7 @@ module.exports = {
         { source: '/', has: ICHI_HOST, destination: '/ichi/index.html' },
         { source: '/', has: TEETHJUDGE_HOST, destination: '/teethjudge/index.html' },
         { source: '/', has: GRINDVOCAB_HOST, destination: '/grindvocab/index.html' },
+        { source: '/', has: AN_HOST, destination: '/an/index.html' },
       ],
       // afterFiles short-circuits on the first match + filesystem hit, so
       // the catch-all here doesn't double-rewrite paths the explicit rules
@@ -49,10 +53,16 @@ module.exports = {
         { source: '/terms',   has: GRINDVOCAB_HOST, destination: '/grindvocab/terms.html' },
         { source: '/support', has: GRINDVOCAB_HOST, destination: '/grindvocab/support.html' },
         { source: '/:path*',  has: GRINDVOCAB_HOST, destination: '/grindvocab/:path*' },
+        { source: '/privacy', has: AN_HOST, destination: '/an/privacy.html' },
+        { source: '/terms',   has: AN_HOST, destination: '/an/terms.html' },
+        { source: '/support', has: AN_HOST, destination: '/an/support.html' },
+        { source: '/:path*',  has: AN_HOST, destination: '/an/:path*' },
         { source: '/wedding', destination: '/wedding/index.html' },
-        // An's App Store privacy + support pages live on the main host under /an/.
+        // Older links to An's pages on the main host.
+        { source: '/an', destination: '/an/index.html' },
         { source: '/an/privacy', destination: '/an/privacy.html' },
         { source: '/an/support', destination: '/an/support.html' },
+        { source: '/an/terms', destination: '/an/terms.html' },
       ],
       fallback: [],
     }
