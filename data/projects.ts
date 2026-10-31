@@ -11,6 +11,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: 'An',
+    tagline: 'Shared money for one or two — Living money, what you own, what you owe.',
+    status: 'soon',
+    icon: '/projects/an.webp',
+    site: 'https://an.quyctd.dev',
+  },
+  {
     name: 'Allyup',
     tagline: 'Build habits with your people — one shared habit, photo check-ins.',
     status: 'soon',
