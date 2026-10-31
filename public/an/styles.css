@@ -63,32 +63,12 @@ h1 .han { color: var(--accent-text); font-weight: 600; }
   .lede { max-width: none; }
 }
 
-/* Phone mock of the Spend tab */
-.phone { justify-self: center; width: 300px; max-width: 100%; aspect-ratio: 300 / 610; border-radius: 48px; padding: 11px; background: var(--phone); box-shadow: 0 30px 60px -20px rgba(0,0,0,.35); }
-.screen { position: relative; height: 100%; border-radius: 38px; overflow: hidden; background: var(--ground); display: flex; flex-direction: column; font-size: 13px; }
+/* Phone frame around a real screen of the Spend tab */
+.phone { justify-self: center; width: 300px; max-width: 100%; aspect-ratio: 300 / 625; border-radius: 48px; padding: 11px; background: var(--phone); box-shadow: 0 30px 60px -20px rgba(0,0,0,.35); }
+.screen { position: relative; height: 100%; border-radius: 38px; overflow: hidden; background: var(--ground); }
+.screen picture, .screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 90px; height: 26px; border-radius: 20px; background: #000; }
-.status { display: flex; justify-content: space-between; padding: 14px 26px 0; font-size: 13px; font-weight: 600; }
-.screen h3 { font-size: 28px; font-weight: 700; letter-spacing: -.02em; margin: 22px 16px 10px; }
-.avail { margin: 0 12px; background: var(--card); border-radius: 16px; padding: 14px 14px 12px; }
-.avail .label { font-size: 12px; color: var(--soft); }
-.avail .amount { font-size: 34px; font-weight: 700; letter-spacing: -.02em; margin: 2px 0; }
-.avail .spent { font-size: 12px; color: var(--soft); }
-.track { height: 6px; border-radius: 3px; background: var(--card2); margin-top: 10px; overflow: hidden; }
-.track i { display: block; height: 100%; width: 69%; background: var(--accent); border-radius: 3px; }
-.rows { margin: 12px 12px 0; background: var(--card); border-radius: 16px; }
-.row { position: relative; display: flex; align-items: center; gap: 10px; padding: 9px 12px; }
-.row + .row::before { content: ""; position: absolute; top: 0; left: 50px; right: 0; border-top: .5px solid var(--hair); }
-.tile { flex: none; width: 28px; height: 28px; border-radius: 7px; display: grid; place-items: center; color: #fff; }
-.tile svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.row .t { flex: 1; min-width: 0; line-height: 1.25; }
-.row .t b { display: block; font-weight: 500; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.row .t span { font-size: 11px; color: var(--soft); }
-.row .amt { font-weight: 500; font-size: 13px; }
-.tabbar { margin-top: auto; display: flex; justify-content: space-around; align-items: center; padding: 8px 6px 20px; background: color-mix(in srgb, var(--card) 85%, transparent); border-top: .5px solid var(--hair); }
-.tabbar span { width: 22px; height: 22px; border-radius: 6px; background: var(--faint); opacity: .7; }
-.tabbar span.on { background: var(--accent); opacity: 1; }
-.tabbar .cap { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; opacity: 1; }
-.tabbar .cap svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; }
+.status { position: absolute; top: 0; left: 0; padding: 15px 30px 0; font-size: 13px; font-weight: 600; }
 
 /* Sections */
 section { padding: 56px 0; }
