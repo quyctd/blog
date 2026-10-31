@@ -11,6 +11,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: 'Allyup',
+    tagline: 'Build habits with your people — one shared habit, photo check-ins.',
+    status: 'soon',
+    icon: '/projects/allyup.webp',
+    site: 'https://allyup.club',
+  },
+  {
     name: 'Ichi',
     tagline: 'A calm to-do & focus app — one task at a time.',
     status: 'live',
@@ -27,13 +34,6 @@ export const projects: Project[] = [
     site: 'https://andiem.quyctd.dev',
     appStore:
       'https://apps.apple.com/vn/app/andiem-score-tracker/id6772962052',
-  },
-  {
-    name: 'Allyup',
-    tagline: 'Build habits with your people — one shared habit, photo check-ins.',
-    status: 'soon',
-    icon: '/projects/allyup.webp',
-    site: 'https://allyup.club',
   },
   {
     name: 'Next app',
