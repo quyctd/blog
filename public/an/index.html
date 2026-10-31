@@ -24,94 +24,209 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- At release: add <meta name="apple-itunes-app" content="app-id=APP_ID"> for Safari's Smart App Banner. -->
 <script>/* Pick the language before first paint so English visitors never see a flash of Vietnamese. */(function(){var s=null;try{s=localStorage.getItem('an-lang')}catch(e){}var l=s||((navigator.language||'vi').toLowerCase().indexOf('vi')===0?'vi':'en');document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l})()</script>
-<link rel="stylesheet" href="/an/styles.css">
+<link rel="stylesheet" href="/an/styles.css?v=11">
 <script src="/an/app.js" defer></script>
 </head>
-<body>
+<body class="home">
 <header class="nav"><div class="shell">
   <a class="brand" href="/"><img src="/an/logo.png?v=10" alt="" width="30" height="30">An</a>
   <nav class="links" aria-label="An">
-    <a class="hide-sm" href="#ba-viec"><span lang="vi">Tính năng</span><span lang="en">Features</span></a>
+    <a class="hide-sm" href="#tinh-nang"><span lang="vi">Tính năng</span><span lang="en">Features</span></a>
+    <a class="hide-sm" href="#chup"><span lang="vi">Ghi chi tiêu</span><span lang="en">Capture</span></a>
     <a class="hide-sm" href="#hoi-dap"><span lang="vi">Hỏi đáp</span><span lang="en">FAQ</span></a>
     <a href="/support"><span lang="vi">Hỗ trợ</span><span lang="en">Support</span></a>
-    <a class="hide-sm" href="/privacy"><span lang="vi">Bảo mật</span><span lang="en">Privacy</span></a>
     <button class="lang" type="button">EN</button>
   </nav>
 </div></header>
 
 <main>
+<!-- Hero -->
 <section class="hero"><div class="shell">
-  <div>
-    <div class="eyebrow"><span class="dot"></span><span lang="vi">Cho iPhone · Việt Nam</span><span lang="en">For iPhone · Vietnam</span></div>
-    <h1><span lang="vi">Tiền chung của nhà mình, <span class="han">an</span> tâm.</span><span lang="en">Your shared money, <span class="han">at peace</span>.</span></h1>
-    <p class="lede"><span lang="vi">Còn bao nhiêu Tiền sinh hoạt, nhà mình đang có gì và đang nợ gì. Cho một hoặc hai người.</span><span lang="en">How much Living money is left, what you own and what you owe. For a household of one or two.</span></p>
+  <div class="hero-copy">
+    <div class="pill"><span class="dot"></span><span lang="vi">Cho iPhone · Sắp ra mắt tại Việt Nam</span><span lang="en">For iPhone · Coming soon in Vietnam</span></div>
+    <h1><span lang="vi">Tiền chung của nhà mình, <em>an tâm.</em></span><span lang="en">Your household money, <em>at peace.</em></span></h1>
+    <p class="lede"><span lang="vi">Còn bao nhiêu Tiền sinh hoạt, nhà mình đang có gì và đang nợ gì. Một ứng dụng, cho một hoặc hai người.</span><span lang="en">How much Living money is left, what you own and what you owe. One app, for a household of one or two.</span></p>
     <div class="ctas">
       <!-- At release: swap this <span class="badge"> for <a class="badge" href="https://apps.apple.com/vn/app/idAPP_ID">…Tải về trên / Download on the…App Store</a>, and the CTA heading below. -->
       <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg><span><small lang="vi">Sắp có trên</small><small lang="en">Coming soon to the</small>App Store</span></span>
-      <span class="note"><span lang="vi">Miễn phí · Tiếng Việt &amp; English</span><span lang="en">Free · Vietnamese &amp; English</span></span>
+      <a class="ghost" href="#tinh-nang"><span lang="vi">Xem tính năng</span><span lang="en">See how it works</span></a>
     </div>
+    <ul class="trust">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span lang="vi">Miễn phí</span><span lang="en">Free</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span lang="vi">Không quảng cáo</span><span lang="en">No ads</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span lang="vi">Không cần mật khẩu ngân hàng</span><span lang="en">No bank logins</span></li>
+    </ul>
   </div>
 
-  <div class="phone"><div class="screen">
-    <picture>
-      <source srcset="/an/screen-spend-dark.jpg" media="(prefers-color-scheme: dark)">
-      <img src="/an/screen-spend-light.jpg" fetchpriority="high" alt="An's Spend tab: Living money available, spent this month by category, and the household's spends" width="600" height="1301">
-    </picture>
-    <div class="island" aria-hidden="true"></div>
-    <div class="status" aria-hidden="true"><span class="num">9:41</span></div>
-  </div></div>
+  <div class="hero-visual">
+    <div class="phone"><div class="screen">
+      <picture>
+        <source srcset="/an/screen-spend-dark.jpg" media="(prefers-color-scheme: dark)">
+        <img src="/an/screen-spend-light.jpg" fetchpriority="high" alt="An's Spend tab: Living money available, spent this month by category, and the household's spends" width="600" height="1301">
+      </picture>
+      <div class="island" aria-hidden="true"></div>
+      <div class="status" aria-hidden="true"><span class="num">9:41</span></div>
+    </div></div>
+
+    <div class="float f-assets" aria-hidden="true">
+      <div class="f-head"><span class="tile" style="background:var(--blue)"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></span><span lang="vi">Tổng tài sản</span><span lang="en">Total assets</span></div>
+      <div class="f-num num">1.284.500.000 ₫</div>
+      <div class="alloc"><i style="flex:700;background:var(--mint)"></i><i style="flex:300;background:var(--indigo)"></i><i style="flex:186;background:var(--yellow)"></i><i style="flex:50;background:var(--orange)"></i><i style="flex:48.5;background:var(--blue)"></i></div>
+    </div>
+
+    <div class="float f-capture" aria-hidden="true">
+      <div class="f-row"><span class="tile" style="background:var(--green)"><svg viewBox="0 0 24 24"><path d="M6 4h12v16l-3-2-3 2-3-2-3 2z"/><path d="M9 9h6M9 13h4"/></svg></span>
+        <div class="f-grow"><b>WinMart</b><small lang="vi">Đi chợ · AI đọc</small><small lang="en">Groceries · AI read</small></div>
+        <b class="num">412.000 ₫</b></div>
+    </div>
+  </div>
 </div></section>
 
-<section id="ba-viec"><div class="shell">
-  <h2><span lang="vi">Ba việc, một nơi.</span><span lang="en">Three jobs, one place.</span></h2>
-  <p class="sub"><span lang="vi">Tiêu hằng ngày, những gì đang có, những khoản đang nợ. Mỗi màn hình mở ra bằng đúng con số bạn cần xem.</span><span lang="en">Everyday spending, what you own, what you owe. Each screen opens on the one number you came to check.</span></p>
-  <div class="grid3">
-    <div class="card">
-      <span class="sym" aria-hidden="true" style="background:var(--accent)"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span>
+<!-- Facts strip -->
+<section class="facts"><div class="shell">
+  <div class="fact"><b class="num">0</b><span lang="vi">kết nối ngân hàng. Bạn ghi bằng ảnh hoặc bàn phím.</span><span lang="en">bank connections. You log with a photo or the keypad.</span></div>
+  <div class="fact"><b class="num">2</b><span lang="vi">người, một gia đình, hai điện thoại luôn khớp nhau.</span><span lang="en">people, one household, two phones always in step.</span></div>
+  <div class="fact"><b>3</b><span lang="vi">việc trong một nơi: chi tiêu, tài sản, khoản nợ.</span><span lang="en">jobs in one place: spending, assets, debt.</span></div>
+  <div class="fact"><b>VN<em>·</em>EN</b><span lang="vi">Tiếng Việt và English, định dạng tiền Việt.</span><span lang="en">Vietnamese and English, đồng formatted the Vietnamese way.</span></div>
+</div></section>
+
+<!-- Features -->
+<section id="tinh-nang" class="features"><div class="shell">
+  <header class="sec-head">
+    <span class="kicker" lang="vi">Ba việc, một nơi</span><span class="kicker" lang="en">Three jobs, one place</span>
+    <h2><span lang="vi">Mỗi màn hình mở ra bằng đúng con số bạn cần.</span><span lang="en">Every screen opens on the one number you came for.</span></h2>
+  </header>
+
+  <!-- 1. Spend -->
+  <div class="feature">
+    <div class="f-copy">
+      <span class="tile lg" style="background:var(--accent)"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span>
       <h3><span lang="vi">Chi tiêu hằng ngày</span><span lang="en">Everyday spending</span></h3>
-      <p><span lang="vi">Tiền sinh hoạt còn lại ngay bây giờ, tháng này đã chi bao nhiêu và chi vào đâu.</span><span lang="en">Living money left right now, how much went out this month and where it went.</span></p>
-      <div class="big num">6.240.000 ₫<small lang="vi">Còn lại</small><small lang="en">Available</small></div>
+      <p><span lang="vi">Tiền sinh hoạt là phần tiền chung trong một tài khoản bạn chọn. An cho thấy còn lại bao nhiêu ngay bây giờ, tháng này đã chi bao nhiêu và chi vào đâu.</span><span lang="en">Living money is the shared part of one account you choose. An shows what's available right now, how much went out this month and where it went.</span></p>
+      <ul class="ticks">
+        <li><span lang="vi">Còn lại luôn là con số lớn nhất</span><span lang="en">Available is always the headline</span></li>
+        <li><span lang="vi">Chi theo danh mục, rõ ràng trong một thanh</span><span lang="en">Spending by category in a single bar</span></li>
+        <li><span lang="vi">Âm thì hiện màu cam, không bao giờ trách</span><span lang="en">Below zero turns amber, never scolds</span></li>
+      </ul>
     </div>
-    <div class="card">
-      <span class="sym" aria-hidden="true" style="background:var(--blue)"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></span>
+    <div class="stage s-green"><div class="panel">
+      <div class="p-label"><span class="tile sm" style="background:var(--accent)"><svg viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14zM5 19l7-7"/></svg></span><span lang="vi">Tiền sinh hoạt · Còn lại</span><span lang="en">Living money · Available</span></div>
+      <div class="hero-num num">6.240.000 ₫</div>
+      <div class="p-sub"><span lang="vi">Đã chi <b class="num">2.980.000 ₫</b> trong tháng 10</span><span lang="en">Spent <b class="num">2.980.000 ₫</b> in October</span></div>
+      <div class="bar"><i style="flex:1120;background:var(--orange)"></i><i style="flex:760;background:var(--green)"></i><i style="flex:420;background:var(--blue)"></i><i style="flex:310;background:var(--brown)"></i><i style="flex:370;background:var(--red)"></i></div>
+      <ul class="rows">
+        <li><i style="background:var(--orange)"></i><span lang="vi">Ăn uống</span><span lang="en">Eating out</span><b class="num">1.120.000 ₫</b></li>
+        <li><i style="background:var(--green)"></i><span lang="vi">Đi chợ</span><span lang="en">Groceries</span><b class="num">760.000 ₫</b></li>
+        <li><i style="background:var(--blue)"></i><span lang="vi">Đi lại</span><span lang="en">Transport</span><b class="num">420.000 ₫</b></li>
+        <li><i style="background:var(--brown)"></i><span lang="vi">Cà phê</span><span lang="en">Coffee</span><b class="num">310.000 ₫</b></li>
+      </ul>
+    </div></div>
+  </div>
+
+  <!-- 2. Assets -->
+  <div class="feature flip">
+    <div class="f-copy">
+      <span class="tile lg" style="background:var(--blue)"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></span>
       <h3><span lang="vi">Mọi thứ đang có</span><span lang="en">Everything you own</span></h3>
-      <p><span lang="vi">Tài khoản, tiết kiệm, tiền mặt, vàng theo giá mua vào, crypto theo giá trực tiếp và nhà theo giá bạn ước tính.</span><span lang="en">Accounts, savings, cash, gold at the buy-back price, crypto at a live price and property at your own estimate.</span></p>
-      <div class="big num">1.284.500.000 ₫<small lang="vi">Tổng tài sản</small><small lang="en">Total assets</small></div>
+      <p><span lang="vi">Tài khoản, tiết kiệm, tiền mặt, vàng, crypto và nhà cửa, cộng lại thành một con số. Mỗi loại được định giá theo cách hợp lý nhất.</span><span lang="en">Accounts, savings, cash, gold, crypto and property, added up into one number. Each is valued the way that makes sense for it.</span></p>
+      <ul class="ticks">
+        <li><span lang="vi">Vàng theo giá mua vào: số tiền bạn nhận nếu bán hôm nay</span><span lang="en">Gold at the buy-back price: what you'd get selling today</span></li>
+        <li><span lang="vi">Crypto theo giá trực tiếp</span><span lang="en">Crypto at a live price</span></li>
+        <li><span lang="vi">Nhà theo giá bạn tự ước tính</span><span lang="en">Property at your own estimate</span></li>
+      </ul>
     </div>
-    <div class="card">
-      <span class="sym" aria-hidden="true" style="background:var(--gray)"><svg viewBox="0 0 24 24"><path d="M3 9 12 4l9 5M5 10v8m4.7-8v8m4.6-8v8M19 10v8M3 20h18"/></svg></span>
+    <div class="stage s-blue"><div class="panel">
+      <div class="p-label"><span lang="vi">Tổng tài sản</span><span lang="en">Total assets</span></div>
+      <div class="hero-num num">1.284.500.000 ₫</div>
+      <div class="bar"><i style="flex:700;background:var(--mint)"></i><i style="flex:300;background:var(--indigo)"></i><i style="flex:186;background:var(--yellow)"></i><i style="flex:50;background:var(--orange)"></i><i style="flex:48.5;background:var(--blue)"></i></div>
+      <ul class="list">
+        <li><span class="tile sm" style="background:var(--mint)"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 10v10h12V10"/></svg></span><div><b lang="vi">Căn hộ</b><b lang="en">Apartment</b><small lang="vi">Giá ước tính</small><small lang="en">Your estimate</small></div><b class="num">700.000.000 ₫</b></li>
+        <li><span class="tile sm" style="background:var(--indigo)"><svg viewBox="0 0 24 24"><path d="M5 9h14v10H5zM8 9V6h8v3M12 13v2"/></svg></span><div><b lang="vi">Tiết kiệm</b><b lang="en">Savings</b><small lang="vi">Kỳ hạn 12 tháng</small><small lang="en">12-month term</small></div><b class="num">300.000.000 ₫</b></li>
+        <li><span class="tile sm" style="background:var(--yellow)"><svg viewBox="0 0 24 24"><path d="M3 18h8l-1.5-5h-5zM13 18h8l-1.5-5h-5zM8 11h8l-1.5-5h-5z"/></svg></span><div><b lang="vi">Vàng SJC · 2 lượng</b><b lang="en">SJC gold · 2 taels</b><small lang="vi">Giá mua vào</small><small lang="en">Buy-back price</small></div><b class="num">186.000.000 ₫</b></li>
+        <li><span class="tile sm" style="background:var(--orange)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M10 8h3a2 2 0 0 1 0 4h-3zm0 4h3.5a2 2 0 0 1 0 4H10zM10 8v8M11.5 6.5v1.5m0 8v1.5"/></svg></span><div><b>Bitcoin</b><small lang="vi">Giá trực tiếp</small><small lang="en">Live price</small></div><b class="num">50.000.000 ₫</b></li>
+      </ul>
+    </div></div>
+  </div>
+
+  <!-- 3. Debt -->
+  <div class="feature">
+    <div class="f-copy">
+      <span class="tile lg" style="background:var(--gray)"><svg viewBox="0 0 24 24"><path d="M3 9 12 4l9 5M5 10v8m4.7-8v8m4.6-8v8M19 10v8M3 20h18"/></svg></span>
       <h3><span lang="vi">Mọi khoản đang nợ</span><span lang="en">Everything you owe</span></h3>
-      <p><span lang="vi">Khoản vay ngân hàng lãi cố định rồi thả nổi, và các khoản nợ qua lại với người thân, bạn bè.</span><span lang="en">Bank loans with a fixed rate that later floats, and IOUs with family and friends.</span></p>
-      <div class="big num">412.000.000 ₫<small lang="vi">Còn phải trả · hết nợ năm 2031</small><small lang="en">Left to pay · debt-free in 2031</small></div>
+      <p><span lang="vi">Khoản vay ngân hàng lãi cố định rồi thả nổi, và các khoản nợ qua lại với người thân, bạn bè. Biết còn phải trả bao nhiêu và năm nào hết nợ.</span><span lang="en">Bank loans with a fixed rate that later floats, and IOUs with family and friends. Know how much is left to pay and the year you'll be debt-free.</span></p>
+      <ul class="ticks">
+        <li><span lang="vi">Lãi cố định, rồi thả nổi</span><span lang="en">Fixed rate, then floating</span></li>
+        <li><span lang="vi">Nợ qua lại, theo từng người</span><span lang="en">IOUs, person by person</span></li>
+        <li><span lang="vi">Ngày hết nợ dự kiến</span><span lang="en">A projected debt-free date</span></li>
+      </ul>
     </div>
+    <div class="stage s-gray"><div class="panel">
+      <div class="p-label"><span lang="vi">Còn phải trả</span><span lang="en">Left to pay</span></div>
+      <div class="hero-num num">412.000.000 ₫</div>
+      <div class="p-sub"><span lang="vi">Hết nợ dự kiến <b>năm 2031</b></span><span lang="en">Debt-free <b>in 2031</b></span></div>
+      <div class="progress"><i style="width:31%"></i></div>
+      <div class="p-scale num"><span lang="vi">Đã trả 188.000.000 ₫</span><span lang="en">Paid 188.000.000 ₫</span><span>31%</span></div>
+      <ul class="list">
+        <li><span class="tile sm" style="background:var(--gray)"><svg viewBox="0 0 24 24"><path d="M3 9 12 4l9 5M5 10v8m4.7-8v8m4.6-8v8M19 10v8M3 20h18"/></svg></span><div><b lang="vi">Vay mua nhà</b><b lang="en">Home loan</b><small lang="vi">7,5% cố định đến 2027, rồi thả nổi</small><small lang="en">7.5% fixed until 2027, then floating</small></div><b class="num">400.000.000 ₫</b></li>
+        <li><span class="tile sm" style="background:var(--brown)"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 8h4m-2-2v4"/></svg></span><div><b lang="vi">Mượn mẹ</b><b lang="en">Borrowed from Mum</b><small lang="vi">Nợ qua lại</small><small lang="en">IOU</small></div><b class="num">12.000.000 ₫</b></li>
+      </ul>
+    </div></div>
   </div>
 </div></section>
 
-<section><div class="shell">
-  <h2><span lang="vi">Chụp là xong.</span><span lang="en">Snap it and you're done.</span></h2>
-  <p class="sub"><span lang="vi">Nhanh hơn mở app ngân hàng. Không cần kết nối tài khoản ngân hàng.</span><span lang="en">Faster than opening your banking app. No bank connection needed.</span></p>
-  <div class="steps">
-    <div class="step"><b lang="vi">Chụp hoá đơn</b><b lang="en">Snap the receipt</b><span lang="vi">Bấm nút máy ảnh giữa thanh tab, chạm widget Tiền sinh hoạt, hoặc dùng nút Ghi lại trên Màn hình khoá và Trung tâm điều khiển.</span><span lang="en">Tap the camera in the middle of the tab bar, tap the Living money widget, or use the Capture button on the Lock Screen and in Control Center.</span></div>
-    <div class="step"><b lang="vi">An đọc giúp bạn</b><b lang="en">An reads it</b><span lang="vi">Số tiền, nơi chi và danh mục được điền sẵn.</span><span lang="en">The amount, the place and the category are filled in for you.</span>
-      <div class="confirm num"><div><span class="k" lang="vi">Số tiền</span><span class="k" lang="en">Amount</span><b>412.000 ₫</b></div><div><span class="k" lang="vi">Nơi chi</span><span class="k" lang="en">Place</span><span>WinMart</span></div><div><span class="ai" lang="vi">Do AI đọc · kiểm tra lại nhé</span><span class="ai" lang="en">Read by AI · give it a look</span></div></div>
-    </div>
-    <div class="step"><b lang="vi">Bạn xác nhận</b><b lang="en">You confirm</b><span lang="vi">Luôn có thẻ xác nhận trước khi lưu. Bàn phím số luôn sẵn sàng nếu bạn muốn tự gõ.</span><span lang="en">A confirm card always shows before saving. The keypad is always there if you'd rather type.</span></div>
+<!-- Capture -->
+<section id="chup" class="capture"><div class="shell">
+  <header class="sec-head center">
+    <span class="kicker" lang="vi">Ghi lại khoản chi</span><span class="kicker" lang="en">Capture</span>
+    <h2><span lang="vi">Chụp là xong.</span><span lang="en">Snap it and you're done.</span></h2>
+    <p class="sub"><span lang="vi">Nhanh hơn mở app ngân hàng. Không cần kết nối tài khoản ngân hàng.</span><span lang="en">Faster than opening your banking app. No bank connection needed.</span></p>
+  </header>
+  <ol class="steps">
+    <li class="step">
+      <span class="n num">01</span>
+      <b lang="vi">Chụp hoá đơn</b><b lang="en">Snap the receipt</b>
+      <p><span lang="vi">Nút máy ảnh giữa thanh tab, widget Tiền sinh hoạt, hoặc nút Ghi lại trên Màn hình khoá và Trung tâm điều khiển.</span><span lang="en">The camera in the middle of the tab bar, the Living money widget, or the Capture button on the Lock Screen and in Control Center.</span></p>
+    </li>
+    <li class="step">
+      <span class="n num">02</span>
+      <b lang="vi">An đọc giúp bạn</b><b lang="en">An reads it</b>
+      <p><span lang="vi">Số tiền, nơi chi và danh mục được điền sẵn.</span><span lang="en">The amount, the place and the category are filled in for you.</span></p>
+      <div class="confirm">
+        <div><span class="k" lang="vi">Số tiền</span><span class="k" lang="en">Amount</span><b class="num">412.000 ₫</b></div>
+        <div><span class="k" lang="vi">Nơi chi</span><span class="k" lang="en">Place</span><span>WinMart</span></div>
+        <div><span class="k" lang="vi">Danh mục</span><span class="k" lang="en">Category</span><span lang="vi">Đi chợ</span><span lang="en">Groceries</span></div>
+        <div class="ai"><span lang="vi">Do AI đọc · kiểm tra lại nhé</span><span lang="en">Read by AI · give it a look</span></div>
+      </div>
+    </li>
+    <li class="step">
+      <span class="n num">03</span>
+      <b lang="vi">Bạn xác nhận</b><b lang="en">You confirm</b>
+      <p><span lang="vi">Luôn có thẻ xác nhận trước khi lưu. Bàn phím số luôn sẵn sàng nếu bạn muốn tự gõ.</span><span lang="en">A confirm card always shows before saving. The keypad is always there if you'd rather type.</span></p>
+    </li>
+  </ol>
+</div></section>
+
+<!-- Principles -->
+<section class="principles"><div class="shell">
+  <header class="sec-head">
+    <span class="kicker" lang="vi">Cách An làm việc</span><span class="kicker" lang="en">How An works</span>
+    <h2><span lang="vi">Ghi lại sự thật. Quyết định là của bạn.</span><span lang="en">It records what happened. The decisions stay yours.</span></h2>
+  </header>
+  <div class="grid4">
+    <div class="card"><span class="tile" style="background:var(--accent)"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><b lang="vi">Không ngân sách, không trách móc</b><b lang="en">No budgets, no scolding</b><p lang="vi">Không hạn mức hay mục tiêu để “trượt”. Tiền sinh hoạt âm thì hiện màu cam kèm lời giải thích ngắn, không bao giờ chặn bạn ghi lại.</p><p lang="en">No limits or targets to fail. If Living money dips below zero it turns amber with a short note, and never blocks a capture.</p></div>
+    <div class="card"><span class="tile" style="background:var(--pink)"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6m1-5.5c2.6 0 5 1.8 5 5"/></svg></span><b lang="vi">Cho một hoặc hai người</b><b lang="en">For one or two</b><p lang="vi">Mời người ấy bằng một mã, hai điện thoại luôn khớp nhau. Mỗi khoản ghi hiện ai đã ghi, không bao giờ so ai tiêu nhiều hơn.</p><p lang="en">Invite your partner with a code and both phones stay in step. Entries show who logged them, never who spent more.</p></div>
+    <div class="card"><span class="tile" style="background:var(--indigo)"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><b lang="vi">Riêng tư</b><b lang="en">Private</b><p lang="vi">Đăng nhập với Apple. Không quảng cáo, không theo dõi, không bao giờ hỏi mật khẩu ngân hàng. Khoá bằng Face ID nếu bạn muốn.</p><p lang="en">Sign in with Apple. No ads, no tracking, never your bank logins. Lock it with Face ID if you like.</p></div>
+    <div class="card"><span class="tile" style="background:var(--orange)"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8m0-4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4"/></svg></span><b lang="vi">Ghi trước, đồng bộ sau</b><b lang="en">Works offline</b><p lang="vi">Mọi khoản ghi lưu trên điện thoại ngay, rồi tự đồng bộ khi có mạng.</p><p lang="en">Every entry lands on your phone first and syncs on its own when there's a connection.</p></div>
   </div>
 </div></section>
 
-<section><div class="shell">
-  <h2><span lang="vi">Làm theo cách của nhà mình.</span><span lang="en">Made for how households work.</span></h2>
-  <p class="sub"><span lang="vi">An ghi lại sự thật và để bạn tự quyết định.</span><span lang="en">An records what happened and leaves the decisions to you.</span></p>
-  <div class="group">
-    <div class="item"><span class="sym" aria-hidden="true" style="background:var(--accent)"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><b lang="vi">Không ngân sách, không trách móc</b><b lang="en">No budgets, no scolding</b><span lang="vi">Không hạn mức hay mục tiêu để “trượt”. Tiền sinh hoạt âm thì hiện màu cam kèm lời giải thích ngắn, không bao giờ chặn bạn ghi lại.</span><span lang="en">No limits or targets to fail. If Living money dips below zero it turns amber with a short note, and never blocks a capture.</span></div></div>
-    <div class="item"><span class="sym" aria-hidden="true" style="background:var(--pink)"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6m1-5.5c2.6 0 5 1.8 5 5"/></svg></span><div><b lang="vi">Cho một hoặc hai người</b><b lang="en">For one or two</b><span lang="vi">Mời người ấy bằng một mã, hai điện thoại luôn khớp nhau. Mỗi khoản ghi hiện ai đã ghi, không bao giờ so ai tiêu nhiều hơn.</span><span lang="en">Invite your partner with a code and both phones stay in step. Entries show who logged them, never who spent more.</span></div></div>
-    <div class="item"><span class="sym" aria-hidden="true" style="background:var(--indigo)"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><div><b lang="vi">Riêng tư</b><b lang="en">Private</b><span lang="vi">Đăng nhập với Apple. Không quảng cáo, không theo dõi, không bao giờ hỏi mật khẩu ngân hàng. Khoá bằng Face ID nếu bạn muốn.</span><span lang="en">Sign in with Apple. No ads, no tracking, never your bank logins. Lock it with Face ID if you like.</span></div></div>
-    <div class="item"><span class="sym" aria-hidden="true" style="background:var(--orange)"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8m0-4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4"/></svg></span><div><b lang="vi">Ghi trước, đồng bộ sau</b><b lang="en">Works offline</b><span lang="vi">Mọi khoản ghi lưu trên điện thoại ngay, rồi tự đồng bộ khi có mạng.</span><span lang="en">Every entry lands on your phone first and syncs on its own when there's a connection.</span></div></div>
-  </div>
-</div></section>
-
-<section id="hoi-dap"><div class="shell">
-  <h2><span lang="vi">Hỏi đáp</span><span lang="en">Questions</span></h2>
+<!-- FAQ -->
+<section id="hoi-dap" class="faq-sec"><div class="shell">
+  <header class="sec-head">
+    <span class="kicker" lang="vi">Hỏi đáp</span><span class="kicker" lang="en">FAQ</span>
+    <h2><span lang="vi">Câu hỏi thường gặp</span><span lang="en">Common questions</span></h2>
+    <p class="sub"><span lang="vi">Chưa thấy câu trả lời? <a href="/support">Viết cho chúng tôi</a>.</span><span lang="en">Don't see your answer? <a href="/support">Write to us</a>.</span></p>
+  </header>
   <div class="group faq">
     <details><summary><span lang="vi">An có miễn phí không?</span><span lang="en">Is An free?</span></summary><p><span lang="vi">Có. An 1.0 miễn phí, không quảng cáo và không có mua trong ứng dụng.</span><span lang="en">Yes. An 1.0 is free, with no ads and no in-app purchases.</span></p></details>
     <details><summary><span lang="vi">An có kết nối với ngân hàng không?</span><span lang="en">Does An connect to my bank?</span></summary><p><span lang="vi">Không. An không bao giờ hỏi mật khẩu ngân hàng. Bạn ghi khoản chi bằng ảnh hoặc bàn phím số, và thỉnh thoảng Cập nhật số dư để An khớp với số trong ngân hàng.</span><span lang="en">No. An never asks for your bank logins. You log spends with a photo or the keypad, and now and then Update balance so An matches your bank.</span></p></details>
@@ -122,12 +237,16 @@
   </div>
 </div></section>
 
-<section class="cta"><div class="shell">
-  <img class="app-icon" src="/an/logo.png?v=10" alt="" width="112" height="112" loading="lazy">
+<!-- Closing CTA -->
+<section class="cta"><div class="shell"><div class="cta-panel">
+  <img class="app-icon" src="/an/logo.png?v=10" alt="" width="96" height="96" loading="lazy">
   <h2><span lang="vi">Sắp có trên App Store.</span><span lang="en">Coming soon to the App Store.</span></h2>
-  <p><span lang="vi">Miễn phí cho iPhone chạy iOS 26 trở lên, tại Việt Nam. Có câu hỏi? Viết cho chúng tôi.</span><span lang="en">Free for iPhone on iOS 26 or later, in Vietnam. Questions? Write to us.</span></p>
-  <div class="ctas"><a href="/support"><span lang="vi">Hỗ trợ ›</span><span lang="en">Support ›</span></a><a href="/privacy"><span lang="vi">Chính sách bảo mật ›</span><span lang="en">Privacy policy ›</span></a></div>
-</div></section>
+  <p><span lang="vi">Miễn phí cho iPhone chạy iOS 26 trở lên, tại Việt Nam.</span><span lang="en">Free for iPhone on iOS 26 or later, in Vietnam.</span></p>
+  <div class="ctas">
+    <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg><span><small lang="vi">Sắp có trên</small><small lang="en">Coming soon to the</small>App Store</span></span>
+    <a class="ghost" href="/support"><span lang="vi">Liên hệ hỗ trợ</span><span lang="en">Contact support</span></a>
+  </div>
+</div></div></section>
 </main>
 
 <footer class="foot"><div class="shell">
