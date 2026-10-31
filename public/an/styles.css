@@ -126,7 +126,7 @@ h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; letter-spacing: -.02em
 
 /* CTA */
 .cta { text-align: center; padding: 72px 0 80px; }
-.cta .han { font-size: 64px; line-height: 1; color: var(--accent-text); font-weight: 600; }
+.cta .app-icon { display: block; width: 96px; height: 96px; margin: 0 auto; border-radius: 22.37%; box-shadow: 0 10px 28px -10px rgba(0,0,0,.35); }
 .cta h2 { margin-top: 16px; }
 .cta p { color: var(--soft); margin: 0 auto 24px; max-width: 44ch; }
 .cta .ctas { justify-content: center; }
