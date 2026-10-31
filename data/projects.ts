@@ -29,6 +29,13 @@ export const projects: Project[] = [
       'https://apps.apple.com/vn/app/andiem-score-tracker/id6772962052',
   },
   {
+    name: 'Allyup',
+    tagline: 'Build habits with your people — one shared habit, photo check-ins.',
+    status: 'soon',
+    icon: '/projects/allyup.webp',
+    site: 'https://allyup.club',
+  },
+  {
     name: 'Next app',
     tagline: 'Something new is in the works — details soon.',
     status: 'building',
