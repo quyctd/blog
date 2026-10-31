@@ -8,16 +8,23 @@
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://an.quyctd.dev/support">
-<link rel="icon" href="/an/logo.png?v=9">
-<link rel="apple-touch-icon" href="/an/icon.png?v=9">
+<link rel="icon" href="/an/favicon.png?v=10" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/an/apple-touch-icon.png?v=10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="An">
+<meta property="og:url" content="https://an.quyctd.dev/support">
+<meta property="og:title" content="Hỗ trợ — An">
+<meta property="og:image" content="https://an.quyctd.dev/an/og.png?v=10">
+<meta name="twitter:card" content="summary_large_image">
+<script>/* Pick the language before first paint. */(function(){var s=null;try{s=localStorage.getItem('an-lang')}catch(e){}var l=s||((navigator.language||'vi').toLowerCase().indexOf('vi')===0?'vi':'en');document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l})()</script>
 <link rel="stylesheet" href="/an/styles.css">
 <script src="/an/app.js" defer></script>
 </head>
 <body>
 <header class="nav"><div class="shell">
-  <a class="brand" href="/"><img src="/an/logo.png?v=9" alt="">An</a>
-  <nav class="links">
-    <a href="/support"><span lang="vi">Hỗ trợ</span><span lang="en">Support</span></a>
+  <a class="brand" href="/"><img src="/an/logo.png?v=10" alt="" width="30" height="30">An</a>
+  <nav class="links" aria-label="An">
+    <a href="/support" aria-current="page"><span lang="vi">Hỗ trợ</span><span lang="en">Support</span></a>
     <a href="/privacy"><span lang="vi">Bảo mật</span><span lang="en">Privacy</span></a>
     <a class="hide-sm" href="/terms"><span lang="vi">Điều khoản</span><span lang="en">Terms</span></a>
     <button class="lang" type="button">EN</button>
@@ -31,9 +38,12 @@
 <h2>Đăng nhập và gia đình</h2>
 <p>An dùng Đăng nhập với Apple. Một người bắt đầu gia đình và gửi mã mời (trên tab Chi tiêu, mục “Mời người ấy”); người kia chọn <b>Tham gia bằng mã</b> và nhập mã hoặc quét mã QR. Dữ liệu ghi trên điện thoại trước và tự đồng bộ khi có mạng.</p>
 <h2>Tiền sinh hoạt và Còn lại</h2>
-<p>Tiền sinh hoạt là phần tiền chung trong một tài khoản bạn chọn. Còn lại là số Tiền sinh hoạt hiện có. Nếu số trong An lệch với ngân hàng, hãy Cập nhật số dư cho tài khoản đó; An sẽ ghi khoản chênh lệch.</p>
+<p>Tiền sinh hoạt là phần tiền chung trong một tài khoản bạn chọn. Còn lại là số Tiền sinh hoạt hiện có. Nếu số trong An lệch với ngân hàng, chọn <b>Cập nhật số dư</b> ở tài khoản đó và nhập số ngân hàng đang hiện; An sẽ ghi khoản chênh lệch.</p>
 <h2>Chụp khoản chi</h2>
-<p>AI đọc số tiền và nơi chi từ ảnh; bạn luôn kiểm tra trên thẻ trước khi lưu. Nếu ảnh khó đọc, dùng bàn phím số.</p>
+<p>AI đọc số tiền và nơi chi từ ảnh; bạn luôn kiểm tra trên thẻ trước khi lưu. Nếu ảnh khó đọc hoặc đang không có mạng, dùng bàn phím số; khoản chi vẫn được lưu và đồng bộ sau.</p>
+<p>Để chụp nhanh hơn, thêm widget <b>Tiền sinh hoạt</b> vào Màn hình chính, hoặc nút <b>Ghi lại</b> vào Màn hình khoá hay Trung tâm điều khiển.</p>
+<h2>Khoá ứng dụng</h2>
+<p>Bật <b>Khoá ứng dụng (Face ID)</b> trong Cài đặt để An hỏi Face ID hoặc mật mã mỗi lần mở.</p>
 <h2>Rời gia đình và xoá dữ liệu</h2>
 <p>Mở tab Cài đặt: <b>Rời gia đình</b>, <b>Xoá gia đình &amp; dữ liệu</b> hoặc <b>Xoá tài khoản của tôi</b>. Xoá là vĩnh viễn.</p>
 <h2>Quyền riêng tư</h2>
@@ -46,9 +56,12 @@
 <h2>Signing in and households</h2>
 <p>An uses Sign in with Apple. One person starts a household and shares an invite code (on the Spend tab, “Invite your partner”); the other picks <b>Join with a code</b> and types the code or scans the QR code. Entries are written on the phone first and sync on their own when there is a connection.</p>
 <h2>Living money and Available</h2>
-<p>Living money is the shared part of one account you choose. Available is how much Living money there is right now. If An disagrees with your bank, do a Check-in on that account; An records the difference.</p>
+<p>Living money is the shared part of one account you choose. Available is how much Living money there is right now. If An disagrees with your bank, tap <b>Update balance</b> on that account and enter what the bank shows; An records the difference as a check-in.</p>
 <h2>Capturing a spend</h2>
-<p>AI reads the amount and place from the photo; you always check the card before saving. If a photo is hard to read, use the keypad.</p>
+<p>AI reads the amount and place from the photo; you always check the card before saving. If a photo is hard to read or you're offline, use the keypad; the spend is still saved and syncs later.</p>
+<p>To capture faster, add the <b>Living money</b> widget to your Home Screen, or the <b>Capture</b> button to your Lock Screen or Control Center.</p>
+<h2>App Lock</h2>
+<p>Turn on <b>App Lock (Face ID)</b> in Settings and An asks for Face ID or your passcode each time it opens.</p>
 <h2>Leaving and deleting</h2>
 <p>Open the Settings tab: <b>Leave household</b>, <b>Delete household &amp; data</b> or <b>Delete my account</b>. Deleting is permanent.</p>
 <h2>Privacy</h2>

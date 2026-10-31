@@ -127,3 +127,17 @@ h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; letter-spacing: -.02em
 .legal li { margin: 6px 0; }
 .legal .box { background: var(--card); border-radius: var(--r); padding: 20px 22px; margin: 18px 0; }
 .legal .box p { margin: 0; }
+
+/* FAQ: an inset-grouped list of disclosure rows */
+.faq details + details { border-top: .5px solid var(--hair); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; font-size: 17px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; flex: none; width: 8px; height: 8px; border-right: 2px solid var(--faint); border-bottom: 2px solid var(--faint); transform: rotate(45deg) translate(-2px, -2px); transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
+.faq details p { margin: -4px 0 0; padding: 0 20px 18px; color: var(--soft); font-size: 16px; max-width: 68ch; }
+
+/* Keyboard focus and reduced motion */
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--tint); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .faq summary::after { transition: none; } }
+section[id] { scroll-margin-top: 64px; }
+.links a[aria-current="page"] { color: var(--ink); }

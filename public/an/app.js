@@ -1,23 +1,23 @@
-// Language toggle: Vietnamese first, English on request (or for a non-Vietnamese browser).
+// Language toggle. The <head> picks vi or en before first paint (saved choice, else the browser
+// language); this file only wires the button and keeps the title in step.
 (function () {
   var root = document.documentElement;
-  var saved = null;
-  try { saved = localStorage.getItem('an-lang'); } catch (e) {}
-  var nav = (navigator.language || 'vi').toLowerCase();
-  var lang = saved || (nav.indexOf('vi') === 0 ? 'vi' : 'en');
-  function apply(l) {
-    root.dataset.lang = l;
-    root.lang = l;
-    var t = document.title.split(' | ');
-    if (t.length === 2) document.title = l === 'vi' ? t[0] : t[1];
-    document.querySelectorAll('.lang').forEach(function (b) { b.textContent = l === 'vi' ? 'EN' : 'VI'; b.setAttribute('aria-label', l === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'); });
-  }
   var full = document.title;
+  var lang = root.getAttribute('data-lang') === 'en' ? 'en' : 'vi';
+  function apply(l) {
+    root.setAttribute('data-lang', l);
+    root.lang = l;
+    var t = full.split(' | ');
+    document.title = t.length === 2 ? (l === 'vi' ? t[0] : t[1]) : full;
+    document.querySelectorAll('.lang').forEach(function (b) {
+      b.textContent = l === 'vi' ? 'EN' : 'VI';
+      b.setAttribute('aria-label', l === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt');
+    });
+  }
   apply(lang);
   document.addEventListener('click', function (e) {
     if (!e.target.closest('.lang')) return;
     lang = lang === 'vi' ? 'en' : 'vi';
-    document.title = full;
     apply(lang);
     try { localStorage.setItem('an-lang', lang); } catch (err) {}
   });
