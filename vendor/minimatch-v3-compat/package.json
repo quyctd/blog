@@ -1,0 +1,11 @@
+{
+  "name": "minimatch-v3-compat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Callable minimatch v3 API backed by patched minimatch v11 (GHSA-g3hv-75wg-m249). Used via pnpm override for old lint plugins.",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "minimatch": "^11.0.3"
+  }
+}
