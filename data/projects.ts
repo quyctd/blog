@@ -20,9 +20,10 @@ export const projects: Project[] = [
   {
     name: 'Allyup',
     tagline: 'Build habits with your people — one shared habit, photo check-ins.',
-    status: 'soon',
+    status: 'live',
     icon: '/projects/allyup.webp',
     site: 'https://allyup.club',
+    appStore: 'https://apps.apple.com/us/app/allyup/id6760614064',
   },
   {
     name: 'Ichi',
